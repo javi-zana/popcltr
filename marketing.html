@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP CLTR // Marketing & Viral Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@300;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: var(--bg-light); color: var(--text-black); overflow-x: hidden; }
+
+        /* Lock header to exact same size as all other pages */
+        .glass-header { padding: 13px 5% !important; font-size: 16px !important; }
+        .glass-header .header-container { max-width: 1100px !important; }
+        .glass-header .logo { font-size: 22px !important; font-family: 'Bricolage Grotesque', sans-serif !important; font-weight: 800 !important; }
+        .glass-header nav a { font-size: 11px !important; font-family: 'Space Grotesk', 'Inter', sans-serif !important; font-weight: 700 !important; padding: 14px 16px !important; letter-spacing: 1.5px !important; }
+
+        .playbook-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-mini {
+            text-align: center;
+            margin-bottom: 5rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 4rem;
+        }
+
+        .hero-mini h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-mini .description {
+            max-width: 600px;
+            font-size: 1rem;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .playbook-section {
+            margin-bottom: 6rem;
+        }
+
+        .section-label {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            width: 100%;
+            text-align: center;
+            border-bottom: 2px solid #121212;
+            padding-bottom: 1rem;
+        }
+
+        .creative-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+
+        .ad-mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mockup-item {
+            aspect-ratio: 9/16;
+            background: #f5f5f5;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .mockup-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mockup-item.landscape {
+            aspect-ratio: 16/9;
+        }
+
+        .mockup-item.square {
+            aspect-ratio: 1/1;
+        }
+
+        .mockup-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #000;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .strategy-node {
+            border-left: 6px solid var(--accent-strawberry, #FF1A1A);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .strategy-node h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .strategy-node p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .roadmap-lite {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .phase-node {
+            background: #fafafa;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid #eee;
+        }
+
+        .phase-node h4 {
+            font-family: 'Bricolage Grotesque';
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-strawberry, #FF1A1A);
+        }
+
+        .phase-node p {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-lite { grid-template-columns: 1fr; }
+            .ad-mockup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header" class="glass-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">POP CLTR</a>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="formulation.html">SCIENCE</a>
+                <a href="strategy.html">STRATEGY</a>
+                <a href="marketing.html">MARKETING</a>
+                <a href="gallery.html">LOOK BOOK</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="playbook-wrapper">
+
+        <!-- HERO -->
+        <div class="hero-mini">
+            <span class="eyebrow" style="background: var(--accent-purple); color: #fff; padding: 0.2rem 1rem; border-radius: 5px;">TACTICAL PIVOT // 2026 GEN-Z GRID</span>
+            <h1 style="font-size: clamp(3rem, 10vw, 6rem); margin-top: 2rem;">CANDID<br>CHAOS.</h1>
+            <p class="description" style="margin: 0 auto; color: #000; font-weight: 500;">Shifting from curated luxury to hyper-saturated flash photography. Turning the daily routine into high-velocity cultural capital.</p>
+        </div>
+
+        <!-- 01: THE VIRAL BLUEPRINT -->
+        <section class="playbook-section">
+            <h2 class="section-label">01 The Viral Blueprint</h2>
+            <div class="strategy-node" style="border-left-color: var(--accent-purple);">
+                <h3>Hyper-Saturated Virality</h3>
+                <p>Mirroring the <b>Bloom & Sprinter</b> high-intensity manuals: direct flash, 35mm candid energy, and extreme macro focus. We position POP CLTR as the loud, center-piece of the party. The narrative shifts from 'Quiet Luxury' to <b>'Vibrant Vitality.'</b></p>
+            </div>
+            <div class="ad-mockup-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: #FF00FF;">01: BLOOM MACRO</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_MACRO]</div>
+                </div>
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: #00FF00;">02: ICE COOLER</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_COOLER]</div>
+                </div>
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: #0000FF;">03: VAN CHEERS</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_VAN]</div>
+                </div>
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: #FF4500;">04: STORE RAID</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_STORE]</div>
+                </div>
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: var(--lemon);">05: BGC TENNIS</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_TENNIS]</div>
+                </div>
+                <div class="mockup-item">
+                    <span class="mockup-label" style="background: #FF1A1A;">06: THE FIZZ POP</span>
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: IG_FLASH_EXPLOSION]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02: THE PR KIT DUMP -->
+        <section class="playbook-section">
+            <h2 class="section-label">02 The Creator Vault: PR Kit Idea Dump</h2>
+            <div class="creative-card">
+                <div class="strategy-node">
+                    <h3>Influencer Seeding Visual Explorations</h3>
+                    <p>A massive collection of PR seeding ideas—from chunky canvas totes to industrial flight cases—ensuring unboxing virality.</p>
+                </div>
+                <div class="ad-mockup-grid">
+                    <div class="mockup-item square">
+                        <span class="mockup-label">KIT 1: CANVAS TOTE</span>
+                        <img src="dist_v7_pr_tote_1776324627044.png" style="object-fit: cover;">
+                    </div>
+                    <div class="mockup-item square">
+                        <span class="mockup-label">KIT 2: ACRYLIC DISPLAY</span>
+                        <img src="dist_v7_pr_acrylic_1776324643154.png" style="object-fit: cover;">
+                    </div>
+                    <div class="mockup-item square">
+                        <span class="mockup-label">KIT 3: RETRO FRIDGE</span>
+                        <img src="dist_v7_pr_fridge_1776324664947.png" style="object-fit: cover;">
+                    </div>
+                    <div class="mockup-item square">
+                        <span class="mockup-label">KIT 4: FLIGHT CASE</span>
+                        <img src="dist_v7_pr_flightcase_1776325064667.png" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03: ACCESSORY WARDROBE -->
+        <section class="playbook-section">
+            <h2 class="section-label">03 The Accessory Wardrobe</h2>
+            <div class="creative-card">
+                <div class="strategy-node">
+                    <h3>Technical Extensions of the Brand</h3>
+                    <p>Textured fabrics, chunky hardware, and quirky silhouettes. These aren't just bags—they are tactical extensions of the brand aesthetic.</p>
+                </div>
+                <div class="ad-mockup-grid" style="grid-template-columns: repeat(5, 1fr);">
+                    <div>
+                        <div class="mockup-item square">
+                            <span class="mockup-label">01: KNIT CHAIN</span>
+                            <img src="carrier_v7_knit_chain_1776347050076.png">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mockup-item square">
+                            <span class="mockup-label">02: NEOPRENE</span>
+                            <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING]</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mockup-item square">
+                            <span class="mockup-label">03: PUFFER</span>
+                            <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING]</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mockup-item square">
+                            <span class="mockup-label">04: TECH-FABRIC</span>
+                            <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING]</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mockup-item square">
+                            <span class="mockup-label">05: MESH TOTE</span>
+                            <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04: THE ACTIVATIONS -->
+        <section class="playbook-section">
+            <h2 class="section-label">04 Brand Activations</h2>
+            
+            <!-- THE BARTER MACHINE -->
+            <div class="creative-card" style="border-color: var(--accent-purple);">
+                <div class="strategy-node" style="border-left-color: var(--accent-purple);">
+                    <h3>The Barter Machine: 'Upgrade Your Gut'</h3>
+                    <p>High-impact vending machines where users insert legacy sodas and receive POP CLTR. A habitat-shifting barter.</p>
+                </div>
+                <div class="mockup-item landscape">
+                    <img src="dist_v5_machine.png">
+                </div>
+            </div>
+
+            <!-- DAILY DOSE POP-UP -->
+            <div class="creative-card" style="border-color: var(--strawberry);">
+                <div class="strategy-node" style="border-left-color: var(--strawberry);">
+                    <h3>The 'Daily Dose' x Luigi Posadas</h3>
+                    <p>Mobile Refill Carts at high-end studios (PERIGON, Ride Revolution). Positioning the can as the ultimate post-workout recovery drop.</p>
+                </div>
+                <div class="mockup-item landscape">
+                    <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: LUIGI_WORKOUT]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05: THE BRAND LAUNCH EVENT -->
+        <section class="playbook-section" id="launch-event">
+            <h2 class="section-label">05 Brand Launch Event Roadmap</h2>
+            <p class="description" style="text-align: center; margin-bottom: 3rem;">A two-part immersion: Clinical Prestige at **Wildflour** followed by Cultural Chaos at **Village Bar**.</p>
+            
+            <div class="ad-mockup-grid">
+                <!-- WILDFLOUR RITUAL -->
+                <div class="creative-card">
+                    <div class="strategy-node">
+                        <h3>Stage 1: The Wildflour Ritual</h3>
+                        <p>Scientific reveal in 'Molecular Vaults' paired with a custom gut-health menu for invited media & gurus.</p>
+                    </div>
+                    <div class="mockup-item landscape">
+                        <span class="mockup-label">EVENT LAYOUT</span>
+                        <div style="background: #eee; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #999;">[LOADING: LAUNCH_LAYOUT_BLUEPRINT]</div>
+                    </div>
+                </div>
+
+                <!-- VILLAGE BAR AFTERPARTY -->
+                <div class="creative-card" style="border-color: var(--accent-strawberry);">
+                    <div class="strategy-node" style="border-left-color: var(--accent-strawberry);">
+                        <h3>Stage 2: Village Bar After-Hours</h3>
+                        <p>The 'Cultural Chaos' launch. Features the 'Great Gut Switch' Barter and the climax **Ice Sculpture Smash** reveal.</p>
+                    </div>
+                    <div class="mockup-item landscape">
+                        <span class="mockup-label">INFLUENCER REVEAL</span>
+                        <img src="launch_event_people_rave_1776349647638.png" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">POP CLTR</span>
+                <span class="footer-tagline">Sip the Culture — soda's back, but better.</span>
+            </div>
+            <div class="footer-nav">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="formulation.html">Science</a>
+                <a href="strategy.html">Strategy</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="gallery.html">Look Book</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 POP CLTR. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

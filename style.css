@@ -1,0 +1,902 @@
+:root {
+    --content-max-width: 1100px;
+    --bg-dark: #050505;
+    --bg-light: #FDF9F3;
+    /* Warmer organic cream */
+    --bg-alt: #121212;
+    --text-white: #ffffff;
+    --text-black: #1A1A1A;
+    --accent: #FF5A5F;
+    /* Poppi-style vibrant red-pink */
+    --luxury-bg: #EAE5E0;
+    --artisan-bg: #1a1a1a;
+
+    /* Poppi/Olipop + Cola/Grape Palette */
+    /* Acid Neon Palette */
+    --strawberry: #FF1A1A;
+    --lemon: #FBFF00;
+    --orange: #FF8A00;
+    --lime: #FBFF00;
+    --ube: #9B30FF;
+    --purple: #9B30FF;
+    --peach: #FFB38A;
+    --mint: #FBFF00;
+    --cherry-cola: #610B1E;
+    --regular-cola: #231212;
+    --grape: #551A8B;
+    --accent: #FF1A1A;
+
+    /* Metallic Accents */
+    --silver-foil: linear-gradient(135deg, #C0C0C0, #E8E8E8, #A9A9A9);
+    --gold-foil: linear-gradient(135deg, #CFB53B, #FFD700, #B8860B);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Header Hardening */
+/* --- GIGA-MENU BOX (GLOBAL) --- */
+/* --- Standardized Small Glass Header (Gold Standard) --- */
+/* All properties use !important to override any per-page inline styles */
+.glass-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 2000 !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(20px) saturate(1.8) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.8) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 13px 5% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.glass-header.scrolled {
+    padding: 8px 5% !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+.glass-header .header-container {
+    width: 100% !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.glass-header .logo {
+    font-family: 'Bricolage Grotesque', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    letter-spacing: -1px !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    transition: opacity 0.3s !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.glass-header .logo:hover { opacity: 0.7; }
+
+.glass-header nav {
+    display: flex !important;
+    gap: 3px !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.glass-header nav a {
+    color: #000 !important;
+    text-decoration: none !important;
+    font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    padding: 14px 16px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.glass-header nav a:hover {
+    background: rgba(0, 0, 0, 0.06) !important;
+    transform: translateY(-1px);
+}
+
+/* Legacy Header Support (Graceful Deprecation) */
+header:not(.glass-header) {
+    display: none;
+}
+
+/* Hero */
+#hero {
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Offset for fixed header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 10% 50px;
+    background: var(--bg-light);
+}
+
+.eyebrow {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.5;
+}
+
+#hero h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14vw;
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -6px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    background: linear-gradient(180deg, var(--text-black) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero p {
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    opacity: 0.4;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.3;
+}
+
+/* Block Color Sections */
+.section.strawberry {
+    background-color: var(--strawberry);
+    color: white;
+}
+
+.section.lemon {
+    background-color: var(--lemon);
+    color: var(--text-black);
+}
+
+.section.orange {
+    background-color: var(--orange);
+    color: white;
+}
+
+.section.ube {
+    background-color: var(--ube);
+    color: white;
+}
+
+.section.cola {
+    background-color: var(--regular-cola);
+    color: white;
+}
+
+.section.cherry {
+    background-color: var(--cherry-cola);
+    color: white;
+}
+
+.section.grape {
+    background-color: var(--grape);
+    color: white;
+}
+
+.section.strawberry .tagline,
+.section.orange .tagline,
+.section.ube .tagline,
+.section.cola .tagline,
+.section.cherry .tagline,
+.section.grape .tagline {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.section.strawberry h2,
+.section.orange h2,
+.section.ube h2,
+.section.cola h2,
+.section.cherry h2,
+.section.grape h2 {
+    color: white;
+}
+
+/* Section Components */
+.section {
+    padding: 15rem 5%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Vibrant Brand Colors */
+:root {
+    --strawberry: #FF1A1A;
+    --lemon: #FBFF00;
+    --orange: #FF8A00;
+    --ube: #9B30FF;
+    --regular-cola: #231212;
+    --cherry-cola: #610B1E;
+    --grape: #551A8B;
+}
+
+.section.alternate {
+    background-color: var(--bg-alt);
+}
+
+.section-intro {
+    margin-bottom: 4rem;
+}
+
+/* Gallery page: tighter spacing */
+.gallery-page .section {
+    padding: 6rem 5% !important;
+    min-height: auto !important;
+}
+
+.chapter {
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 1.5rem;
+}
+
+.tagline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    letter-spacing: -1px;
+    color: var(--text-black);
+}
+
+.description {
+    font-size: 1.2rem;
+    max-width: 700px;
+    color: #888;
+}
+
+/* Mockup Cards */
+.mockup-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.mockup-grid.ten-grid {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.mockup-grid.six-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mockup-grid.four-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.mockup-grid.master-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.mockup-grid.main-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1200px) {
+
+    .mockup-grid.ten-grid,
+    .mockup-grid.six-grid,
+    .mockup-grid.four-grid,
+    .mockup-grid.master-grid,
+    .mockup-grid.main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .mockup-grid.ten-grid,
+    .mockup-grid.six-grid,
+    .mockup-grid.four-grid,
+    .mockup-grid.master-grid,
+    .mockup-grid.main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mockup-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.mockup-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mockup-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--strawberry) !important;
+}
+
+.mockup-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Forced even sizing */
+    object-fit: contain;
+    /* Professional asset display */
+    display: block;
+    background: #fdfdfd;
+}
+
+.mockup-card.placeholder {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.mockup-card.placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: skeleton-pulse 2s infinite linear;
+}
+
+@keyframes skeleton-pulse {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.mockup-card.placeholder p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+.meta {
+    padding: 1.5rem;
+    transition: all 0.3s;
+}
+
+.meta span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+.meta h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.meta p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0.7;
+}
+
+/* --- THEME SYSTEM --- */
+
+/* Theme: Genetics (Ch 01) */
+.theme-genetics {
+    background: #000;
+    color: #fff;
+    border-bottom: 5px solid #000;
+}
+
+.theme-genetics .chapter {
+    color: var(--strawberry);
+}
+
+.theme-genetics h2 {
+    color: #fff;
+}
+
+.theme-genetics .mockup-card {
+    border: 2px solid #333;
+}
+
+.theme-genetics .meta {
+    background: #000;
+    color: #fff;
+}
+
+/* Theme: Sticker (Ch 02) */
+.theme-sticker {
+    background: #232323;
+    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #fff;
+}
+
+.theme-sticker .chapter {
+    color: var(--lemon);
+}
+
+.theme-sticker .tagline {
+    color: #888;
+}
+
+.theme-sticker .mockup-card {
+    background: #1a1a1a;
+    border: 1px solid #444;
+}
+
+.theme-sticker .meta {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Theme: Wellness (Ch 03) */
+.theme-wellness {
+    background: #FDF9F3;
+    color: #121212;
+}
+
+.theme-wellness .chapter {
+    color: #888;
+}
+
+.theme-wellness .mockup-card {
+    background: #fff;
+    border-radius: 40px;
+    padding: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theme-wellness .meta {
+    background: #fff;
+    color: #000;
+}
+
+.theme-wellness .meta h3 {
+    font-family: 'Bricolage Grotesque';
+    font-size: 1.8rem;
+}
+
+/* Theme: Artisan (Ch 04) */
+.theme-artisan {
+    background: #EAE5E0;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+    color: #000;
+}
+
+.theme-artisan .chapter {
+    color: var(--strawberry);
+}
+
+.theme-artisan .mockup-card {
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 0;
+}
+
+.theme-artisan .meta {
+    background: #fff;
+    color: #000;
+    border-top: 3px solid #000;
+}
+
+/* Theme: Inverse (Ch 04) - High-Definition Light Mode */
+.theme-inverse {
+    background: #ffffff;
+    background-image: radial-gradient(#efefef 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #121212;
+}
+
+.theme-inverse .chapter {
+    color: var(--strawberry);
+    border-left: 4px solid var(--strawberry);
+    padding-left: 1rem;
+}
+
+.theme-inverse h2 {
+    color: #000;
+}
+
+.theme-inverse .mockup-card {
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.03);
+}
+
+.theme-inverse .meta {
+    background: #fff;
+    color: #000;
+    border-top: 1px solid #f0f0f0;
+}
+
+.theme-inverse .meta span {
+    color: var(--strawberry);
+}
+
+/* Sections */
+.section {
+    padding: 10rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Formulation Section Specifics */
+.section.formula-section {
+    background-color: #F9F6F0;
+    /* Soft Cream */
+    color: var(--text-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Global UI Components */
+/* Legacy styles removed. Core glass-header and structure remains. */
+
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL PRINT OPTIMIZATION FOR PDF EXPORT */
+/* -------------------------------------------------------------------------- */
+/* Archive & Contact Sheet Aesthetics */
+.archive-slice {
+    border-top: 1px solid #222;
+    padding-top: 3rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.archive-slice::before {
+    content: 'TOP SECRET // DECLASSIFIED // MJ-OS-2026';
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    font-family: 'Space Grotesk';
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: #444;
+}
+
+.legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 3rem 0;
+}
+
+.taped-card {
+    position: relative;
+    padding: 10px;
+    background: #111;
+    border: 1px solid #222;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.taped-card::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 20px;
+    background: rgba(255,255,255,0.08); /* Stealth tape */
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.taped-card:hover {
+    transform: scale(1.03) translateY(-15px);
+    z-index: 10;
+}
+
+/* Print Styles */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Forced Visibility (Bypass Web Animations) */
+    .section,
+    .mockup-card,
+    .logo,
+    .stat-card,
+    .matrix-card,
+    .bubble {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    /* Strategic Page Breaks for Chapters */
+    .section {
+        page-break-before: always;
+        padding: 2rem 0 !important;
+        min-height: auto !important;
+    }
+
+    .section:first-of-type,
+    #hero {
+        page-break-before: avoid;
+    }
+
+    /* Hide Web-Only UI & Decorative Animations */
+    header,
+    .scroll-indicator,
+    .bubble-container,
+    .glow-orb {
+        display: none !important;
+    }
+
+    /* Grid Stability */
+    .mockup-grid.three-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .mockup-card {
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #eee !important;
+    }
+
+    .philosophy-grid {
+        display: block !important;
+    }
+
+    .philosophy-grid h2 {
+        font-size: 3rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .stat-card {
+        padding: 1rem !important;
+        border: 1px solid #eee !important;
+        box-shadow: none !important;
+    }
+
+    /* Colors & Type */
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    #hero h1 {
+        font-size: 10vw !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+
+    h2 {
+        font-size: 3.5rem !important;
+    }
+
+    .logo.huge {
+        opacity: 0.1 !important;
+        font-size: 15vw !important;
+    }
+}
+
+/* --- GLOBAL FOOTER --- */
+.site-footer {
+    background: #050505;
+    color: #fff;
+    padding: 6rem 5% 3rem;
+    border-top: 5px solid #000;
+}
+
+.footer-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand .footer-logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-brand .footer-tagline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer-nav h4,
+.footer-social h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 1.5rem;
+}
+
+.footer-nav a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+.footer-social a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--lemon);
+}
+
+.footer-bottom {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}

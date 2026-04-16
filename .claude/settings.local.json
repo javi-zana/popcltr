@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"body\\\\.\" \"/Users/BeaOng/Desktop/MDMJ/04-projects/pop cltr\"/*.html)",
+      "Bash(ls -l spectral_lime_can*.png)",
+      "Bash(ls -l marketing_accessory_sling*.png)",
+      "Bash(zip -r \"/Users/BeaOng/Desktop/popcltr-site.zip\" . -x \"*.DS_Store\" -x \"BAMM_STRAMA_Defense_FINAL.html\" -x \"favs/*\" -x \"pegs/*\" -x \"elements/*\" -x \"*_check_*\" -x \"google_test_*\" -x \"scratchpad_*\" -x \"media__*\")"
+    ]
+  }
+}

@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRAMA ARTIFACT | POP LOOK BOOK</title>
+    <!-- Branding Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@300;400;700&family=Syne:wght@400;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-dark: #121212;
+            --text-muted: #555555;
+            --border: #dfdfdf;
+            --accent-lemon: #F5FF40;
+            --accent-strawberry: #FF1A1A;
+            --accent-purple: #9B30FF;
+            --accent-dalandan: #FF8A00;
+            --accent-calamansi: #FBFF00;
+        }
+
+        /* Lock header to exact same size as all other pages */
+        .glass-header { padding: 13px 5% !important; font-size: 16px !important; }
+        .glass-header .header-container { max-width: 1100px !important; }
+        .glass-header .logo { font-size: 22px !important; font-family: 'Bricolage Grotesque', sans-serif !important; font-weight: 800 !important; }
+        .glass-header nav a { font-size: 11px !important; font-family: 'Space Grotesk', 'Inter', sans-serif !important; font-weight: 700 !important; padding: 14px 16px !important; letter-spacing: 1.5px !important; }
+
+        body.strategy-deep-dive {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Essential Centering Logic - EXPANDED for Ultra-Wide Screens */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        /* Hero Section - FIXED THE GAP: Not using <header> to avoid style.css conflict */
+        .strategy-banner {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            width: 100%;
+            border-bottom: 3px solid #000;
+            margin-bottom: 5rem;
+        }
+
+        .paper-meta {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+
+        .paper-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            letter-spacing: -2px;
+        }
+
+        .paper-abstract {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--text-dark);
+            line-height: 1.6;
+            letter-spacing: -0.015em;
+        }
+
+        /* Content Styles */
+        .section-node {
+            width: 100%;
+            margin-bottom: 8rem;
+        }
+
+        h2.section-label {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 2.2rem); /* Force one-line scaling */
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            width: 100%;
+            text-align: center;
+            border-bottom: 2px solid #121212;
+            padding-bottom: 1.5rem;
+            white-space: nowrap; /* Maintain boardroom integrity */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .paper-card {
+            background: #fff;
+            border: 1px solid #000;
+            padding: 4rem;
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .card-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+            border-left: 8px solid var(--accent-lemon);
+            border-bottom: 1px solid #eee;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            background: #fafafa;
+        }
+
+        /* READABILITY Fix: Serif for body, larger and closer letters */
+        p.body-text, td.body-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.25rem; /* Increased for better screen coverage */
+            font-weight: 400; 
+            letter-spacing: -0.012em; 
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* TABLES & DATA */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background: #fff;
+        }
+
+        .data-table th {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            padding: 1.2rem;
+            text-transform: uppercase;
+            background: #f4f4f4;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .data-table td {
+            padding: 1.2rem;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .data-point {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+        }
+
+        .rating-indicator {
+            background: var(--accent-lemon);
+            padding: 0.3rem 0.8rem;
+            font-weight: 700;
+            border: 1px solid #000;
+        }
+
+        /* Matrix Grids */
+        .matrix-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .grid-node {
+            border: 1px solid #000;
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .node-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* SVG Visualization */
+        .visual-data {
+            border: 1px solid #000;
+            padding: 3rem;
+            margin: 3rem 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        blockquote.insight {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: #777;
+            text-align: center;
+            margin: 5rem 0;
+            padding: 0 10%;
+            border: none;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* DIAGRAMS: PORTER'S / IE / TOWS */
+        /* -------------------------------------------------------------------------- */
+        
+        .porter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .force-box {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .force-box:hover {
+            box-shadow: 10px 10px 0px var(--accent-lemon);
+        }
+
+        .force-box.central {
+            background: #000;
+            color: #fff;
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .force-box .force-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .force-box .force-level {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .force-box .force-desc {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            opacity: 0.7;
+        }
+
+        /* IE Matrix Grid */
+        .ie-matrix-grid {
+            display: grid;
+            grid-template-columns: 40px repeat(3, 1fr);
+            grid-template-rows: repeat(3, 150px) 40px;
+            border: 2px solid #000;
+            background: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ie-cell {
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .ie-cell.active { background: rgba(198, 239, 206, 0.4); }
+        .ie-label { font-size: 0.7rem; font-weight: 700; display:flex; align-items:center; justify-content:center; }
+
+        /* Value Chain Chevron */
+        .value-chain {
+            display: flex;
+            gap: 5px;
+            margin: 3rem 0;
+        }
+
+        .chevron {
+            background: #f4f4f4;
+            padding: 1.5rem 1rem;
+            flex: 1;
+            clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%);
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .chevron:first-child { clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%); }
+        .chevron:last-child { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 15% 50%); }
+        .chevron.highlight { background: var(--accent-lemon); }
+
+        /* Roadmap Timeline */
+        .roadmap-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #000;
+        }
+
+        .roadmap-step {
+            display: flex;
+            gap: 2rem;
+            padding-left: 45px;
+            position: relative;
+        }
+
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-lemon);
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        .step-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-width: 60px;
+        }
+
+        .step-content {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /* GIGA-DENSITY DATA VISUALIZATION STYLES */
+        /* -------------------------------------------------------------------------- */
+
+        .chart-container {
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .perceptual-axis {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            border-left: 3px solid #000;
+            border-bottom: 3px solid #000;
+            background: linear-gradient(to top right, #fafafa 0%, #fff 100%);
+            margin-top: 2rem;
+        }
+
+        .perceptual-label {
+            position: absolute;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #fff; /* High-Visibility Halo */
+            padding: 0.4rem 0.8rem;
+            border: 2px solid #000;
+            z-index: 10;
+            white-space: nowrap;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .bcg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 450px;
+            border: 4px solid #121212;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .bcg-quad {
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            color: rgba(0,0,0,0.05);
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        /* Metrics Data Bars */
+        .metric-row { margin-bottom: 2rem; }
+        .metric-info { display: flex; justify-content: space-between; font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        
+        .data-bar-wrap {
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .data-bar {
+            height: 100%;
+            transition: width 1s ease-in-out;
+        }
+
+        /* GAUGE UPGRADES (HIGH-FIDELITY) */
+        .gauge-viz {
+            position: relative;
+            background: conic-gradient(var(--g-color) calc(var(--g-value) * 1%), #eee 0);
+            border: 3px solid #000;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gauge-viz::after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            background: #fff;
+            border-radius: 50%;
+            border: 2px solid #000;
+            z-index: 1;
+        }
+
+        .gauge-inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            z-index: 2;
+            font-family: 'Space Grotesk';
+        }
+
+        /* Vector Pulse */
+        @keyframes vectorPulse {
+            0% { filter: drop-shadow(0 0 5px var(--accent-strawberry)); }
+            50% { filter: drop-shadow(0 0 20px var(--accent-strawberry)); }
+            100% { filter: drop-shadow(0 0 5px var(--accent-strawberry)); }
+        }
+
+        .active-vector {
+            animation: vectorPulse 2s infinite;
+        }
+
+        /* Bubble Elements */
+        .bubble-node {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 0.6rem;
+            text-align: center;
+            color: #000;
+            border: 2px solid #000;
+            box-shadow: 5px 5px 0px rgba(0,0,0,1);
+            transition: all 0.3s ease;
+        }
+
+        .bubble-node:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 0px var(--accent-lemon);
+        }
+
+        #master-footer {
+            background: #000;
+            padding: 10rem 5%;
+            color: #fff;
+            border-top: 5px solid #000;
+            text-align: left;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: end;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+        .logo-huge {
+            font-family: 'Syne', sans-serif;
+            font-size: 8vw;
+            opacity: 0.1;
+            line-height: 0.8;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        .copyright {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+        }
+        .footer-summary h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #fff !important;
+        }
+        .footer-summary p {
+            opacity: 0.6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .personality-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .personality-tags span {
+            border: 1px solid #333;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        @media print {
+            #main-header, #master-footer { display: none !important; }
+        }
+    </style>
+</head>
+<body class="strategy-deep-dive">
+    <header id="main-header" class="glass-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">POP CLTR</a>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="formulation.html">SCIENCE</a>
+                <a href="strategy.html">STRATEGY</a>
+                <a href="marketing.html">MARKETING</a>
+                <a href="gallery.html">LOOK BOOK</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <section class="strategy-banner">
+            <div class="paper-meta">POP CLTR // Executive Confidential</div>
+            <h1 class="paper-title">DIVING INTO CULTURE<br><span style="font-size: 0.5em; opacity: 0.7; letter-spacing: 5px;">in a strategic management perspective</span></h1>
+            <p class="paper-abstract">
+                Technical assessment of the 2026-2028 PH Market Entry. Analyzing the intersection of **High-Saturation Cultural Capital** and traditional ROI through the lens of synbiotic innovation, Nightlife Seeding, and the <b>"Candid Chaos"</b> ritual. Shifting from quiet luxury to vibrant vitality.
+            </p>
+        </section>
+
+        <!-- 01: Science -->
+        <article class="section-node">
+            <h2 class="section-label">01 Scientific Resilience</h2>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-calamansi);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <p><b>Clinical Moat:</b> POP CLTR is not a beverage; it is a clinical delivery system. By utilizing 1 Billion CFU Bacillus Coagulans (spore-forming probiotics), we achieve a 95% survival rate through the gastric barrier compared to the 5%-10% seen in traditional yogurt-based cultures.</p>
+                        <p>Scientific resilience is anchored in the "Laboratory to Lifestyle" trajectory, ensuring that the 'Clean Girl' aesthetic is backed by PhD-led durability.</p>
+                    </div>
+                    <div class="mockup-frame" style="border: 1px solid #eee; border-radius: 20px; overflow: hidden; height: 300px;">
+                        <img src="artisan_grape_lab_v1_1775980000000_1775983800000_1775983824553.png" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-calamansi);">
+                <div class="card-header">Case File: Spore-Forming Synbiotics</div>
+                <p class="body-text">
+                    The core competitive advantage of POP CLTR lies in its <b>Synbiotic Payload</b>—a combination of probiotics (live beneficial bacteria) and prebiotics (the fiber that feeds them). While international market leaders like <b>Poppi</b> and <b>Olipop</b> have successfully popularized prebiotic fiber sodas, POP CLTR introduces a superior technical moat: 1 billion colony-forming units (CFUs) of <i>Bacillus coagulans</i> GBI-30, 6086.
+                </p>
+                <p class="body-text">
+                    This specific strain is "spore-forming," meaning it naturally protects itself in a dormant state. This allows the bacteria to survive the harsh, acidic environment of the stomach to reach the intestines where they are most effective. For a startup in the tropical Philippine climate, this tech is vital because it removes the need for expensive refrigerated "cold-chain" logistics, allowing the product to sit on standard store shelves without losing its health benefits.
+                </p>
+                <div style="background: #f9f9faf; padding: 2rem; border: 1px dashed #ccc; margin: 2rem 0; border-radius: 8px;">
+                    <p class="body-text" style="font-style: italic; margin-bottom:0;">
+                         "The resilience of GBI-30 spores ensures that what is promised on the label is actually delivered to the gut, representing a 100x survival increase over traditional liquid probiotics found in typical grocery store yogurts."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 02: PESTEL -->
+        <article class="section-node">
+            <h2 class="section-label">02 Macro-Environmental Audit (PESTEL)</h2>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-dalandan);">
+                <div class="card-header">Environmental Analysis: The Philippine Context</div>
+                <p class="body-text">To understand the market, we utilize a <b>Political, Economic, Social, Technological, Environmental, and Legal (PESTEL)</b> audit. This framework identifies the external forces that affect our ability to compete in the Philippine beverage landscape. For POP CLTR, the most significant driver is the legislative shift toward health-conscious taxation.</p>
+                
+                <table class="data-table">
+                    <tr style="background: var(--accent-calamansi); color: #000; font-weight: 800;"><th>Dimension</th><th>Specific Factor & Strategic Rationale</th><th>Impact Level</th></tr>
+                    <tr><td class="data-point">Political</td><td class="body-text"><b>Sugar-Sweetened Beverage (SSB) Tax Tiers:</b> Government policies now penalize high-sugar drinks (₱12/L). Because POP CLTR uses natural sweeteners, we pay the lowest possible tax tier (₱6/L), giving us a massive price advantage over regular sodas.</td><td class="rating-indicator">High</td></tr>
+                    <tr><td class="data-point">Economic</td><td class="body-text"><b>Growth in Discretionary Spending:</b> The Philippine middle class is growing, and with it, the demand for "premium functional" products. We expect an 11.2% annual growth rate in this niche through 2026.</td><td class="rating-indicator">Med</td></tr>
+                    <tr><td class="data-point">Social</td><td class="body-text"><b>The Viral Wellness Shift:</b> Gen Z and Millennial consumers in urban hubs like BGC and Makati see gut health as a status symbol. "Better-for-you" is no longer just a diet choice; it's a lifestyle brand.</td><td class="rating-indicator">High</td></tr>
+                    <tr><td class="data-point">Technological</td><td class="body-text"><b>Spore-Tech Logistics:</b> Our unique probiotic spores remove the requirement for refrigerated trucking. This allows us to scale into smaller neighborhood stores (Sari-Sari stores) that don't have enough electricity for industrial chillers.</td><td class="rating-indicator">Crit</td></tr>
+                    <tr><td class="data-point">Legal</td><td class="body-text"><b>FDA Regulatory Support:</b> New fast-track lanes for "Functional Foods" allow us to legally claim health benefits on our packaging, which built-in social trust for a new brand.</td><td class="rating-indicator">High</td></tr>
+                </table>
+            </div>
+        </article>
+
+        <!-- 03: PORTER'S FIVE FORCES -->
+        <article class="section-node">
+            <h2 class="section-label">03 Industry Structural Analysis (Porter's Five Forces)</h2>
+            <div class="paper-card">
+                <div class="card-header">Competitive Environment & Structural Moats</div>
+                <p class="body-text">To understand the profitability potential of POP CLTR, we must analyze the structural forces within the Philippine beverage industry. High-growth sectors usually invite intense competition, but our synbiotic formulation creates specific <b>Entry Barriers</b> that protect our margins from low-cost imitators.</p>
+                
+                <div class="porter-container">
+                    <!-- Top -->
+                    <div class="force-box" style="grid-column: 2; grid-row: 1;">
+                        <div class="force-title">Threat of New Entrants</div>
+                        <div class="force-level" style="color: var(--accent-calamansi);">MODERATE / LOW</div>
+                        <div class="force-desc">Barriers via distribution setup & IP proprietary labs.</div>
+                    </div>
+                    
+                    <!-- Left -->
+                    <div class="force-box" style="grid-column: 1; grid-row: 2;">
+                        <div class="force-title">Bargaining Power: Suppliers</div>
+                        <div class="force-level">MODERATE</div>
+                        <div class="force-desc">Dependence on specialized PH synbiotic providers.</div>
+                    </div>
+
+                    <!-- Center -->
+                    <div class="force-box central">
+                        <div class="force-title" style="color: var(--accent-lemon);">Competitive Rivalry</div>
+                        <div class="force-level">INTENSE</div>
+                        <div class="force-desc" style="color: #fff; opacity: 1;">Multinationals (Coke) vs. Health Peers (Standard Probiotics, Locally). Moat: Self-Care Positioning.</div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="force-box" style="grid-column: 3; grid-row: 2;">
+                        <div class="force-title">Bargaining Power: Buyers</div>
+                        <div class="force-level">HIGH</div>
+                        <div class="force-desc">High price sensitivity vs. Brand loyalty search.</div>
+                    </div>
+
+                    <!-- Bottom -->
+                    <div class="force-box" style="grid-column: 2; grid-row: 3;">
+                        <div class="force-title">Threat of Substitutes</div>
+                        <div class="force-level">HIGH</div>
+                        <div class="force-desc">Traditional soda, coffee, and powdered juices.</div>
+                    </div>
+                </div>
+
+                <p class="body-text"><b>Strategic Synthesis:</b> The primary threat is <b>Buyer Bargaining Power</b> due to the hyper-sensitized Philippine retail market. POP CLTR mitigates this through a "Lifestyle Brand" lock-in (similar to Poppi), where social status reduces price elasticity. Our <b>Sugar-Sweetened Beverage (SSB) Tax Exemption</b> acts as a permanent cost-barrier against sugary substitutes.</p>
+            </div>
+        </article>
+
+        <!-- 04: EFE MATRIX -->
+        <article class="section-node">
+            <h2 class="section-label">04 External Factor Evaluation (EFE Matrix)</h2>
+            <div class="paper-card">
+                <div class="card-header">External Audit: Risks & Rewards (Detailed)</div>
+                <p class="body-text">The <b>External Factor Evaluation (EFE) Matrix</b> identifies the external landscape. We have expanded this to include 7 critical factors covering legislative shifts and global wellness trends.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr style="background: var(--accent-lemon); color: #000; font-weight: 800;"><th>Opportunities / Threats</th><th>Weight</th><th>Rating</th><th>Weighted Score</th><th>Strategic Rationale</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Rising awareness of Gut-Brain Axis</td><td>0.12</td><td>4</td><td>0.48</td><td>Global shift toward mental wellness via gut health.</td></tr>
+                        <tr><td>Tiered Sin Tax on SSB (Phil. Law)</td><td>0.12</td><td>4</td><td>0.48</td><td>Our formula enjoys a 50% lower tax tier than sugary peers.</td></tr>
+                        <tr><td>GIGA discovery of Gen Z health-consciousness</td><td>0.10</td><td>3</td><td>0.30</td><td>Wellness is a social status currency for PH prime demographics.</td></tr>
+                        <tr><td>Phil. Extended Producer Responsibility (EPR) Law</td><td>0.08</td><td>3</td><td>0.24</td><td>Legislative push for sustainable packaging fits our brand ethos.</td></tr>
+                        <tr><td><b>Threat:</b> Rapid entry of MNC clones</td><td>0.20</td><td>2</td><td>0.40</td><td>Multinational clones can copy formulas; branding is our shield.</td></tr>
+                        <tr><td><b>Threat:</b> Record high inflation/Price Sensitivity</td><td>0.18</td><td>1</td><td>0.18</td><td>Macro-economic pressure reduces discretionary beverage spend.</td></tr>
+                        <tr><td><b>Threat:</b> Potential FDA Labeling Regulation shifts</td><td>0.10</td><td>2</td><td>0.20</td><td>Tightening laws on health claims require clinical data rigor.</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background: #000; color: #fff; font-weight: 800;">
+                            <td>Total EFE Result</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>2.28</td>
+                            <td>Moderate external responsiveness; branding is critical.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </article>
+
+        <!-- 05: IFE MATRIX -->
+        <article class="section-node">
+            <h2 class="section-label">05 Internal Factor Evaluation (IFE Matrix)</h2>
+            <div class="paper-card">
+                <div class="card-header">Internal Audit: Strengths & Weaknesses (Detailed)</div>
+                <p class="body-text">The <b>Internal Factor Evaluation (IFE) Matrix</b> evaluates our internal capabilities. We have expanded our strengths to include the <b>Wildflour Hospitality Group</b> distribution agreement—a game-changing competitive moat in the Philippine market.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr style="background: var(--accent-lemon); color: #000; font-weight: 800;"><th>Strengths / Weaknesses</th><th>Weight</th><th>Rating</th><th>Weighted Score</th><th>Strategic Rationale</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Wildflour Group Strategic Partnership</td><td>0.18</td><td>4</td><td>0.72</td><td>Instant distribution to 40+ premium beachhead outlets.</td></tr>
+                        <tr><td>Proprietary Synbiotic Formulation (B. Coagulans)</td><td>0.15</td><td>4</td><td>0.60</td><td>Clinical-grade scientific moat that ensures shelf survival.</td></tr>
+                        <tr><td>High-Tension "Bricolage" Viral Branding</td><td>0.12</td><td>4</td><td>0.48</td><td>In-house design capability drives massive organic reach.</td></tr>
+                        <tr><td>Asset-Light Operational Model</td><td>0.10</td><td>3</td><td>0.30</td><td>Flexible co-packing eliminates massive industrial overhead.</td></tr>
+                        <tr><td><b>Weakness:</b> Low Awareness at Mass Market</td><td>0.15</td><td>1</td><td>0.15</td><td>Niche focus limits reach in general retail (Supermarkets).</td></tr>
+                        <tr><td><b>Weakness:</b> Supply Chain Import Exposure</td><td>0.15</td><td>2</td><td>0.30</td><td>Dependence on US/European spore labs adds shipping risk.</td></tr>
+                        <tr><td><b>Weakness:</b> Limited Cold-Chain Logistics</td><td>0.15</td><td>1</td><td>0.15</td><td>We lack the industrial fleet of beverage giants like NutriAsia.</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background: #000; color: #fff; font-weight: 800;">
+                            <td>Total IFE Result</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>2.70</td>
+                            <td>Strong foundation; Wildflour is the key offensive lever.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </article>
+
+        <!-- 06: TOWS MATRIX (STRATEGIC MATCHING) -->
+        <article class="section-node">
+            <h2 class="section-label">06 Strategic Matching Framework (TOWS Matrix)</h2>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-lemon);">
+                <div class="card-header">TOWS Matrix: Matching Strengths to Opportunities</div>
+                <p class="body-text">The <b>TOWS Matrix</b> is a variant of the SWOT analysis that identifies actionable strategies. By "matching" internal factors with external environment variables, we generate categorical growth moves.</p>
+                
+                <table class="data-table" style="font-size: 0.9rem;">
+                    <tr>
+                        <th style="background: #000; color: #fff;">TOWS Matrix</th>
+                        <th style="background: #f4f4f4;">Strengths (S)<br><span style="font-size: 0.7rem; font-weight: 400;">1. Wildflour Partnership<br>2. Spore-Tech IP</span></th>
+                        <th style="background: #f4f4f4;">Weaknesses (W)<br><span style="font-size: 0.7rem; font-weight: 400;">1. Mass Market Awareness<br>2. Logistics Fleeting</span></th>
+                    </tr>
+                    <tr>
+                        <th style="background: #f4f4f4;">Opportunities (O)<br><span style="font-size: 0.7rem; font-weight: 400;">1. Gut-Brain Awareness<br>2. Sin Tax Advantage</span></th>
+                        <td class="body-text" style="background: rgba(142, 197, 252, 0.05); text-align: left; padding: 2rem;">
+                            <b>SO STRATEGY: High-Flash Viral Integration</b><br>
+                            Leverage scientific IP and Gut-Brain awareness to create an 'Unfiltered' retail category that wins on TikTok with raw energy.<br><br>
+                            <i>Action Plan:</i><br>
+                            1. **Viral Collaborations**: Partner with **Luigi Posadas** and fitness icons for "Sweat & Sip" high-intensity flash-photography content.<br>
+                            2. **Studio Integration**: Establish "Recovery Bars" in high-end studios (**PERIGON**, **Ride Revolution**, **Saddle Row**, **Cedo Wellness**).<br>
+                            3. **The Daily Dose Tour**: Mobile 'Self-Care' carts in BGC serving chilled POP CLTR as the ultimate post-Pilates / post-Yoga ritual.
+                        </td>
+                        <td class="body-text" style="text-align: left; padding: 2rem;">
+                            <b>WO STRATEGY: Convenience Store Blitz (Raids)</b><br>
+                            Overcome low mass-market awareness by pivoting from premium boutiques to high-velocity 'Convenience Store Raids'.<br><br>
+                            <i>Action Plan:</i><br>
+                            1. Deploy "Store Raid" crews to 7-Eleven and Lawson hubs to swap generic sodas for POP CLTR live on camera.<br>
+                            2. Secure 'Near-the-Beer' fridge placement, positioning POP as the "Morning-After" gut recovery essential.<br>
+                            3. Leverage Sin Tax advantage to under-price incumbent sugary 'hangover' cures.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="background: #f4f4f4;">Threats (T)<br><span style="font-size: 0.7rem; font-weight: 400;">1. MNC Health Clones<br>2. Macro Inflation</span></th>
+                        <td class="body-text" style="text-align: left; padding: 2rem;">
+                            <b>ST STRATEGY: The Wildflour After-Hours Moat</b><br>
+                            Use the exclusive Wildflour Group partnership to establish a "Nightlife Recovery" beachhead where MNC brands have no cultural currency.<br><br>
+                            <i>Action Plan:</i><br>
+                            1. Launch "POP x Wildflour" post-party sunrise menus at 24/7 BGC locations.<br>
+                            2. Create exclusive 'Synbiotic Mocktail' mixers for Wildflour’s evening bar service.<br>
+                            3. Bundle "The Morning After" kits (Pastry + POP) for early morning delivery riders and party-goers.
+                        </td>
+                        <td class="body-text" style="background: rgba(255, 199, 206, 0.05); text-align: left; padding: 2rem;">
+                            <b>WT STRATEGY: D2C 'Accessory' Ecosystem</b><br>
+                            Mitigate supply chain risks by diversifying revenue into high-margin physical accessories (The Wardrobe).<br><br>
+                            <i>Action Plan:</i><br>
+                            1. Scale the Accessory Wardrobe line (Knit Chains, Puffer Slings) to drive revenue independent of can logistics.<br>
+                            2. Launch "Carrier-Only" drops on TikTok Shop to gamify the "Essential Kit" aesthetic.<br>
+                            3. Localize co-packing routes to reduce import-inflation exposure during global shipment spikes.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+
+        <!-- 07: CPM (COMPETITIVE PROFILE MATRIX) -->
+        <article class="section-node">
+            <h2 class="section-label">07 Competitive Profile Matrix (CPM)</h2>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-dalandan);">
+                <div class="card-header">Competitive Benchmarking: Strategic Position vs. Industry Leaders</div>
+                <p class="body-text">The <b>Competitive Profile Matrix (CPM)</b> is a tool that identifies a firm's major competitors and compares them using "Critical Success Factors." These factors are the specific attributes that determine whether a beverage company succeeds or fails in the Philippine market. For POP CLTR, we benchmark ourselves against global giants and local incumbents to identify where our "Science" and "Design" provide a superior advantage.</p>
+                    <!-- Competitor Card 1: Poppi -->
+                    <div class="grid-node" style="text-align: center; padding: 2rem; border-color: #FF1A1A; background: #fff; box-shadow: 10px 10px 0px rgba(255,26,26,0.1); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; height: 250px;">
+                        <div style="font-family: 'Bricolage Grotesque'; font-size: 3rem; color: #FF1A1A; margin-bottom: 0.5rem;">poppi.</div>
+                        <div class="node-title">Distribution Benchmark</div>
+                        <p class="body-text" style="font-size: 0.8rem; text-align: center; margin:0;">Viral / Prebiotic / Accessible</p>
+                    </div>
+                    <!-- Competitor Card 2: Olipop -->
+                    <div class="grid-node" style="text-align: center; padding: 2rem; border-color: #551A8B; background: #fff; box-shadow: 10px 10px 0px rgba(85,26,139,0.1); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; height: 250px;">
+                        <div style="font-family: 'Syne'; font-size: 2.2rem; color: #551A8B; margin-bottom: 0.5rem; font-weight: 800; text-transform: uppercase;">OLIPOP</div>
+                        <div class="node-title">Scientific Peer</div>
+                        <p class="body-text" style="font-size: 0.8rem; text-align: center; margin:0;">Technical / Fiber / Fiber-Rich</p>
+                    </div>
+                    <!-- Competitor Card 3: Locally (PH) -->
+                    <div class="grid-node" style="text-align: center; padding: 2rem; border-color: #FF8A00; background: #fff; box-shadow: 10px 10px 0px rgba(255,138,0,0.1); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; height: 250px;">
+                        <div style="font-family: 'Space Grotesk'; font-weight: 800; font-size: 2rem; color: #FF8A00; letter-spacing: 2px;">LOCALLY</div>
+                        <div class="node-title">Local Incumbent</div>
+                        <p class="body-text" style="font-size: 0.8rem; text-align: center; margin:0;">PH Native / Trendy / Natural</p>
+                    </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr style="background: var(--accent-dalandan); color: #000; font-weight: 800;"><th>Critical Success Factors</th><th>Weight</th><th>POP CLTR</th><th>Poppi</th><th>Olipop</th><th>Locally (PH)</th><th>MNC (Coke)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Synbiotic Complexity (Scientific Moat)</td><td>0.15</td><td>4</td><td>3</td><td>3</td><td>1</td><td>1</td></tr>
+                        <tr><td>Viral Brand Capital (Lifestyle Vibe)</td><td>0.15</td><td>4</td><td>4</td><td>3</td><td>2</td><td>4</td></tr>
+                        <tr><td>Distribution Access (Wildflour Factor)</td><td>0.20</td><td>4</td><td>1</td><td>1</td><td>4</td><td>4</td></tr>
+                        <tr><td>Retail Pricing (Philippine Market)</td><td>0.20</td><td>3</td><td>1</td><td>1</td><td>4</td><td>4</td></tr>
+                        <tr><td>Flavor Innovation (PH Palette Focus)</td><td>0.30</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background: #121212; color: #fff; font-weight: 800;">
+                            <td colspan="2">Comparative Weighted Score</td>
+                            <td>3.80</td>
+                            <td>2.50</td>
+                            <td>2.35</td>
+                            <td>3.05</td>
+                            <td>3.45</td>
+                        </tr>
+                    </tfoot>
+                </table>
+          </table>
+            </div>
+        </article>
+
+        <!-- 08: INTERNAL-EXTERNAL (IE) MATRIX -->
+        <article class="section-node">
+            <h2 class="section-label">08 Internal-External (IE) Matrix Mapping</h2>
+            <div class="paper-card">
+                <div class="card-header">IE Matrix: Portfolio Strategy Positioning</div>
+                <p class="body-text">By mapping <b>IFE (2.92)</b> and <b>EFE (2.92)</b> on the 9-cell <b>Internal-External (IE) Matrix</b>, we determine the optimal broad strategic direction. POP CLTR falls into <b>Region I (Grow and Build)</b>.</p>
+                
+                <div class="ie-matrix-grid">
+                    <div class="ie-label">4.0</div><div class="ie-cell active">I</div><div class="ie-cell active">II</div><div class="ie-cell">III</div>
+                    <div class="ie-label">2.0</div>
+                    <div class="ie-cell active">IV
+                        <div style="position: absolute; width:12px; height:12px; background:red; border-radius:50%; border:2px solid white; box-shadow:0 0 5px rgba(0,0,0,0.3); top:40%; left:40%;"></div>
+                    </div>
+                    <div class="ie-cell">V</div><div class="ie-cell">VI</div>
+                    <div class="ie-label">1.0</div><div class="ie-cell">VII</div><div class="ie-cell">VIII</div><div class="ie-cell">IX</div>
+                    <div></div><div class="ie-label">4.0</div><div class="ie-label">2.0</div><div class="ie-label">1.0</div>
+                </div>
+                <p class="body-text" style="font-style: italic; text-align: center; margin-top: 1rem;">Position: Quadrant IV (Grow and Build). Focus: Market Penetration & Product Development.</p>
+            </div>
+        </article>
+
+        <!-- 09: FORMULATION -->
+        <article class="section-node">
+            <h2 class="section-label">09 Logic of Strategy Formulation: The Cultural Pivot</h2>
+            <div class="matrix-layout">
+                <div class="grid-node" style="grid-column: span 2; border-left: 12px solid var(--accent-lemon); background: #fafafa;">
+                    <div class="node-title">The "Lifestyle Brand" Growth Path</div>
+                    <p class="body-text">We are not just a soda company; we are a <b>Cultural Ecosystem</b>. Following the blueprint of brands like <b>Poppi</b>, we focus on lifestyle integration—merch, events, and high-value design—to ensure that our customers don't just drink POP CLTR, they wear it and post about it. This creates a powerful marketing loop where organic social media content does the selling for us.</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="node-title">Perceptual Positioning Map: The Blue Ocean Strategy</div>
+                <p class="body-text" style="font-size: 0.9rem;">By positioning ourselves at the extreme apex of both <b>Medical Credibility</b> (Spore-tech) and <b>Lifestyle Relevance</b> (Bricolage design), we occupy a quadrant currently ignored by legacy sugary sodas and boring clinical kombuchas.</p>
+                <div class="perceptual-axis" style="position: relative; height: 550px; padding: 60px; margin: 4rem 0; border: 4px solid #000;">
+                    <!-- Axes Labels (ULTRA-LEGIBLE POSITIONING) -->
+                    <div class="perceptual-label" style="top: -30px; left: 50%; transform: translateX(-50%); border-color: var(--accent-strawberry);">High Cultural Capital</div>
+                    <div class="perceptual-label" style="bottom: -30px; left: 50%; transform: translateX(-50%);">Low Cultural Capital</div>
+                    
+                    <!-- Vertical Labels (Science Axis) -->
+                    <div class="perceptual-label" style="top: 50%; left: -130px; transform: rotate(-90deg) translateY(-50%); transform-origin: center;">Low Science (Legacy)</div>
+                    <div class="perceptual-label" style="top: 50%; right: -130px; transform: rotate(90deg) translateY(-50%); transform-origin: center; border-color: var(--accent-calamansi);">High Science (Technical)</div>
+
+                    <!-- Competitor Nodes with safe-z -->
+                    <div class="bubble-node" style="top: 80%; left: 20%; width: 60px; height: 60px; background: #eee; z-index: 2;">Legacy Soda</div>
+                    <div class="bubble-node" style="top: 30%; left: 15%; width: 70px; height: 70px; background: #ddd; z-index: 2;">Pharma Tonic</div>
+                    <div class="bubble-node" style="top: 60%; left: 70%; width: 80px; height: 80px; background: #FFD200; z-index: 2;">Standard Probiotic</div>
+                    
+                    <!-- POP CLTR (The Anchor) -->
+                    <div class="bubble-node" style="top: 10%; left: 85%; width: 120px; height: 120px; background: #FF1A1A; color: #fff; border-color: #000; z-index: 10; font-size: 1rem; box-shadow: 10px 10px 0px #000;">POP CLTR</div>
+                </div>
+            </div>
+
+            <div class="matrix-layout">
+                <div class="grid-node" style="grid-column: span 2;">
+                    <div class="node-title">SPACE Matrix Vector (Aggressive Position)</div>
+                    <p class="body-text">Our <b>Strategic Position and Action Evaluation (SPACE)</b> matrix indicates an <b>Aggressive</b> position. With High Financial Strength (+6.0) and Strong Industry Growth (+5.0), we are positioned in Quadrant I. This mandates a strategy of market penetration, product development, and forward integration.</p>
+                    
+                    <div class="space-matrix-visual" style="width: 300px; height: 300px; border: 2px solid #000; margin: 2rem auto; position: relative; background: radial-gradient(circle at 75% 25%, rgba(245,255,64,0.1), transparent 70%);">
+                        <!-- Axes -->
+                        <div style="position: absolute; width: 100%; height: 2px; background: #000; top: 50%;"></div>
+                        <div style="position: absolute; height: 100%; width: 2px; background: #000; left: 50%;"></div>
+                        <!-- Vector -->
+                        <svg style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;" class="active-vector">
+                            <line x1="50%" y1="50%" x2="85%" y2="15%" stroke="var(--accent-strawberry)" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowhead)" />
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-strawberry)" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        <!-- Plot Point -->
+                        <div style="position: absolute; width: 12px; height: 12px; background: var(--accent-strawberry); border-radius: 50%; top: 15%; left: 85%; transform: translate(-50%, -50%); box-shadow: 0 0 15px var(--accent-strawberry);"></div>
+                        
+                        <div class="tag" style="position: absolute; top: 10%; right: 10%; background: var(--accent-strawberry); color: #fff; padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 800; letter-spacing: 2px; z-index: 15; border: 2px solid #000; box-shadow: 5px 5px 0px #000;">AGGRESSIVE</div>
+                        <!-- Labels (ULTRA-Legible HALOS) -->
+                        <div class="perceptual-label" style="top: 50%; transform: translateY(-50%) translateX(250px); border-radius: 4px; padding: 0.2rem 0.5rem;">IS</div>
+                        <div class="perceptual-label" style="top: -20px; left: 50%; transform: translateX(-50%); border-radius: 4px; padding: 0.2rem 0.5rem;">FS</div>
+                        <div class="perceptual-label" style="top: 50%; right: 100%; transform: translateY(-50%) translateX(-250px); border-radius: 4px; padding: 0.2rem 0.5rem;">CA</div>
+                        <div class="perceptual-label" style="bottom: -20px; left: 50%; transform: translateX(-50%); border-radius: 4px; padding: 0.2rem 0.5rem;">ES</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09.5: THE DUAL MOATS: WILDFLOUR & TIKTOK SHOP -->
+            <div class="paper-card" style="border-top: 5px solid var(--accent-purple); margin-top: 4rem;">
+                <div class="card-header">The Integrated Marketing Mix (The Wildflour x TikTok Pivot)</div>
+                <div class="chart-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem;">
+                    <div class="grid-node" style="padding:1.5rem;">
+                        <div class="node-title" style="color: var(--accent-strawberry);">PRODUCT</div>
+                        <p style="font-size: 0.75rem; font-family: 'Space Grotesk';"><b>Wildflour Exclusives:</b> Glass-bottle clinical drops for dine-in. <b>TikTok Batch:</b> Shatter-proof high-tension cans for viral shipping stability.</p>
+                    </div>
+                    <div class="grid-node" style="padding:1.5rem;">
+                        <div class="node-title" style="color: var(--accent-dalandan);">PRICE</div>
+                        <p style="font-size: 0.75rem; font-family: 'Space Grotesk';">₱79.00 SRP. Sin Tax Tier-1 Arbitrage maximizes affiliate commission pools for TikTok Shop sellers.</p>
+                    </div>
+                    <div class="grid-node" style="padding:1.5rem;">
+                        <div class="node-title" style="color: var(--accent-purple);">PLACE</div>
+                        <p style="font-size: 0.75rem; font-family: 'Space Grotesk';"><b>Primary Moats:</b> 40+ Wildflour Outlets (Physical) + TikTok Shop (Direct Digital). Zero traditional supermarket waste.</p>
+                    </div>
+                    <div class="grid-node" style="padding:1.5rem;">
+                        <div class="node-title" style="color: var(--accent-calamansi);">PROMOTION</div>
+                        <p style="font-size: 0.75rem; font-family: 'Space Grotesk';">UGC Viral Flywheel. Affiliate-led livestreaming + 'The Molecular Vault' PR Seedings.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: #fafafa; border: 1px dashed #000;">
+                    <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; text-transform: uppercase;">OPPORTUNITY 01: THE WILDFLOUR BEACHHEAD</h4>
+                    <p class="body-text" style="font-size: 0.95rem; margin-top: 1rem;">Direct B2B injection into Wildflour's ₱2,500+ AOV demographic. Validates brand prestige instantly and provides a physical "content studio" for every customer sip.</p>
+                    
+                    <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; text-transform: uppercase; margin-top: 2rem;">OPPORTUNITY 02: TIKTOK SHOP AFFILIATE NETWORKS</h4>
+                    <p class="body-text" style="font-size: 0.95rem; margin-top: 1rem;">Decentralized sales force. By leveraging high Sin-Tax margins, we offer 15-20% commissions to TikTok Shop sellers, incentivizing organic viral growth at zero fixed-cost.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 10: QSPM -->
+        <article class="section-node">
+            <h2 class="section-label">10 Strategic Choice & Metric Dashboard</h2>
+            
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <div class="node-title">BCG Matrix Analysis</div>
+                    <div class="bcg-grid">
+                        <div class="bcg-quad">STAR</div>
+                        <div class="bcg-quad" style="background: rgba(251,255,0,0.1);">?</div>
+                        <div class="bcg-quad">CASH COW</div>
+                        <div class="bcg-quad">DOG</div>
+                        <!-- POP CLTR -->
+                        <div class="bubble-node" style="top: 25%; left: 75%; width: 90px; height: 90px; background: #FF8A00; color: #fff;">POP CLTR</div>
+                    </div>
+                </div>
+                <div class="chart-container" style="border-top: 5px solid #9B30FF;">
+                    <div class="node-title">Hybrid Metric Dashboard: Culture + ROI</div>
+                    <div class="metric-row">
+                        <div class="metric-info"><span>Cultural Capital (Reach/UGC)</span><span>88%</span></div>
+                        <div class="data-bar-wrap"><div class="data-bar" style="width: 88%; background: #9B30FF;"></div></div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-info"><span>Traditional ROI (LTV/CAC)</span><span>14.1x</span></div>
+                        <div class="data-bar-wrap"><div class="data-bar" style="width: 75%; background: #FF1A1A;"></div></div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-info"><span>Operating Efficiency</span><span>62%</span></div>
+                        <div class="data-bar-wrap"><div class="data-bar" style="width: 62%; background: #FBFF00;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paper-card" style="border-top: 5px solid var(--accent-calamansi);">
+                <div class="card-header">QSPM Matrix: Quantitative Strategic Planning Analysis</div>
+                <p class="body-text">The <b>Quantitative Strategic Planning Matrix (QSPM)</b> determines the relative attractiveness of various strategies. We have expanded our analysis to cover five distinct competitive paths, testing them against our critical success factors and internal strengths (notably the <b>Wildflour Group distribution moat</b> and our proprietary <b>Psychobiotic Gut-Brain IP</b>).</p>
+                
+                <div style="overflow-x: auto; margin: 2rem 0;">
+                    <table class="data-table" style="min-width: 1000px; font-size: 0.8rem;">
+                        <thead>
+                            <tr style="background: var(--accent-strawberry); color: #000; font-weight: 800;">
+                                <th style="text-align: left; width: 250px;">Key Strategy Drivers</th>
+                                <th>Weight</th>
+                                <th>S1: Mass Market</th>
+                                <th>S2: Niche Lifestyle</th>
+                                <th>S3: Insti Exclusive (Wildflour)</th>
+                                <th>S4: B2B Wellness</th>
+                                <th>S5: Social Commerce (TikTok/UGC)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Scientific Moat Protection</td><td>0.15</td><td>1</td><td>3</td><td>4</td><td>4</td><td>2</td></tr>
+                            <tr><td>Viral Content Potential</td><td>0.15</td><td>2</td><td>4</td><td>3</td><td>2</td><td>4</td></tr>
+                            <tr><td>Sin Tax Moat Efficiency</td><td>0.12</td><td>4</td><td>4</td><td>4</td><td>3</td><td>2</td></tr>
+                            <tr><td>Wildflour Dist. Advantage</td><td>0.18</td><td>1</td><td>2</td><td>4</td><td>3</td><td>1</td></tr>
+                            <tr><td>Operating Margin %</td><td>0.15</td><td>2</td><td>4</td><td>4</td><td>4</td><td>3</td></tr>
+                            <tr><td>Speed to Market</td><td>0.15</td><td>1</td><td>3</td><td>4</td><td>3</td><td>2</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: var(--accent-calamansi); color: #000; font-weight: 800;">
+                                <td colspan="2">Total Attractiveness Score (TAS)</td>
+                                <td>1.71</td>
+                                <td>3.31</td>
+                                <td>3.88</td>
+                                <td>3.12</td>
+                                <td>2.34</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div style="background: #fff; border: 2px solid #000; padding: 2rem; margin-top: 1.5rem;">
+                    <p class="body-text" style="font-weight: 700; color: var(--accent-cola); margin-bottom: 0.5rem;">The Hybrid Growth Path: Strategy 3 (Wildflour) + Strategy 5 (TikTok Shop/UGC)</p>
+                    <p class="body-text">While Strategy 2 (Niche Lifestyle) is our branding core, our dominance relies on the <b>Hybrid Commerce Dual-Moat</b>. We utilize the <b>Wildflour Group (Physical Beachhead)</b> to establish premium street-cred, while scaling aggressively through the <b>TikTok Shop / UGC Engine (Digital Viral)</b>. This allows us to maintain a low-CAC environment while achieving 2.9x social commerce ROI. The <b>₱79 price point</b> ensures accessibility across both channels without diluting the prestige factor.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 11: VALUE CHAIN ANALYSIS (EXPANDED) -->
+        <article class="section-node">
+            <h2 class="section-label">11 Operational Excellence (Sourcing to Sip)</h2>
+            <div class="paper-card" style="border-left: 8px solid var(--accent-purple);">
+                <div class="card-header">Detailed Operational Value Chain: The Distribution Moat</div>
+                <div class="roadmap-timeline" style="margin-top: 3rem;">
+                    <div class="roadmap-step">
+                        <div class="step-year">STAGE 1</div>
+                        <div class="step-content">
+                            <h3 class="node-title">Inbound: Neuro-Gastro Sourcing</h3>
+                            <p class="body-text" style="font-size: 1rem;">Direct-to-Lab procurement of <b>Bacillus coagulans GBI-30</b> and targeted <b>Psychobiotic strains</b>. Utilizing a Diverse-Fiber matrix (Acacia/Inulin) to ensure 0-bloat fermentation—a key differentiator from global incumbents.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-year">STAGE 2</div>
+                        <div class="step-content">
+                            <h3 class="node-title">Operations: Asset-Light Co-Packing</h3>
+                            <p class="body-text" style="font-size: 1rem;">Utilization of ISO-certified Philippine co-packers. Real-time digital quality control (purity/carbonation levels) ensuring "Artisan" consistency at industrial scale with zero manufacturing overhead.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-year">STAGE 3</div>
+                        <div class="step-content">
+                            <h3 class="node-title">Outbound: The Wildflour Distribution Moat</h3>
+                            <p class="body-text" style="font-size: 1rem;"><b>Unique Strategic Lever:</b> Direct injection into 40+ Wildflour Group High-Traffic zones (BGC, Makati). This 'White-Glove' placement avoids the ₱500k/SKU listing fees of traditional supermarkets.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-year">STAGE 4</div>
+                        <div class="step-content">
+                            <h3 class="node-title">Marketing: TikTok Viral Flywheel & Barter Ritual</h3>
+                            <p class="body-text" style="font-size: 1rem;">Deployment of the UGC engine and the <b>BGC Barter Machine</b>. Transforming customers into micro-influencers through high-impact physical rituals and 'Everyday Essential' storytelling.</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="step-year">STAGE 5</div>
+                        <div class="step-content">
+                            <h3 class="node-title">Service: Gut-Brain Coaching</h3>
+                            <p class="body-text" style="font-size: 1rem;">Post-purchase retention through digital QR codes on every can, leading to specific "Psychobiotic Protocols." Users track stress-reduction and gut-homeostasis markers within ours lifestyle-integrated community (High LTV engine).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 12: FINANCIAL DASHBOARD -->
+        <article class="section-node">
+            <h2 class="section-label">12 Founder's Financial Dashboard (₱79 Strategy)</h2>
+            <div class="matrix-layout">
+                <div class="grid-node" style="border-top: 6px solid var(--accent-lemon);">
+                    <div class="node-title">Unit Economics (Profit Per Can)</div>
+                    <p class="body-text" style="font-size: 1.05rem; margin:0;"><b>Retail Price:</b> ₱79.00<br><b>Production & Tax Cost:</b> ₱35.00<br><b>Contribution Margin:</b> ₱44.00 <br>(55% Profit per can for reinvestment)</p>
+                </div>
+                <div class="grid-node" style="border-top: 6px solid var(--accent-dalandan);">
+                    <div class="node-title">Hybrid Commerce Impact</div>
+                    <p class="body-text" style="font-size: 1.05rem; margin:0;"><b>TikTok Shop ROI (2025):</b> 2.9x<br><b>Wildflour Dist. Moat:</b> 40-60 Beachheads.<br><b>UGC Growth Velocity:</b> +200% YoY.</p>
+                </div>
+                <div class="grid-node" style="border-top: 6px solid #121212;">
+                    <div class="node-title">Growth Efficiency Indicators</div>
+                    <p class="body-text" style="font-size: 1.05rem; margin:0;"><b>Customer Acquisition Cost (CAC):</b> ₱45.00<br><b>Customer Lifetime Value (LTV):</b> ₱950.00<br><b>The LTV/CAC Ratio:</b> 21x<br>(Strongest social-viral loop in category)</p>
+                </div>
+            </div>
+        </article>
+
+
+
+        <!-- 14: MASTER TACTICAL ROADMAP -->
+        <article class="section-node">
+            <h2 class="section-label">13 Master Tactical Roadmap (2026-2029)</h2>
+            <div class="paper-card" style="border-top: 5px solid #000; padding: 3rem 2rem;">
+                <div class="card-header" style="background: var(--accent-purple); color: #fff;">3-Year Strategic Execution Matrix</div>
+                <table class="data-table" style="font-size: 0.85rem;">
+                    <thead>
+                        <tr style="background: var(--accent-calamansi); color: #000; font-weight: 800;">
+                            <th style="width: 15%;">Perspective</th>
+                            <th style="width: 25%;">Strategic Objective</th>
+                            <th style="width: 35%;">Tactical Action Plan</th>
+                            <th style="width: 25%;">Measure/KPI of Success</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" style="font-weight: 800; background: #fafafa;">FINANCIAL</td>
+                            <td><b>Capital Preservation</b></td>
+                            <td>Consolidate Wildflour revenue to reach ₱50M equity reserve for Tier-1 national scaling.</td>
+                            <td><b>ROE > 19%</b><br>Internal Capital Gen</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pricing Dominance</b></td>
+                            <td>Maintain ₱79 anchor through bulk-purchase SPORE contracts and Sin Tax Tier-1 lobbying.</td>
+                            <td><b>55% Gross Margin</b><br>₱44/can contribution</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" style="font-weight: 800; background: #fafafa;">CUSTOMER</td>
+                            <td><b>Market Presence</b></td>
+                            <td>Aggressive penetration in 100% of Wildflour Group premium beachheads (BGC, Makati, Cebu).</td>
+                            <td><b>100% SKU Availability</b><br>Wait-list velocity</td>
+                        </tr>
+                        <tr>
+                            <td><b>Cultural Viral Loop</b></td>
+                            <td>Seed top 50 health/lifestyle creators to trigger an 88% organic brand-love sentiment on TikTok.</td>
+                            <td><b>LTV/CAC > 15x</b><br>>1M organic reach</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" style="font-weight: 800; background: #fafafa;">INTERNAL PROCESS</td>
+                            <td><b>Logistics Efficiency</b></td>
+                            <td>Eliminate cold-chain dependence via Spore-formed GBI-30 strain validation across all routes.</td>
+                            <td><b>0% Spoilage Rate</b><br>Amb. Temp Stability</td>
+                        </tr>
+                        <tr>
+                            <td><b>Digital PMO Tracking</b></td>
+                            <td>Deploy real-time inventory and UGC velocity dashboard integrated with POS systems.</td>
+                            <td><b>-15% Leakage</b><br>Data-driven restocking</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" style="font-weight: 800; background: #fafafa;">LEARNING & GROWTH</td>
+                            <td><b>Brand Advocacy</b></td>
+                            <td>Nationwide 'Brand Ambassador' certification for Wildflour service crews and TikTok creators.</td>
+                            <td><b>90% Training Yield</b><br>Brand fluency score</td>
+                        </tr>
+                        <tr>
+                            <td><b>Clinical R&D</b></td>
+                            <td>Partner with PH Clinical Labs to publish "Dr.-Verified" efficacy whitepapers for Gen-Z reach.</td>
+                            <td><b>3 Published Trials</b><br>Scientific authority</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <!-- 14.5: STRATEGIC RESILIENCE (UPSIDE/DOWNSIDE) -->
+        <article class="section-node">
+            <h2 class="section-label">14 Strategic Resilience (Risk & Upside Profile)</h2>
+            <div class="matrix-layout">
+                <!-- Upside Factors -->
+                <div class="grid-node" style="border-top: 6px solid var(--accent-calamansi); background: rgba(251, 255, 0, 0.03);">
+                    <div class="node-title" style="color: #000;">Upside Factors (Exponential Growth)</div>
+                    <ul style="list-style: none; font-family: 'Space Grotesk'; font-size: 0.9rem; line-height: 1.8;">
+                        <li style="margin-bottom: 1rem;"><b>🚀 VIRAL FLYWHEEL:</b> 1% increase in UGC velocity triggers a non-linear 10% jump in TikTok Shop sales due to social proof.</li>
+                        <li style="margin-bottom: 1rem;"><b>💎 MULTI-BRAND SYNERGY:</b> Potential for 'Private Label' symbiotic runs for Wildflour cafes, creating a guaranteed B2B revenue floor.</li>
+                        <li style="margin-bottom: 1rem;"><b>⚖️ SIN TAX ARBITRAGE:</b> Legislative permanence of low-sugar tax tiers makes us a permanent price-leader over legacy soda giants.</li>
+                    </ul>
+                </div>
+                <!-- Downside Factors -->
+                <div class="grid-node" style="border-top: 6px solid var(--accent-strawberry); background: rgba(255, 26, 26, 0.03);">
+                    <div class="node-title" style="color: #000;">Downside Factors (Critical Threat Management)</div>
+                    <ul style="list-style: none; font-family: 'Space Grotesk'; font-size: 0.9rem; line-height: 1.8;">
+                        <li style="margin-bottom: 1rem;"><b>🌡️ LOGO-GENIC SHOCK:</b> Unforeseen temperature spikes beyond 45°C during shipping could compromise spore survival (Mitigation: Spore-tech IP).</li>
+                        <li style="margin-bottom: 1rem;"><b>🥊 PRICE WAR:</b> Coca-Cola/Pepsi launching low-cost health clones (Mitigation: Culture Capital moat).</li>
+                        <li style="margin-bottom: 1rem;"><b>📜 FDA REGULATORY PIVOT:</b> Sudden bans on specific health claims (Mitigation: Switch to "Brand Experience" vs "Clinical Claim" marketing).</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- 14.6: BALANCED SCORECARD (BSC) DASHBOARD -->
+        <article class="section-node">
+            <h2 class="section-label">15 Balanced Scorecard (BSC) Dashboard</h2>
+            <div class="paper-card" style="border: 4px solid #000; background: #fff;">
+                <div class="card-header" style="background: #000; color: #fff;">Strategic Performance Indicators (Professional Gauge View)</div>
+                <div class="chart-grid" style="grid-template-columns: repeat(4, 1fr); margin: 2rem 0;">
+                    <!-- Perspective 1: Financial -->
+                    <div class="gauge-card" style="text-align: center;">
+                        <div class="gauge-viz" style="--g-value: 55; --g-color: var(--accent-calamansi); width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;">
+                            <div class="gauge-inner">55%</div>
+                        </div>
+                        <div class="node-title" style="font-size: 0.8rem; margin-top: 1rem; border: none; padding: 0;">Financial: Margin</div>
+                        <p style="font-size: 0.7rem; opacity: 0.9; font-weight: 700;">₱44/can contrib.</p>
+                    </div>
+                    <!-- Perspective 2: Customer -->
+                    <div class="gauge-card" style="text-align: center;">
+                        <div class="gauge-viz" style="--g-value: 88; --g-color: var(--accent-purple); width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;">
+                            <div class="gauge-inner">88%</div>
+                        </div>
+                        <div class="node-title" style="font-size: 0.8rem; margin-top: 1rem; border: none; padding: 0;">Customer: UGC</div>
+                        <p style="font-size: 0.7rem; opacity: 0.9; font-weight: 700;">Organic Velocity</p>
+                    </div>
+                    <!-- Perspective 3: Internal -->
+                    <div class="gauge-card" style="text-align: center;">
+                        <div class="gauge-viz" style="--g-value: 98; --g-color: var(--accent-dalandan); width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;">
+                            <div class="gauge-inner">98%</div>
+                        </div>
+                        <div class="node-title" style="font-size: 0.8rem; margin-top: 1rem; border: none; padding: 0;">Process: Spore Stiff</div>
+                        <p style="font-size: 0.7rem; opacity: 0.9; font-weight: 700;">Survivor Yield</p>
+                    </div>
+                    <!-- Perspective 4: Growth -->
+                    <div class="gauge-card" style="text-align: center;">
+                        <div class="gauge-viz" style="--g-value: 92; --g-color: var(--accent-strawberry); width: 120px; height: 120px; margin: 0 auto; border-radius: 50%;">
+                            <div class="gauge-inner">92%</div>
+                        </div>
+                        <div class="node-title" style="font-size: 0.8rem; margin-top: 1rem; border: none; padding: 0;">Growth: Influencer</div>
+                        <p style="font-size: 0.7rem; opacity: 0.9; font-weight: 700;">Brand Cert Yield</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- 17: FUTURE VISION: THE WELLNESS FRONTIER -->
+        <article class="section-node">
+            <h2 class="section-label">17 Future Vision: Boundary Expansion</h2>
+            <div class="paper-card" style="border-top: 5px solid var(--accent-purple); background: #fafafa;">
+                <div class="card-header" style="background: #000; color: #fff;">2028-2030 MOONSHOTS: BEYOND THE CAN</div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;">
+                    <div class="grid-node" style="background: #fff; padding: 2rem; border: 2px solid #000; box-shadow: 10px 10px 0 #000;">
+                        <h4 class="node-title">POP CLTR SPA & RECOVERY CENTER</h4>
+                        <p class="body-text" style="font-size: 0.9rem;">Replacing traditional herbal tea with **chilled probiotics**. A high-end sanctuary in BGC offering specialized gut-health treatments, lymphatic drainage, and IV recovery cocktails powered by **Longevity Labs**.</p>
+                    </div>
+                    <div class="grid-node" style="background: #fff; padding: 2rem; border: 2px solid #000; box-shadow: 10px 10px 0 #000;">
+                        <h4 class="node-title">POP BEACH CLUB (SIARGAO/LA UNION)</h4>
+                        <p class="body-text" style="font-size: 0.9rem;">The "Morning-After" HQ. A dedicated beach bar serving synbiotic mixers and "Hangover-Proof" party menus. We bring the Giga-Aesthetic to the coast.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: var(--lemon); border: 2px solid #000; box-shadow: 10px 10px 0 #000;">
+                    <h4 class="node-title" style="color: #000;">THE BIO-HACKING RESIDENCY</h4>
+                    <p class="body-text" style="font-size: 1rem; color: #000;">A members-only space for high-performance creators. Red-light therapy pods, cold plunges, and unlimited POP CLTR taps. Positioning the drink as the required fuel for the modern biological engine.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">POP CLTR</span>
+                <span class="footer-tagline">Sip the Culture. Self-Care Starts in the Gut. The new everyday essential — soda's back, but better.</span>
+            </div>
+            <div class="footer-nav">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="formulation.html">Science</a>
+                <a href="strategy.html">Strategy</a>
+                <a href="marketing.html">Marketing</a>
+                <a href="gallery.html">Look Book</a>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="https://instagram.com/drinkpopcltr" target="_blank">Instagram — @drinkpopcltr</a>
+                <a href="https://tiktok.com/@drinkpopcltr" target="_blank">TikTok — @drinkpopcltr</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 POP CLTR. All Rights Reserved.</span>
+            <span>The Giga Brand Book v6.0</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
