@@ -174,18 +174,39 @@ header:not(.glass-header) {
     opacity: 0.5;
 }
 
+/* Standardized Responsive Giga-Headers */
+.giga-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    font-size: clamp(2.5rem, 15vw, 10rem);
+    margin-bottom: 2rem;
+}
+
+.giga-outline {
+    -webkit-text-stroke: 1.5px var(--text-black);
+    color: transparent;
+    transition: all 0.4s;
+}
+
+.giga-outline:hover {
+    color: var(--text-black);
+    -webkit-text-stroke: 1.5px transparent;
+}
+
 #hero h1 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 14vw;
-    font-weight: 800;
+    font-size: clamp(3rem, 18vw, 12rem);
+    font-weight: 900;
     line-height: 0.8;
-    letter-spacing: -6px;
+    letter-spacing: -8px;
     text-transform: uppercase;
     margin-bottom: 3rem;
-    background: linear-gradient(180deg, var(--text-black) 0%, var(--orange) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-black);
+    position: relative;
+    z-index: 2;
 }
 
 #hero p {
