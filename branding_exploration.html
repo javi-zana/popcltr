@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP CLTR // Logo Exploration Fleet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@100;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f8f8;
+            --text: #000;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10rem;
+            align-items: center;
+        }
+        .logo-box {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        .label {
+            font-family: 'Space Grotesk';
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            opacity: 0.5;
+            display: block;
+        }
+
+        /* 1. THE MIX STACK */
+        .mix-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 0.75;
+            position: relative;
+        }
+        .mix-stack .p1 { font-family: 'Syne'; font-weight: 800; font-size: 8rem; margin-left: -20px; }
+        .mix-stack .o { font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 200; font-size: 10rem; color: #FF1A1A; }
+        .mix-stack .p2 { font-family: 'Serif'; font-style: italic; font-size: 9rem; margin-right: -40px; }
+        .mix-stack .cltr { font-family: 'Space Grotesk'; font-weight: 300; font-size: 1.5rem; letter-spacing: 20px; margin-top: 1rem; border-top: 2px solid #000; padding-top: 5px; }
+
+        /* 2. CHROME BUBBLE (CSS Simulation) */
+        .chrome-bubble {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 6rem;
+            text-transform: uppercase;
+            position: relative;
+            color: #ccc;
+            background: linear-gradient(135deg, #eee 0%, #999 50%, #666 51%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            letter-spacing: -5px;
+        }
+        .chrome-bubble::after {
+            content: 'POP CLTR';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            -webkit-text-fill-color: #000;
+            filter: blur(10px);
+            opacity: 0.1;
+        }
+
+        /* 3. TALL SANS */
+        .tall-sans {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-variation-settings: 'wdth' 75, 'wght' 800;
+            font-size: 7rem;
+            text-transform: uppercase;
+            transform: scaleY(1.6);
+            letter-spacing: -2px;
+            display: inline-block;
+        }
+
+        /* 4. THIN WIDE SANS */
+        .thin-wide {
+            font-family: 'Inter', sans-serif;
+            font-weight: 100;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2.2em;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: 'Space Grotesk';
+            font-size: 0.8rem;
+            background: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-box">
+        <span class="label">01 // THE 'MIX' STACK</span>
+        <div class="mix-stack">
+            <div class="word-pop">
+                <span class="p1">P</span>
+                <span class="o">O</span>
+                <span class="p2">P</span>
+            </div>
+            <div class="cltr">CLTR</div>
+        </div>
+    </div>
+
+    <div class="logo-box">
+        <span class="label">02 // CHROME BUBBLE</span>
+        <div class="chrome-bubble">POP CLTR</div>
+    </div>
+
+    <div class="logo-box">
+        <span class="label">03 // TALL SANS</span>
+        <div class="tall-sans">POP CLTR</div>
+    </div>
+
+    <div class="logo-box">
+        <span class="label">04 // THIN WIDE SANS</span>
+        <div class="thin-wide">POP CLTR</div>
+    </div>
+
+    <div class="cta">CSS ARCHETYPE PREVIEW</div>
+
+</body>
+</html>

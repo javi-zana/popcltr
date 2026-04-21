@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SCIENCE OF POP CLTR | Clinical Outreach Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;800&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@100;300;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #ffffff;
+            --black: #000000;
+            --accent-green: #C6EFCE;
+            --accent-pink: #FFC7CE;
+            --strawberry: #FF1A1A;
+            --blue: #0088FF;
+            --monodark: #1a1a1a;
+            --mono-bg: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Controlled by scroll snap */
+        }
+
+        /* Slide Deck Framework */
+        .deck-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        .deck-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+            overflow: hidden;
+            background: var(--white);
+            border-bottom: 1px solid #111;
+        }
+
+        /* Blueprint Overlays (Giga-Aesthetic) */
+        .blueprint-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            border: 20px solid transparent;
+            /* Hairline grid */
+            background-image: 
+                radial-gradient(circle, #000 0.5px, transparent 0.5px);
+            background-size: 50px 50px;
+            opacity: 0.03;
+        }
+
+        .corner-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            opacity: 0.2;
+            z-index: 20;
+        }
+        .marker-tl { top: 30px; left: 30px; border-right: none; border-bottom: none; }
+        .marker-tr { top: 30px; right: 30px; border-left: none; border-bottom: none; }
+        .marker-bl { bottom: 30px; left: 30px; border-right: none; border-top: none; }
+        .marker-br { bottom: 30px; right: 30px; border-left: none; border-top: none; }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            opacity: 0.3;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+        }
+
+        .tagline {
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 8px;
+            color: var(--strawberry);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .clinical-para {
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            max-width: 900px;
+            color: #333;
+            margin-top: 2rem;
+        }
+
+        /* Slide Themes */
+        .theme-dark {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        .theme-dark .clinical-para { color: #ccc; }
+        .theme-dark .tagline { color: var(--accent-green); }
+        .theme-dark .corner-marker { border-color: var(--white); }
+
+        /* Animations */
+        @keyframes molecule-float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .floater {
+            animation: molecule-float 10s ease-in-out infinite;
+        }
+
+        /* CTA Form */
+        .cta-container {
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #000;
+            padding: 3rem;
+            background: #fff;
+            box-shadow: 20px 20px 0 #eee;
+        }
+        .cta-container input, .cta-container select, .cta-container textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            font-family: 'Space Grotesk';
+            margin-bottom: 1rem;
+            background: #fafafa;
+        }
+        .cta-container button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 1rem 3rem;
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cta-container button:hover { transform: scale(1.02); }
+
+    </style>
+</head>
+<body>
+
+    <div class="deck-container">
+        
+        <!-- SLIDE 1: MOLECULAR DIPLOMACY -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+            
+            <div class="slide-content" style="text-align: center;">
+                <span class="tagline">SLIDE 01 // OVERTURE</span>
+                <h1 style="font-size: clamp(3rem, 10vw, 7rem);">Molecular<br>Diplomacy.</h1>
+                <p class="clinical-para">
+                    Establishing a new protocol for functional hydration. POP CLTR is not a beverage; it is a <b>biologically active delivery system</b> optimized for the human gastrointestinal corridor.
+                </p>
+                
+                <div style="margin-top: 5rem; display: flex; gap: 3rem; justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="font-family: 'Bricolage Grotesque'; font-size: 4rem; line-height: 1;">1B</div>
+                        <div style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; margin-top: 0.5rem;">SPORE CFUS</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-family: 'Bricolage Grotesque'; font-size: 4rem; line-height: 1;">9g</div>
+                        <div style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; margin-top: 0.5rem;">FIBER GRID</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-family: 'Bricolage Grotesque'; font-size: 4rem; line-height: 1;">0%</div>
+                        <div style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; margin-top: 0.5rem;">GLYCEMIC SPIKE</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-number">ASMPH INNOVATION HUB // 2026 // CONFIDENTIAL</div>
+        </section>
+
+        <!-- SLIDE 2: THE ENDOSPORE ADVANTAGE -->
+        <section class="slide theme-dark">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 5%; width: 100%; max-width: 1200px;">
+                <div>
+                    <span class="tagline">SLIDE 02 // THERMOSTABILITY</span>
+                    <h2 style="font-size: 5rem; color: var(--accent-green);">The Bio-Moat.</h2>
+                    <p class="clinical-para">
+                        Vegetative probiotics (<i>Lactobacillus, Bifidobacterium</i>) exhibit >99.9% mortality in gastric pH 1.5. 
+                    </p>
+                    <p class="clinical-para" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.8;">
+                        POP CLTR utilizes <b>Bacillus coagulans GBI-30, 6086</b>. The endospore—a multilayered protein shield—renders the organism dormant through heat, acid, and bile. Germination is site-specific: triggering only in the <b>alkaline environment of the small intestine.</b>
+                    </p>
+                    
+                    <div style="margin-top: 3rem; background: rgba(255,255,255,0.05); padding: 2rem; border-left: 4px solid var(--accent-green);">
+                        <b style="font-family: 'Space Grotesk'; letter-spacing: 2px; font-size: 0.7rem;">SPORE SURVIVAL METRIC [GERMINATION RATE]</b>
+                        <div style="height: 10px; background: rgba(255,255,255,0.1); margin-top: 1rem; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: var(--accent-green);"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-family: 'Space Grotesk'; font-size: 0.6rem; opacity: 0.5;">
+                            <span>GASTRIC PH 1.5 (TARGET)</span>
+                            <span>100% RECOVERY</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <!-- SVG Spore Diagram -->
+                    <svg viewBox="0 0 400 400" width="400" class="floater">
+                        <circle cx="200" cy="200" r="150" fill="none" stroke="var(--accent-green)" stroke-width="1" stroke-dasharray="10 5" />
+                        <circle cx="200" cy="200" r="120" fill="none" stroke="var(--white)" stroke-width="2" />
+                        <circle cx="200" cy="200" r="110" fill="none" stroke="var(--white)" stroke-width="0.5" opacity="0.3" />
+                        <circle cx="200" cy="200" r="80" fill="var(--accent-green)" opacity="0.2" />
+                        <text x="200" y="210" text-anchor="middle" font-family="Space Grotesk" fill="var(--white)" font-size="12" style="letter-spacing: 5px;">GBI-30</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="slide-number">02/06 // BC30® SPORE TECHNOLOGY</div>
+        </section>
+
+        <!-- SLIDE 3: SYNBIOTIC ARCHITECTURE -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+
+            <div style="max-width: 1000px; text-align: center;">
+                <span class="tagline">SLIDE 03 // METABOLIC FEEDBACK</span>
+                <h2 style="font-size: 6rem;">Molecular Fuel.</h2>
+                <p class="clinical-para">
+                    Probiotics require a specific substrate for colonization. We’ve architected a <b>dual-fiber prebiotic grid</b> utilizing Sunfiber® (PHGG) and Chicory Inulin to fuel a sustained metabolic cascade.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 5rem; text-align: left;">
+                    <div style="padding: 2rem; border: 1px dashed #000;">
+                        <b style="font-family: 'Space Grotesk';">SUNFIBER® (PHGG)</b>
+                        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;">Slow-fermenting galactomannan. Minimal GI distress, maximum Butyrate yield in the distal colon.</p>
+                    </div>
+                    <div style="padding: 2rem; border: 1px dashed #000;">
+                        <b style="font-family: 'Space Grotesk';">CHICORY INULIN</b>
+                        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;">Rapid bifidogenic stimulation. Immediate energy for native lactobacilli.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-number">03/06 // SYNBIOTIC DUAL-FIBER ARCHITECTURE</div>
+        </section>
+
+        <!-- SLIDE 4: THE GUT-BRAIN HIGHWAY -->
+        <section class="slide theme-dark" style="background-color: var(--monodark);">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+
+            <div style="text-align: center; max-width: 900px;">
+                <span class="tagline">SLIDE 04 // NEUROTRANSMITTER AXIS</span>
+                <h2 style="font-size: 5.5rem;">5-HT Protocols.</h2>
+                <p class="clinical-para">
+                    <b>90% of the body’s serotonin</b> is localized in the enteric nervous system. POP CLTR’s psychobiotic strains directly modulate 5-HT precursors via the Vagus Nerve.
+                </p>
+                
+                <div style="margin-top: 6rem; position: relative; height: 200px;">
+                    <!-- SVG Vagus Nerve Signaling -->
+                    <svg viewBox="0 0 600 100" width="600">
+                        <path d="M0,50 C150,50 150,50 300,50 C450,50 450,50 600,50" stroke="var(--accent-green)" stroke-width="2" fill="none" class="floater" />
+                        <circle cx="50" cy="50" r="10" fill="var(--accent-green)">
+                            <animate attributeName="cx" from="50" to="550" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <text x="50" y="30" font-family="Space Grotesk" fill="var(--white)" font-size="10" letter-spacing="2">ENTERIC (GUT)</text>
+                        <text x="500" y="30" font-family="Space Grotesk" fill="var(--white)" font-size="10" letter-spacing="2">CENTRAL (BRAIN)</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="slide-number">04/06 // PSYCHOBIOTIC NEUROGENESIS</div>
+        </section>
+
+        <!-- SLIDE 5: CASE STUDY - THE 14-DAY PIVOT -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; width: 100%; max-width: 1200px;">
+                <div>
+                    <span class="tagline" style="color: var(--blue);">SLIDE 05 // CASE STUDY</span>
+                    <h2 style="font-size: 3.5rem;">The 14-Day<br>Microbiome Pivot.</h2>
+                    <p class="clinical-para" style="font-size: 1rem; opacity: 0.7;">
+                        Based on internal observational data (n=12) following a "1-Can Daily" protocol for two weeks.
+                    </p>
+                    
+                    <ul style="list-style: none; margin-top: 2rem; font-family: 'Space Grotesk'; font-size: 1rem; color: #444;">
+                        <li style="margin-bottom: 1.5rem;"><b style="color: #000; font-size: 2rem; display: block;">+34%</b> Reported cognitive clarity post-consumption.</li>
+                        <li style="margin-bottom: 1.5rem;"><b style="color: #000; font-size: 2rem; display: block;">↑ 0.8pt</b> Shift in Bristol Stool Scale toward optimal consistency (Type 3-4).</li>
+                        <li><b style="color: #000; font-size: 2rem; display: block;">88%</b> Reduced reliance on traditional HFCS-sweetened beverages.</li>
+                    </ul>
+                </div>
+                
+                <div style="background: var(--mono-bg); border: 2px solid #000; padding: 4rem; position: relative;">
+                    <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 3px; opacity: 0.5; margin-bottom: 2rem;">CLINICAL LOG // BATCH 04</div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                            <span>Baseline Diversity</span>
+                            <span>Low (H' < 2.1)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px; color: var(--blue); font-weight: 800;">
+                            <span>Post-Pivot Diversity</span>
+                            <span>High (H' > 2.8)</span>
+                        </div>
+                        <div style="margin-top: 2rem; height: 150px; background: #fff; border: 1px solid #000; display: flex; align-items: flex-end; padding: 10px; gap: 10px;">
+                            <div style="height: 30%; width: 20%; background: #000;"></div>
+                            <div style="height: 45%; width: 20%; background: #000;"></div>
+                            <div style="height: 60%; width: 20%; background: var(--blue);"></div>
+                            <div style="height: 90%; width: 20%; background: var(--blue);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-number">05/06 // EMPIRICAL OBSERVATION DATA</div>
+        </section>
+
+        <!-- SLIDE 6: THE CLINICAL CALL TO ACTION -->
+        <section class="slide theme-dark" style="background-color: var(--black);">
+            <div class="blueprint-overlay"></div>
+            <div class="corner-marker marker-tl"></div>
+            <div class="corner-marker marker-tr"></div>
+            <div class="corner-marker marker-bl"></div>
+            <div class="corner-marker marker-br"></div>
+
+            <div class="cta-container">
+                <span class="tagline" style="margin-bottom: 1.5rem; display: block;">FINAL SLIDE // ENGAGEMENT</span>
+                <h2 style="color: #000; font-size: 2.5rem; margin-bottom: 1.5rem;">The Collective.</h2>
+                <p style="font-family: 'Inter'; font-size: 1rem; color: #555; margin-bottom: 2rem; line-height: 1.5;">
+                    We are seeking a <b>Director of Medical Oversight</b> to lead our 2027 Clinical Trials. If you believe the future of health is preventative, functional, and culturally integrated—submit your inquiry below.
+                </p>
+                
+                <form>
+                    <input type="text" placeholder="FULL NAME (MD / PhD / RD)" required>
+                    <input type="email" placeholder="INSTITUTIONAL EMAIL" required>
+                    <select>
+                        <option>AREA OF SPECIALIZATION</option>
+                        <option>GASTROENTEROLOGY</option>
+                        <option>NEUROLOGY</option>
+                        <option>METABOLIC MEDICINE</option>
+                        <option>PREVENTATIVE HEALTH</option>
+                    </select>
+                    <textarea placeholder="HOW WOULD YOU EVOLVE THE FORMULATION?" rows="3"></textarea>
+                    <button type="submit">SUBMIT CLINICAL INQUIRY</button>
+                </form>
+            </div>
+            
+            <div class="slide-number">06/06 // JOIN THE ASMPH INNOVATION HUB</div>
+        </section>
+
+    </div>
+
+    <!-- Navigation Scroll Helper (Floating) -->
+    <div style="position: fixed; right: 40px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 100;">
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--strawberry);"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1);"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1);"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1);"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1);"></div>
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1);"></div>
+    </div>
+
+    <script>
+        // Scroll helper for active dots
+        const container = document.querySelector('.deck-container');
+        const dots = document.querySelectorAll('[style*="width: 8px"]');
+        
+        container.addEventListener('scroll', () => {
+            const index = Math.round(container.scrollTop / window.innerHeight);
+            dots.forEach((dot, i) => {
+                dot.style.background = (i === index) ? 'var(--strawberry)' : 'rgba(0,0,0,0.1)';
+                if (window.getComputedStyle(container.children[index]).color === 'rgb(255, 255, 255)') {
+                    if (i !== index) dot.style.background = 'rgba(255,255,255,0.2)';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
