@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, revealOptions);
 
     // Observe sections and grids
-    document.querySelectorAll('.section, .section-intro, .mockup-grid, .formula-section, .mockup-card').forEach(el => {
+    document.querySelectorAll('.section, .section-intro, .mockup-grid, .formula-section, .mockup-card, .unboxing-card').forEach(el => {
         revealObserver.observe(el);
     });
 
     // FAIL-SAFE: Near-instant fallback to ensure photos are NEVER invisible
     setTimeout(() => {
-        document.querySelectorAll('.mockup-card, .section').forEach((el) => {
+        document.querySelectorAll('.mockup-card, .section, .unboxing-card, .mockup-item').forEach((el) => {
             el.classList.add('revealed');
         });
     }, 100); 
