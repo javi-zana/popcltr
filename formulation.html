@@ -516,59 +516,108 @@
         </div>
     </main>
 
-        <!-- Section 09: THE LABEL SYSTEM -->
-        <div style="margin: 10rem auto; max-width: 1100px; padding: 6rem 5%; border-top: 5px solid #000; background: #fff;">
-            <div style="text-align: center; margin-bottom: 6rem;">
-                <span class="scientific-label">PHYSICAL IDENTITY</span>
-                <h2 style="font-size: 4rem; line-height: 0.9;">THE LABEL<br>SYSTEM.</h2>
+        <!-- Section 09: THE LABEL SYSTEM [BLUEPRINT V2] -->
+        <div style="margin: 10rem auto; max-width: 1200px; padding: 0 5%;">
+            <div style="text-align: left; margin-bottom: 4rem; border-left: 2px solid #000; padding-left: 2rem;">
+                <span class="scientific-label" style="background: #000; color: #fff;">09 // PHYSICAL SPECIFICATIONS</span>
+                <h2 style="font-size: clamp(2rem, 8vw, 4.5rem); line-height: 0.9; margin-top: 1rem;">LABEL<br>ARCHITECTURE.</h2>
+                <p style="font-family: 'Space Grotesk'; font-size: 0.8rem; margin-top: 1.5rem; letter-spacing: 1px; opacity: 0.5;">[ VER 6.2 // PRODUCTION-READY // COMPLIANCE-CERTIFIED ]</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 6rem; align-items: start;">
-                <!-- Regulatory Group -->
-                <div>
-                    <h3 style="font-family: 'Syne'; font-weight: 800; margin-bottom: 2rem; border-bottom: 1px solid #000; padding-bottom: 1rem;">Regulatory Seals</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                        <div class="regulatory-seal">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                            VEGAN
+            <div class="label-blueprint">
+                <!-- Blueprint Markers -->
+                <div class="blueprint-marker marker-tl"></div>
+                <div class="blueprint-marker marker-tr"></div>
+                <div class="blueprint-marker marker-bl"></div>
+                <div class="blueprint-marker marker-br"></div>
+
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 4rem; align-items: start; position: relative; z-index: 2;">
+                    <!-- Panel A: Primary Identity -->
+                    <div>
+                        <h3 style="font-family: 'Syne'; font-weight: 800; font-size: 0.7rem; margin-bottom: 2rem; color: #888; letter-spacing: 2px;">PANEL 01 // CORE SEALS</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem;">
+                            <div class="regulatory-seal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                                VEGAN
+                            </div>
+                            <div class="regulatory-seal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17L4 12"/></svg>
+                                GLUTEN FREE
+                            </div>
+                            <div class="regulatory-seal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12L12 16L16 8"/></svg>
+                                NON-GMO
+                            </div>
+                            <div class="regulatory-seal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M12 16V12"/><path d="M12 8H12.01"/></svg>
+                                BPA FREE
+                            </div>
+                            <div class="regulatory-seal" style="border-color: var(--accent-green); color: var(--accent-green);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2L3 6L7 10"/><path d="M3 6H17C18.1 6 19 6.9 19 8V11"/><path d="M17 22L21 18L17 14"/><path d="M21 18H7C5.9 18 5 17.1 5 16V13"/></svg>
+                                RECYCLE
+                            </div>
                         </div>
-                        <div class="regulatory-seal">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17L4 12"/></svg>
-                            GLUTEN FREE
-                        </div>
-                        <div class="regulatory-seal">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12L12 16L16 8"/></svg>
-                            NON-GMO
-                        </div>
-                        <div class="regulatory-seal" style="border-color: var(--accent-green); color: var(--accent-green);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 2L3 6L7 10"/><path d="M3 6H17C18.1 6 19 6.9 19 8V11"/><path d="M17 22L21 18L17 14"/><path d="M21 18H7C5.9 18 5 17.1 5 16V13"/></svg>
-                            RECYCLABLE
+
+                        <div style="margin-top: 2rem;">
+                            <h3 style="font-family: 'Syne'; font-weight: 800; font-size: 0.7rem; margin-bottom: 1rem; color: #888; letter-spacing: 2px;">LEGAL MANDATORIES</h3>
+                            <p class="label-disclaimer">
+                                *THESE STATEMENTS HAVE NOT BEEN EVALUATED BY THE FOOD AND DRUG ADMINISTRATION. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE. PROBIOTIC EFFICACY MAY VARY BY INDIVIDUAL GUT MICROBIOME STATUS.
+                            </p>
+                            <p style="font-family: 'Space Grotesk'; font-size: 0.55rem; color: #aaa; margin-top: 1rem; letter-spacing: 1px;">
+                                HI ME 5&cent; / CA CRV 10&cent; / CT-HI-IA-MA-ME-NY-OR-VT 5&cent; / MI-OR 10&cent; 
+                            </p>
                         </div>
                     </div>
 
-                    <div style="margin-top: 4rem;">
-                        <h3 style="font-family: 'Syne'; font-weight: 800; margin-bottom: 1rem;">Legal fine print</h3>
-                        <p class="label-disclaimer">
-                            *THESE STATEMENTS HAVE NOT BEEN EVALUATED BY THE FOOD AND DRUG ADMINISTRATION. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE. PROBIOTIC EFFICACY MAY VARY BY INDIVIDUAL GUT MICROBIOME STATUS.
-                        </p>
-                    </div>
-                </div>
+                    <!-- Panel B: Storage & Logistics -->
+                    <div class="spec-block">
+                        <h3 style="font-family: 'Syne'; font-weight: 800; font-size: 0.7rem; margin-bottom: 2rem; color: #888; letter-spacing: 2px;">PANEL 02 // LOGISTICS</h3>
+                        
+                        <div style="margin-bottom: 2.5rem;">
+                            <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.55rem; letter-spacing: 3px; opacity: 0.4;">STORAGE</span>
+                            <p style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 1rem; margin-top: 0.5rem; color: var(--strawberry);">KEEP REFRIGERATED</p>
+                            <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 0.3rem;">Best served chilled at 4&deg;C for maximum sparkling profile and probiotic viability.</p>
+                        </div>
 
-                <!-- Specs & Barcode -->
-                <div style="background: #fafafa; padding: 3rem; border-radius: 40px; border: 1px solid #eee;">
-                    <div style="margin-bottom: 2rem;">
-                        <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.4;">MANUFACTURE INFO</span>
-                        <p style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.4;">
-                            POP CLTR LABS<br>
-                            METRO MANILA & BGC, PH<br>
-                            GLB DIST. UNIT #821
-                        </p>
+                        <div style="margin-bottom: 2.5rem;">
+                            <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.55rem; letter-spacing: 3px; opacity: 0.4;">PHYSICAL SPECS</span>
+                            <p style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 1rem; margin-top: 0.5rem;">12 FL OZ (355ML)</p>
+                            <p style="font-size: 0.7rem; opacity: 0.5;">Material: Infinitely Recyclable Aluminum.</p>
+                        </div>
+
+                        <div style="border: 0.5px dashed #ccc; padding: 1rem; margin-top: 2rem;">
+                            <span style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.5rem; letter-spacing: 2px; color: #aaa;">BATCH_ID_PLACEMENT</span>
+                            <div style="height: 30px; background: #f0f0f0; margin-top: 0.5rem;"></div>
+                            <p style="font-size: 0.45rem; margin-top: 0.5rem; text-align: center;">[ BEST BY DD/MM/YY ]</p>
+                        </div>
                     </div>
-                    <div style="margin-bottom: 2rem;">
-                        <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.4;">CAN SPECS</span>
-                        <p style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.2rem; margin-top: 0.5rem;">12 FL OZ (355ML)</p>
+
+                    <!-- Panel C: Distribution -->
+                    <div class="spec-block">
+                        <h3 style="font-family: 'Syne'; font-weight: 800; font-size: 0.7rem; margin-bottom: 2rem; color: #888; letter-spacing: 2px;">PANEL 03 // ORIGIN</h3>
+                        
+                        <div style="margin-bottom: 2.5rem;">
+                            <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.55rem; letter-spacing: 3px; opacity: 0.4;">DISTRIBUTION</span>
+                            <p style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.8rem; margin-top: 0.5rem; line-height: 1.5;">
+                                FORMULATED FOR POP CLTR LABS<br>
+                                METRO MANILA & BGC, PH<br>
+                                ASMPH INNOVATION HUB
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 2.5rem;">
+                            <span style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 0.55rem; letter-spacing: 3px; opacity: 0.4;">BARCODE</span>
+                            <div class="barcode-strip"></div>
+                            <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; margin-top: 0.8rem; letter-spacing: 4px;">8 2GIGA 2026 6</p>
+                        </div>
+
+                        <div style="text-align: center; border-top: 1px solid #111; padding-top: 2rem; margin-top: 2rem;">
+                            <div style="width: 50px; height: 50px; border: 1px solid #000; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%;">
+                                <span style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 0.6rem;">ASMPH</span>
+                            </div>
+                            <p style="font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 1px; margin-top: 1rem;">CLINICALLY BACKED BY<br>ASMPH CORE RESEARCH</p>
+                        </div>
                     </div>
-                    <div class="barcode-strip"></div>
                 </div>
             </div>
         </div>

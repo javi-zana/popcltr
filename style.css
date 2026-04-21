@@ -1033,24 +1033,53 @@ h2 {
     font-weight: 200;
 }
 
-/* --- REGULATORY LABEL SYSTEM --- */
+/* --- REGULATORY LABEL SYSTEM: BLUEPRINT V2 --- */
+.label-blueprint {
+    position: relative;
+    border: 1px solid #111;
+    padding: 4rem;
+    background-image: 
+        radial-gradient(circle, #ddd 1px, transparent 1px);
+    background-size: 30px 30px;
+    overflow: hidden;
+}
+
+.blueprint-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.marker-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.marker-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.marker-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.marker-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
 .regulatory-seal {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
-    border: 1px solid #000;
+    width: 70px;
+    height: 70px;
+    border: 0.5px solid #000;
     border-radius: 50%;
     margin: 10px;
     font-family: 'Space Grotesk';
-    font-weight: 800;
-    font-size: 0.5rem;
+    font-weight: 500;
+    font-size: 0.45rem;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #000;
+    letter-spacing: 1.5px;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+.regulatory-seal:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 .regulatory-seal svg {
@@ -1058,39 +1087,35 @@ h2 {
 }
 
 .barcode-strip {
-    width: 200px;
-    height: 60px;
+    width: 160px;
+    height: 45px;
     background: repeating-linear-gradient(
         90deg,
         #000,
-        #000 1px,
-        #fff 1px,
-        #fff 4px,
+        #000 0.5px,
+        #fff 0.5px,
+        #fff 3px,
+        #000 3px,
         #000 4px,
-        #000 5px,
-        #fff 5px,
-        #fff 8px
+        #fff 4px,
+        #fff 6px
     );
     position: relative;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
-.barcode-strip::after {
-    content: "8 21482 12345 6";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Space Grotesk';
-    font-size: 0.6rem;
-    letter-spacing: 2px;
+.spec-block {
+    border-left: 1px solid #eee;
+    padding-left: 2rem;
+    margin-top: 2rem;
 }
 
 .label-disclaimer {
     font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    line-height: 1.4;
-    color: #888;
-    max-width: 400px;
+    font-size: 0.6rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 450px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
