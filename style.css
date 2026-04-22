@@ -97,17 +97,29 @@ body {
 }
 
 .glass-header .logo {
+    display: flex !important;
+    align-items: center !important;
     font-family: 'Bricolage Grotesque', sans-serif !important;
-    font-size: 22px !important;
+    font-size: 24px !important;
     font-weight: 800 !important;
-    letter-spacing: -1px !important;
+    letter-spacing: -1.5px !important;
     text-transform: uppercase !important;
     color: #000 !important;
     text-decoration: none !important;
-    transition: opacity 0.3s !important;
-    line-height: 1.2 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    line-height: 0.8 !important;
+}
+
+.logo .cltr-part {
+    font-variation-settings: 'wdth' 100, 'wght' 200 !important;
+    margin-left: 2px !important;
+}
+
+.brand-logo-hero {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 0.8;
 }
 
 .glass-header .logo:hover { opacity: 0.7; }
