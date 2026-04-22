@@ -116,6 +116,61 @@
         .problem-cell b { font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; color: var(--strawberry); text-transform: uppercase; }
         .solution-cell { background: var(--mono-bg); border-left: 4px solid var(--accent-green); padding: 1.5rem; text-align: left; }
         .solution-cell b { font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; color: var(--blue); text-transform: uppercase; }
+
+        /* --- ANIMATION ENGINE --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        @keyframes reveal-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes draw-path {
+            from { stroke-dashoffset: 1000; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes clinical-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes glow-breath {
+            0% { filter: drop-shadow(0 0 5px var(--accent-green)); }
+            50% { filter: drop-shadow(0 0 20px var(--accent-green)); }
+            100% { filter: drop-shadow(0 0 5px var(--accent-green)); }
+        }
+
+        .pulse-stat { animation: clinical-pulse 3s infinite ease-in-out; }
+        .draw-me { stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 2s ease-out; }
+        .draw-me.visible { stroke-dashoffset: 0; }
+
+        /* Floating background molecules placeholder */
+        .molecule-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.05;
+        }
     </style>
 </head>
 <body>
@@ -125,23 +180,35 @@
         <!-- SLIDE 01: THE THESIS -->
         <section class="slide">
             <div class="blueprint-overlay"></div>
+            <div class="molecule-bg">
+                <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="spores" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <circle cx="20" cy="20" r="2" fill="var(--accent-green)" opacity="0.5" />
+                            <circle cx="60" cy="40" r="1.5" fill="var(--blue)" opacity="0.3" />
+                            <path d="M10 80 Q 30 70 50 80" stroke="var(--strawberry)" stroke-width="0.5" fill="none" opacity="0.2" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#spores)" />
+                </svg>
+            </div>
             <div class="corner-marker marker-tl"></div>
             <div class="corner-marker marker-br"></div>
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="animate-on-scroll">
                     <div style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 5rem; letter-spacing: -3px; margin: 0 auto 3rem; transform: rotate(-3deg); line-height: 0.8; color: #000;">
                         POP<br><span style="color: var(--accent-green); font-variation-settings: 'wdth' 100, 'wght' 200;">CLTR</span>
                     </div>
-                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--strawberry);">
+                    <div class="stat-card pulse-stat" style="display: inline-block; box-shadow: 15px 15px 0 var(--strawberry);">
                         <b style="font-family: 'Bricolage Grotesque'; font-size: 4.5rem;">~10g</b>
                         <p style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; margin-top: 10px;">MEAN DAILY FIBER INTAKE (PH)</p>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">INT_01 // THE THESIS</span>
                     <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">The Clinical<br>Gap.</h2>
                     <p>
@@ -163,7 +230,7 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="padding-right: 40px;">
+                <div style="padding-right: 40px;" class="animate-on-scroll">
                     <h2 style="font-size: 5rem;">The<br>Endocrine<br>Hijack.</h2>
                     <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr; gap: 1rem;">
                         <div class="problem-cell">
@@ -174,7 +241,7 @@
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">PR_02 // SYSTEM FAILURE</span>
                     <h4 style="color: var(--blue);">Clinical Context</h4>
                     <p>
@@ -195,7 +262,7 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="animate-on-scroll">
                     <h1 style="font-size: 5.5rem; margin-bottom: 2rem;">Metabolic<br>Synarchy.</h1>
                     <div style="display: flex; justify-content: center; gap: 2rem;">
                          <div style="padding: 1rem; border: 1px solid #000; font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px;">BC30® // SPORE</div>
@@ -204,7 +271,7 @@
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_03 // THE ENGINE</span>
                     <h4 style="color: var(--blue);">The Synbiotic Synergy</h4>
                     <p>
@@ -225,15 +292,15 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
-                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--accent-green);">
+                <div style="text-align: center;" class="animate-on-scroll">
+                    <div class="stat-card pulse-stat" style="display: inline-block; box-shadow: 15px 15px 0 var(--accent-green);">
                         <b style="font-family: 'Bricolage Grotesque'; font-size: 6rem; line-height: 1;">100%</b>
                         <p style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 3px; font-weight: 800; margin-top: 1rem;">GASTRIC SURVIVAL</p>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_04 // RELIABILITY</span>
                     <h4 style="color: var(--orange);">Spore-Tech Engineering</h4>
                     <p>
@@ -254,25 +321,25 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="animate-on-scroll">
                     <div style="padding: 3rem; border: 2px solid #000; background: #fff; box-shadow: 10px 10px 0 var(--strawberry);">
-                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem;">POSTPRANDIAL GLUCOSE RESPONSE</h4>
+                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 2rem; font-weight: 800;">POSTPRANDIAL GLUCOSE RESPONSE</h4>
                         <svg viewBox="0 0 400 150" width="100%">
                             <!-- High Spike (Control) -->
-                            <path d="M0,140 Q50,0 120,60 T250,120 T400,140" fill="none" stroke="rgba(255,26,26,0.3)" stroke-width="2" stroke-dasharray="4" />
+                            <path class="draw-me" d="M0,140 Q50,0 120,60 T250,120 T400,140" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-dasharray="8,8" />
                             <!-- Flattened (POP CLTR) -->
-                            <path d="M0,140 Q60,100 150,100 T300,120 T400,140" fill="none" stroke="var(--accent-green)" stroke-width="4" />
+                            <path class="draw-me" d="M0,140 Q60,100 150,100 T300,120 T400,140" fill="none" stroke="var(--strawberry)" stroke-width="4" stroke-linecap="round" />
                         </svg>
-                        <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-family: 'Space Grotesk'; font-size: 0.6rem;">
-                            <span>T-0 MIN</span>
-                            <span style="color: var(--strawberry); font-weight: 800;">-24% PEAK REDUCTION</span>
-                            <span>T-120 MIN</span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800;">
+                            <span>T+0 MIN</span>
+                            <span style="color: var(--strawberry);">24% REDUCTION</span>
+                            <span>T+120 MIN</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_05 // INTERVENTION</span>
                     <h4 style="color: var(--strawberry);">Glycemic Damping</h4>
                     <p>
@@ -293,15 +360,15 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
-                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--blue);">
+                <div style="text-align: center;" class="animate-on-scroll">
+                    <div class="stat-card pulse-stat" style="display: inline-block; box-shadow: 15px 15px 0 var(--blue);">
                         <b style="font-family: 'Bricolage Grotesque'; font-size: 6.5rem; line-height: 1;">+ 2.2x</b>
                         <p style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 3px; font-weight: 800; margin-top: 1rem;">BUTYRATE YIELD</p>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_06 // SCFA CASCADE</span>
                     <h4 style="color: var(--blue);">The Colonic Harvest</h4>
                     <p>
@@ -322,15 +389,15 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="animate-on-scroll">
                     <div style="padding: 2rem; border: 2px solid #000; border-radius: 40px; background: #000; color: #fff; box-shadow: 10px 10px 0 var(--blue);">
-                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem;">ENTERO-CEREBRAL SIGNALING</h4>
+                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem; font-weight: 800;">ENTERO-CEREBRAL SIGNALING</h4>
                         <div style="font-family: 'Bricolage Grotesque'; font-size: 3rem; line-height: 0.9;">VAGAL<br>INTERCEPTION.</div>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_07 // NEURO-TUNING</span>
                     <h4 style="color: var(--blue);">The Vagal Highway</h4>
                     <p>
@@ -351,15 +418,15 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
-                    <div class="stat-card" style="display: inline-block; background: #000; color: #fff; box-shadow: 15px 15px 0 var(--strawberry);">
+                <div style="text-align: center;" class="animate-on-scroll">
+                    <div class="stat-card pulse-stat" style="display: inline-block; background: #000; color: #fff; box-shadow: 15px 15px 0 var(--strawberry);">
                         <b style="font-family: 'Bricolage Grotesque'; font-size: 5rem; line-height: 1; color: var(--accent-green);">100%</b>
                         <p style="font-family: 'Space Grotesk'; font-size: 0.75rem; letter-spacing: 2px; margin-top: 1rem;">SURVIVAL IN ETHANOL (C₂H₅OH)</p>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_08 // LIFESTYLE ADAPTABILITY</span>
                     <h4 style="color: var(--strawberry);">Social Consumption Resilience</h4>
                     <p>
@@ -380,29 +447,29 @@
             
             <div class="slide-grid">
                 <!-- Visual Component: KINETIC TIMELINE -->
-                <div style="text-align: center; padding: 0 5%;">
+                <div style="text-align: center; padding: 0 5%;" class="animate-on-scroll">
                     <h4 style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 3rem; font-weight: 800;">ENTERO-CEREBRAL KINETICS</h4>
                     
                     <div style="position: relative; width: 100%; height: 10px; background: #eee; border-radius: 5px; margin: 4rem 0;">
                         <!-- Progress Bar -->
-                        <div style="position: absolute; top: 0; left: 0; width: 85%; height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent-green)); border-radius: 5px;"></div>
+                        <div class="draw-me" style="position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent-green)); border-radius: 5px; transition: width 2s cubic-bezier(0.2, 0.8, 0.2, 1);"></div>
                         
                         <!-- Milestones -->
-                        <div style="position: absolute; top: -15px; left: 5%; display: flex; flex-direction: column; align-items: center;">
+                        <div style="position: absolute; top: -15px; left: 5%; display: flex; flex-direction: column; align-items: center;" class="animate-on-scroll delay-1">
                             <div style="width: 2px; height: 30px; background: #000;"></div>
                             <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+15M // VAGAL</span>
                         </div>
-                        <div style="position: absolute; top: -15px; left: 40%; display: flex; flex-direction: column; align-items: center;">
+                        <div style="position: absolute; top: -15px; left: 40%; display: flex; flex-direction: column; align-items: center;" class="animate-on-scroll delay-2">
                             <div style="width: 2px; height: 30px; background: #000;"></div>
                             <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+120M // GLYCEMIC</span>
                         </div>
-                        <div style="position: absolute; top: -15px; left: 85%; display: flex; flex-direction: column; align-items: center;">
+                        <div style="position: absolute; top: -15px; left: 85%; display: flex; flex-direction: column; align-items: center;" class="animate-on-scroll delay-3">
                             <div style="width: 2px; height: 30px; background: #000;"></div>
                             <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+360M // PEAK YIELD</span>
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 5rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 5rem;" class="animate-on-scroll delay-3">
                         <div style="text-align: left; border-left: 3px solid var(--blue); padding-left: 1rem;">
                             <b style="font-family: 'Bricolage Grotesque'; font-size: 2rem;">94%</b>
                             <p style="font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 1px; color: #666;">FIBER UTILIZATION EFFICIENCY</p>
@@ -415,7 +482,7 @@
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_09 // PSYCHOBIOTIC KINETICS</span>
                     <h4 style="color: var(--blue);">The Kinetic Response</h4>
                     <p>
@@ -436,15 +503,15 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
-                    <div class="stat-card" style="display: inline-block; color: #000; box-shadow: 15px 15px 0 var(--accent-green);">
+                <div style="text-align: center;" class="animate-on-scroll">
+                    <div class="stat-card pulse-stat" style="display: inline-block; color: #000; box-shadow: 15px 15px 0 var(--accent-green);">
                         <b style="font-family: 'Bricolage Grotesque'; font-size: 5rem; line-height: 1;">PEAK</b>
                         <p style="font-family: 'Space Grotesk'; font-size: 0.75rem; letter-spacing: 2px; margin-top: 1rem;">MICROBIAL RICHNESS</p>
                     </div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--accent-green);">
+                <div class="tech-annotation animate-on-scroll delay-1" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--accent-green);">
                     <span class="tagline" style="color: var(--accent-green);">M_10 // ECOSYSTEM BALANCE</span>
                     <h4 style="color: var(--white);">Diversity Restoration</h4>
                     <p style="color: #ccc;">
@@ -465,14 +532,14 @@
             
             <div class="slide-grid" style="grid-template-columns: 1fr 1fr;">
                 <!-- Visual Component -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="animate-on-scroll">
                     <div class="stat-card" style="padding: 1.5rem;"><b style="font-size: 2.5rem;">-50%</b><p style="font-size: 0.6rem;">BLOAT REDUCTION</p></div>
                     <div class="stat-card" style="padding: 1.5rem;"><b style="font-size: 2.5rem;">10x</b><p style="font-size: 0.6rem;">COLONIZATION</p></div>
                     <div class="stat-card" style="padding: 1.5rem; grid-column: span 2;"><b style="font-size: 2.5rem;">-24%</b><p style="font-size: 0.6rem;">GLUCOSE SPIKE DAMPING</p></div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_11 // THE MONOLITH</span>
                     <h4 style="color: var(--blue);">Clinical Trial NCT06644001</h4>
                     <p>
@@ -493,13 +560,13 @@
             
             <div class="slide-grid">
                 <!-- Visual Component -->
-                <div style="text-align: center;">
+                <div style="text-align: center;" class="animate-on-scroll">
                     <h2 style="font-size: 4rem;">Evidence<br>Log.</h2>
                     <div style="margin-top: 2rem; font-family: 'Space Grotesk'; font-size: 0.6rem; opacity: 0.5;">[ DOWNLOAD FULL DOSSIER ]</div>
                 </div>
 
                 <!-- Narrative Component -->
-                <div class="tech-annotation">
+                <div class="tech-annotation animate-on-scroll delay-1">
                     <span class="tagline">M_12 // VALIDATION</span>
                     <h4 style="color: var(--black);">Peer-Reviewed Foundation</h4>
                     <p>
@@ -515,14 +582,14 @@
         </section>
 
         <!-- SLIDE 13: THE VISION -->
-        <section class="slide" style="background: var(--black); color: var(--white);">
+            <section class="slide" style="background: var(--black); color: var(--white);">
             <div class="blueprint-overlay" style="opacity: 0.1;"></div>
             <div style="text-align: center; z-index: 20;">
-                <h1 style="font-size: 6.5rem; color: #fff;">Soda's Back.<br>But Better.</h1>
-                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 2rem;">
+                <h1 style="font-size: 6.5rem; color: #fff;" class="animate-on-scroll glow-breath pulse-stat">Soda's Back.<br>But Better.</h1>
+                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 2rem;" class="animate-on-scroll delay-2">
                     <a href="formulation.html" style="padding: 1rem 2rem; border: 1px solid var(--accent-green); color: var(--accent-green); font-family: 'Space Grotesk'; font-size: 0.8rem; text-decoration: none; letter-spacing: 2px;">RETURN TO CLINICAL DOSSIER</a>
                 </div>
-                <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 5px; margin-top: 3rem; opacity: 0.3;">
+                <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 5px; margin-top: 3rem; opacity: 0.3;" class="animate-on-scroll delay-3">
                     POP CLTR // THE FUTURE OF METABOLIC SOFT DRINKS
                 </p>
             </div>
@@ -548,6 +615,24 @@
             dot.addEventListener('click', () => {
                 container.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' });
             });
+        });
+
+        /* --- INTERSECTION OBSERVER --- */
+        const observerOptions = {
+            root: container,
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .draw-me').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
