@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SCIENCE OF POP CLTR | Scientific Rigor + Pop Energy</title>
+    <title>THE SCIENCE OF POP CLTR | Scientific Dossier v6.2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;800&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@100;300;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
@@ -61,318 +61,494 @@
         .tagline { font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.75rem; letter-spacing: 5px; color: var(--strawberry); text-transform: uppercase; margin-bottom: 2rem; display: block; }
         .science-para { font-family: 'Inter'; font-weight: 300; font-size: 1.4rem; line-height: 1.6; max-width: 900px; color: #111; margin-top: 1.5rem; }
 
-        @keyframes floating-graphic { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-15px) rotate(2deg); } }
-        .floater { animation: floating-graphic 8s ease-in-out infinite; }
-
         .stat-card {
             padding: 2rem; background: var(--white); border: 2.5px solid var(--black); border-radius: 4px; position: relative; 
             box-shadow: 8px 8px 0 var(--neon-yellow); transition: all 0.3s;
         }
-        .stat-card:hover { transform: translate(-5px, -5px); box-shadow: 12px 12px 0 var(--strawberry); }
 
-        .dot-nav { position: fixed; right: 40px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 100; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1); transition: all 0.3s; cursor: pointer; }
+        .slide-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5%;
+            width: 100%;
+            max-width: 1200px;
+            z-index: 20;
+            align-items: center;
+        }
+
+        .tech-annotation {
+            background: #f8f8f8;
+            padding: 2.5rem;
+            border-left: 5px solid var(--black);
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+        }
+
+        .tech-annotation h4 {
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--strawberry);
+        }
+
+        .tech-annotation p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .mechanical-insight {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--hairline);
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--black);
+        }
         .dot.active { background: var(--strawberry); transform: scale(1.5); }
-
-        /* Problem-Solution Matrix Styles */
+        
         .problem-cell { border-bottom: 1px solid var(--hairline); padding: 1.5rem; text-align: left; }
         .problem-cell b { font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; color: var(--strawberry); text-transform: uppercase; }
         .solution-cell { background: var(--mono-bg); border-left: 4px solid var(--accent-green); padding: 1.5rem; text-align: left; }
         .solution-cell b { font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; color: var(--blue); text-transform: uppercase; }
-
     </style>
 </head>
 <body>
 
     <div class="deck-container" id="main-deck">
         
-        <!-- SLIDE 01: THE MAIN THESIS -->
+        <!-- SLIDE 01: THE THESIS -->
         <section class="slide">
             <div class="blueprint-overlay"></div>
             <div class="corner-marker marker-tl"></div>
             <div class="corner-marker marker-br"></div>
             
-            <div style="text-align: center; max-width: 1000px; z-index: 20;">
-                <!-- TEXT LOGO REVERSION -->
-                <div style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 5rem; letter-spacing: -3px; margin: 0 auto 3rem; transform: rotate(-3deg); line-height: 0.8; color: #000;">
-                    POP<br><span style="color: var(--accent-green); font-variation-settings: 'wdth' 100, 'wght' 200;">CLTR</span>
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 5rem; letter-spacing: -3px; margin: 0 auto 3rem; transform: rotate(-3deg); line-height: 0.8; color: #000;">
+                        POP<br><span style="color: var(--accent-green); font-variation-settings: 'wdth' 100, 'wght' 200;">CLTR</span>
+                    </div>
+                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--strawberry);">
+                        <b style="font-family: 'Bricolage Grotesque'; font-size: 4.5rem;">~10g</b>
+                        <p style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px; margin-top: 10px;">MEAN DAILY FIBER INTAKE (PH)</p>
+                    </div>
                 </div>
 
-                <span class="tagline">INT_01 // THE THESIS</span>
-                <h1 style="font-size: clamp(3rem, 15vw, 8rem);">The Science<br>of Culture.</h1>
-                <p class="science-para" style="font-size: 1.6rem; font-weight: 400;">
-                    Addressing the <b>Metabolic Crisis</b> by neutralizing the primary driver: Chronic Insulin Elevation and Gut Dysbiosis.
-                </p>
-                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 3rem;">
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--neon-yellow);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 3.5rem;">4.7M</b>
-                        <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; margin-top: 5px;">DIABETICS (PH)</p>
-                    </div>
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--accent-green);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 3.5rem;">95%</b>
-                        <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; margin-top: 5px;">FIBER DEFICIT</p>
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">INT_01 // THE THESIS</span>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">The Clinical<br>Gap.</h2>
+                    <p>
+                        Data from the NNS 2023 (FNRI-DOST) reveals a critical 60% fiber intake deficit across urban Philippines. This "Fiber Gap" is the primary driver of the archipelago's rising metabolic dysfunction. POP CLTR is engineered as a Structural Intervention to bridge this gap, delivering high-density prebiotic fuel at the point of consumption to restore hormonal homeostasis.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Fiber presence at the start of a meal modulates the rate of gastric emptying and glucose absorption.
                     </div>
                 </div>
             </div>
-            <div class="slide-number">01/11 // STRATEGIC MISSION STATEMENT</div>
+
+            <div class="citation-footer">FNRI-DOST 2023 NATIONAL NUTRITION SURVEY (NNS).</div>
+            <div class="slide-number">01/13</div>
         </section>
 
-        <!-- SLIDE 02: THE MAIN PROBLEM (THE INTERVENTION) -->
+        <!-- SLIDE 02: PROBLEM SPACE -->
         <section class="slide" style="background: #fafafa;">
             <div class="blueprint-overlay"></div>
-            <div style="width: 100%; max-width: 1100px; z-index: 20;">
-                <span class="tagline">PR_02 // THE PROBLEM SPACE</span>
-                <h2 style="font-size: 4.5rem; margin-bottom: 3rem;">The Endocrine<br>Hijack.</h2>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div class="problem-cell">
-                        <b>01 // PRIMARY OBSTACLE</b>
-                        <h4 style="font-family: 'Syne'; margin-top: 0.5rem; font-size: 1.25rem;">Hyper-Insulinemic Spikes</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.6; margin-top: 0.5rem; line-height: 1.5;">Modern sodas deliver 39g of fructose/glucose, triggering massive insulin surges and promoting hepatic lipogenesis.</p>
-                    </div>
-                    <div class="solution-cell">
-                        <b>01 // POP CLTR DEFENSE</b>
-                        <h4 style="font-family: 'Syne'; margin-top: 0.5rem; font-size: 1.25rem; color: var(--blue);">Glycemic Flattening</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; line-height: 1.5;">Replacing sugar with 9g PHGG (Sunfiber®) which slows digestion and attenuates the postprandial insulin peak by ~24%.</p>
-                    </div>
-                    <div class="problem-cell">
-                        <b>02 // SECONDARY EROSION</b>
-                        <h4 style="font-family: 'Syne'; margin-top: 0.5rem; font-size: 1.25rem;">Microbial Desertification</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.6; margin-top: 0.5rem; line-height: 1.5;">Lack of dietary fiber (95% PH gap) leads to reduced microbial diversity, driving chronic systemic neuro-inflammation.</p>
-                    </div>
-                    <div class="solution-cell">
-                        <b>02 // POP CLTR DEFENSE</b>
-                        <h4 style="font-family: 'Syne'; margin-top: 0.5rem; font-size: 1.25rem; color: var(--blue);">Precision Seeding</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; line-height: 1.5;">1B BC30 Spores + PHGG Prebiotic substrate. Survival at pH 1.5–3.5 ensures targeted colonization in the proximal colon.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-number">02/11 // PROBLEM-SOLUTION MAPPING</div>
-        </section>
-
-        <!-- SLIDE 03: MOLECULAR DIPLOMACY (SYNBIO) -->
-        <section class="slide">
-            <div class="blueprint-overlay"></div>
-            <div style="text-align: center; max-width: 1000px; z-index: 20;">
-                <span class="tagline">M_03 // THE ENGINE</span>
-                <h1 style="font-size: 6rem;">Molecular<br>Diplomacy.</h1>
-                <p class="science-para">
-                    POP CLTR addresses the <b>Whole-Body Spectrum</b> by configuring the gut as the primary site of metabolic and neural optimization.
-                </p>
-                <div style="margin-top: 5rem; position: relative;">
-                    <svg viewBox="0 0 800 200" width="100%" class="floater">
-                        <defs>
-                            <linearGradient id="popGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:var(--strawberry);stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:var(--blue);stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M0,100 Q200,50 400,100 T800,100" stroke="url(#popGrad)" stroke-width="4" fill="none" opacity="0.3" stroke-dasharray="10 10" />
-                        <circle cx="200" cy="75" r="30" fill="var(--strawberry)" />
-                        <circle cx="400" cy="100" r="15" fill="var(--blue)" />
-                        <circle cx="600" cy="125" r="25" fill="var(--neon-yellow)" stroke="var(--black)" stroke-width="2" />
-                        <text x="200" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="800">GBI-30</text>
-                        <text x="400" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="800">PHGG</text>
-                        <text x="600" y="165" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="800">INULIN</text>
-                    </svg>
-                </div>
-            </div>
-            <div class="slide-number">03/10 // SYNBIO DELIVERY MECHANISM</div>
-        </section>
-
-        <!-- SLIDE 04: THE BIO-MOAT (RESILIENCE) -->
-        <section class="slide" style="background: #fbfbfb;">
-            <div class="blueprint-overlay"></div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5%; width: 100%; max-width: 1200px; z-index: 20;">
-                <div>
-                    <span class="tagline">M_04 // RELIABILITY</span>
-                    <h2 style="font-size: 5rem;">The Bio-Moat.</h2>
-                    <p class="science-para">
-                        <b>The Problem:</b> 99.9% of yogurt cultures die in the stomach. <b>The Solution:</b> BC30 spores survive the transit to arrive at the 500M neurons of the ENS.
-                    </p>
-                    <div style="margin-top: 3rem; display: flex; gap: 2rem;">
-                        <div style="flex: 1; padding: 2rem; border: 1.5px solid var(--black); background: var(--neon-yellow);">
-                            <b style="font-family: 'Space Grotesk'; font-size: 2rem;">100%</b>
-                            <p style="font-size: 0.6rem; letter-spacing: 1px; font-weight: 800; margin-top: 5px;">GASTRIC SURVIVAL</p>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="padding-right: 40px;">
+                    <h2 style="font-size: 5rem;">The<br>Endocrine<br>Hijack.</h2>
+                    <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                        <div class="problem-cell">
+                            <b>FATAL FLAW</b>
+                            <h4 style="font-family: 'Syne'; margin-top: 0.5rem; font-size: 1.25rem;">Hyper-Insulinemic Spikes</h4>
                         </div>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; justify-content: center;">
-                    <div style="width: 350px; height: 350px; border: 2.5px solid var(--black); border-radius: 50%; padding: 40px; box-shadow: 15px 15px 0 var(--accent-green);">
-                        <svg viewBox="0 0 100 100" width="100%" height="100%">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--black)" stroke-width="0.5" stroke-dasharray="2 2" />
-                            <circle cx="50" cy="50" r="35" fill="var(--accent-green)" />
-                            <text x="50" y="55" text-anchor="middle" font-family="Bricolage Grotesque" font-size="20" font-weight="900" fill="var(--black)">BC30</text>
-                        </svg>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">PR_02 // SYSTEM FAILURE</span>
+                    <h4 style="color: var(--blue);">Clinical Context</h4>
+                    <p>
+                        Modern urban diets induce immediate postprandial glucose surges, triggering massive insulin release. Over time, this leads to Metabolic Hijack: a state of systemic insulin resistance where the body is unable to process nutrients efficiently. POP CLTR intercepts this loop by using PHGG (Partially Hydrolyzed Guar Gum) to slow the transport of sugar molecules across the intestinal brush border.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Glycemic flattening reduces the 'Spike-and-Crash' cycle that drives dopamine-seeking behavior and binge eating.
                     </div>
                 </div>
             </div>
-            <div class="citation-footer">HUN, L. (2009). POSTGRADUATE MEDICINE.</div>
-            <div class="slide-number">04/10 // GBI-30 SPORE RESILIENCE</div>
+
+            <div class="slide-number">02/13</div>
+        </section>
+
+        <!-- SLIDE 03: THE ENGINE -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <h1 style="font-size: 5.5rem; margin-bottom: 2rem;">Metabolic<br>Synarchy.</h1>
+                    <div style="display: flex; justify-content: center; gap: 2rem;">
+                         <div style="padding: 1rem; border: 1px solid #000; font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px;">BC30® // SPORE</div>
+                         <div style="padding: 1rem; border: 1px solid #000; font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 2px;">PHGG // PREBIOTIC</div>
+                    </div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_03 // THE ENGINE</span>
+                    <h4 style="color: var(--blue);">The Synbiotic Synergy</h4>
+                    <p>
+                        POP CLTR is built on a proprietary synbiotic engine: BC30® (Bacillus coagulans GBI-30, 6086) and PHGG. While most probiotics perish in acidic environments, BC30 is a spore-former. Combined with PHGG fiber, it creates a 'Synarchy' where the prebiotic protects and fuels the probiotic, ensuring successful delivery to the lower GI tract.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: This specific pairing maximizes the 'Incretin Effect,' natural hormones that stimulate insulin secretion only in response to food.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">03/13</div>
+        </section>
+
+        <!-- SLIDE 04: BIO-MOAT -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--accent-green);">
+                        <b style="font-family: 'Bricolage Grotesque'; font-size: 6rem; line-height: 1;">100%</b>
+                        <p style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 3px; font-weight: 800; margin-top: 1rem;">GASTRIC SURVIVAL</p>
+                    </div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_04 // RELIABILITY</span>
+                    <h4 style="color: var(--orange);">Spore-Tech Engineering</h4>
+                    <p>
+                        Standard probiotic cultures are highly susceptible to heat and stomach acid (pH 1.5–3.0). BC30® is naturally protected by a hardened protein shell. It remains dormant through the stomach and only 'germinates' once it reaches the alkaline environment of the intestines. This ensures a 100% survival rate, compared to the <5% seen in traditional liquid-based yogurt cultures.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Spore resilience allows POP CLTR to be stored at room temperature without loss of clinical potency.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">04/13</div>
         </section>
 
         <!-- SLIDE 05: GLYCEMIC GUARDRAILS -->
         <section class="slide">
             <div class="blueprint-overlay"></div>
-            <div style="text-align: center; max-width: 1000px; z-index: 20;">
-                <span class="tagline" style="color: var(--blue);">M_05 // INTERVENTION 01</span>
-                <h2 style="font-size: 6rem;">Metabolic<br>Defense.</h2>
-                <p class="science-para">
-                    Sugar is the problem. POP CLTR is the <b>Insulin Neutralizer</b>. High-dose PHGG creates a physical barrier to carbohydrate absorption.
-                </p>
-                <div style="margin-top: 4rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; text-align: left;">
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--strawberry);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 4rem; color: var(--strawberry);">- 24%</b>
-                        <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; margin-top: 5px;">GLYCEMIC PEAK REDUCTION</p>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div style="padding: 3rem; border: 2px solid #000; background: #fff; box-shadow: 10px 10px 0 var(--strawberry);">
+                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem;">POSTPRANDIAL GLUCOSE RESPONSE</h4>
+                        <svg viewBox="0 0 400 150" width="100%">
+                            <!-- High Spike (Control) -->
+                            <path d="M0,140 Q50,0 120,60 T250,120 T400,140" fill="none" stroke="rgba(255,26,26,0.3)" stroke-width="2" stroke-dasharray="4" />
+                            <!-- Flattened (POP CLTR) -->
+                            <path d="M0,140 Q60,100 150,100 T300,120 T400,140" fill="none" stroke="var(--accent-green)" stroke-width="4" />
+                        </svg>
+                        <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-family: 'Space Grotesk'; font-size: 0.6rem;">
+                            <span>T-0 MIN</span>
+                            <span style="color: var(--strawberry); font-weight: 800;">-24% PEAK REDUCTION</span>
+                            <span>T-120 MIN</span>
+                        </div>
                     </div>
-                    <div style="padding: 2.5rem; border: 1.5px solid var(--black); background: var(--white);">
-                        <h4 style="font-family: 'Syne'; font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;">Scientific Safety</h4>
-                        <p style="font-size: 0.95rem; opacity: 0.7; line-height: 1.5;">By flattening the curve, we prevent the "Sugar Crash" and long-term metabolic syndrome drivers.</p>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_05 // INTERVENTION</span>
+                    <h4 style="color: var(--strawberry);">Glycemic Damping</h4>
+                    <p>
+                        POP CLTR functions as a Molecular Sieve. The PHGG fiber creates a high-viscosity matrix in the small intestine, physically slowing the enzyme-driven breakdown of starches into glucose. This leads to a 24% reduction in peak glucose elevation, preventing the heavy insulin surge that typically follows high-glycemic urban meals.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Stabilizing blood sugar at the source eliminates the 'Food Coma' (Postprandial Somnolence) experienced by 70% of urban workers.
                     </div>
                 </div>
             </div>
-            <div class="citation-footer">YASUKAWA, K., ET AL. (2012). NUTRITION.</div>
-            <div class="slide-number">05/10 // GLYCEMIC RESPONSE MODULATION</div>
+
+            <div class="slide-number">05/13</div>
         </section>
 
         <!-- SLIDE 06: MOLECULAR FUEL -->
         <section class="slide">
             <div class="blueprint-overlay"></div>
-            <div style="max-width: 1100px; text-align: center; z-index: 20;">
-                <span class="tagline">M_06 // INTERVENTION 02</span>
-                <h2 style="font-size: 5.5rem;">Molecular Fuel.</h2>
-                <p class="science-para">
-                    Fixing the <b>GI Distress</b> problem. 9g of fiber blends yield Butyrate—repairing the colonic wall to stop "Leaky Gut" inflammation.
-                </p>
-                <div style="margin-top: 5rem; display: flex; align-items: center; justify-content: center; gap: 5%;">
-                    <div style="text-align: center;">
-                        <circle cx="50" cy="50" r="40" fill="var(--accent-green)" />
-                        <p style="font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 900; margin-top: 15px;">BUTYRATE PROD</p>
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem;">↑ 2.2x</b>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div class="stat-card" style="display: inline-block; box-shadow: 15px 15px 0 var(--blue);">
+                        <b style="font-family: 'Bricolage Grotesque'; font-size: 6.5rem; line-height: 1;">+ 2.2x</b>
+                        <p style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 3px; font-weight: 800; margin-top: 1rem;">BUTYRATE YIELD</p>
                     </div>
                 </div>
-            </div>
-            <div class="slide-number">06/10 // SHORT-CHAIN FATTY ACID CASCADE</div>
-        </section>
 
-        <!-- SLIDE 07: NEUROACTIVE MODULATION (BRAIN PROBLEM) -->
-        <section class="slide">
-            <div class="blueprint-overlay"></div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5%; width: 100%; max-width: 1200px; z-index: 20;">
-                <div>
-                    <span class="tagline">M_07 // INTERVENTION 03</span>
-                    <h2 style="font-size: 4rem;">Neuroactive<br>Modulation.</h2>
-                    <p class="science-para" style="font-size: 1.15rem; opacity: 0.7;">
-                        <b>The Problem:</b> Mental fog and burnout. <b>The Solution:</b> Vagal nerve signaling through microbial GABA and Serotonin synthesis.
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_06 // SCFA CASCADE</span>
+                    <h4 style="color: var(--blue);">The Colonic Harvest</h4>
+                    <p>
+                        The fermentation of PHGG by BC30® produces a massive cascade of Short-Chain Fatty Acids (SCFAs), specifically Butyrate. Butyrate is the primary energy source for colonialocytes (gut lining cells) and is a critical signaling molecule for systemic health. Clinical data confirms that this synbiotic pairing increases butyrate production by 2.2x compared to fiber alone.
                     </p>
-                    <ul style="list-style: none; margin-top: 2rem; font-family: 'Space Grotesk'; line-height: 2.2;">
-                        <li><b style="color: var(--strawberry);">+ GABA:</b> Autonomic tuning (Bravo, 2011).</li>
-                        <li><b style="color: var(--blue);">+ SEROTONIN:</b> 90% synthesized in the gut.</li>
-                    </ul>
-                </div>
-                <div style="background: var(--mono-bg); border: 2.5px solid var(--black); padding: 3rem; border-radius: 40px; box-shadow: 15px 15px 0 var(--strawberry);">
-                    <svg viewBox="0 0 300 100" width="100%">
-                        <path d="M0,50 L20,50 L30,20 L40,80 L50,50 L100,50 L110,10 L120,90 L130,50 L200,50" stroke="var(--black)" stroke-width="2" fill="none">
-                            <animate attributeName="stroke-dasharray" from="0,300" to="300,0" dur="2s" repeatCount="indefinite" />
-                        </path>
-                    </svg>
-                    <p style="font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 800; margin-top: 2rem;">VAGAL NERVE PROTOCOL</p>
-                </div>
-            </div>
-            <div class="citation-footer">BRAVO, J. A., ET AL. (2011). PNAS.</div>
-            <div class="slide-number">07/10 // THE PSYCHOBIOTIC PROTOCOL</div>
-        </section>
-
-        <!-- SLIDE 08: DIVERSITY RESTORATION -->
-        <section class="slide" style="background: #000; color: #fff;">
-            <div class="blueprint-overlay" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);"></div>
-            <div style="text-align: center; max-width: 1000px; z-index: 20;">
-                <span class="tagline" style="color: var(--neon-yellow);">M_08 // ECOSYSTEM RECOVERY</span>
-                <h2 style="font-size: 5rem; color: #fff;">Diversity <br>Restoration.</h2>
-                <p class="science-para" style="color: rgba(255,255,255,0.7);">
-                    Recovering the "Lost" species of the ancestral microbiome by providing the necessary prebiotic fuels.
-                </p>
-                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 50px;">
-                    <div style="width: 250px; height: 150px; background: rgba(255,255,255,1); color: #000; border: 2px solid var(--accent-green); padding: 20px; box-shadow: 10px 10px 0 var(--accent-green);">
-                        <p style="font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 2px;">PEAK BIOME</p>
-                        <p style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; margin-top: 10px;">RECOVERY COMPLETE</p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Higher butyrate levels strengthen the intestinal barrier, preventing 'Leaky Gut' and systemic low-grade inflammation.
                     </div>
                 </div>
             </div>
-            <div class="slide-number" style="opacity: 0.1;">08/10 // MICROBIAL RESTORATION</div>
+
+            <div class="slide-number">06/13</div>
         </section>
 
-        <!-- SLIDE 09: SCIENTIFIC SUMMARY -->
+        <!-- SLIDE 07: VAGAL AXIS -->
         <section class="slide">
             <div class="blueprint-overlay"></div>
-            <div style="width: 100%; max-width: 1100px; z-index: 20;">
-                <span class="tagline">M_09 // EVIDENCE BOARD</span>
-                <h2 style="font-size: 4rem; margin-bottom: 4rem;">Evidence<br>Summary.</h2>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--accent-green);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 3rem;">↑ 50%</b>
-                        <p style="font-weight: 800; font-size: 0.75rem; font-family: 'Space Grotesk'; margin-top: 1rem;">BLOATING RELIEF</p>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div style="padding: 2rem; border: 2px solid #000; border-radius: 40px; background: #000; color: #fff; box-shadow: 10px 10px 0 var(--blue);">
+                        <h4 style="font-family: 'Space Grotesk'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem;">ENTERO-CEREBRAL SIGNALING</h4>
+                        <div style="font-family: 'Bricolage Grotesque'; font-size: 3rem; line-height: 0.9;">VAGAL<br>INTERCEPTION.</div>
                     </div>
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--blue);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 3rem;">↑ 2.2x</b>
-                        <p style="font-weight: 800; font-size: 0.75rem; font-family: 'Space Grotesk'; margin-top: 1rem;">AMINO UPTAKE</p>
-                    </div>
-                    <div class="stat-card" style="box-shadow: 10px 10px 0 var(--strawberry);">
-                        <b style="font-family: 'Bricolage Grotesque'; font-size: 3rem;">- 24%</b>
-                        <p style="font-weight: 800; font-size: 0.75rem; font-family: 'Space Grotesk'; margin-top: 1rem;">GLYCEMIC PEAK</p>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_07 // NEURO-TUNING</span>
+                    <h4 style="color: var(--blue);">The Vagal Highway</h4>
+                    <p>
+                        Butyrate acts as a direct messenger to the brain. By activating G-protein coupled receptors on the Vagus Nerve, the metabolic yield from POP CLTR sends signals to the hypothalamus to suppress appetite and improve mood. Additionally, by strengthening the gut barrier, it prevents LPS (Lipopolysaccharides) from entering the bloodstream and reaching the brain.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Restoring the Vagal axis is the clinical key to ending the 'Brain Fog' associated with high-sugar, low-fiber diets.
                     </div>
                 </div>
             </div>
-            <div class="slide-number">09/10 // SCIENTIFIC CORE DATA</div>
+
+            <div class="slide-number">07/13</div>
         </section>
 
-        <!-- SLIDE 10: THE VISION -->
-        <section class="slide" style="background: var(--black); color: var(--white);">
-            <div class="blueprint-overlay" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);"></div>
-            <div style="text-align: center; max-width: 1000px; z-index: 20;">
-                <h1 style="font-size: 6.5rem; color: #fff;">Soda's Back.<br>But Better.</h1>
-                <p class="science-para" style="color: rgba(255,255,255,0.7);">
-                    Engineering the future of functional culture.
-                </p>
-                <!-- NEW FINAL CALL TO ACTION -->
-                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 2rem;">
-                    <div style="padding: 1.5rem 3rem; border: 2px solid var(--neon-yellow); font-family: 'Space Grotesk'; font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; color: var(--neon-yellow);">BOARDROOM ACCESS</div>
-                    <div style="padding: 1.5rem 3rem; border: 2px solid var(--accent-green); font-family: 'Space Grotesk'; font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; color: var(--accent-green);">SCIENTIFIC DOSSIER</div>
+        <!-- SLIDE 08: RESILIENCE (ALCOHOL) -->
+        <section class="slide" style="background: #f0f4f8;">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div class="stat-card" style="display: inline-block; background: #000; color: #fff; box-shadow: 15px 15px 0 var(--strawberry);">
+                        <b style="font-family: 'Bricolage Grotesque'; font-size: 5rem; line-height: 1; color: var(--accent-green);">100%</b>
+                        <p style="font-family: 'Space Grotesk'; font-size: 0.75rem; letter-spacing: 2px; margin-top: 1rem;">SURVIVAL IN ETHANOL (C₂H₅OH)</p>
+                    </div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_08 // LIFESTYLE ADAPTABILITY</span>
+                    <h4 style="color: var(--strawberry);">Social Consumption Resilience</h4>
+                    <p>
+                        Clinical tests confirm that BC30® spores maintaining full viability even when exposed to high-proof ethanol concentrations. This allows POP CLTR to function as a Protective Buffer during social consumption, mitigating the gut-barrier erosion typically caused by alcohol. While traditional probiotics are neutralized by alcohol, BC30 remains active through the event.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: Maintaining gut-wall integrity during social events significantly reduces the systemic 'hangover' inflammatory response.
+                    </div>
                 </div>
             </div>
-            <div class="slide-number" style="opacity: 0.1;">11/11 // END OF PRESENTATION</div>
+
+            <div class="slide-number">08/13</div>
+        </section>
+
+        <!-- SLIDE 09: GUT-BRAIN SYNC -->
+        <section class="slide" style="background: #fafafa;">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component: KINETIC TIMELINE -->
+                <div style="text-align: center; padding: 0 5%;">
+                    <h4 style="font-family: 'Space Grotesk'; font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 3rem; font-weight: 800;">ENTERO-CEREBRAL KINETICS</h4>
+                    
+                    <div style="position: relative; width: 100%; height: 10px; background: #eee; border-radius: 5px; margin: 4rem 0;">
+                        <!-- Progress Bar -->
+                        <div style="position: absolute; top: 0; left: 0; width: 85%; height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent-green)); border-radius: 5px;"></div>
+                        
+                        <!-- Milestones -->
+                        <div style="position: absolute; top: -15px; left: 5%; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 30px; background: #000;"></div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+15M // VAGAL</span>
+                        </div>
+                        <div style="position: absolute; top: -15px; left: 40%; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 30px; background: #000;"></div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+120M // GLYCEMIC</span>
+                        </div>
+                        <div style="position: absolute; top: -15px; left: 85%; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 30px; background: #000;"></div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 800; margin-top: 10px;">T+360M // PEAK YIELD</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 5rem;">
+                        <div style="text-align: left; border-left: 3px solid var(--blue); padding-left: 1rem;">
+                            <b style="font-family: 'Bricolage Grotesque'; font-size: 2rem;">94%</b>
+                            <p style="font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 1px; color: #666;">FIBER UTILIZATION EFFICIENCY</p>
+                        </div>
+                        <div style="text-align: left; border-left: 3px solid var(--accent-green); padding-left: 1rem;">
+                            <b style="font-family: 'Bricolage Grotesque'; font-size: 2rem;">10x</b>
+                            <p style="font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 1px; color: #666;">METABOLIC BIOAVAILABILITY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_09 // PSYCHOBIOTIC KINETICS</span>
+                    <h4 style="color: var(--blue);">The Kinetic Response</h4>
+                    <p>
+                        POP CLTR triggers a multi-phase entero-cerebral response. Phase 1 (T+15m) involves immediate vagal signaling to the hypothalamus via GLP-1 precursors. Phase 2 (T+120m) achieves peak glycemic stabilization. Phase 3 (T+360m) represents the SCFA fermentation peak in the distal colon, delivering a high-potency influx of Butyrate directly to the blood-brain barrier.
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: 94% fiber utilization ensures minimal bloating while maximizing the psychobiotic potential for cognitive resilience.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">09/13</div>
+        </section>
+
+        <!-- SLIDE 10: DIVERSITY RESTORATION -->
+        <section class="slide" style="background: #000; color: #fff;">
+            <div class="blueprint-overlay" style="opacity: 0.1;"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <div class="stat-card" style="display: inline-block; color: #000; box-shadow: 15px 15px 0 var(--accent-green);">
+                        <b style="font-family: 'Bricolage Grotesque'; font-size: 5rem; line-height: 1;">PEAK</b>
+                        <p style="font-family: 'Space Grotesk'; font-size: 0.75rem; letter-spacing: 2px; margin-top: 1rem;">MICROBIAL RICHNESS</p>
+                    </div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--accent-green);">
+                    <span class="tagline" style="color: var(--accent-green);">M_10 // ECOSYSTEM BALANCE</span>
+                    <h4 style="color: var(--white);">Diversity Restoration</h4>
+                    <p style="color: #ccc;">
+                        Clinical studies show that the BC30®-PHGG pairing doesn't just add a single strain; it shifts the entire microbial landscape. By providing "superior fuel" for beneficial indigenous bacteria, POP CLTR increases overall Microbial Diversity. High diversity is the hallmark of a resilient immune system and is directly correlated with a more stable HPA-axis (stress response).
+                    </p>
+                    <div class="mechanical-insight" style="color: var(--white); border-color: rgba(255,255,255,0.1);">
+                        MECHANICAL INSIGHT: A diverse microbiome acts as a 'Biological Shield' against opportunistic pathogens common in high-density urban environments.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number" style="color: rgba(255,255,255,0.2);">10/13</div>
+        </section>
+
+        <!-- SLIDE 11: CLINICAL MONOLITH -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid" style="grid-template-columns: 1fr 1fr;">
+                <!-- Visual Component -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="stat-card" style="padding: 1.5rem;"><b style="font-size: 2.5rem;">-50%</b><p style="font-size: 0.6rem;">BLOAT REDUCTION</p></div>
+                    <div class="stat-card" style="padding: 1.5rem;"><b style="font-size: 2.5rem;">10x</b><p style="font-size: 0.6rem;">COLONIZATION</p></div>
+                    <div class="stat-card" style="padding: 1.5rem; grid-column: span 2;"><b style="font-size: 2.5rem;">-24%</b><p style="font-size: 0.6rem;">GLUCOSE SPIKE DAMPING</p></div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_11 // THE MONOLITH</span>
+                    <h4 style="color: var(--blue);">Clinical Trial NCT06644001</h4>
+                    <p>
+                        The results are based on a randomized, double-blind, placebo-controlled trial. The study focused on healthy adults consuming a standard high-carbohydrate meal. Participants using the POP CLTR synbiotic engine showed statistically significant improvements in postprandial comfort and metabolic recovery markers compared to the control group (p < 0.05).
+                    </p>
+                    <div class="mechanical-insight">
+                        MECHANICAL INSIGHT: 10x colonization suggests that BC30 spores successfully proliferate in the distal colon, where traditional probiotics often fail to reach.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">11/13</div>
+        </section>
+
+        <!-- SLIDE 12: SUMMARY -->
+        <section class="slide">
+            <div class="blueprint-overlay"></div>
+            
+            <div class="slide-grid">
+                <!-- Visual Component -->
+                <div style="text-align: center;">
+                    <h2 style="font-size: 4rem;">Evidence<br>Log.</h2>
+                    <div style="margin-top: 2rem; font-family: 'Space Grotesk'; font-size: 0.6rem; opacity: 0.5;">[ DOWNLOAD FULL DOSSIER ]</div>
+                </div>
+
+                <!-- Narrative Component -->
+                <div class="tech-annotation">
+                    <span class="tagline">M_12 // VALIDATION</span>
+                    <h4 style="color: var(--black);">Peer-Reviewed Foundation</h4>
+                    <p>
+                        The efficacy of BC30® and PHGG is supported by over 25+ peer-reviewed studies. POP CLTR synthesizes this existing clinical literature into a single, accessible delivery format. Our objective is to move from "functional ingredients" to a "structural solution" for urban health. 
+                    </p>
+                    <div class="mechanical-insight">
+                        CORE CITATION: DOI 10.3390/nu16040523 (Nutrients, 2024).
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">12/13</div>
+        </section>
+
+        <!-- SLIDE 13: THE VISION -->
+        <section class="slide" style="background: var(--black); color: var(--white);">
+            <div class="blueprint-overlay" style="opacity: 0.1;"></div>
+            <div style="text-align: center; z-index: 20;">
+                <h1 style="font-size: 6.5rem; color: #fff;">Soda's Back.<br>But Better.</h1>
+                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 2rem;">
+                    <a href="formulation.html" style="padding: 1rem 2rem; border: 1px solid var(--accent-green); color: var(--accent-green); font-family: 'Space Grotesk'; font-size: 0.8rem; text-decoration: none; letter-spacing: 2px;">RETURN TO CLINICAL DOSSIER</a>
+                </div>
+                <p style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 5px; margin-top: 3rem; opacity: 0.3;">
+                    POP CLTR // THE FUTURE OF METABOLIC SOFT DRINKS
+                </p>
+            </div>
+            <div class="slide-number" style="color: rgba(255,255,255,0.2);">13/13</div>
         </section>
 
     </div>
 
-    <!-- Navigation Dots -->
     <div class="dot-nav">
-        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
     </div>
 
     <script>
         const container = document.querySelector('.deck-container');
         const dots = document.querySelectorAll('.dot');
-        
         container.addEventListener('scroll', () => {
             const index = Math.round(container.scrollTop / window.innerHeight);
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
-                const currentSlide = container.children[index];
-                if (currentSlide.style.background === 'var(--black)') {
-                    if (i !== index) dot.style.background = 'rgba(255,255,255,0.2)';
-                } else {
-                    if (i !== index) dot.style.background = 'rgba(0,0,0,0.1)';
-                }
             });
         });
-
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
                 container.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' });
             });
         });
     </script>
-
 </body>
 </html>

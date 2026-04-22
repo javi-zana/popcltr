@@ -51,51 +51,79 @@
         .mix-stack .p2 { font-family: 'Serif'; font-style: italic; font-size: 9rem; margin-right: -40px; }
         .mix-stack .cltr { font-family: 'Space Grotesk'; font-weight: 300; font-size: 1.5rem; letter-spacing: 20px; margin-top: 1rem; border-top: 2px solid #000; padding-top: 5px; }
 
-        /* 2. CHROME BUBBLE (CSS Simulation) */
-        .chrome-bubble {
+        /* 2. SOFT BUBBLE */
+        .soft-bubble {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 6rem;
+            font-size: 7rem;
             text-transform: uppercase;
             position: relative;
-            color: #ccc;
-            background: linear-gradient(135deg, #eee 0%, #999 50%, #666 51%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-            letter-spacing: -5px;
-        }
-        .chrome-bubble::after {
-            content: 'POP CLTR';
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            -webkit-text-fill-color: #000;
-            filter: blur(10px);
-            opacity: 0.1;
+            color: #000;
+            letter-spacing: -6px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
         }
 
-        /* 3. GIGA STACK */
-        .giga-stack {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-variation-settings: 'wdth' 100, 'wght' 800;
-            font-size: 6rem;
+        /* 3. THIN WIDE SANS */
+        .thin-wide {
+            font-family: 'Inter', sans-serif;
+            font-weight: 100;
+            font-size: 1rem;
             text-transform: uppercase;
+            letter-spacing: 1.5rem; /* Explicit rem for predictable width */
+            text-align: center;
+            display: block;
+            width: 100%;
+            padding-left: 1.5rem; /* Offset for the last letter's spacing */
+        }
+
+        /* 4. THE CAPSULE */
+        .capsule-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             line-height: 0.8;
-            letter-spacing: -5px;
+            color: #000;
+        }
+        .capsule-stack .pop {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .capsule-stack .p {
+            font-family: 'Bricolage Grotesque';
+            font-variation-settings: 'wdth' 100, 'wght' 800;
+            font-size: 9rem;
+        }
+        .capsule-stack .o-capsule {
+            width: 5.8rem;
+            height: 9rem;
+            background: currentColor;
+            border-radius: 1000px;
             display: inline-block;
         }
+        .capsule-stack .cltr {
+            font-family: 'Bricolage Grotesque';
+            font-variation-settings: 'wdth' 100, 'wght' 800;
+            font-size: 9rem;
+            letter-spacing: -3px;
+        }
 
-        /* 4. NEON ACRYLIC */
-        .neon-acrylic {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
+        /* 4.B THE CAPSULE: UNIFORM ROW */
+        .capsule-row {
+            font-family: 'Bricolage Grotesque';
+            font-variation-settings: 'wdth' 100, 'wght' 800;
             font-size: 5rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
             text-transform: uppercase;
-            color: #fbff00;
-            text-shadow: 0 0 20px rgba(251, 255, 0, 0.5);
-            letter-spacing: -2px;
+        }
+        .capsule-row .o-capsule-sm {
+            width: 3.2rem;
+            height: 5rem;
+            background: currentColor;
+            border-radius: 1000px;
+            display: inline-block;
         }
 
         .cta {
@@ -136,27 +164,82 @@
     </div>
 
     <div class="logo-box">
-        <span class="label">02 // CHROME BUBBLE</span>
-        <div class="chrome-bubble">POP CLTR</div>
+        <span class="label">02 // SOFT BUBBLE</span>
+        <div class="soft-bubble">POP CLTR</div>
     </div>
 
     <div class="logo-box">
-        <span class="label">03 // GIGA STACK</span>
-        <div class="giga-stack">POP CLTR</div>
-        <div class="render-container" style="margin-top: 2rem;">
-            <img src="logo_giga_stack_v1_1776819092611.png" alt="POP CLTR Giga Stack 3D Render">
+        <span class="label">03 // THIN WIDE SANS</span>
+        <div class="thin-wide">POP CLTR</div>
+    </div>
+
+    <div class="logo-box" style="margin-top: 2rem;">
+        <span class="label">04 // THE CAPSULE (STACKED)</span>
+        <div class="capsule-stack">
+            <div class="pop">
+                <span class="p">P</span>
+                <span class="o-capsule"></span>
+                <span class="p">P</span>
+            </div>
+            <div class="cltr">CLTR</div>
         </div>
     </div>
 
-    <div class="logo-box">
-        <span class="label">04 // NEON ACRYLIC</span>
-        <div class="neon-acrylic">POP CLTR</div>
-        <div class="render-container" style="margin-top: 2rem;">
-            <img src="logo_neon_acrylic_v1_1776819123608.png" alt="POP CLTR Neon Acrylic 3D Render">
+    <div class="logo-box" style="margin-top: 2rem;">
+        <span class="label">04.B // THE CAPSULE (UNIFORM ROW)</span>
+        <div class="capsule-row">
+            <span>P</span>
+            <span class="o-capsule-sm"></span>
+            <span>P</span>
+            <span style="margin-left: 20px;">C</span>
+            <span>L</span>
+            <span>T</span>
+            <span>R</span>
         </div>
     </div>
 
-    <div class="cta" style="background: var(--strawberry);">TEXT-ONLY REVISION</div>
+    <div class="logo-box" style="margin-top: 2rem;">
+        <span class="label">04.C // THE CAPSULE (GEOMETRIC GRID)</span>
+        <div style="font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 800; font-size: 6rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: center; justify-items: center;">
+            <span>P</span>
+            <div style="width: 3.8rem; height: 6rem; background: #000; border-radius: 1000px;"></div>
+            <span>P</span>
+            <span>C</span>
+            <span>L</span>
+            <span>T</span>
+            <span>R</span>
+            <div style="width: 3.8rem; height: 6rem; border: 4px solid #000; border-radius: 1000px;"></div>
+        </div>
+    </div>
+
+    <!-- CHAPTER 02: SECONDARY TRAJECTORIES -->
+    <div style="width: 100%; border-top: 2px solid #eee; padding-top: 10rem; display: flex; flex-direction: column; gap: 5rem; align-items: center;">
+        <div class="logo-box">
+            <span class="label">05 // SECONDARY TRAJECTORIES</span>
+            <h2 style="font-family: 'Syne'; font-size: 3rem; margin-bottom: 2rem;">BRANDING<br>LINEAGE.</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; width: 100%; max-width: 1200px;">
+            <div class="render-container">
+                <img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/pop_v4_consensus_grape_1776104722639.png" alt="Consensus Grape">
+                <div style="padding: 1.5rem; font-size: 0.7rem; opacity: 0.6; text-align: center;">[ V4 // CONSENSUS GRAPE ]</div>
+            </div>
+            <div class="render-container">
+                <img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/pop_v4_consensus_lychee_v2_1776121258180.png" alt="Consensus Lychee">
+                <div style="padding: 1.5rem; font-size: 0.7rem; opacity: 0.6; text-align: center;">[ V4 // CONSENSUS LYCHEE V2 ]</div>
+            </div>
+            <div class="render-container">
+                <img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/pop_v3_modern_strawberry_sync_1776098334596.png" alt="Modern Strawberry Sync">
+                <div style="padding: 1.5rem; font-size: 0.7rem; opacity: 0.6; text-align: center;">[ V3 // MODERN STRAWBERRY SYNC ]</div>
+            </div>
+            <div class="render-container">
+                <img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/pop_v4_consensus_rootbeer_v2_1776121196855.png" alt="Consensus Rootbeer">
+                <div style="padding: 1.5rem; font-size: 0.7rem; opacity: 0.6; text-align: center;">[ V4 // CONSENSUS ROOTBEER V2 ]</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta" style="background: var(--strawberry);">ARCHETYPES FINALIZED</div>
 
 </body>
 </html>

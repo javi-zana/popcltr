@@ -8,6 +8,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@300;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* SYNCED ARCHETYPES FROM BRANDING_EXPLORATION */
+        .mix-stack { display: flex; flex-direction: column; align-items: center; line-height: 0.75; position: relative; }
+        .mix-stack .p1 { font-family: 'Syne'; font-weight: 800; font-size: 5rem; margin-left: -10px; }
+        .mix-stack .o { font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 200; font-size: 6.5rem; color: #FF1A1A; }
+        .mix-stack .p2 { font-family: 'Serif'; font-style: italic; font-size: 6rem; margin-right: -25px; }
+        .mix-stack .cltr-line { font-family: 'Space Grotesk'; font-weight: 300; font-size: 1rem; letter-spacing: 12px; margin-top: 0.5rem; border-top: 1px solid #000; padding-top: 3px; width: 100%; text-align: center; }
+
+        .soft-bubble-sync { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 4rem; text-transform: uppercase; position: relative; color: #000; letter-spacing: -3px; }
+        .thin-wide-sync { font-family: 'Inter', sans-serif; font-weight: 100; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1rem; text-align: center; display: block; width: 100%; padding-left: 1rem; }
+
+        .capsule-stack-sync { display: flex; flex-direction: column; align-items: center; line-height: 0.8; color: #000; }
+        .capsule-stack-sync .pop-row { display: flex; gap: 8px; align-items: center; }
+        .capsule-stack-sync .p-char { font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 800; font-size: 5rem; }
+        .capsule-stack-sync .o-capsule-char { width: 3.2rem; height: 5rem; background: currentColor; border-radius: 1000px; display: inline-block; }
+        .capsule-stack-sync .cltr-char { font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 800; font-size: 5rem; letter-spacing: -2px; }
+
+        .capsule-row-sync { font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 800; font-size: 3rem; display: flex; gap: 8px; align-items: center; text-transform: uppercase; }
+        .capsule-row-sync .o-capsule-sm { width: 1.92rem; height: 3rem; background: currentColor; border-radius: 1000px; display: inline-block; }
+
+        /* DIGITAL PROTOTYPE STYLES */
+        .dna-can-mockup {
+            width: 320px;
+            height: 580px;
+            background: linear-gradient(135deg, #FF6B00 0%, #D44D00 50%, #B84200 100%);
+            border-radius: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset -10px -10px 40px rgba(0,0,0,0.2), inset 10px 10px 40px rgba(255,255,255,0.3);
+            overflow: hidden;
+        }
+        .dna-can-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d1_1_doodle_dalandan_1775787169755.png");
+            background-size: cover;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+        .rust-disk {
+            width: 240px;
+            height: 240px;
+            background: #8B3E00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body class="gallery-page">
     <header id="main-header" class="glass-header">
@@ -24,136 +79,177 @@
     </header>
 
     <main>
-        <!-- Chapter 05: THE FINALISTS -->
-        <section id="finalized-fleet" class="section theme-genetics" style="padding: 6rem 5%;">
+        <!-- Chapter 05: THE FINALIST FLEET (DALANDAN DISCO) -->
+        <section id="finalized-fleet" class="section theme-genetics" style="padding: 10rem 5%; background: #fff;">
             <div class="container-fluid">
                 <div class="section-intro">
-                    <span class="chapter" style="color: var(--accent-lemon);">CHAPTER 05 // THE FINALISTS</span>
-                    <h2>THE GRAFFITI<br>SERIES.</h2>
-                    <p class="tagline" style="color: var(--accent-lemon);">[ HIGH DENSITY // TONE-ON-TONE DOODLES // BRAND PARITY ]</p>
-                    <div class="chapter-personality">
-                        The ultimate evolution of POP CLTR. Exploring dense, tone-on-tone graffiti and doodle wrappers across the entire flavor matrix for maximum cultural impact on shelves.
+                    <span class="chapter" style="color: var(--orange);">CHAPTER 05 // THE FINALIST FLEET</span>
+                    <h2 style="color: #000;">DALANDAN<br>DISCO.</h2>
+                    <p class="tagline" style="color: var(--orange);">[ CHROME ORANGE // MONOCHROMATIC DOODLES // NO SMILEY ]</p>
+                    <div class="chapter-personality" style="color: #666;">
+                        The 2026 flagship. Analyzing the core brand archetypes through the lens of the Dalandan Disco flavor matrix. Each variant explores a distinct typographic weight while maintaining the Chrome Orange substrate and tone-on-tone hand-drawn graffiti notes.
                     </div>
                 </div>
 
-                <div class="mockup-grid master-grid">
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_grape_1776323711650.png" alt="Spectral Grape Graffiti" loading="lazy">
-                        <div class="meta"><span>05.1 // FINALIST</span> <h3>SPECTRAL GRAPE</h3><p>Tone-on-tone violet graffiti wrapper.</p></div>
+                <div class="mockup-grid master-grid" style="grid-template-columns: repeat(2, 1fr); gap: 4rem; justify-items: center;">
+                    <div class="mockup-card" style="border: none; background: none; text-align: center; max-width: 450px;">
+                        <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/can_dalandan_disco_mix_stack_1776837005801.png" alt="Dalandan Disco Mix Stack" style="width: 80%; margin: 0 auto; display: block;">
+                        <div class="meta" style="margin-top: 2rem;"><span style="color: var(--orange); font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 3px;">05.1 // THE MIX STACK</span> <h3 style="font-family: 'Bricolage Grotesque'; font-size: 1.2rem; margin: 0.5rem 0;">DALANDAN DISCO</h3><p style="font-size: 0.8rem; opacity: 0.6;">Playful multi-font signature on chrome orange substrate.</p></div>
                     </div>
-                    <div class="mockup-card">
-                        <img src="hero_dalandan_disco_finalist_v2_1776744744673.png" alt="Dalandan Disco Graffiti" loading="lazy">
-                        <div class="meta"><span>05.1 // THE FINALIST</span> <h3>DALANDAN DISCO</h3><p>Burnt orange chrome with ton-sur-ton street notes. The definitive POP CLTR identity.</p></div>
+                    <div class="mockup-card" style="border: none; background: none; text-align: center; max-width: 450px;">
+                        <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/can_dalandan_disco_soft_bubble_1776837030043.png" alt="Dalandan Disco Soft Bubble" style="width: 80%; margin: 0 auto; display: block;">
+                        <div class="meta" style="margin-top: 2rem;"><span style="color: var(--orange); font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 3px;">05.2 // SOFT BUBBLE</span> <h3 style="font-family: 'Bricolage Grotesque'; font-size: 1.2rem; margin: 0.5rem 0;">DALANDAN DISCO</h3><p style="font-size: 0.8rem; opacity: 0.6;">Clean matte black 'Bubble' logo on tone-on-tone doodles.</p></div>
                     </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_cola_1776323669656.png" alt="Cola Classic Graffiti" loading="lazy">
-                        <div class="meta"><span>05.3 // FINALIST</span> <h3>COLA CLASSIC</h3><p>Obsidian black base, deep charcoal graffiti.</p></div>
+                    <div class="mockup-card" style="border: none; background: none; text-align: center; max-width: 450px;">
+                        <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/can_dalandan_disco_thin_wide_sans_1776837053087.png" alt="Dalandan Disco Thin Wide" style="width: 80%; margin: 0 auto; display: block;">
+                        <div class="meta" style="margin-top: 2rem;"><span style="color: var(--orange); font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 3px;">05.3 // THIN WIDE SANS</span> <h3 style="font-family: 'Bricolage Grotesque'; font-size: 1.2rem; margin: 0.5rem 0;">DALANDAN DISCO</h3><p style="font-size: 0.8rem; opacity: 0.6;">Ultra-thin spacing for high-end strategic prestige.</p></div>
                     </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_lychee_1776323051524.png" alt="Lychee Lemonade Graffiti" loading="lazy">
-                        <div class="meta"><span>05.4 // FINALIST</span> <h3>LYCHEE LEMONADE</h3><p>Magenta-pink chrome wrapped in dark purple.</p></div>
-                    </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_tropical_1776323111991.png" alt="Tropical Punch Graffiti" loading="lazy">
-                        <div class="meta"><span>05.5 // FINALIST</span> <h3>TROPICAL PUNCH</h3><p>Vibrant gold with amber graffiti layers.</p></div>
-                    </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_orangemango_1776323128106.png" alt="Orange Mango Graffiti" loading="lazy">
-                        <div class="meta"><span>05.6 // FINALIST</span> <h3>ORANGE MANGO</h3><p>Tangerine chrome layered with deep rust tags.</p></div>
-                    </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_grapefruit_1776323236752.png" alt="Grapefruit Soda Graffiti" loading="lazy">
-                        <div class="meta"><span>05.7 // FINALIST</span> <h3>GRAPEFRUIT SODA</h3><p>Neon pale-green anchored by heavy emerald street art.</p></div>
-                    </div>
-                    <div class="mockup-card">
-                        <img src="dist_v7_finalist_mangoyuzu_1776323259215.png" alt="Mango Yuzu Graffiti" loading="lazy">
-                        <div class="meta"><span>05.8 // FINALIST</span> <h3>MANGO Yuzu</h3><p>Bright lemon base obscured by dense mustard logos.</p></div>
+                    <div class="mockup-card" style="border: none; background: none; text-align: center; max-width: 450px;">
+                        <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/can_dalandan_disco_capsule_stack_1776837079709.png" alt="Dalandan Disco Capsule" style="width: 80%; margin: 0 auto; display: block;">
+                        <div class="meta" style="margin-top: 2rem;"><span style="color: var(--orange); font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 3px;">05.4 // THE CAPSULE</span> <h3 style="font-family: 'Bricolage Grotesque'; font-size: 1.2rem; margin: 0.5rem 0;">DALANDAN DISCO</h3><p style="font-size: 0.8rem; opacity: 0.6;">Signature vertical capsule 'O' with graffiti flavor text.</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CHAPTER 06 // LOGO TYPOGRAPHY -->
-        <section id="logo-typography" class="section theme-industrial" style="padding: 10rem 5%; background: #ececec; color: #000; border-top: 5px solid #000; border-bottom: 5px solid #000;">
+        <!-- CHAPTER 05.B: DIGITAL PROTOTYPING (LOGO SWAPS) -->
+        <section id="digital-prototypes" class="section" style="padding: 10rem 5%; background: #0a0a0a; color: #fff;">
             <div class="container-fluid">
-                <div class="section-intro">
-                    <span class="chapter" style="color: var(--accent-purple);">CHAPTER 06 // TYPOGRAPHY EXPLORATIONS</span>
-                    <h2 style="color: #000;">BRANDING<br>VARIANTS.</h2>
-                    <p class="tagline" style="color: var(--accent-purple);">[ CLEAN BUBBLE // WIDE MATTE // TALL SANS ]</p>
-                    <div class="chapter-personality" style="color: #444;">
-                        Refining the core typography. Stripping away the 3D chrome to analyze the structural weight of the brand mark across flat vectors, industrial sans-serif stretching, and luxury condensed stacking.
+                <div class="section-intro" style="margin-bottom: 6rem;">
+                    <span class="chapter" style="color: #FF6B00;">CHAPTER 05.B // DIGITAL PROTOTYPING</span>
+                    <h2 style="color: #fff;">LOGO HARMONY.</h2>
+                    <p class="tagline" style="color: #FF6B00;">[ RUST BACKING // CHROME ORANGE // NO SMILEY ]</p>
+                    <div class="chapter-personality" style="color: #888; max-width: 600px;">
+                        Immediate visual verification of typographic archetypes against the locked-in Chrome Orange substrate. These digital prototypes demonstrate the uniform scaling of the rust-colored circular backings and the 'No Smiley' directive.
                     </div>
                 </div>
 
-                <div class="mockup-grid master-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                    <div class="mockup-card" style="border-color: #000;">
-                        <img src="can_bubble_clean_1776375918688.png" alt="Clean Bubble Logo" loading="lazy">
-                        <div class="meta"><span style="color: var(--accent-purple);">TITLE 1</span> <h3 style="color: #000;">CLEAN BUBBLE</h3><p style="color: #666;">2D vector outline in vibrant purple. No 3D core.</p></div>
-                    </div>
-                    <div class="mockup-card" style="border-color: #000;">
-                        <img src="logo_wide_matte_1776375939108.png" alt="Wide Matte Logo" loading="lazy">
-                        <div class="meta"><span style="color: var(--accent-purple);">TITLE 2</span> <h3 style="color: #000;">WIDE MATTE</h3><p style="color: #666;">Industrial sans-serif stretched wide. Flat finish.</p></div>
-                    </div>
-                    <div class="mockup-card" style="border-color: #000;">
-                        <img src="logo_giga_stack_v1_1776819092611.png" alt="Giga Stack 3D Logo" loading="lazy">
-                        <div class="meta"><span style="color: var(--accent-purple);">VARIANT 3 // 3D</span> <h3 style="color: #000;">GIGA STACK</h3><p style="color: #666;">Ultra-heavy wide grotesque. Matte white with debossed technical data marking.</p></div>
-                    </div>
-                    <div class="mockup-card" style="border-color: #000;">
-                        <img src="logo_neon_acrylic_v1_1776819123608.png" alt="Neon Acrylic Logo" loading="lazy">
-                        <div class="meta"><span style="color: var(--accent-purple);">VARIANT 4 // 3D</span> <h3 style="color: #000;">NEON ACRYLIC</h3><p style="color: #666;">Translucent refractive neon green molded glass. High-energy street aesthetic.</p></div>
-                    </div>
-                    <div class="mockup-card" style="border-color: #000;">
-                        <img src="logo_chrome_bubble_v1_1776752937331.png" alt="Chrome Bubble Logo" loading="lazy">
-                        <div class="meta"><span style="color: var(--accent-purple);">VARIANT 5 // 3D</span> <h3 style="color: #000;">CHROME BUBBLE</h3><p style="color: #666;">3D liquid metal reflection. Y2K futuristic aesthetic.</p></div>
+                <div class="mockup-grid master-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
+                    
+                    <!-- VARIANT 01: MIX STACK -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div class="mix-stack" style="color: #fff; transform: scale(0.6);">
+                                    <div><span class="p1" style="color: #fff;">P</span><span class="o" style="color: #fff;">O</span><span class="p2" style="color: #fff;">P</span></div>
+                                    <div class="cltr-line" style="border-top-color: #fff;">CLTR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">01 // THE MIX STACK</span>
                     </div>
 
-                    <!-- SVG BRANDING EXPLORATIONS -->
-                    <div class="mockup-card" style="border-color: var(--strawberry); background: #fff;">
-                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                            <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="300" font-size="28" letter-spacing="45" style="fill: #000; text-transform: uppercase; transform: scaleX(1.4); transform-origin: center;">POP CLTR</text>
-                            </svg>
+                    <!-- VARIANT 02: SOFT BUBBLE -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div style="font-family: 'Syne'; font-weight: 800; font-size: 2.2rem; text-transform: uppercase; color: #fff; letter-spacing: -2px;">POP<br>CLTR</div>
+                            </div>
                         </div>
-                        <div class="meta"><span style="color: var(--strawberry);">VARIANT 6 [VEC]</span> <h3 style="color: #000;">THIN WIDE SANS</h3><p style="color: #666;">Ultra-thin strokes, extreme horizontal expansion. Pure luxury minimal.</p></div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">02 // SOFT BUBBLE (STACKED)</span>
                     </div>
 
-                    <div class="mockup-card" style="border-color: var(--orange); background: #fff;">
-                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                            <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-                                <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="55" letter-spacing="-2" style="fill: #000; text-transform: uppercase; transform: scaleX(1.2); transform-origin: center;">POP</text>
-                                <text x="50%" y="85%" dominant-baseline="middle" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="55" letter-spacing="-2" style="fill: #000; text-transform: uppercase; transform: scaleX(1.2); transform-origin: center;">CLTR</text>
-                            </svg>
+                    <!-- VARIANT 03: THIN WIDE -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div class="thin-wide-sync" style="color: #fff; transform: scale(1.5); height: auto; text-align: center;">
+                                    <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
+                                        <span style="font-size: 2rem; font-weight: 700; letter-spacing: 5px;">POP</span>
+                                        <span style="font-size: 0.6rem; letter-spacing: 1.2rem; margin-top: 5px;">CLTR</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="meta"><span style="color: var(--orange);">VARIANT 7 [VEC]</span> <h3 style="color: #000;">THE 'MIX' STACK</h3><p style="color: #666;">Tall vertical presence meets Wide Matte weight. The ultimate giga-brand mark.</p></div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">03 // THIN WIDE PRESTIGE</span>
                     </div>
+
+                    <!-- VARIANT 04: THE CAPSULE -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div class="capsule-stack-sync" style="color: #fff; transform: scale(0.6);">
+                                    <div class="pop-row">
+                                        <span class="p-char">P</span>
+                                        <span class="o-capsule-char"></span>
+                                        <span class="p-char">P</span>
+                                    </div>
+                                    <div class="cltr-char">CLTR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">04 // THE CAPSULE (EQUAL SIZE)</span>
+                    </div>
+
+                    <!-- VARIANT 05: GIGA STACK -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div style="font-family: 'Bricolage Grotesque'; font-variation-settings: 'wdth' 100, 'wght' 800; font-size: 5rem; line-height: 0.7; color: #fff;">P<br>O<br>P</div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">05 // GIGA STACK</span>
+                    </div>
+
+                    <!-- VARIANT 06: NEON SILHOUETTE -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div style="font-family: 'Syne'; font-weight: 800; font-size: 3rem; color: transparent; -webkit-text-stroke: 1.5px #fff; transform: rotate(-5deg);">POP!</div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">06 // NEON SILHOUETTE</span>
+                    </div>
+
+                    <!-- VARIANT 07: WIDE INDUSTRIAL -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div style="font-family: 'Space Grotesk'; font-weight: 900; font-size: 1.8rem; letter-spacing: 8px; color: #fff; text-transform: uppercase;">POPCLTR</div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">07 // WIDE INDUSTRIAL</span>
+                    </div>
+
+                    <!-- VARIANT 08: MARKER DRIP -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <div class="dna-can-mockup">
+                            <div class="rust-disk">
+                                <div style="font-family: 'Syne'; font-weight: 800; font-size: 3.5rem; color: #fff; transform: skew(-5deg) rotate(-2deg); line-height: 1;">POP<br><span style="font-size: 1.5rem; letter-spacing: 5px; opacity: 0.8;">CLTR</span></div>
+                            </div>
+                        </div>
+                        <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 2px; color: #888;">08 // MARKER DRIP STYLE</span>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- CHAPTER 07 // THE ARTISAN LAB: ULTRA-GRAFFITI -->
-        <section id="artisan-lab" class="section theme-industrial" style="padding: 10rem 5%; background: #0a0a0a; color: #fff;">
+        <!-- CHAPTER 09: SUPPLEMENTAL FLAVOR MATRIX (ARCHIVE) -->
+        <section id="flavor-archive" class="section theme-industrial" style="padding: 6rem 5%; background: #050505; color: #fff;">
             <div class="container-fluid">
                 <div class="section-intro">
-                    <span class="chapter" style="color: var(--strawberry);">CHAPTER 07 // THE ARTISAN LAB</span>
-                    <h2 style="color: #fff;">ULTRA-GRAFFITI<br>EXPLORATIONS.</h2>
-                    <p class="tagline" style="color: var(--strawberry);">[ HIGH DENSITY // TONE-ON-TONE DOODLES // DALANDAN DISCO ]</p>
-                    <div class="chapter-personality" style="color: rgba(255,255,255,0.7);">
-                        A maximalist extension of the v5 standard. These artisan variants explore the limits of design density, wrapping the Dalandan Disco orange-chrome substrate in a high-tension grid of disco-culture and citrus-inspired doodles. Designed for the "Design-Forward" consumer.
-                    </div>
+                    <span class="chapter">CHAPTER 09 // FLAVOR ARCHIVE</span>
+                    <h2 style="color: #444;">SECONDARY<br>TRAJECTORIES.</h2>
+                    <p class="tagline" style="color: #444;">[ EXTENDED MATRIX // FLAVOR PROTOTYPING ]</p>
                 </div>
 
-                <div class="mockup-grid master-grid">
-                    <div class="mockup-card" style="border-color: #333;">
-                        <img src="dist_v5_dalandan_ultra_1.png" alt="Dalandan Disco Ultra v1" loading="lazy">
-                        <div class="meta"><span style="color: var(--strawberry);">06.1 // ULTRA-GRAFFITI</span> <h3>DISCO FOCUS</h3><p>Tone-on-tone Disco balls & Silhouettes coverage.</p></div>
+                <div class="mockup-grid legacy-grid" style="grid-template-columns: repeat(4, 1fr); opacity: 0.8; gap: 3rem; justify-items: center;">
+                    <div class="mockup-card" style="border: none; background: #111; border-radius: 20px; overflow: hidden; max-width: 280px; text-align: center;">
+                         <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/pop_v4_consensus_grape_1776104722639.png" alt="Consensus Grape" style="width: 100%; display: block;">
+                         <div class="meta" style="padding: 1.5rem; background: #111; border-top: 1px solid #222;"><span style="color: var(--accent-purple); font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 2px;">ARCHIVE 09.1</span> <h3 style="color: #fff; font-family: 'Bricolage Grotesque'; font-size: 0.8rem; margin-top: 0.5rem;">CONSENSUS GRAPE</h3></div>
                     </div>
-                    <div class="mockup-card" style="border-color: #333;">
-                        <img src="dist_v5_dalandan_ultra_2.png" alt="Dalandan Disco Ultra v2" loading="lazy">
-                        <div class="meta"><span style="color: var(--strawberry);">06.2 // ULTRA-GRAFFITI</span> <h3>CITRUS FOCUS</h3><p>Organic Dalandan slices & Zest patterns.</p></div>
+                    <div class="mockup-card" style="border: none; background: #111; border-radius: 20px; overflow: hidden; max-width: 280px; text-align: center;">
+                         <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/pop_v4_consensus_lychee_v2_1776121258180.png" alt="Consensus Lychee" style="width: 100%; display: block;">
+                         <div class="meta" style="padding: 1.5rem; background: #111; border-top: 1px solid #222;"><span style="color: var(--lemon); font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 2px;">ARCHIVE 09.2</span> <h3 style="color: #fff; font-family: 'Bricolage Grotesque'; font-size: 0.8rem; margin-top: 0.5rem;">CONSENSUS LYCHEE</h3></div>
                     </div>
-                    <div class="mockup-card" style="border-color: #333;">
-                        <img src="dist_v5_dalandan_ultra_3.png" alt="Dalandan Disco Ultra v3" loading="lazy">
-                        <div class="meta"><span style="color: var(--strawberry);">06.3 // ULTRA-GRAFFITI</span> <h3>STREET FOCUS</h3><p>Max bubble-letter 'DISCO' tag density.</p></div>
+                    <div class="mockup-card" style="border: none; background: #111; border-radius: 20px; overflow: hidden; max-width: 280px; text-align: center;">
+                         <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/pop_v3_modern_strawberry_sync_1776098334596.png" alt="Modern Strawberry Sync" style="width: 100%; display: block;">
+                         <div class="meta" style="padding: 1.5rem; background: #111; border-top: 1px solid #222;"><span style="color: var(--strawberry); font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 2px;">ARCHIVE 09.3</span> <h3 style="color: #fff; font-family: 'Bricolage Grotesque'; font-size: 0.8rem; margin-top: 0.5rem;">STRAWBERRY SYNC</h3></div>
+                    </div>
+                    <div class="mockup-card" style="border: none; background: #111; border-radius: 20px; overflow: hidden; max-width: 280px; text-align: center;">
+                         <img src="file:///Users/BeaOng/.gemini/antigravity/brain/821cad9b-a9e6-4680-bdbf-abf0ff651f0d/pop_v4_consensus_rootbeer_v2_1776121196855.png" alt="Consensus Rootbeer" style="width: 100%; display: block;">
+                         <div class="meta" style="padding: 1.5rem; background: #111; border-top: 1px solid #222;"><span style="color: #8B4513; font-family: 'Space Grotesk'; font-size: 0.5rem; letter-spacing: 2px;">ARCHIVE 09.4</span> <h3 style="color: #fff; font-family: 'Bricolage Grotesque'; font-size: 0.8rem; margin-top: 0.5rem;">ROOTBEER V2</h3></div>
                     </div>
                 </div>
             </div>
@@ -174,9 +270,9 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">01 // CAN DESIGN EXPLORATIONS</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="ch1_grape_chrome.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="ch1_grape_doodle.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="ch1_strawberry_science.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/ch1_grape_chrome.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/ch1_grape_doodle.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/ch1_strawberry_science.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
 
@@ -184,10 +280,10 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">02 // ARTISAN SERIES</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="artisan_grape_doodle_v3_1775983800000_1775984400000_1775984212553_png_1775984024553_png_1775984129402.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="artisan_grape_lab_v1_1775980000000_1775983800000_1775983824553.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="artisan_grid_sys_v2_1775983800000_1775984400000_1775983905539.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="artisan_gut_soul_v1_1775983800000_1775984400000_1775984212553_png_1775983988142.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/artisan_grape_doodle_v3_1775983800000_1775984400000_1775984212553_png_1775984024553_png_1775984129402.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/artisan_grape_lab_v1_1775980000000_1775983800000_1775983824553.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/artisan_grid_sys_v2_1775983800000_1775984400000_1775983905539.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/artisan_gut_soul_v1_1775983800000_1775984400000_1775984212553_png_1775983988142.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
 
@@ -195,11 +291,11 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">03 // POP DIRECTION EXPLORATIONS</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="d1_abstract.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="batch3_p1_2000s_cherry_v4_chunky_1775886826410.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="batch3_p3_y2k_futuristic_holographic_v4_glow_1775886876939.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="batch4_p2_pop_chrome_lemon_1775890268823.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="batch4_p4_pop_minimal_chrome_orange_1775890294343.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d1_abstract.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/batch3_p1_2000s_cherry_v4_chunky_1775886826410.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/batch3_p3_y2k_futuristic_holographic_v4_glow_1775886876939.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/batch4_p2_pop_chrome_lemon_1775890268823.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/batch4_p4_pop_minimal_chrome_orange_1775890294343.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
 
@@ -207,10 +303,10 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">04 // STICKER CULTURE</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="d2_black.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="d2_hybrid.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="d2_hybrid_logo.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="batch3_p5_sticker_hero_property_v4_industrial_1775886951812.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d2_black.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d2_hybrid.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d2_hybrid_logo.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/batch3_p5_sticker_hero_property_v4_industrial_1775886951812.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
 
@@ -218,9 +314,9 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">05 // WELLNESS & MINIMAL</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="d3_wellness_1.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="d3_wellness_2.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="d3_wellness_3.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d3_wellness_1.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d3_wellness_2.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/d3_wellness_3.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
 
@@ -228,10 +324,10 @@
                     <div class="archive-slice" style="margin-bottom: 0; padding-top: 2rem;">
                         <h3 style="color: #666; font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">07 // PREMIUM UNBOXING (TAKEOUT SERIES)</h3>
                         <div class="legacy-grid">
-                            <div class="taped-card"><img src="takeout_box_closed_v1_1776818553164.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="takeout_box_unboxing_v1_1776818581841.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="takeout_box_editorial_v1_1776818611293.png" style="width: 100%; display: block;" loading="lazy"></div>
-                            <div class="taped-card"><img src="takeout_box_studio_v1_1776818641339.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/takeout_box_closed_v1_1776818553164.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/takeout_box_unboxing_v1_1776818581841.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/takeout_box_editorial_v1_1776818611293.png" style="width: 100%; display: block;" loading="lazy"></div>
+                            <div class="taped-card"><img src="file:///Users/BeaOng/Desktop/MDMJ/04-projects/pop%20cltr/takeout_box_studio_v1_1776818641339.png" style="width: 100%; display: block;" loading="lazy"></div>
                         </div>
                     </div>
                 </div>

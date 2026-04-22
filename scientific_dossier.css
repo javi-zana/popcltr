@@ -1,0 +1,329 @@
+/* POP CLTR // SCIENTIFIC DOSSIER // v6.2 // BULLTETPROOF ACADEMIC LAYOUT */
+:root {
+    --dossier-bg: #ffffff;
+    --dossier-text: #0a0a0a;
+    --dossier-hairline: rgba(0,0,0,0.1);
+    --dossier-accent: #FF1A1A; /* Strawberry */
+    --dossier-blue: #0088FF;
+    --dossier-lemon: #FBFF00;
+}
+
+/* RESET & VISIBILITY HARDENING */
+body.dossier-mode {
+    background: var(--dossier-bg) !important;
+    color: var(--dossier-text) !important;
+    line-height: 1.6 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.dossier-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 40px 80px; /* Account for fixed glass header */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* NAVIGATION */
+.dossier-nav-top {
+    border-bottom: 2px solid #000;
+    padding: 15px 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: #fff;
+    margin-bottom: 40px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* HEADER BLOCK */
+.dossier-header {
+    border-bottom: 3px solid #000;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.header-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.scientific-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--dossier-accent);
+    text-transform: uppercase;
+}
+
+.dossier-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.dossier-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.7;
+    max-width: 850px;
+}
+
+/* ABSTRACT SECTION */
+.clinical-abstract {
+    background: #fcfcfc;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-left: 5px solid #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 60px;
+}
+
+.clinical-abstract b {
+    display: block;
+    font-family: 'Space Grotesk';
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* TWO-COLUMN ACADEMIC LAYOUT */
+.academic-body {
+    display: flex;
+    gap: 80px; /* Wide academic gutters */
+    margin-bottom: 80px;
+    align-items: flex-start;
+}
+
+.dossier-column {
+    flex: 1;
+    min-width: 0; /* Prevent flex blowout */
+}
+
+.dossier-section {
+    margin-bottom: 60px;
+}
+
+.dossier-section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 2.2rem;
+    line-height: 0.95;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.dossier-para {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+/* DATA VISUALS */
+.metabolic-box {
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 30px 0;
+}
+
+.metabolic-box b {
+    font-family: 'Bricolage Grotesque';
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.clinical-citation {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    opacity: 0.5;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.clinical-citation a {
+    color: var(--dossier-blue);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+/* CLINICAL MONOLITH (THE DARK GRID) */
+.clinical-monolith {
+    background: #000;
+    color: #fff;
+    padding: 80px 40px;
+    margin: 80px -40px;
+    text-align: center;
+}
+
+.monolith-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+.data-point b {
+    font-family: 'Bricolage Grotesque';
+    font-size: 4.5rem;
+    line-height: 0.8;
+}
+
+.data-point p {
+    font-family: 'Space Grotesk';
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    margin-top: 15px;
+}
+
+/* INTERVENTION TABLE */
+.intervention-grid-container {
+    margin: 100px 0;
+}
+
+.intervention-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid #000;
+    background: #fff;
+}
+
+.grid-header {
+    background: #f4f4f4;
+    padding: 25px;
+    font-family: 'Space Grotesk';
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000;
+    border-right: 1px solid #000;
+    text-transform: uppercase;
+}
+
+.grid-cell {
+    padding: 25px;
+    font-size: 1rem;
+    line-height: 1.4;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+.grid-cell.highlight {
+    background: #FDF9F3;
+    font-weight: 700;
+}
+
+/* NUTRITION & SPECS */
+.case-study-section {
+    background: #f8f8f8;
+    padding: 80px 40px;
+    margin: 80px -40px;
+}
+
+.nutrition-panel {
+    border: 2px solid #000;
+    padding: 20px;
+    background: #fff;
+    max-width: 320px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 40px;
+}
+
+.nutrition-panel h3 {
+    font-weight: 900;
+    font-size: 1.8rem;
+    border-bottom: 8px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.panel-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    padding: 4px 0;
+    font-size: 0.9rem;
+}
+
+.panel-row.main {
+    font-size: 1.2rem;
+    font-weight: 900;
+    border-bottom: 4px solid #000;
+}
+
+.panel-row.sub {
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+/* FOOTER & LOGISTICS */
+.label-architecture {
+    padding: 80px 0;
+    border-top: 1px solid #eee;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.spec-col h4 {
+    font-family: 'Space Grotesk';
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.spec-list {
+    list-style: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.boardroom-summary {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 60px;
+    margin-top: 80px;
+    box-shadow: 20px 20px 0 var(--dossier-blue);
+}
+
+/* RESPONSIVE OVERRIDES */
+@media (max-width: 900px) {
+    .academic-body { flex-direction: column; gap: 40px; }
+    .monolith-grid { grid-template-columns: 1fr; gap: 40px; }
+    .intervention-grid { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .dossier-title { font-size: 3rem; }
+}
