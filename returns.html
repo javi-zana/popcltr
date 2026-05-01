@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returns &amp; Refunds — POP CLTR</title>
+  <meta name="description" content="Not happy with your order? POP CLTR stands behind every can. Learn about our returns, refunds, and consumer rights policy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    .page-hero { background:var(--white); padding:5rem 5% 4rem; border-bottom:1px solid var(--border); }
+    .page-hero-inner { max-width:1100px; margin:0 auto; }
+    .page-hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.8rem,6vw,5.5rem); line-height:0.88; letter-spacing:-3px; color:var(--black); margin:0.8rem 0 1rem; }
+    .page-hero h1 em { color:var(--blue); font-style:normal; }
+    .page-hero p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.45); max-width:500px; }
+    .ret-section { padding:5rem 5%; }
+    .ret-section.alt { background:var(--offwhite); }
+    .ret-inner { max-width:1100px; margin:0 auto; }
+    .ret-h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.8rem,3.5vw,2.5rem); letter-spacing:-1.5px; color:var(--black); margin:0.6rem 0 1rem; }
+    .ret-p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(0,0,0,0.55); line-height:1.8; margin-bottom:0.8rem; }
+    .promise-statement { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.4rem,2.5vw,1.9rem); color:var(--black); letter-spacing:-0.8px; line-height:1.2; margin-bottom:1.2rem; }
+    .coverage-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.5rem; }
+    .coverage-col { background:var(--white); border:1px solid var(--border); border-radius:20px; padding:2rem; }
+    .coverage-col.yes { border-top:3px solid var(--blue); }
+    .coverage-col.no { border-top:3px solid rgba(0,0,0,0.12); }
+    .coverage-col-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1.2rem; }
+    .coverage-col.yes .coverage-col-title { color:var(--blue); }
+    .coverage-col.no .coverage-col-title { color:rgba(0,0,0,0.35); }
+    .coverage-list { list-style:none; padding:0; }
+    .coverage-list li { font-family:'Space Grotesk'; font-size:0.9rem; color:rgba(0,0,0,0.6); padding:0.6rem 0; border-bottom:1px solid var(--border); line-height:1.55; display:flex; align-items:flex-start; gap:0.6rem; }
+    .coverage-list li:last-child { border-bottom:none; }
+    .coverage-list li::before { flex-shrink:0; margin-top:2px; }
+    .coverage-col.yes .coverage-list li::before { content:'✓'; color:var(--blue); font-weight:700; }
+    .coverage-col.no .coverage-list li::before { content:'—'; color:rgba(0,0,0,0.25); font-weight:700; }
+    .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+    .step-card { background:var(--white); border:1px solid var(--border); border-radius:20px; padding:2rem; position:relative; }
+    .step-num { font-family:'Bricolage Grotesque'; font-weight:800; font-size:3rem; color:var(--blue); opacity:0.15; line-height:1; margin-bottom:0.5rem; }
+    .step-title { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.15rem; color:var(--black); letter-spacing:-0.3px; margin-bottom:0.6rem; }
+    .step-desc { font-family:'Space Grotesk'; font-size:0.88rem; color:rgba(0,0,0,0.55); line-height:1.7; }
+    .step-detail { font-family:'Space Grotesk'; font-size:0.82rem; color:rgba(0,0,0,0.4); line-height:1.65; margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--border); }
+    .timeline-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-top:2rem; }
+    .timeline-item { background:var(--offwhite); border-radius:14px; padding:1.2rem 1.5rem; }
+    .timeline-type { font-family:'Space Grotesk'; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.35); margin-bottom:0.3rem; }
+    .timeline-time { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.3rem; color:var(--blue); letter-spacing:-0.5px; }
+    .ret-hl { background:rgba(0,26,255,0.04); border:1px solid rgba(0,26,255,0.15); border-radius:16px; padding:1.5rem 2rem; margin-top:2rem; }
+    .ret-hl-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:0.8rem; }
+    .ret-hl p { font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(0,0,0,0.6); line-height:1.75; margin:0; }
+    .ret-hl a { color:var(--blue); text-decoration:none; }
+    .ret-hl a:hover { text-decoration:underline; }
+    .contact-strip { background:var(--blue); padding:4rem 5%; text-align:center; }
+    .contact-strip h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--white); letter-spacing:-1px; margin-bottom:0.5rem; }
+    .contact-strip p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(255,255,255,0.6); margin-bottom:1.5rem; }
+    .contact-strip a { color:var(--neon); text-decoration:none; font-weight:700; }
+    .contact-strip a:hover { text-decoration:underline; }
+    .contact-handles { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:0.5rem; }
+    .sec-label { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:0.4rem; }
+    .promise-note { font-family:'Space Grotesk'; font-size:0.88rem; color:rgba(0,0,0,0.45); line-height:1.75; margin-top:1rem; padding:1rem 1.25rem; border-left:2px solid rgba(0,26,255,0.2); }
+    @media(max-width:768px){ .coverage-grid{grid-template-columns:1fr;} .steps-grid{grid-template-columns:1fr;} .timeline-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="gut-health.html">Gut Health</a>
+  <a href="locate.html">Locate</a>
+</div>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="locate.html">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="sec-label">Our Guarantee</div>
+    <h1>WE STAND<br><em>BEHIND IT.</em></h1>
+    <p>Not happy? We'll make it right. Our promise is simple: if there's a problem with your order, we fix it.</p>
+  </div>
+</section>
+
+<!-- SECTION 1: OUR PROMISE -->
+<section class="ret-section alt fade-up">
+  <div class="ret-inner">
+    <div class="sec-label">The Promise</div>
+    <h2 class="ret-h2">Our Promise</h2>
+    <p class="promise-statement">If your POP CLTR arrives damaged, defective, or wrong — we'll replace it or refund you in full. No hassle, no runaround.</p>
+    <p class="promise-note">Under Republic Act No. 7394 (the Consumer Act of the Philippines), we are required by law to honor returns for defective or misrepresented products. We also go beyond what the law requires because we believe in our product — and in you.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: WHAT WE COVER -->
+<section class="ret-section fade-up">
+  <div class="ret-inner">
+    <div class="sec-label">Coverage</div>
+    <h2 class="ret-h2">What We'll Replace or Refund</h2>
+    <p class="ret-p">We draw a clear line. If the problem is on us, we own it. Here's what that looks like.</p>
+    <div class="coverage-grid">
+      <div class="coverage-col yes">
+        <div class="coverage-col-title">Yes — We'll Fix It</div>
+        <ul class="coverage-list">
+          <li>Cans damaged or dented in transit</li>
+          <li>Leaking or defective cans</li>
+          <li>Wrong item or flavor sent</li>
+          <li>Product that arrives expired or past its best-before date</li>
+          <li>Order that never arrived (lost in transit)</li>
+        </ul>
+      </div>
+      <div class="coverage-col no">
+        <div class="coverage-col-title">What's Not Covered</div>
+        <ul class="coverage-list">
+          <li>Change of mind after delivery — food safety regulations prevent us from accepting opened beverages</li>
+          <li>Products that were properly delivered but stored improperly</li>
+          <li>Minor cosmetic packaging differences that don't affect the product</li>
+          <li>Delays caused by your courier after we've dispatched</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: HOW TO REQUEST -->
+<section class="ret-section alt fade-up">
+  <div class="ret-inner">
+    <div class="sec-label">The Process</div>
+    <h2 class="ret-h2">How to Request a Return</h2>
+    <p class="ret-p">Three steps. That's it. We've kept this as painless as possible on purpose.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Reach out within <strong>7 days of delivery</strong> with your order number, a brief description of the issue, and a photo of the damaged or defective product.</div>
+        <div class="step-detail">Email us at <a href="mailto:hello@popcltr.com" style="color:var(--blue);font-weight:600;text-decoration:none;">hello@popcltr.com</a> — we're humans, not bots. You'll hear back from our actual team.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">We Review</div>
+        <div class="step-desc">Our team reviews your request within <strong>2 business days</strong> and confirms eligibility. We may ask for additional photos or context if needed.</div>
+        <div class="step-detail">No lengthy review committees. One team, one decision, one business day turnaround whenever possible.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Resolution</div>
+        <div class="step-desc">Once approved, we'll reship your replacement or process your refund within <strong>7–14 business days</strong>. Refunds return to your original payment method.</div>
+        <div class="step-detail">Replacements ship with priority. We'll send a tracking number as soon as the new order is dispatched.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: REFUND TIMELINE -->
+<section class="ret-section fade-up">
+  <div class="ret-inner">
+    <div class="sec-label">Timelines</div>
+    <h2 class="ret-h2">Refund Timeline</h2>
+    <p class="ret-p">Once your return is approved, here's how long each resolution type typically takes.</p>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <div class="timeline-type">Replacement Shipment</div>
+        <div class="timeline-time">3–5 business days</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-type">Credit Card Refund</div>
+        <div class="timeline-time">7–14 business days</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-type">GCash / E-Wallet Refund</div>
+        <div class="timeline-time">3–7 business days</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-type">Lost in Transit Claim</div>
+        <div class="timeline-time">5–10 business days</div>
+      </div>
+    </div>
+    <p class="ret-p" style="margin-top:1.5rem;font-size:0.82rem;">Credit card and bank timelines are subject to your card issuer's processing schedule — these are outside our control but we'll always process our side immediately on approval.</p>
+  </div>
+</section>
+
+<!-- SECTION 5: CONSUMER RIGHTS -->
+<section class="ret-section alt fade-up">
+  <div class="ret-inner">
+    <div class="sec-label">Your Rights</div>
+    <h2 class="ret-h2">Consumer Rights</h2>
+    <p class="ret-p">Your legal protections as a Filipino consumer are real, and we take them seriously.</p>
+    <div class="ret-hl">
+      <div class="ret-hl-title">Important — RA 7394</div>
+      <p>Your rights under <strong>Republic Act No. 7394 (Consumer Act of the Philippines)</strong> are protected. We cannot impose a "No Return, No Exchange" policy — this is prohibited by Philippine law. If you are unable to resolve a concern with us directly, you may contact the Department of Trade and Industry (DTI) at <a href="https://www.dti.gov.ph" target="_blank" rel="noopener">dti.gov.ph</a> or visit your nearest DTI office.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: CONTACT -->
+<div class="contact-strip">
+  <h3>Have a return or question?</h3>
+  <p>Our team responds within one business day. We're real people who care.</p>
+  <div class="contact-handles">
+    <a href="mailto:hello@popcltr.com">hello@popcltr.com</a>
+    <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener">@drinkpopcltr</a>
+    <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener">TikTok: @drinkpopcltr</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="locate.html#contact">Contact Us</a></li>
+        <li><a href="shipping.html">Shipping Info</a></li>
+        <li><a href="returns.html">Returns</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — POP CLTR</title>
+  <meta name="description" content="Everything you need to know about POP CLTR — the product, gut health, ordering, shipping, returns, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    .page-hero { background:var(--white); padding:5rem 5% 4rem; border-bottom:1px solid var(--border); }
+    .page-hero-inner { max-width:1100px; margin:0 auto; }
+    .page-hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.8rem,6vw,5.5rem); line-height:0.88; letter-spacing:-3px; color:var(--black); margin:0.8rem 0 1rem; }
+    .page-hero h1 em { color:var(--blue); font-style:normal; }
+    .page-hero p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.45); max-width:500px; }
+
+    /* Category tabs */
+    .faq-nav { background:var(--offwhite); border-bottom:1px solid var(--border); padding:0 5%; overflow-x:auto; }
+    .faq-nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; }
+    .faq-tab { font-family:'Space Grotesk'; font-weight:700; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.4); padding:1.1rem 1.5rem; border-bottom:2px solid transparent; cursor:pointer; white-space:nowrap; text-decoration:none; transition:color 0.2s,border-color 0.2s; }
+    .faq-tab:hover { color:var(--blue); }
+    .faq-tab.active { color:var(--blue); border-bottom-color:var(--blue); }
+
+    /* FAQ sections */
+    .faq-section { padding:4rem 5%; border-bottom:1px solid var(--border); }
+    .faq-section:last-of-type { border-bottom:none; }
+    .faq-section-inner { max-width:780px; margin:0 auto; }
+    .faq-section-label { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; display:block; }
+    .faq-section-title { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.6rem; color:var(--black); letter-spacing:-0.8px; margin-bottom:2rem; }
+
+    /* Accordion items */
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-item:last-child { border-bottom:none; }
+    .faq-q { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.3rem 0; cursor:pointer; font-family:'Space Grotesk'; font-weight:600; font-size:0.95rem; color:var(--black); user-select:none; }
+    .faq-q:hover { color:var(--blue); }
+    .faq-icon { flex-shrink:0; font-size:1.3rem; color:var(--blue); transition:transform 0.3s; font-weight:300; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(0,0,0,0.55); line-height:1.75; max-height:0; overflow:hidden; transition:max-height 0.4s ease,padding 0.3s; }
+    .faq-item.open .faq-a { max-height:500px; padding-bottom:1.3rem; }
+    .faq-a a { color:var(--blue); text-decoration:none; }
+    .faq-a a:hover { text-decoration:underline; }
+
+    /* Still need help strip */
+    .help-strip { background:var(--offwhite); padding:4rem 5%; text-align:center; border-top:1px solid var(--border); }
+    .help-strip h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--black); letter-spacing:-1px; margin-bottom:0.5rem; }
+    .help-strip p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(0,0,0,0.5); margin-bottom:1.5rem; }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="gut-health.html">Gut Health</a>
+  <a href="locate.html">Locate</a>
+</div>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="locate.html">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="sec-label">Help Centre</span>
+    <h1>QUESTIONS,<br><em>ANSWERED.</em></h1>
+    <p>Everything you need to know about POP CLTR — the product, gut health, ordering, and more.</p>
+  </div>
+</section>
+
+<!-- CATEGORY TABS -->
+<div class="faq-nav">
+  <div class="faq-nav-inner">
+    <a href="#about"       class="faq-tab active">About</a>
+    <a href="#ingredients" class="faq-tab">Ingredients</a>
+    <a href="#ordering"    class="faq-tab">Ordering</a>
+    <a href="#shipping"    class="faq-tab">Shipping</a>
+    <a href="#returns"     class="faq-tab">Returns</a>
+    <a href="#wholesale"   class="faq-tab">Wholesale</a>
+  </div>
+</div>
+
+<!-- SECTION 1: ABOUT POP CLTR -->
+<section class="faq-section fade-up" id="about">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 01</span>
+    <div class="faq-section-title">About POP CLTR</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What is POP CLTR?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        POP CLTR is a Filipino prebiotic soda made with Apple Cider Vinegar (ACV) and Inulin fiber. It's designed to taste like a great soda while actually supporting your gut health — with zero added sugar. Our first flavor is Blueberry Dalandan, a bold, fizzy combination of blueberry and the Filipino citrus fruit dalandan.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How is POP CLTR different from regular soda?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Regular sodas are loaded with sugar, artificial flavors, and zero functional benefits. POP CLTR has all the fizz and flavor of a soda, but it's made with Apple Cider Vinegar (with the "mother") and Inulin prebiotic fiber — ingredients that feed your good gut bacteria and support digestion. No added sugar, no crash, just pop.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is POP CLTR a probiotic drink?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        No — POP CLTR is a <strong>prebiotic</strong> soda, not a probiotic drink. Probiotics are live bacteria (like those in yogurt or kombucha). Prebiotics are the food that feeds those bacteria. POP CLTR contains Inulin, a soluble fiber from chicory root, which is one of the most well-studied prebiotics available. Think of it as fertilizer for your gut's existing good bacteria.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Where is POP CLTR made?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        POP CLTR is a Filipino brand, formulated and produced in the Philippines. We're proud to be Made in the Philippines 🇵🇭 — from the concept to the can.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Are there more flavors coming?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Yes! Blueberry Dalandan is our first flavor, but more are in development. Sign up for our newsletter to be first to know when new flavors drop.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: INGREDIENTS & GUT HEALTH -->
+<section class="faq-section fade-up" id="ingredients">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 02</span>
+    <div class="faq-section-title">Ingredients &amp; Gut Health</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What's actually in POP CLTR?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        The key functional ingredients are: Apple Cider Vinegar (with the "mother" — the natural prebiotic compounds), Inulin prebiotic fiber (from chicory root), natural Blueberry Dalandan flavoring, and carbonated water. Zero added sugar. The full ingredient list and nutritional information is available on the can.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What does "Apple Cider Vinegar with the mother" mean?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        The "mother" refers to the natural, unfiltered proteins, enzymes, and friendly bacteria found in raw, unprocessed ACV. This is where most of ACV's prebiotic and digestive properties come from. Many commercial ACV products are filtered and pasteurized, removing the mother. POP CLTR uses ACV that retains it.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What is Inulin and what does it do?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Inulin is a naturally occurring soluble fiber found in chicory root, garlic, onions, and bananas. It passes through your stomach undigested and reaches your colon, where it acts as food (a "prebiotic") for beneficial bacteria like <em>Bifidobacterium</em> and <em>Lactobacillus</em>. These bacteria produce short-chain fatty acids (SCFAs) that support your gut lining, reduce inflammation, and may improve digestion over time. Note: if you're new to inulin, you may experience mild bloating or gas initially — this is normal and usually subsides as your gut adjusts.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Does POP CLTR contain sugar?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        POP CLTR has zero added sugar. Any sweetness you taste comes from natural fruit flavoring. We never use artificial sweeteners, high-fructose corn syrup, or sugar alcohols.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is POP CLTR safe for people with diabetes?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        POP CLTR contains no added sugar and may be suitable for people managing blood sugar — ACV has been studied for its potential role in supporting blood sugar balance. However, we are not a medical product and cannot provide medical advice. If you have diabetes or a related condition, please consult your doctor or a registered nutritionist before making changes to your diet.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I drink POP CLTR if I'm pregnant or breastfeeding?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        POP CLTR is a food beverage made from natural ingredients. However, if you are pregnant or breastfeeding, we recommend consulting your healthcare provider before adding any new food or drink to your routine. This is good practice for any functional food product.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: ORDERING -->
+<section class="faq-section fade-up" id="ordering">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 03</span>
+    <div class="faq-section-title">Ordering</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How do I order POP CLTR?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        You can order directly through our website by clicking "Order Now" in the navigation. We currently ship nationwide across the Philippines. Select your product, add to cart, and complete checkout — it takes less than 2 minutes.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What payment methods do you accept?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        We accept major credit and debit cards (Visa, Mastercard), GCash, Maya, and other popular Philippine payment methods at checkout. All transactions are processed securely through encrypted payment gateways — we never store your card details.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I cancel or modify my order?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        You can cancel or modify your order if it has not yet been dispatched. Email us immediately at <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> with your order number. Once your order is in transit, we are unable to cancel or reroute it under the Internet Transactions Act (RA 11967).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is there a minimum order quantity?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        No minimum order — you can order a single can or a 12-pack bundle. We recommend the 12-pack for the best value (save ₱99 + free Metro Manila shipping).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Do you offer wholesale or bulk pricing?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Yes! If you're interested in stocking POP CLTR at your café, restaurant, gym, or store — we'd love to hear from you. Send us an email at <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> with the subject "Wholesale Inquiry" and we'll get back to you with our trade pricing and minimum order information.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: SHIPPING & DELIVERY -->
+<section class="faq-section fade-up" id="shipping">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 04</span>
+    <div class="faq-section-title">Shipping &amp; Delivery</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How long does delivery take?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Delivery timelines depend on your location:<br><br>
+        Metro Manila (NCR): 1–3 business days<br>
+        Luzon (outside NCR): 3–5 business days<br>
+        Visayas: 5–7 business days<br>
+        Mindanao &amp; island areas: 7–10 business days<br><br>
+        These are estimates — delays can occur during typhoon season (June–November) and holiday periods (November–January).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is shipping free?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Free shipping applies to all 12-pack orders delivered within Metro Manila. For all other orders:<br><br>
+        Metro Manila: ₱99<br>
+        Luzon provincial: ₱150<br>
+        Visayas &amp; Mindanao: ₱200<br><br>
+        No hidden charges — shipping cost is shown clearly at checkout before payment.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Which couriers do you use?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        We ship via J&amp;T Express, LBC Express, Ninja Van, and Flash Express depending on your area and availability. You'll receive your courier and tracking number by email within 24 hours of dispatch. Track your order via the courier's app or website.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Do I need to refrigerate POP CLTR during delivery?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        No. POP CLTR is fully shelf-stable and does not require refrigeration during shipping or storage. It tastes best served ice cold, but the product is safe and effective at room temperature.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What if my order arrives damaged?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        If your cans arrive damaged or dented, email us at <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> within 3 days of delivery with a photo of the damaged product and your order number. We'll arrange a replacement or refund promptly. See our full Returns policy at <a href="returns.html">returns.html</a>.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 5: RETURNS & REFUNDS -->
+<section class="faq-section fade-up" id="returns">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 05</span>
+    <div class="faq-section-title">Returns &amp; Refunds</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What's your return policy?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        We stand behind our product. If your order arrives damaged, defective, wrong, or expired — we'll replace it or refund you in full. Contact us within 7 days of delivery at <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> with your order number and a photo of the issue. See the full policy at <a href="returns.html">returns.html</a>.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I return it if I just don't like the taste?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Unfortunately, we cannot accept returns of opened food and beverage products due to food safety regulations. If you tried it and it wasn't for you, we genuinely appreciate the feedback — please reach out at <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> and we'll try to make it right in other ways.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How long does a refund take?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Once your return is approved:<br><br>
+        Replacement shipment: 3–5 business days<br>
+        Credit/debit card refund: 7–14 business days (depends on your issuing bank)<br>
+        GCash/e-wallet: 3–7 business days
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        What are my rights as a consumer?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Under Republic Act No. 7394 (the Consumer Act of the Philippines), you are protected from defective products and misleading claims. "No Return, No Exchange" policies are prohibited by Philippine law — we cannot impose them and we never would. If you cannot resolve a dispute with us directly, you may file a complaint with the DTI at <a href="https://www.dti.gov.ph" target="_blank" rel="noopener">dti.gov.ph</a>.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 6: WHOLESALE & PARTNERSHIPS -->
+<section class="faq-section fade-up" id="wholesale">
+  <div class="faq-section-inner">
+    <span class="faq-section-label">Category 06</span>
+    <div class="faq-section-title">Wholesale &amp; Partnerships</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can my cafe/gym/store carry POP CLTR?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Absolutely — we're actively looking for retail partners across the Philippines. Email <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> with your business name, type, location, and estimated monthly volume. We'll respond within 3–5 business days with our wholesale terms.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Do you do brand collaborations or seeding?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Yes! We love working with creators, brands, and communities that align with our values. If you're a content creator, health brand, or event organizer interested in collaborating, reach out on Instagram <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener">@drinkpopcltr</a> or email <a href="mailto:hello@popcltr.com">hello@popcltr.com</a>.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I become a reseller?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        We're building our reseller program now. Send an email to <a href="mailto:hello@popcltr.com">hello@popcltr.com</a> with subject "Reseller Inquiry" and we'll add you to the list for when the program launches.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STILL HAVE QUESTIONS STRIP -->
+<div class="help-strip fade-up">
+  <h3>Still Have Questions?</h3>
+  <p>We're real humans. Reach out and we'll get back to you within one business day.</p>
+  <a href="locate.html#contact" class="btn btn-primary">Contact Us →</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="locate.html#contact">Contact Us</a></li>
+        <li><a href="shipping.html">Shipping Info</a></li>
+        <li><a href="returns.html">Returns</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Tab active state on scroll
+  const sections = document.querySelectorAll('.faq-section');
+  const tabs = document.querySelectorAll('.faq-tab');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tabs.forEach(tab => {
+          tab.classList.toggle('active', tab.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — POP CLTR</title>
+  <meta name="description" content="POP CLTR's Terms of Use. Read these terms before using our site or placing an order. Governed by Philippine law including RA 8792, RA 7394, and RA 11967.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    .page-hero { background:var(--white); padding:5rem 5% 4rem; border-bottom:1px solid var(--border); }
+    .page-hero-inner { max-width:1100px; margin:0 auto; }
+    .page-hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.8rem,6vw,5.5rem); line-height:0.88; letter-spacing:-3px; color:var(--black); margin:0.8rem 0 1rem; }
+    .page-hero h1 em { color:var(--blue); font-style:normal; }
+    .page-hero p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.45); max-width:500px; }
+    .legal-wrap { max-width:780px; margin:0 auto; padding:4rem 5% 6rem; }
+    .legal-meta { font-family:'Space Grotesk'; font-size:0.72rem; color:rgba(0,0,0,0.3); letter-spacing:2px; text-transform:uppercase; margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border); }
+    .legal-toc { background:var(--offwhite); border-radius:16px; padding:1.5rem 2rem; margin-bottom:3rem; }
+    .legal-toc-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:rgba(0,0,0,0.35); margin-bottom:0.7rem; }
+    .legal-toc ol { padding-left:1.2rem; }
+    .legal-toc li { font-family:'Space Grotesk'; font-size:0.88rem; line-height:2.2; }
+    .legal-toc li a { color:var(--blue); text-decoration:none; }
+    .legal-toc li a:hover { text-decoration:underline; }
+    .legal-h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.35rem; color:var(--black); letter-spacing:-0.5px; margin:2.5rem 0 0.9rem; padding-top:2.5rem; border-top:1px solid var(--border); }
+    .legal-p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(0,0,0,0.6); line-height:1.85; margin-bottom:0.9rem; }
+    .legal-ul,.legal-ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .legal-ul li,.legal-ol li { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(0,0,0,0.6); line-height:1.85; margin-bottom:0.4rem; }
+    .legal-hl { background:rgba(0,26,255,0.04); border-left:3px solid var(--blue); padding:1rem 1.2rem; border-radius:0 8px 8px 0; margin:1.2rem 0; }
+    .legal-hl p { margin:0; color:rgba(0,0,0,0.65); font-family:'Space Grotesk'; font-size:0.95rem; line-height:1.75; }
+    .legal-link { color:var(--blue); text-decoration:none; }
+    .legal-link:hover { text-decoration:underline; }
+    .legal-table { width:100%; border-collapse:collapse; margin:1.2rem 0; font-family:'Space Grotesk'; font-size:0.88rem; }
+    .legal-table th { background:var(--offwhite); text-align:left; padding:0.6rem 0.9rem; font-weight:700; font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.45); border-bottom:1px solid var(--border); }
+    .legal-table td { padding:0.7rem 0.9rem; color:rgba(0,0,0,0.6); border-bottom:1px solid var(--border); vertical-align:top; line-height:1.65; }
+    .legal-hl-warn { background:rgba(226,255,0,0.12); border-left:3px solid #b8cc00; padding:1rem 1.2rem; border-radius:0 8px 8px 0; margin:1.2rem 0; }
+    .legal-hl-warn p { margin:0; color:rgba(0,0,0,0.65); font-family:'Space Grotesk'; font-size:0.95rem; line-height:1.75; }
+    @media (max-width: 768px) {
+      .legal-table { font-size:0.8rem; }
+      .legal-table th, .legal-table td { padding:0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toast"></div>
+  <div id="mob-menu">
+    <button id="mob-close" onclick="closeMob()">✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gut-health.html">Gut Health</a>
+    <a href="locate.html">Locate</a>
+  </div>
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text">POP CLTR</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+      <a href="shop.html" class="nav-cta">Order Now</a>
+    </div>
+    <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="sec-label">Legal</span>
+      <h1>THE GROUND<br><em>RULES.</em></h1>
+      <p>Please read these terms before using our site or placing an order. By shopping with us, you agree to the following.</p>
+    </div>
+  </section>
+
+  <!-- LEGAL CONTENT -->
+  <div class="legal-wrap">
+
+    <p class="legal-meta">Last Updated: May 1, 2026 &nbsp;·&nbsp; Effective Date: May 1, 2026 &nbsp;·&nbsp; Governed by Philippine Law</p>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="legal-toc">
+      <div class="legal-toc-title">On This Page</div>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#who-we-are">Who We Are</a></li>
+        <li><a href="#products">Products and Availability</a></li>
+        <li><a href="#ordering">Ordering, Payment, and Cancellation</a></li>
+        <li><a href="#health-claims">Health Claims Disclaimer</a></li>
+        <li><a href="#ip">Intellectual Property</a></li>
+        <li><a href="#prohibited">Prohibited Conduct</a></li>
+        <li><a href="#warranties">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#consumer-rights">Your Consumer Rights</a></li>
+        <li><a href="#governing-law">Governing Law and Disputes</a></li>
+        <li><a href="#changes">Changes to These Terms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. ACCEPTANCE -->
+    <h2 class="legal-h2" id="acceptance">1. Acceptance of Terms</h2>
+    <p class="legal-p">Welcome to the POP CLTR website. By accessing or using this website, placing an order, or otherwise interacting with us online, you agree to be bound by these Terms of Use ("Terms"). Please read them carefully before proceeding.</p>
+    <p class="legal-p">If you do not agree with any part of these Terms, please do not use this website or place an order with us.</p>
+    <p class="legal-p">These Terms are governed by and construed in accordance with the laws of the Republic of the Philippines, including but not limited to:</p>
+    <ul class="legal-ul">
+      <li><strong>RA 8792</strong> — Electronic Commerce Act of 2000</li>
+      <li><strong>RA 7394</strong> — Consumer Act of the Philippines</li>
+      <li><strong>RA 11967</strong> — Internet Transactions Act of 2023</li>
+    </ul>
+    <p class="legal-p">These Terms apply to all users of the site, including without limitation users who are browsers, customers, and contributors of content.</p>
+
+    <!-- 2. WHO WE ARE -->
+    <h2 class="legal-h2" id="who-we-are">2. Who We Are</h2>
+    <p class="legal-p">This website is operated by POP CLTR, a Filipino prebiotic soda brand based in Metro Manila, Philippines.</p>
+    <div class="legal-hl">
+      <p><strong>POP CLTR</strong><br>
+      Metro Manila, Philippines<br>
+      Email: <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a></p>
+    </div>
+    <p class="legal-p">References to "POP CLTR," "we," "us," or "our" in these Terms refer to the brand and its operators. If you have any questions about these Terms or about your order, please contact us at the email above.</p>
+
+    <!-- 3. PRODUCTS -->
+    <h2 class="legal-h2" id="products">3. Products and Availability</h2>
+    <p class="legal-p">POP CLTR currently offers Blueberry Dalandan prebiotic soda in a 355mL can format. Additional flavors and products may become available from time to time.</p>
+    <ul class="legal-ul">
+      <li><strong>Geographic Availability:</strong> Our products are currently available within the Philippines only. We do not ship internationally at this time.</li>
+      <li><strong>Currency:</strong> All prices displayed on this website are in Philippine Peso (₱) and are inclusive of applicable taxes unless stated otherwise.</li>
+      <li><strong>Price Changes:</strong> Prices are subject to change without notice. The price you see at the time you place your order is the price you will be charged, subject to any promotional or discount codes applied.</li>
+      <li><strong>Product Images:</strong> Product images displayed on this website are for illustrative purposes only and are representative of the product. Actual product packaging, colors, and appearance may differ slightly from what is shown on screen due to display and printing variations.</li>
+      <li><strong>Stock Availability:</strong> Products are sold subject to availability. We reserve the right to limit the quantity of items purchased per customer, per household, or per order in our sole discretion. In the event that a product is out of stock after your order is confirmed, we will notify you and issue a full refund.</li>
+    </ul>
+
+    <!-- 4. ORDERING, PAYMENT, CANCELLATION -->
+    <h2 class="legal-h2" id="ordering">4. Ordering, Payment, and Cancellation</h2>
+    <p class="legal-p"><strong>Placing an Order:</strong> When you submit an order through our website, you are making a binding offer to purchase the selected products at the stated price. Your order is accepted and a contract is formed when we send you an order confirmation email.</p>
+    <p class="legal-p"><strong>Order Confirmation:</strong> You will receive an automated order confirmation email after successfully placing your order. Please review this confirmation carefully. If you spot an error, contact us immediately at <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a>.</p>
+    <p class="legal-p"><strong>Cancellation Before Dispatch:</strong> You may request a cancellation before your order has been dispatched by emailing <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a> as soon as possible with your order number. We will do our best to accommodate cancellation requests made promptly, but we cannot guarantee cancellation once an order has been processed for dispatch.</p>
+    <p class="legal-p"><strong>Cancellation After Dispatch:</strong> In accordance with RA 11967 (Internet Transactions Act of 2023), once your order has been dispatched to our delivery partner, cancellation is no longer possible. Please refer to our Returns policy for options available after delivery.</p>
+    <p class="legal-p"><strong>Payment:</strong> Payment is processed securely through our third-party payment processors at the time your order is placed. We accept major credit and debit cards, GCash, Maya, and other digital payment methods as indicated at checkout. All transactions are encrypted and secure.</p>
+    <div class="legal-hl">
+      <p>We do not store, view, or have access to your full credit or debit card details. All payment data is handled exclusively by our PCI-DSS-compliant payment processor.</p>
+    </div>
+    <p class="legal-p"><strong>Pricing Errors:</strong> In the event a product is listed at an incorrect price due to a typographical error or system error, we reserve the right to cancel any order placed for that product. We will notify you of such a cancellation and issue a full refund.</p>
+
+    <!-- 5. HEALTH CLAIMS -->
+    <h2 class="legal-h2" id="health-claims">5. Health Claims Disclaimer</h2>
+    <p class="legal-p">POP CLTR is a food and beverage product. It is not a drug, pharmaceutical product, dietary supplement, or medical device. Any statements made on this website regarding prebiotic ingredients, gut health, digestion, or general wellbeing are provided for informational and educational purposes only. They are not intended to constitute medical advice, diagnosis, or treatment.</p>
+    <div class="legal-hl-warn">
+      <p><strong>Important Notice:</strong> "This product is not intended to diagnose, treat, cure, or prevent any disease. This statement has not been evaluated by the Philippine Food and Drug Administration (FDA)."</p>
+    </div>
+    <p class="legal-p">Individual results may vary. Gut health outcomes depend on a wide range of personal factors including existing health conditions, diet, lifestyle, and genetics. What works for one person may not work for another.</p>
+    <p class="legal-p">If you have any pre-existing medical condition, are taking prescription medication, are pregnant, are breastfeeding, or have any other health concerns, please consult a qualified healthcare professional before consuming POP CLTR or making any changes to your diet.</p>
+    <p class="legal-p">Nothing on this website should be interpreted as an endorsement by any medical body, health authority, or the Philippine FDA.</p>
+
+    <!-- 6. INTELLECTUAL PROPERTY -->
+    <h2 class="legal-h2" id="ip">6. Intellectual Property</h2>
+    <p class="legal-p">All content on the POP CLTR website — including but not limited to the brand name, logo, can designs, product photography, graphic elements, written copy, marketing materials, and overall site design — is owned by or licensed to POP CLTR and is protected by applicable intellectual property laws.</p>
+    <p class="legal-p">You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our website without our prior written permission, except for the following permitted uses:</p>
+    <ul class="legal-ul">
+      <li>You may share links to our website on social media for non-commercial personal purposes.</li>
+      <li>You may print or download a reasonable number of pages from our website for personal, non-commercial reference.</li>
+    </ul>
+    <p class="legal-p"><strong>User-Submitted Content:</strong> If you submit content to us — including product reviews, social media tags, testimonials, or photos featuring POP CLTR products — you grant POP CLTR a non-exclusive, royalty-free, worldwide, perpetual license to use, reproduce, display, distribute, and adapt such content for marketing and promotional purposes, including on our website and social media channels. We will always make reasonable efforts to credit you when using your content.</p>
+    <p class="legal-p">If you believe that any content on our website infringes your intellectual property rights, please contact us at <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a>.</p>
+
+    <!-- 7. PROHIBITED CONDUCT -->
+    <h2 class="legal-h2" id="prohibited">7. Prohibited Conduct</h2>
+    <p class="legal-p">By using this website, you agree that you will not:</p>
+    <ul class="legal-ul">
+      <li>Use the website for any unlawful purpose or in violation of any Philippine law or regulation.</li>
+      <li>Attempt to gain unauthorized access to any part of the website, our servers, or any system or network connected to the site.</li>
+      <li>Use any automated tool, bot, spider, scraper, or data-mining technology to extract, collect, or copy content from the website without our prior written consent.</li>
+      <li>Impersonate POP CLTR, our employees, or any other person or entity, or misrepresent your affiliation with any person or entity.</li>
+      <li>Post, submit, or distribute false, misleading, defamatory, or fraudulent reviews or testimonials about our products.</li>
+      <li>Introduce viruses, malware, or any other harmful code that could damage, disrupt, or interfere with the operation of the website or the experience of other users.</li>
+      <li>Use our website to transmit unsolicited commercial communications (spam).</li>
+      <li>Resell or commercially exploit any content from our website without prior written authorization.</li>
+    </ul>
+    <p class="legal-p">Violation of these prohibitions may result in immediate termination of your access to the website and may expose you to civil or criminal liability under applicable Philippine law.</p>
+
+    <!-- 8. DISCLAIMER OF WARRANTIES -->
+    <h2 class="legal-h2" id="warranties">8. Disclaimer of Warranties</h2>
+    <p class="legal-p">To the fullest extent permitted by applicable Philippine law, this website and its content are provided on an "as is" and "as available" basis, without any warranties of any kind, either express or implied.</p>
+    <p class="legal-p">We do not warrant that the website will be uninterrupted, error-free, or free from viruses or other harmful components. We do not warrant that the information on the website is accurate, complete, or current.</p>
+    <div class="legal-hl">
+      <p>Nothing in this section limits or excludes any warranties or guarantees that are implied by law under the Consumer Act of the Philippines (RA 7394) and which cannot be lawfully excluded. Your statutory consumer rights are fully preserved.</p>
+    </div>
+
+    <!-- 9. LIMITATION OF LIABILITY -->
+    <h2 class="legal-h2" id="liability">9. Limitation of Liability</h2>
+    <p class="legal-p">To the extent permitted by applicable Philippine law, POP CLTR and its operators, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of this website or our products, including but not limited to loss of profits, data, goodwill, or business opportunities.</p>
+    <p class="legal-p">Where POP CLTR is found to be liable for direct damages, our total aggregate liability to you shall not exceed the total amount you paid for your order that gave rise to the claim.</p>
+    <div class="legal-hl">
+      <p>This limitation does not apply to liability that cannot be excluded or limited under the Consumer Act of the Philippines (RA 7394), including liability for death or personal injury caused by our negligence, or liability for fraud or fraudulent misrepresentation.</p>
+    </div>
+
+    <!-- 10. CONSUMER RIGHTS -->
+    <h2 class="legal-h2" id="consumer-rights">10. Your Consumer Rights</h2>
+    <p class="legal-p">Nothing in these Terms is intended to limit or exclude any right you have as a consumer under the Consumer Act of the Philippines (RA 7394) or any other applicable Philippine consumer protection law. Your statutory rights are always preserved.</p>
+    <p class="legal-p">Under RA 7394, you have the right to:</p>
+    <ul class="legal-ul">
+      <li>Receive products that are safe, of merchantable quality, and fit for their intended purpose.</li>
+      <li>An implied warranty of quality for a period of <strong>one (1) year</strong> from the date of purchase, in respect of manufacturing defects.</li>
+      <li>A refund, replacement, or repair in the event your product is defective upon receipt.</li>
+      <li>Accurate and truthful information about the products you purchase.</li>
+    </ul>
+    <div class="legal-hl">
+      <p>The DTI prohibits "No Return, No Exchange" policies that are inconsistent with consumer rights under RA 7394. We honor all returns and exchanges required by Philippine consumer protection law.</p>
+    </div>
+    <p class="legal-p">If you believe your consumer rights have been violated and we are unable to resolve the matter directly, you may file a complaint with the Department of Trade and Industry (DTI) at <a href="https://dti.gov.ph" class="legal-link" target="_blank" rel="noopener">dti.gov.ph</a>.</p>
+
+    <!-- 11. GOVERNING LAW -->
+    <h2 class="legal-h2" id="governing-law">11. Governing Law and Disputes</h2>
+    <p class="legal-p">These Terms and any dispute or claim arising out of or in connection with them (including non-contractual disputes or claims) shall be governed by and construed in accordance with the laws of the Republic of the Philippines.</p>
+    <p class="legal-p">The courts of Metro Manila, Philippines shall have exclusive jurisdiction over any dispute arising out of or relating to these Terms or your use of this website, subject to any mandatory jurisdiction rules that may apply to your location within the Philippines.</p>
+    <p class="legal-p"><strong>Amicable Resolution:</strong> Before initiating any formal legal proceedings, we encourage you to contact us at <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a> so that we can attempt to resolve the matter amicably. We are committed to finding fair and reasonable solutions for our customers.</p>
+    <p class="legal-p"><strong>Consumer Complaints:</strong> For consumer-related disputes that cannot be resolved directly with us, you may file a complaint with the Department of Trade and Industry (DTI) through its Consumer Care hotline or at <a href="https://dti.gov.ph" class="legal-link" target="_blank" rel="noopener">dti.gov.ph</a>.</p>
+
+    <!-- 12. CHANGES -->
+    <h2 class="legal-h2" id="changes">12. Changes to These Terms</h2>
+    <p class="legal-p">We reserve the right to update or modify these Terms at any time. When we do, we will update the "Last Updated" date shown at the top of this page.</p>
+    <p class="legal-p">Your continued use of the website or placement of a new order after the effective date of any changes constitutes your acceptance of the updated Terms. We encourage you to review these Terms periodically.</p>
+    <p class="legal-p">For significant changes that materially affect your rights, we will make reasonable efforts to notify you — for example, by placing a prominent notice on our website or by sending an email to customers where we have contact information on file.</p>
+
+    <!-- 13. CONTACT -->
+    <h2 class="legal-h2" id="contact">13. Contact</h2>
+    <p class="legal-p">If you have any questions about these Terms of Use, please contact us:</p>
+    <div class="legal-hl">
+      <p><strong>POP CLTR</strong><br>
+      Metro Manila, Philippines<br>
+      Email: <a href="mailto:hello@popcltr.com" class="legal-link">hello@popcltr.com</a><br>
+      Response Time: Within 5 business days</p>
+    </div>
+    <p class="legal-p">For privacy-related inquiries, please refer to our <a href="privacy.html" class="legal-link">Privacy Policy</a>. For shipping questions, visit our <a href="faq.html" class="legal-link">FAQ page</a> or email us directly.</p>
+
+  </div><!-- /.legal-wrap -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="footer-logo-text">POP CLTR</div>
+        <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+          <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gut-health.html">Gut Health</a></li>
+          <li><a href="locate.html">Locate</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="locate.html#contact">Contact Us</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+      <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+    const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

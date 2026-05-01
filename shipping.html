@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Info — POP CLTR</title>
+  <meta name="description" content="Nationwide delivery across the Philippines. Everything you need to know about POP CLTR shipping, delivery zones, and tracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    .page-hero { background:var(--white); padding:5rem 5% 4rem; border-bottom:1px solid var(--border); }
+    .page-hero-inner { max-width:1100px; margin:0 auto; }
+    .page-hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.8rem,6vw,5.5rem); line-height:0.88; letter-spacing:-3px; color:var(--black); margin:0.8rem 0 1rem; }
+    .page-hero h1 em { color:var(--blue); font-style:normal; }
+    .page-hero p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.45); max-width:500px; }
+    .info-section { padding:5rem 5%; }
+    .info-section.alt { background:var(--offwhite); }
+    .info-inner { max-width:1100px; margin:0 auto; }
+    .info-h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.8rem,3.5vw,2.8rem); letter-spacing:-1.5px; color:var(--black); margin:0.6rem 0 0.8rem; }
+    .info-p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(0,0,0,0.55); line-height:1.8; margin-bottom:0.8rem; max-width:640px; }
+    .zone-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2.5rem; }
+    .zone-card { background:var(--white); border:1px solid var(--border); border-radius:20px; padding:2rem; transition:border-color 0.3s,transform 0.3s; }
+    .zone-card:hover { border-color:var(--blue); transform:translateY(-4px); }
+    .zone-card.featured { border-color:var(--blue); background:rgba(0,26,255,0.03); }
+    .zone-name { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.3rem; color:var(--black); letter-spacing:-0.5px; margin-bottom:0.5rem; }
+    .zone-time { font-family:'Bricolage Grotesque'; font-weight:800; font-size:2.2rem; color:var(--blue); letter-spacing:-1px; line-height:1; margin-bottom:0.5rem; }
+    .zone-time-label { font-family:'Space Grotesk'; font-size:0.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.35); margin-bottom:1rem; }
+    .zone-fee { font-family:'Space Grotesk'; font-size:0.88rem; color:rgba(0,0,0,0.55); }
+    .zone-fee strong { color:var(--black); }
+    .courier-list { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; }
+    .courier-pill { background:var(--white); border:1px solid var(--border); border-radius:100px; padding:0.6rem 1.2rem; font-family:'Space Grotesk'; font-weight:600; font-size:0.82rem; color:var(--black); }
+    .info-hl { background:rgba(0,26,255,0.05); border:1px solid rgba(0,26,255,0.15); border-radius:16px; padding:1.5rem 2rem; margin-top:2rem; }
+    .info-hl-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:0.8rem; }
+    .info-ul { padding-left:1.3rem; }
+    .info-ul li { font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(0,0,0,0.6); line-height:1.8; margin-bottom:0.4rem; }
+    .processing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2rem; }
+    .proc-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:1.5rem; }
+    .proc-num { font-family:'Bricolage Grotesque'; font-weight:800; font-size:2.5rem; color:var(--blue); opacity:0.2; line-height:1; }
+    .proc-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.85rem; color:var(--black); margin:0.3rem 0; }
+    .proc-desc { font-family:'Space Grotesk'; font-size:0.82rem; color:rgba(0,0,0,0.5); line-height:1.65; }
+    .tracking-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2rem; }
+    .tracking-card { background:var(--offwhite); border-radius:16px; padding:1.5rem 1.75rem; }
+    .tracking-card-title { font-family:'Space Grotesk'; font-weight:700; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.35); margin-bottom:0.5rem; }
+    .tracking-card-body { font-family:'Space Grotesk'; font-size:0.9rem; color:rgba(0,0,0,0.6); line-height:1.7; }
+    .question-strip { background:var(--black); padding:4rem 5%; text-align:center; }
+    .question-strip h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(1.5rem,3vw,2.2rem); color:var(--white); letter-spacing:-1px; margin-bottom:0.5rem; }
+    .question-strip p { font-family:'Space Grotesk'; font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:1.5rem; }
+    .question-strip .btn-neon { background:var(--neon); color:var(--black); font-family:'Space Grotesk'; font-weight:700; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; padding:0.85rem 2rem; border-radius:100px; text-decoration:none; display:inline-block; transition:opacity 0.2s; }
+    .question-strip .btn-neon:hover { opacity:0.85; }
+    .sec-label { font-family:'Space Grotesk'; font-weight:700; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:0.4rem; }
+    @media(max-width:768px){ .zone-grid{grid-template-columns:1fr;} .processing-grid{grid-template-columns:1fr;} .tracking-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="gut-health.html">Gut Health</a>
+  <a href="locate.html">Locate</a>
+</div>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="locate.html">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="sec-label">Delivery</div>
+    <h1>WE'LL GET IT<br><em>TO YOU.</em></h1>
+    <p>Nationwide delivery across the Philippines. Here's everything you need to know before you order.</p>
+  </div>
+</section>
+
+<!-- SECTION 1: ORDER PROCESSING -->
+<section class="info-section alt fade-up">
+  <div class="info-inner">
+    <div class="sec-label">Processing</div>
+    <h2 class="info-h2">Order Processing</h2>
+    <p class="info-p">We move fast. Here's how your order goes from our hands to yours.</p>
+    <div class="processing-grid">
+      <div class="proc-card">
+        <div class="proc-num">01</div>
+        <div class="proc-title">Same-Day Dispatch</div>
+        <div class="proc-desc">Orders placed Monday–Friday before 2:00 PM are dispatched the same day. Weekend and public holiday orders are processed the next business day.</div>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Processing Time</div>
+        <div class="proc-desc">Allow 1–2 business days for order packing and quality checks before handover to our courier partner in your area.</div>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">03</div>
+        <div class="proc-title">Tracking Number</div>
+        <div class="proc-desc">You'll receive a tracking number via email within 24 hours of dispatch. Use it to follow your order in real time on the courier's app.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: DELIVERY ZONES -->
+<section class="info-section fade-up">
+  <div class="info-inner">
+    <div class="sec-label">Coverage</div>
+    <h2 class="info-h2">Delivery Zones</h2>
+    <p class="info-p">We deliver to every corner of the archipelago. Estimated windows below are based on typical courier performance.</p>
+    <div class="zone-grid">
+      <div class="zone-card featured">
+        <div class="zone-name">Metro Manila (NCR)</div>
+        <div class="zone-time">1–3</div>
+        <div class="zone-time-label">Business Days</div>
+        <div class="zone-fee">
+          <strong>Free shipping</strong> on 12-pack orders<br>
+          ₱99 flat rate on single-can orders
+        </div>
+      </div>
+      <div class="zone-card">
+        <div class="zone-name">Luzon (Outside NCR)</div>
+        <div class="zone-time">3–5</div>
+        <div class="zone-time-label">Business Days</div>
+        <div class="zone-fee">
+          <strong>₱150</strong> flat rate shipping
+        </div>
+      </div>
+      <div class="zone-card">
+        <div class="zone-name">Visayas</div>
+        <div class="zone-time">5–7</div>
+        <div class="zone-time-label">Business Days</div>
+        <div class="zone-fee">
+          <strong>₱200</strong> flat rate shipping
+        </div>
+      </div>
+      <div class="zone-card">
+        <div class="zone-name">Mindanao &amp; Island Areas</div>
+        <div class="zone-time">7–10</div>
+        <div class="zone-time-label">Business Days</div>
+        <div class="zone-fee">
+          <strong>₱200</strong> flat rate shipping<br>
+          Remote or island barangays may require LBC branch pickup.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: DELIVERY PARTNERS -->
+<section class="info-section alt fade-up">
+  <div class="info-inner">
+    <div class="sec-label">Logistics</div>
+    <h2 class="info-h2">Our Delivery Partners</h2>
+    <p class="info-p">We work with the best courier networks in the Philippines to get your POP CLTR to you as fast as possible. The courier assigned to your order depends on your area and availability.</p>
+    <div class="courier-list">
+      <div class="courier-pill">J&amp;T Express</div>
+      <div class="courier-pill">LBC Express</div>
+      <div class="courier-pill">Ninja Van</div>
+      <div class="courier-pill">Flash Express</div>
+    </div>
+    <p class="info-p" style="margin-top:1.5rem;">All partners offer real-time tracking via their apps and websites, so you'll always know where your cans are.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: TRACKING -->
+<section class="info-section fade-up">
+  <div class="info-inner">
+    <div class="sec-label">Tracking</div>
+    <h2 class="info-h2">Tracking Your Order</h2>
+    <p class="info-p">Once your order ships, you're in the loop every step of the way.</p>
+    <div class="tracking-grid">
+      <div class="tracking-card">
+        <div class="tracking-card-title">Tracking Number</div>
+        <div class="tracking-card-body">Sent by email within 24 hours of dispatch. Track via the courier's app or website using this number.</div>
+      </div>
+      <div class="tracking-card">
+        <div class="tracking-card-title">Delivery Windows</div>
+        <div class="tracking-card-body">Estimated delivery windows are guidelines, not guarantees. All couriers provide live status updates in their apps.</div>
+      </div>
+      <div class="tracking-card">
+        <div class="tracking-card-title">Typhoon Season</div>
+        <div class="tracking-card-body">Delays can occur during typhoon season (June–November). We'll always communicate proactively if your area is affected.</div>
+      </div>
+      <div class="tracking-card">
+        <div class="tracking-card-title">Holiday Peaks</div>
+        <div class="tracking-card-body">Expect slower delivery during the November–January holiday peak. Order early to be safe — your gut won't wait.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: IMPORTANT NOTES -->
+<section class="info-section alt fade-up">
+  <div class="info-inner">
+    <div class="sec-label">Good to Know</div>
+    <h2 class="info-h2">Important Notes</h2>
+    <p class="info-p">A few things worth knowing before your order arrives.</p>
+    <div class="info-hl">
+      <div class="info-hl-title">Key Info</div>
+      <ul class="info-ul">
+        <li>POP CLTR is shelf-stable — no refrigeration required during shipping or storage.</li>
+        <li>Delivery runs Monday–Saturday. Standard couriers do not deliver on Sundays.</li>
+        <li>If nobody is home at time of delivery, the courier will attempt re-delivery or leave the package at the nearest hub or branch.</li>
+        <li>Order lost or damaged in transit? Contact us within 3 days of expected delivery at <a href="mailto:hello@popcltr.com" style="color:var(--blue);text-decoration:none;font-weight:600;">hello@popcltr.com</a> and we'll make it right.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: QUESTIONS CTA -->
+<div class="question-strip">
+  <h3>Still have questions?</h3>
+  <p>Our team is happy to help with anything shipping-related.</p>
+  <a href="locate.html#contact" class="btn-neon">Get in Touch</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="locate.html#contact">Contact Us</a></li>
+        <li><a href="shipping.html">Shipping Info</a></li>
+        <li><a href="returns.html">Returns</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
