@@ -9,529 +9,803 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@300;400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        body { background-color: var(--bg-light); color: var(--text-black); overflow-x: hidden; }
+        body { background-color: var(--bg-dark); color: #fff; overflow-x: hidden; }
+        .playbook-wrapper { max-width: 1200px; margin: 0 auto; padding: 120px 5% 100px; }
+        .playbook-header { text-align: center; margin-bottom: 8rem; }
+        .playbook-header h1 { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9; text-transform: uppercase; margin: 2rem 0; letter-spacing: -4px; }
+        .section-label { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 0.7rem; letter-spacing: 5px; color: var(--neon-yellow); text-transform: uppercase; margin-bottom: 2rem; display: block; }
+        .playbook-section { margin-bottom: 15rem; }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 3rem; }
+        .asset-card { background: transparent; border: none; border-radius: 30px; overflow: hidden; transition: all 0.4s ease; position: relative; }
+        .asset-card:hover { border-color: var(--electric-blue); transform: scale(1.02); }
+        .asset-card img { width: 100%; height: auto; display: block; }
 
-        /* Lock header to exact same size as all other pages */
-        .glass-header { padding: 13px 5% !important; font-size: 16px !important; }
-        .glass-header .header-container { max-width: 1100px !important; }
-        .glass-header .logo { font-size: 22px !important; font-family: 'Bricolage Grotesque', sans-serif !important; font-weight: 800 !important; }
-        .glass-header nav a { font-size: 11px !important; font-family: 'Space Grotesk', 'Inter', sans-serif !important; font-weight: 700 !important; padding: 14px 16px !important; letter-spacing: 1.5px !important; }
-
-        .playbook-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 8rem 5% 4rem;
-        }
-
-        .hero-mini {
-            text-align: center;
-            margin-bottom: 5rem;
-            border-bottom: 2px solid #000;
-            padding-bottom: 4rem;
-        }
-
-        .hero-mini h1 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: clamp(2rem, 6vw, 4.5rem);
-            line-height: 0.95;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-mini .description {
-            max-width: 600px;
-            font-size: 1rem;
-            color: #888;
-            line-height: 1.6;
-        }
-
-        .playbook-section {
-            margin-bottom: 6rem;
-        }
-
-        .section-label {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: clamp(1rem, 5vw, 1.8rem);
-            text-transform: uppercase;
-            margin-bottom: 3rem;
+        /* POSTER SECTION — EDITORIAL GRID */
+        .poster-section-hero {
             width: 100%;
-            text-align: center;
-            border-bottom: 2px solid #121212;
-            padding-bottom: 1rem;
-        }
-
-        .creative-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-        }
-
-        .ad-mockup-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .mockup-item {
-            aspect-ratio: 9/16;
-            background: #f5f5f5;
-            border-radius: 16px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #eee;
+            border: 1px solid #1a1a1a;
             position: relative;
+            aspect-ratio: 21/9;
+            margin-bottom: 2px;
         }
-
-        .mockup-item img {
+        .poster-section-hero img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+            transition: transform 0.6s ease;
         }
+        .poster-section-hero:hover img { transform: scale(1.03); }
 
-        .mockup-item.landscape {
-            aspect-ratio: 16/9;
-        }
-
-        .mockup-item.square {
-            aspect-ratio: 1/1;
-        }
-
-        .mockup-label {
+        .poster-cat-tag {
             position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: #000;
-            color: #fff;
-            padding: 0.4rem 0.8rem;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--neon-yellow);
+            color: #000;
             font-family: 'Space Grotesk';
+            font-size: 0.55rem;
             font-weight: 800;
-            font-size: 0.6rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
+            padding: 4px 10px;
             z-index: 2;
         }
 
-        .strategy-node {
-            border-left: 6px solid var(--accent-strawberry, #FF1A1A);
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+        .poster-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 2px;
         }
-
-        .strategy-node h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .strategy-node p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #555;
-        }
-
-        .roadmap-lite {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .poster-label-left {
+            display: flex;
+            align-items: baseline;
             gap: 1.5rem;
-            margin-top: 2rem;
         }
-
-        .phase-node {
-            background: #fafafa;
-            padding: 1.5rem;
-            border-radius: 16px;
-            border: 1px solid #eee;
+        .poster-serial {
+            font-family: 'Space Grotesk';
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            letter-spacing: 3px;
         }
-
-        .phase-node h4 {
+        .poster-title {
             font-family: 'Bricolage Grotesque';
             font-size: 1rem;
-            margin-bottom: 0.8rem;
-            color: var(--accent-strawberry, #FF1A1A);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+        .poster-format {
+            font-family: 'Space Grotesk';
+            font-size: 0.6rem;
+            color: #444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .phase-node p {
-            font-size: 0.8rem;
-            line-height: 1.6;
-            opacity: 0.7;
+        .poster-diptych {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+        .poster-triplet {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-bottom: 2px;
         }
 
-        @media (max-width: 768px) {
-            .roadmap-lite { grid-template-columns: 1fr; }
-            .ad-mockup-grid { grid-template-columns: 1fr; }
+        .poster-frame {
+            position: relative;
+            overflow: hidden;
+            background: #050505;
+            border: 1px solid #1a1a1a;
+        }
+        .poster-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .poster-frame:hover img { transform: scale(1.04); }
+        .poster-frame.tall { aspect-ratio: 3/4; }
+        .poster-frame.square { aspect-ratio: 1/1; }
+        .poster-frame.short { aspect-ratio: 4/3; }
+
+        .poster-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+        }
+        .poster-headline {
+            font-family: 'Bricolage Grotesque';
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+        .poster-sub { font-family: 'Space Grotesk'; color: var(--neon-yellow); letter-spacing: 2px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .poster-body { font-size: 0.9rem; opacity: 0.6; line-height: 1.4; max-width: 80%; }
+        .billboard-hero { width: 100%; border-radius: 40px; overflow: hidden; border: 1px solid #222; margin-bottom: 3rem; position: relative; aspect-ratio: 16/9; }
+        .billboard-hero img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* VIRAL ARCHITECTURE */
+        .arch-section-title {
+            font-family: 'Bricolage Grotesque';
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin-bottom: 1rem;
+            line-height: 0.9;
+        }
+        .arch-section-title span { color: var(--neon-yellow); }
+        .arch-intro { opacity: 0.5; font-size: 1rem; max-width: 600px; line-height: 1.8; margin-bottom: 6rem; }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+        .arch-grid-lower {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+        .arch-tile {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+        .arch-tile:hover { background: #111; }
+        .arch-tile::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Space Grotesk';
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #333;
+        }
+        .arch-tile-tag {
+            display: inline-block;
+            background: var(--neon-yellow);
+            color: #000;
+            font-family: 'Space Grotesk';
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            padding: 3px 10px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .arch-tile h4 {
+            font-family: 'Bricolage Grotesque';
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+        .arch-tactic {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #222;
+        }
+        .arch-tactic strong {
+            display: block;
+            font-family: 'Space Grotesk';
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        .arch-tactic p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .arch-tile.wide { grid-column: span 2; }
+        .arch-tile.accent { background: var(--neon-yellow); color: #000; }
+        .arch-tile.accent .arch-tactic { border-color: rgba(0,0,0,0.2); }
+        .arch-tile.accent .arch-tactic strong { color: #000; }
+        .arch-tile.accent .arch-tactic p { opacity: 0.7; color: #000; }
+        .arch-tile.accent h4 { color: #000; }
+        .arch-tile.accent .arch-tile-tag { background: #000; color: var(--neon-yellow); }
+        .arch-tile.accent::before { color: rgba(0,0,0,0.2); }
+        .arch-tile.dark-accent { background: var(--electric-blue, #001aff); }
+        .arch-tile.dark-accent .arch-tactic { border-color: rgba(255,255,255,0.2); }
+        .arch-tile.dark-accent .arch-tile-tag { background: var(--neon-yellow); color: #000; }
+
+        .arch-phase-bar {
+            display: flex;
+            align-items: stretch;
+            gap: 2px;
+            margin-top: 6rem;
+            margin-bottom: 6rem;
+        }
+        .phase-block {
+            flex: 1;
+            padding: 2.5rem 2rem;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            position: relative;
+        }
+        .phase-block::after {
+            content: '→';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        .phase-block:last-child::after { display: none; }
+        .phase-num {
+            font-family: 'Space Grotesk';
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: #444;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .phase-name {
+            font-family: 'Bricolage Grotesque';
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        .phase-window {
+            font-family: 'Space Grotesk';
+            font-size: 0.7rem;
+            color: var(--neon-yellow);
+            font-weight: 700;
+            letter-spacing: 2px;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
     <header id="main-header" class="glass-header">
         <div class="header-container">
-            <a href="index.html" class="logo">POP CLTR</a>
+            <a href="index.html" class="logo"><img src="final/logo_white.png" alt="POP CLTR" style="height: 36px; width: auto; display: block; object-fit: contain;"></a>
             <nav>
                 <a href="index.html">HOME</a>
                 <a href="formulation.html">SCIENCE</a>
                 <a href="strategy.html">STRATEGY</a>
                 <a href="marketing.html">MARKETING</a>
-                <a href="gallery.html">LOOK BOOK</a>
+                <a href="gallery.html">THE CAN</a>
+                <a href="brand_book.html">BRAND BOOK</a>
             </nav>
         </div>
     </header>
 
     <main class="playbook-wrapper">
+        <header class="playbook-header">
+            <span class="section-label">2026 Viral Playbook</span>
+            <h1>ADVERTISING<br>CRYPT</h1>
+            <p style="opacity: 0.4; max-width: 600px; margin: 3rem auto; font-size: 1.1rem;">Official campaign posters and strategic communication modules. Strictly for visual activation.</p>
+        </header>
 
-        <!-- HERO -->
-        <div class="hero-mini">
-            <span class="eyebrow" style="background: var(--accent-purple); color: #fff; padding: 0.2rem 1rem; border-radius: 5px;">TACTICAL PIVOT // 2026 GEN-Z GRID</span>
-            <h1 style="font-size: clamp(3rem, 10vw, 6rem); margin-top: 2rem;">CANDID<br>CHAOS.</h1>
-            <p class="description" style="margin: 0 auto; color: #000; font-weight: 500;">Shifting from curated luxury to hyper-saturated flash photography. Turning the daily routine into high-velocity cultural capital.</p>
-        </div>
-
-        <!-- 01: THE VIRAL BLUEPRINT -->
+        <!-- 01: POSTERS & BILLBOARDS -->
         <section class="playbook-section">
-            <h2 class="section-label">01 The Viral Blueprint</h2>
-            <div class="strategy-node" style="border-left-color: var(--accent-purple);">
-                <h3>Hyper-Saturated Virality</h3>
-                <p>Mirroring the <b>Bloom & Sprinter</b> high-intensity manuals: direct flash, 35mm candid energy, and extreme macro focus. We position POP CLTR as the loud, center-piece of the party. The narrative shifts from 'Quiet Luxury' to <b>'Vibrant Vitality.'</b></p>
+            <span class="section-label">01 // POSTERS & BILLBOARDS</span>
+
+            <!-- HERO BILLBOARD -->
+            <div class="poster-section-hero">
+                <span class="poster-cat-tag">Outdoor // OOH Nationwide</span>
+                <img src="final/generated/billboard_ad_v2.png" alt="POP CLTR Billboard">
             </div>
-            <div class="ad-mockup-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-                <div class="mockup-item" style="border-radius: 30px; background: none; border: none; overflow: hidden; height: 600px;">
-                    <img src="influencer_g7x_flash_chaos_v1_1776839556593.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    <div style="position: absolute; bottom: 2rem; left: 2rem; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                        <span style="font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 800; letter-spacing: 4px;">CANDID CHAOS // G7X GEN</span>
-                    </div>
+            <div class="poster-label">
+                <div class="poster-label-left">
+                    <span class="poster-serial">01.0</span>
+                    <span class="poster-title">Soda Is The Culture — Nationwide Billboard Reveal</span>
                 </div>
-                <div class="mockup-item" style="border-radius: 30px; background: none; border: none; overflow: hidden; height: 600px; background: #000; border: 1px solid #333;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 4rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff;">
-                        <h4 style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem; line-height: 1; margin-bottom: 2rem;">HIGH<br>EXPOSURE<br>ONLY.</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.6; max-width: 250px;">Intentional digital noise, overblown highlights, and dark party logic. The 2026 viral footprint is raw, erratic, and deeply cool.</p>
-                    </div>
+                <span class="poster-format">OOH // 48-Sheet Supersized</span>
+            </div>
+
+            <!-- DIPTYCH: FASHION EDITORIAL + STREET ALLEY -->
+            <div class="poster-diptych">
+                <div class="poster-frame tall">
+                    <span class="poster-cat-tag">Fashion // Editorial Print</span>
+                    <img src="final/generated/editorial_print_ad_v2.png" alt="Fashion Editorial">
+                </div>
+                <div class="poster-frame tall">
+                    <span class="poster-cat-tag">Street // Night Series</span>
+                    <img src="final/generated/pr_burner_editorial_v2.png" alt="Street Night Editorial" style="object-position: center top;">
                 </div>
             </div>
+            <div class="poster-label">
+                <div class="poster-label-left">
+                    <span class="poster-serial">01.1 — 01.2</span>
+                    <span class="poster-title">Refresh. Culture. Repeat. // Chaos & Ctrl — Night Series</span>
+                </div>
+                <span class="poster-format">Print // Editorial Diptych</span>
+            </div>
+
+            <!-- TRIPLET: DROP / LIFESTYLE / ACTIVATION -->
+            <div class="poster-triplet">
+                <div class="poster-frame square">
+                    <span class="poster-cat-tag">Drop Culture</span>
+                    <img src="final/generated/pr_sneaker_editorial_v3_retry.png" alt="Drop Night Market">
+                </div>
+                <div class="poster-frame square">
+                    <span class="poster-cat-tag">Lifestyle // Clinical</span>
+                    <img src="final/generated/pr_lunchtray_editorial_v2.png" alt="Clinical Lunch Tray">
+                </div>
+                <div class="poster-frame square">
+                    <span class="poster-cat-tag">Live Activation</span>
+                    <img src="final/generated/activation_villagebar_rave.png" alt="Village Bar Rave">
+                </div>
+            </div>
+            <div class="poster-label" style="border-bottom: none; margin-bottom: 0;">
+                <div class="poster-label-left">
+                    <span class="poster-serial">01.3 — 01.5</span>
+                    <span class="poster-title">Drop Night // Eat Well Work Hard // Live Detonation</span>
+                </div>
+                <span class="poster-format">Campaign // 2026 Series</span>
+            </div>
+
         </section>
 
-        <!-- 02: THE PR KIT DUMP -->
+        <!-- 02: CAMPAIGN MODULES -->
         <section class="playbook-section">
-            <h2 class="section-label">02 The Creator Vault: PR Kit Idea Dump</h2>
-            <div class="creative-card">
-                <div class="strategy-node">
-                    <h3>Influencer Seeding Visual Explorations</h3>
-                    <p>A highly aesthetic collection of PR seeding ideas—from liquid acrylic mini-fridges to industrial briefcases—designed purely for unboxing virality and Gen Z luxury appeal.</p>
+            <span class="section-label">02 // INFLUENCER SEEDING LAB</span>
+            <div class="grid-gallery">
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/12291D83-7154-4BEC-88F8-3BBD7DF25619.PNG" alt="12291D83-7154-4BEC-88F8-3BBD7DF25619.PNG">
                 </div>
-                <div class="ad-mockup-grid" style="grid-template-columns: repeat(4, 1fr); gap: 10px;">
-                    <div class="mockup-item" style="border-radius: 0; background: none; border: none;">
-                        <span class="mockup-label">EDITORIAL // PHARMACY</span>
-                        <img src="pr_pharmacy_editorial_v2_1776744802399.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="mockup-item" style="border-radius: 0; background: none; border: none;">
-                        <span class="mockup-label">EDITORIAL // SNEAKER</span>
-                        <img src="pr_sneaker_editorial_v3_retry_1776744864235.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="mockup-item" style="border-radius: 0; background: none; border: none;">
-                        <span class="mockup-label">EDITORIAL // TRAY</span>
-                        <img src="pr_lunchtray_editorial_v2_1776744918254.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="mockup-item" style="border-radius: 0; background: none; border: none;">
-                        <span class="mockup-label">EDITORIAL // BURNER</span>
-                        <img src="pr_burner_editorial_v2_1776744982468.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/60FFF0C4-AFE4-4573-8998-5CB095973A6F.PNG" alt="60FFF0C4-AFE4-4573-8998-5CB095973A6F.PNG">
                 </div>
-            </div>
-
-            <!-- PR KITS: THE 2026 BENCHMARK -->
-            <div style="display: flex; flex-direction: column; gap: 6rem; margin-top: 4rem;">
-                
-                <!-- THE LUNCHBOX (V2: MINIMAL COOL) -->
-                <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; background: #0a0a0a; padding: 3rem; border-radius: 40px; color: #fff; overflow: hidden; border: 1px solid #222;">
-                    <div style="position: relative;">
-                        <img src="pr_lunchbox_cool_minimal_v1_1776839605253.png" style="width: 100%; border-radius: 20px;">
-                        <!-- Doodle Overlay simulated in CSS -->
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; pointer-events: none; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 10px 10px;"></div>
-                    </div>
-                    <div style="padding-left: 2rem;">
-                        <span style="font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.7rem; color: #555; letter-spacing: 3px;">UNIT 01 // MATTE LUNCHBOX</span>
-                        <h3 style="font-family: 'Bricolage Grotesque'; font-size: 2.22rem; margin: 1rem 0; color: #fff;">MINIMAL<br>UTILITY.</h3>
-                        <p style="font-size: 0.9rem; color: #888; margin-bottom: 2rem;">Moving away from high-fem aesthetics and into the 'Cool Boy/Girl' industrial orbit. Tailored precisely to fit exactly 4 vertical cans with engraved scientific doodles.</p>
-                        <ul style="font-family: 'Inter'; font-size: 0.8rem; line-height: 2.2; list-style: none; padding: 0; color: #aaa;">
-                            <li>• Matte Charcoal Steel Body</li>
-                            <li>• Laser-Engraved Branding & Doodles</li>
-                            <li>• High-Density Form-Fitting Foam</li>
-                            <li>• 4x Archetype Flavor Inventory</li>
-                        </ul>
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/660129A7-76FB-4E2A-8313-83DC669A5420.PNG" alt="660129A7-76FB-4E2A-8313-83DC669A5420.PNG">
                 </div>
-
-                <!-- THE TAKEOUT (MINIMAL) -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 2rem; align-items: center; background: #fff; padding: 3rem; border-radius: 40px; border: 1px solid #eee;">
-                    <div style="grid-column: span 2;">
-                        <img src="pr_takeout_box_v1_both_views_1776838305291.png" style="width: 100%; border-radius: 20px;">
-                    </div>
-                    <div style="padding-left: 2rem;">
-                        <span style="font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.7rem; color: #000; letter-spacing: 3px;">UNIT 02 // COOL TAKEOUT</span>
-                        <h3 style="font-family: 'Bricolage Grotesque'; font-size: 2.22rem; margin: 1rem 0;">CULTURE<br>TO GO.</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 2rem;">Intentionally minimalist. A nod to the 'Clean Aesthetic' of NYC high-end retail. No excess, just pure product focus with raw handwriting details.</p>
-                        <ul style="font-family: 'Inter'; font-size: 0.8rem; line-height: 2.2; list-style: none; padding: 0;">
-                            <li>• Premium Matte Uncoated Stock</li>
-                            <li>• Contrast Black Ribbon Pulls</li>
-                            <li>• Hand-Numbered Inventory Card</li>
-                            <li>• Aesthetic Receipt v2.1</li>
-                        </ul>
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/6D2A5FF7-1077-4313-8A94-D0834101C005.PNG" alt="6D2A5FF7-1077-4313-8A94-D0834101C005.PNG">
                 </div>
-
-                <!-- THE SELF-CARE KIT -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: center; background: var(--bg-light); padding: 2rem; border-radius: 40px; border: 3px solid #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.05);">
-                    <img src="pr_self_care_kit_both_views_v1_1776838379209.png" style="width: 100%; border-radius: 20px; grid-column: span 2;">
-                    <div style="padding-left: 2rem;">
-                        <span style="font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.7rem; color: var(--accent-purple); letter-spacing: 3px;">UNIT 03 // GUT RADIANCE</span>
-                        <h3 style="font-family: 'Bricolage Grotesque'; font-size: 2rem; margin: 1rem 0;">RITUAL KIT</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 2rem;">Gut health is the foundation of the glow. This kit positions POP CLTR as an essential step in the nightly beauty routine.</p>
-                        <ul style="font-family: 'Inter'; font-size: 0.8rem; line-height: 2; list-style: none; padding: 0;">
-                            <li>• Branded Silk Eye Mask</li>
-                            <li>• Scented Aesthetic Candle</li>
-                            <li>• 2x Nightly Reset Cans</li>
-                            <li>• 'Glow Up Guide' Ritual Card</li>
-                        </ul>
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/862E9477-00A6-4728-9B34-41024CA2FAD9.PNG" alt="862E9477-00A6-4728-9B34-41024CA2FAD9.PNG">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/8F7B58DA-ACF5-4D3F-A4F0-2ABA58F92A8F.PNG" alt="8F7B58DA-ACF5-4D3F-A4F0-2ABA58F92A8F.PNG">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/90F7E944-37FB-4F9F-92CF-4BBE1F01BAC8.PNG" alt="90F7E944-37FB-4F9F-92CF-4BBE1F01BAC8.PNG">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/B641B9D1-71CB-45B1-8A42-54240B7CD31B.PNG" alt="B641B9D1-71CB-45B1-8A42-54240B7CD31B.PNG">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/seeding/D3C4C1C8-51BA-4629-8381-61D8EEFA5657.PNG" alt="D3C4C1C8-51BA-4629-8381-61D8EEFA5657.PNG">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_01.png" alt="Seeding 01">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_02.png" alt="Seeding 02">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_03.png" alt="Seeding 03">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_04.png" alt="Seeding 04">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_05.png" alt="Seeding 05">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_06.png" alt="Seeding 06">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_07.png" alt="Seeding 07">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_08.png" alt="Seeding 08">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_09.png" alt="Seeding 09">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_10.png" alt="Seeding 10">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_11.png" alt="Seeding 11">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_12.png" alt="Seeding 12">
+                </div>
+                <div class="asset-card">
+                    <img src="seeding_13.png" alt="Seeding 13">
+                </div>
+                <div class="asset-card">
+                    <img src="ritual_01.png" alt="The Ritual">
+                </div>
+                <div class="asset-card">
+                    <img src="review_01_v2.png" alt="Review 01">
+                </div>
+                <div class="asset-card">
+                    <img src="review_02_v2.png" alt="Review 02">
                 </div>
             </div>
         </section>
 
-        <!-- 03: ACCESSORY WARDROBE -->
+        <!-- 03: HARDWARE EXPANSIONS -->
         <section class="playbook-section">
-            <h2 class="section-label">03 The Accessory Wardrobe</h2>
-            <div class="creative-card">
-                <div class="strategy-node">
-                    <h3>Technical Extensions of the Brand</h3>
-                    <p>High-fashion silhouettes meets tactical utility. We are building the daily carry for the health-conscious elite. Something Hailey Bieber would wear to the gym or the airport.</p>
+            <span class="section-label">03 // TECHNICAL EXPERIMENTS</span>
+            <div class="grid-gallery">
+                <div class="asset-card">
+                    <img src="final/marketing/products/1CF55523-D232-45CA-BF6B-84B35A2A277C.PNG" alt="Product Experiment 01">
                 </div>
-                <div class="ad-mockup-grid" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
-                    <!-- KNIT CAN SLING (TAILORED) -->
-                    <div style="background: #fff; padding: 1rem; border-radius: 40px; border: 1px solid #eee;">
-                        <img src="acc_knit_can_holder_sling_v1_1776839663585.png" style="width: 100%; border-radius: 30px;">
-                        <div style="padding: 1.5rem;">
-                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #888; letter-spacing: 2px;">01 // THE TACTICAL HOLDER</span>
-                            <h4 style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; margin-top: 0.5rem;">CAN SLING V1</h4>
-                            <p style="font-size: 0.8rem; color: #888;">Specifically tailored to hold **exactly one** 12oz POP CLTR can. No excess space. Chunky knit chain for the ultimate 'Cool Girl' festival utility.</p>
-                        </div>
-                    </div>
-
-                    <!-- MEJORE RITUAL TRAY (TAILORED) -->
-                    <div style="background: #fff; padding: 1rem; border-radius: 40px; border: 1px solid #eee;">
-                        <div style="height: 350px; background: #f9f9f9; border-radius: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem; text-align: center;">
-                            <h5 style="font-family: 'Bricolage Grotesque'; font-size: 1.2rem; margin-bottom: 1rem;">INSULATED RECESS</h5>
-                            <p style="font-size: 0.75rem; color: #999;">Custom CNC-milled slot with integrated thermal liner. Holds the can at 4&deg;C during the entire ritual experience.</p>
-                        </div>
-                        <div style="padding: 1.5rem;">
-                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #888; letter-spacing: 2px;">02 // HARDLINE COLLAB</span>
-                            <h4 style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; margin-top: 0.5rem;">MEJORE x POP TRAY</h4>
-                            <p style="font-size: 0.8rem; color: #888;">A walnut and steel lounge tray with a dedicated, insulated can holder recess. Minimal hip aesthetic for modern living rooms.</p>
-                        </div>
-                    </div>
-
-                    <!-- TECHNICAL SLING -->
-                    <div style="grid-column: span 2; background: #fff; padding: 1rem; border-radius: 40px; border: 1px solid #eee; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
-                        <img src="acc_technical_sling_hailey_v1_1776838482732.png" style="width: 100%; border-radius: 30px;">
-                        <div style="padding: 2rem;">
-                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; opacity: 0.5;">03 // TACTICAL SLING</span>
-                            <h4 style="font-family: 'Bricolage Grotesque'; font-size: 1.8rem; margin-top: 0.5rem;">TECHNICAL SLING B-01</h4>
-                            <p style="font-size: 0.9rem; color: #888;">Sleek, aerodynamic matte grey material. Designed for rapid movement. Unique silhouette with integrated tech-buckles.</p>
-                        </div>
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/products/51D2C1A3-1BE9-4347-804B-05A5ACF3854F.PNG" alt="Product Experiment 02">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/products/5D54826B-0575-4DB8-A5E3-B58BF04CB3CD.PNG" alt="Product Experiment 03">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/products/72D02E3D-A435-42BB-A1DF-9E6D08B9008C.PNG" alt="Product Experiment 04">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/products/A0E119E5-5F45-4BBA-ABAD-032FDE5943C8.PNG" alt="Product Experiment 05">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/products/EB15F792-E1D6-4481-B901-E9188889CBE5.PNG" alt="Product Experiment 06">
+                </div>
+                <div class="asset-card">
+                    <img src="can_v9_dalandan.png" alt="Can v9 — Dalandan">
+                </div>
+                <div class="asset-card">
+                    <img src="can_v9_lemon.png" alt="Can v9 — Lemon">
+                </div>
+                <div class="asset-card">
+                    <img src="can_v9_strawberry.png" alt="Can v9 — Strawberry">
+                </div>
+                <div class="asset-card">
+                    <img src="can_v9_ube.png" alt="Can v9 — Ube">
+                </div>
+                <div class="asset-card">
+                    <img src="tray_01.png" alt="Tray 01">
+                </div>
+                <div class="asset-card">
+                    <img src="tray_02.png" alt="Tray 02">
+                </div>
+                <div class="asset-card">
+                    <img src="tray_03.png" alt="Tray 03">
+                </div>
+                <div class="asset-card">
+                    <img src="togo_02.png" alt="To-Go 02">
+                </div>
+                <div class="asset-card">
+                    <img src="togo_03.png" alt="To-Go 03">
+                </div>
+                <div class="asset-card">
+                    <img src="acc_v2_sling_02.png" alt="Accessory — Sling 02">
+                </div>
+                <div class="asset-card">
+                    <img src="acc_v2_sling_03.png" alt="Accessory — Sling 03">
+                </div>
+                <div class="asset-card">
+                    <img src="acc_v2_sling_orange.png" alt="Accessory — Sling Orange">
+                </div>
+                <div class="asset-card">
+                    <img src="acc_v2_sling_silver.png" alt="Accessory — Sling Silver">
                 </div>
             </div>
         </section>
 
-        <!-- 04: THE ACTIVATIONS -->
+        <!-- 04: COLLABS AND ACTIVATIONS -->
         <section class="playbook-section">
-            <h2 class="section-label">04 Brand Activations</h2>
-            
-            <!-- THE BARTER MACHINE -->
-            <div class="creative-card" style="border-color: var(--accent-purple);">
-                <div class="strategy-node" style="border-left-color: var(--accent-purple);">
-                    <h3>The Barter Machine: 'Upgrade Your Gut'</h3>
-                    <p>High-impact vending machines where users insert legacy sodas and receive POP CLTR. A habitat-shifting barter.</p>
+            <span class="section-label">04 // CULTURAL ACTIVATION STRIKES</span>
+
+            <h2 style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem; margin-bottom: 2rem;">EVENT DEPLOYMENTS</h2>
+            <div class="grid-gallery" style="margin-bottom: 5rem;">
+                <div class="asset-card">
+                    <img src="final/marketing/activations/015B14D9-5C12-4A5B-91F3-DFE90BEACB5A.PNG" alt="Cultural Activation 01">
                 </div>
-                <div class="ad-mockup-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                    <div class="mockup-item square">
-                        <img src="activation_barter_machine_v1_1776425478744.png" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
-                    <div class="mockup-item square">
-                        <img src="activation_barter_machine_v2_1776425494372.png" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
+                <div class="asset-card">
+                    <img src="final/marketing/activations/20F50A62-ECF6-4DC2-A3F9-C53123E2340D.PNG" alt="Cultural Activation 02">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/activations/74CA4AD7-0915-4400-A32E-AEF2BE47906A.PNG" alt="Cultural Activation 03">
+                </div>
+                <div class="asset-card">
+                    <img src="final/marketing/activations/768B9988-3F4E-420F-95DF-49263F8A7146.PNG" alt="Cultural Activation 04">
+                </div>
+                <div class="asset-card">
+                    <img src="cooler_01.png" alt="Cooler Deployment 01">
+                </div>
+                <div class="asset-card">
+                    <img src="cooler_02.png" alt="Cooler Deployment 02">
+                </div>
+                <div class="asset-card">
+                    <img src="cooler_03.png" alt="Cooler Deployment 03">
                 </div>
             </div>
 
-            <!-- DAILY DOSE POP-UP -->
-            <div class="creative-card" style="border-color: var(--strawberry);">
-                <div class="strategy-node" style="border-left-color: var(--strawberry);">
-                    <h3>The 'Daily Dose' x Luigi Posadas</h3>
-                    <p>Mobile Refill Carts at high-end studios (PERIGON, Ride Revolution). Positioning the can as the ultimate post-workout recovery drop.</p>
-                </div>
-                <div class="mockup-item landscape" style="background: #fff; border-radius: 40px; border: 1px solid #eee; overflow: hidden; padding: 0;">
-                    <!-- Daily Dose Yoga Section -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; height: 100%;">
-                        <div style="background: #f9f9f9; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
-                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #888; letter-spacing: 2px;">ACTIVATION 01 // CLEAN GIRL ENERGY</span>
-                            <h4 style="font-family: 'Bricolage Grotesque'; font-size: 2rem; margin: 1rem 0;">THE DAILY DOSE</h4>
-                            <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">A high-end yoga residency at Perigon / Ride Rev. Sage green aesthetic, sunlit studios, and post-session 'Gut Reset' ritual. Pure lifestyle integration.</p>
-                            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #9CAF88;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #F5F5DC;"></div>
-                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #fff; border: 1px solid #eee;"></div>
-                            </div>
-                        </div>
-                        <div style="background: #eee; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                             <img src="luigi_workout_collab_1776376398618.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; mix-blend-mode: multiply;">
-                        </div>
+            <h2 style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem; margin-bottom: 2rem;">OBJECT COLLABORATIONS</h2>
+            <div class="grid-gallery">
+                <div class="asset-card">
+                    <img src="final/generated/collab_blackbough_v2.png" alt="Blackbough Swims Collab">
+                    <div class="poster-content">
+                        <span class="poster-sub">BLACKBOUGH SWIMS</span>
+                        <h3 class="poster-headline">SUMMER<br>SYNC.</h3>
+                        <p class="poster-body">Matched bikini drops. Tropical aesthetic harmony.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- 05: THE BRAND LAUNCH EVENT -->
-        <section class="playbook-section" id="launch-event">
-            <h2 class="section-label">05 Brand Launch Event Roadmap</h2>
-            <p class="description" style="text-align: center; margin-bottom: 3rem;">A two-part immersion: Strategic Prestige at **Wildflour** followed by Cultural Chaos at **Village Bar**.</p>
-            
-            <div class="ad-mockup-grid" style="grid-template-columns: 1fr;">
-                <!-- STAGE 1 GRAND REVEAL -->
-                <div class="creative-card">
-                    <div class="strategy-node">
-                        <h3>Stage 1: The Grand Product Launch Event</h3>
-                        <p>A massive, ultra-viral gala. Think the Met Gala meets Gen-Z streetwear culture. A huge glossy runway stage setup surrounded by mirrored VIP tables. Features thousands of brightly colored POP CLTR soda cans arranged as luxurious table centerpieces.</p>
-                    </div>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-                    <!-- STAGE 1: THE GLASS LAB (PRESTIGE) -->
-                    <div style="background: #fff; padding: 2.5rem; border-radius: 40px; border: 4px solid #f0f0f0;">
-                         <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; color: #999; letter-spacing: 3px;">DIRECTION A // PRESTIGE</span>
-                         <h4 style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; margin: 1rem 0;">01 THE GLASS LAB</h4>
-                         <p style="font-size: 0.8rem; color: #666;">Clinical transparency. Plexiglass bars, massive 10ft can sculptures, and 3D floating diagrams. The science of POP CLTR as high art.</p>
-                         <img src="event_grand_stage_1776450967657.png" style="width: 100%; border-radius: 20px; margin-top: 2rem; filter: grayscale(100%) opacity(0.8);">
-                    </div>
-                    <!-- STAGE 2: THE NEON VAULT (CHAOS) -->
-                    <div style="background: #000; padding: 2.5rem; border-radius: 40px; color: #fff;">
-                         <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; color: #555; letter-spacing: 3px;">DIRECTION B // CHAOS</span>
-                         <h4 style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; margin: 1rem 0; color: #fff;">02 THE NEON VAULT</h4>
-                         <p style="font-size: 0.8rem; color: #888;">Heavy bass, infrared light, and reactive chrome walls. A high-energy rave environment focused on the 'Culture' pillar of the brand.</p>
-                         <img src="activation_villagebar_rave_1776425536305.png" style="width: 100%; border-radius: 20px; margin-top: 2rem; opacity: 0.5;">
+                <div class="asset-card">
+                    <img src="final/generated/collab_mejore_v2.png" alt="Mejore Interiors Collab">
+                    <div class="poster-content">
+                        <span class="poster-sub">MEJORE INTERIORS</span>
+                        <h3 class="poster-headline">THE RECOVERY<br>TRAY.</h3>
+                        <p class="poster-body">Premium solid wood rest tray for Sunday resets.</p>
                     </div>
                 </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 06: THE COLLABORATION MATRIX -->
-        <section class="playbook-section" id="collab-matrix">
-            <h2 class="section-label">06 The Collab Matrix: Expanding the Moat</h2>
-            <p class="description" style="text-align: center; margin-bottom: 3rem;">Strategic cross-pollination with cultural leaders in fashion, wood-craft, and swimwear.</p>
-            
-            <div class="ad-mockup-grid" style="grid-template-columns: 1fr;">
-                <!-- APPAREL & SWIM -->
-                <div class="creative-card">
-                    <div class="creative-card" style="border-top: 1px solid #eee; background: #fafafa;">
-                    <div class="strategy-node">
-                         <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; color: #999; letter-spacing: 3px;">THE FILMY SERIES</span>
-                        <h3>Blackbough Swim x POP</h3>
-                        <p style="font-style: italic; color: #888;">Grainy 35mm film, overexposed highlights, raw tropical light. Models carrying cans in unposed, chaotic moments. Pure aesthetic cinema.</p>
-                    </div>
-                    <div class="mockup-item landscape" style="border: none; background: none;">
-                        <img src="collab_mockup_blackbough_1776425554668.png" style="width: 100%; border-radius: 40px; filter: sepia(20%) contrast(1.1) brightness(1.1);">
+                <div class="asset-card">
+                    <img src="final/generated/collab_brumate_v2.png" alt="Brumate Collab">
+                    <div class="poster-content">
+                        <span class="poster-sub">BRÜMATE SYNERGY</span>
+                        <h3 class="poster-headline">THE MACRO<br>JUG.</h3>
+                        <p class="poster-body">Matched half-gallon insulated vessels for extreme hydration.</p>
                     </div>
                 </div>
-                </div>
-
-                <!-- LIFESTYLE HARDWARE -->
-                <div class="creative-card" style="border-color: var(--accent-purple);">
-                    <div class="strategy-node" style="border-left-color: var(--accent-purple);">
-                        <h3>Accessory Hardlines: GVN & MEJORE+</h3>
-                        <p><b>GVN Micro-Bags:</b> Smaller, hippier, and up-to-date silhouettes. Custom-dyed in POP CLTR 'Flash' colorways, these micro-bags are designed specifically to carry 1-2 cans as a high-fashion accessory statement.<br><br><b>MEJORE+ Ritual Tray:</b> Re-engineered for the ultimate morning ritual. Featuring a CNC-milled **Insulated Can Holder** recess with thermal lining to keep your prebiotic spritz at the perfect 4&deg;C.</p>
-                    </div>
-                    <div class="ad-mockup-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                        <div class="mockup-item square">
-                            <span class="mockup-label">GVN LEATHER</span>
-                            <img src="collab_mockup_gvn_1776425572144.png" style="width: 100%; height: 100%; object-fit: contain;">
-                        </div>
-                        <div class="mockup-item square">
-                            <span class="mockup-label">MEJORE TRAY</span>
-                            <img src="collab_mockup_mejore_1776425589615.png" style="width: 100%; height: 100%; object-fit: contain;">
-                        </div>
+                <div class="asset-card">
+                    <img src="final/generated/collab_gvn_v2.png" alt="GVN The Label Collab">
+                    <div class="poster-content">
+                        <span class="poster-sub">GVN THE LABEL</span>
+                        <h3 class="poster-headline">THE MICRO<br>SYSTEM.</h3>
+                        <p class="poster-body">A high-fashion micro-bag tailored explicitly for one can.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 07: HIGH IMPACT EXPERIENTIAL -->
-        <section class="playbook-section" id="experiential-events">
-            <h2 class="section-label">07 Experiential: High-Footfall Bazaars</h2>
-            
-            <div class="creative-card">
-                <div class="strategy-node">
-                    <h3>Premium Intercepts (Rockwell & Alabang)</h3>
-                    <p>Leveraging Miguel's existing footprint with MEJORE+, we establish POP CLTR sampling checkpoints at premium Metro Manila bazaars. This allows us to intercept the high-purchasing "Alabang/Rockwell" demographic, transitioning them physically from legacy sodas to the new health-conscious era.</p>
+        <!-- 06: IG CONTENT GRID -->
+        <section class="playbook-section">
+            <span class="section-label">06 // IG CONTENT GRID</span>
+            <h2 style="font-family: 'Bricolage Grotesque'; font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 1rem; line-height: 1;">THE<br><span style="color: var(--neon-yellow);">FEED.</span></h2>
+            <p style="opacity: 0.5; font-family: 'Space Grotesk'; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3rem;">@drinkpopcltr — planned grid sequence</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;">
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_01_v2.png" alt="IG 01" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_02_v2.png" alt="IG 02" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_03_v2.png" alt="IG 03" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_04_v2.png" alt="IG 04" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_05_v2.png" alt="IG 05" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_06_v2.png" alt="IG 06" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_07_v2.png" alt="IG 07" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_08_v2.png" alt="IG 08" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_09_v2.png" alt="IG 09" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_10_v2.png" alt="IG 10" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_11_v2.png" alt="IG 11" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+                </div>
+                <div style="aspect-ratio: 1/1; overflow: hidden; background: #0a0a0a;">
+                    <img src="ig_grid_12_v2.png" alt="IG 12" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
                 </div>
             </div>
         </section>
 
+        <!-- 05: VIRAL ARCHITECTURE -->
+        <section class="playbook-section">
+            <span class="section-label">05 // VIRAL ARCHITECTURE</span>
+            <h2 class="arch-section-title">THE LAUNCH<br><span>BLUEPRINT.</span></h2>
+            <p class="arch-intro">Every touchpoint is a weapon. Every venue is a broadcast. This is the full deployment map — from the rooftop reveal to the digital cipher to the street-team intercept.</p>
+
+            <!-- PHASE TIMELINE -->
+            <div class="arch-phase-bar">
+                <div class="phase-block">
+                    <span class="phase-num">PHASE 01</span>
+                    <div class="phase-name">SIGNAL DROP</div>
+                    <span class="phase-window">WEEKS 1–2</span>
+                </div>
+                <div class="phase-block">
+                    <span class="phase-num">PHASE 02</span>
+                    <div class="phase-name">SEEDING WAVE</div>
+                    <span class="phase-window">WEEKS 3–4</span>
+                </div>
+                <div class="phase-block">
+                    <span class="phase-num">PHASE 03</span>
+                    <div class="phase-name">LIVE DETONATION</div>
+                    <span class="phase-window">LAUNCH WEEKEND</span>
+                </div>
+                <div class="phase-block">
+                    <span class="phase-num">PHASE 04</span>
+                    <div class="phase-name">ECHO LOOP</div>
+                    <span class="phase-window">WEEKS 5–8</span>
+                </div>
+                <div class="phase-block">
+                    <span class="phase-num">PHASE 05</span>
+                    <div class="phase-name">CULTURAL LOCK</div>
+                    <span class="phase-window">MONTH 3+</span>
                 </div>
             </div>
-        </section>
 
-        <!-- 09: TACTICAL OOH & STREETWEAR -->
-        <section class="playbook-section" id="tactical-ooh">
-            <h2 class="section-label">09 Tactical OOH & Streetwear</h2>
-            <div class="creative-card" style="background: #000; color: #fff; border-color: #333;">
-                <div class="strategy-node" style="border-left-color: var(--accent-green);">
-                    <h3 style="color: #fff;">FOR THE CLTR: The Urban Takeover</h3>
-                    <p style="color: #888;">Massive 8k digital placements in prime city hubs (BGC, Rockwell). The narrative is zero-noise, high-fidelity: just the product, the mission, and the culture.</p>
-                </div>
-                
-                <div class="ad-mockup-grid" style="grid-template-columns: 1.5fr 1fr; height: 600px;">
-                    <!-- BGC BILLBOARD v8.5 SQUAD -->
-                    <div class="mockup-item" style="border-radius: 30px; border: 1px solid #222; overflow: hidden;">
-                         <img src="bgc_billboard_v8_5.png" style="width: 100%; height: 100%; object-fit: cover;">
-                         <div style="position: absolute; bottom: 2rem; left: 2rem; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-                              <span style="font-family: 'Space Grotesk'; font-size: 0.6rem; letter-spacing: 4px; color: var(--accent-green);">BGC CAMPAIGN // v8.5 SQUAD DEPLOYED</span>
-                         </div>
+            <!-- TOP ROW: 3 TILES -->
+            <div class="arch-grid">
+                <!-- VENUES -->
+                <div class="arch-tile" data-num="01 // VENUES">
+                    <span class="arch-tile-tag">Physical</span>
+                    <h4>The Drop Venues</h4>
+                    <div class="arch-tactic">
+                        <strong>Wildflour Rooftop Takeover</strong>
+                        <p>Sunset reveal event. Invite-only 150 pax. Clinical lab aesthetic. Bar serves nothing but POP CLTR mixes all night.</p>
                     </div>
+                    <div class="arch-tactic">
+                        <strong>COMMUNE / The Grid Pop-Up</strong>
+                        <p>3-day immersive installation in BGC. The can as artifact. Live doodle artists on-site. Free can for every outfit pic.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Village Bar Afterparty</strong>
+                        <p>Post-event DISCO Dynamics set. DJ collab. Neon signage, branded glassware. The party that becomes the content.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Mercato / Night Market Booth</strong>
+                        <p>Recurring weekend presence. Sampling booth with gut-health pop quiz and QR cipher mechanic.</p>
+                    </div>
+                </div>
 
-                    <!-- GRAFFITI ASSET FINAL -->
-                    <div class="mockup-item" style="border-radius: 30px; background: #fff; overflow: hidden; border: 1px solid #eee;">
-                         <img src="master_graffiti_final.png" style="width: 100%; height: 100%; object-fit: contain;">
-                         <div style="position: absolute; top: 1rem; right: 1rem; background: #000; color: #fff; padding: 0.2rem 0.5rem; font-size: 0.5rem; font-family: 'Space Grotesk'; font-weight: 800; border-radius: 3px;">MASTER SHEET</div>
+                <!-- VIRALITY -->
+                <div class="arch-tile accent" data-num="02 // DIGITAL">
+                    <span class="arch-tile-tag">Digital</span>
+                    <h4>Virality Tactics</h4>
+                    <div class="arch-tactic">
+                        <strong>AR Doodle Filter</strong>
+                        <p>Instagram/TikTok filter that animates the can's chaos doodles onto any face or surface. Ship pre-launch for organic spread.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>The QR Cipher</strong>
+                        <p>Cryptic QR codes appear in BGC, Poblacion, Katipunan. Each unlocks a map coordinate. 5 codes = secret drop day location.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>72-Hour TikTok Blitz</strong>
+                        <p>5 micro-influencers post simultaneously on day 1. No captions — just the can, no explanation. Comments drive discovery.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>The "Gut Feeling" Challenge</strong>
+                        <p>UGC mechanic: record your reaction after the first sip. Duet-able format. Seed with talent, let real people fill the feed.</p>
+                    </div>
+                </div>
+
+                <!-- STREET SEEDING -->
+                <div class="arch-tile" data-num="03 // STREET">
+                    <span class="arch-tile-tag">Guerrilla</span>
+                    <h4>Street Deployment</h4>
+                    <div class="arch-tactic">
+                        <strong>Candid Intercepts</strong>
+                        <p>Brand reps in-fit approach target profiles at Poblacion bars, Salcedo Saturday market, gym parking lots. "You look like you'd get this."</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Desk Drop Program</strong>
+                        <p>Curated cold drops to 50 target offices — ad agencies, tech startups, fitness studios. Box, no explanation. Follow-up DM 48 hrs later.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Sticker Bombing</strong>
+                        <p>Custom doodle stickers in coffee shops, gyms, skate parks, college bulletin boards. URL on the back. A brand before the brand arrives.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Chalk Countdown</strong>
+                        <p>10-day chalk countdown in Karrivin Plaza, The Grid, and Katipunan. Just: "10 DAYS. GUT CULTURE IS COMING." No logo. No link.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOWER ROW: 2 WIDE TILES -->
+            <div class="arch-grid-lower">
+                <!-- DEPLOYMENT KITS -->
+                <div class="arch-tile dark-accent" data-num="04 // DROPS">
+                    <span class="arch-tile-tag">Limited Edition</span>
+                    <h4>Limited Drop Systems</h4>
+                    <div class="arch-tactic">
+                        <strong>v10.0 Numbered Signature Kit — 100 Units</strong>
+                        <p>Hand-numbered kit: 4-pack, branded sling, doodle sticker sheet, zine, handwritten note from the founder. Ships to 100 selected individuals only. Never restocked.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Fitness Fast-Lane Drop</strong>
+                        <p>Perigon Wellness x Gut Reset collaboration. Post-yoga recovery bar pop-up. Pilates studios, boxing gyms, CrossFit boxes. Free can with every class for 2 weeks.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Day Zero Backer Perks</strong>
+                        <p>First 500 buyers get: serial-numbered can, "FOUNDING CULTURE" digital badge, lifetime 15% discount, early access to all future drops.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>The Collab Capsule</strong>
+                        <p>Quarterly limited object collabs — Blackbough Swims (summer), GVN The Label (fashion week), Brümate (fitness launch), local ceramics studio (wellness drop).</p>
+                    </div>
+                </div>
+
+                <!-- RETAIL + DISTRIBUTION -->
+                <div class="arch-tile" data-num="05 // RETAIL">
+                    <span class="arch-tile-tag">Distribution</span>
+                    <h4>Retail Architecture</h4>
+                    <div class="arch-tactic">
+                        <strong>Specialty First, Volume Second</strong>
+                        <p>Open with Ritual, Edgy Veggy, and The Wholesome Table. Earn credibility in the wellness aisle before scaling to mainstream grocery.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Gym & Fitness Channel</strong>
+                        <p>Negotiate fridge placement at Anytime Fitness, F45, Elorde Boxing. Position next to electrolyte drinks. Own the post-workout slot.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>Coffee Shop Collab Shelf</strong>
+                        <p>Partner with single-origin cafés (Yardstick, Story, Kurō). Co-branded "Gut Fuel" shelf. Split margin model. Builds brand in aspirational daily moments.</p>
+                    </div>
+                    <div class="arch-tactic">
+                        <strong>SHOPPE / Lazada Drop Strategy</strong>
+                        <p>Online-exclusive bundle packs with countdown timers. "Flash Gut" 4-hour sale events. Leverage free shipping thresholds to push multi-pack purchases.</p>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <span class="footer-logo">POP CLTR</span>
-                <span class="footer-tagline">FOR THE CLTR.</span>
+    <footer class="site-footer" style="background: #000; border-top: 1px solid #111;">
+        <div style="max-width: 1100px; margin: 0 auto 4rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem;">
+            <div>
+                <img src="final/logo_white.png" alt="POP CLTR" style="height: 52px; width: auto; display: block; margin-bottom: 1.5rem;">
+                <span class="footer-tagline">DEPLOYING THE FUTURE OF SODA.</span>
             </div>
-            <div class="footer-nav">
-                <h4>Navigate</h4>
-                <a href="index.html">Home</a>
-                <a href="formulation.html">Science</a>
-                <a href="strategy.html">Strategy</a>
-                <a href="marketing.html">Marketing</a>
-                <a href="gallery.html">Look Book</a>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; padding-top: 0.5rem;">
+                <a href="https://instagram.com/drinkpopcltr" target="_blank" style="display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">Instagram — @drinkpopcltr</a>
+                <a href="https://tiktok.com/@drinkpopcltr" target="_blank" style="display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">TikTok — @drinkpopcltr</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2026 POP CLTR. All Rights Reserved.</span>
+            <span>&copy; 2026 POP CLTR IDENTITY ARCHIVE.</span>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — POP CLTR</title>
+  <meta name="description" content="POP CLTR is a Filipino prebiotic soda brand born from the belief that feeling good and having a great time should never be a compromise.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    /* ── HERO ── */
+    .about-hero {
+      background: var(--white); padding: 5rem 5% 5rem;
+      position: relative; overflow: hidden;
+    }
+    .about-hero-bg {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(120px, 20vw, 280px); color: rgba(0,26,255,0.04);
+      letter-spacing: -8px; user-select: none; pointer-events: none;
+      writing-mode: vertical-rl; line-height: 1;
+    }
+    .about-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .about-hero h1 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.86; letter-spacing: -4px; color: var(--black); margin: 0.8rem 0 2rem;
+    }
+    .about-hero h1 em { color: var(--blue); font-style: normal; }
+    .about-hero-sub {
+      font-family: 'Space Grotesk'; font-size: 1.1rem;
+      color: rgba(0,0,0,0.5); line-height: 1.75; max-width: 560px;
+    }
+
+    /* ── MANIFESTO (stays neon) ── */
+    #manifesto { background: var(--neon); padding: 6rem 5%; }
+    .manifesto-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .manifesto-quote {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      color: var(--black); letter-spacing: -2px; line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+    .manifesto-sub { font-family: 'Space Grotesk'; font-size: 1rem; color: rgba(0,0,0,0.6); line-height: 1.7; max-width: 600px; margin: 0 auto; }
+
+    /* ── STORY ── */
+    #story { background: var(--offwhite); padding: 7rem 5%; }
+    .story-inner { max-width: 1100px; margin: 0 auto; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.6); line-height:1.8; }
+    .story-body + .story-body { margin-top: 1.5rem; }
+    .story-highlight {
+      background: var(--black); color: var(--white);
+      border-radius: 24px; padding: 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .story-stat { text-align: center; padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .story-stat:last-child { border-bottom: none; }
+    .story-stat .sn { font-family:'Bricolage Grotesque'; font-weight:800; font-size:3rem; color:var(--neon); display:block; line-height:1; }
+    .story-stat .sl { font-family:'Space Grotesk'; font-size:0.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:0.4rem; display:block; }
+
+    /* ── VALUES ── */
+    #values { background: var(--offwhite); padding: 7rem 5%; border-top: 1px solid var(--border); }
+    .values-inner { max-width: 1100px; margin: 0 auto; }
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    .value-card {
+      background: var(--white); border-radius: 24px; padding: 2.5rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .value-card:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,26,255,0.08); }
+    .value-num { font-family:'Bricolage Grotesque'; font-weight:800; font-size:3rem; color:var(--blue); opacity:0.2; line-height:1; margin-bottom:0.5rem; }
+    .value-title { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.4rem; color:var(--black); margin-bottom:0.8rem; letter-spacing:-0.5px; }
+    .value-desc { font-family:'Space Grotesk'; font-size:0.9rem; color:rgba(0,0,0,0.55); line-height:1.7; }
+
+    /* ── PRODUCT CLOSEUP ── */
+    #product-story { background: var(--white); padding: 7rem 5%; border-top: 1px solid var(--border); }
+    .ps-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .ps-can { display: flex; justify-content: center; }
+    .ps-can img { height: 420px; width: auto; filter: drop-shadow(0 30px 60px rgba(0,26,255,0.2)); transition: transform 0.4s; }
+    .ps-can img:hover { transform: scale(1.04) translateY(-8px); }
+    .ps-h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2rem,4vw,3rem); letter-spacing:-2px; line-height:0.9; color:var(--black); margin:1rem 0 1.5rem; }
+    .ps-body { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.6); line-height:1.75; margin-bottom:1.5rem; }
+    .ps-tags { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .ps-tag { background:rgba(0,0,0,0.06); color:rgba(0,0,0,0.6); border:1px solid var(--border); font-family:'Space Grotesk'; font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:0.3rem 0.85rem; border-radius:100px; }
+
+    /* ── CTA (blue band) ── */
+    .cta-band { background: var(--blue); padding: 5rem 5%; text-align: center; }
+    .cta-band h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2rem,5vw,4rem); color:var(--white); letter-spacing:-2px; margin-bottom:0.5rem; }
+    .cta-band h2 em { color:var(--neon); font-style:normal; }
+    .cta-band p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(255,255,255,0.55); margin-bottom:2rem; }
+    .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .ps-inner { grid-template-columns: 1fr; }
+      .ps-can img { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="consumer.html">Home</a>
+  <a href="about.html" class="active">About Us</a>
+  <a href="gut-health.html">Gut Health</a>
+  <a href="locate.html">Locate</a>
+</div>
+
+<nav id="main-nav">
+  <a href="consumer.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="locate.html">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="about-hero">
+  <div class="about-hero-bg">POP.</div>
+  <div class="about-hero-inner">
+    <span class="sec-label">About Us</span>
+    <h1>WE'RE<br><em>POP CLTR.</em></h1>
+    <p class="about-hero-sub">A Filipino prebiotic soda brand built for the culture. We refused to accept that a drink could either taste good or be good for you. So we made one that's both.</p>
+  </div>
+</div>
+
+<section id="manifesto">
+  <div class="manifesto-inner fade-up">
+    <p class="manifesto-quote">"Feeling good and having a great time should never be a compromise. That's why we made POP CLTR."</p>
+    <p class="manifesto-sub">We looked at the soda aisle and saw a gap — drinks full of sugar and nothing else. So we started from the gut and worked out. Apple Cider Vinegar. Inulin Prebiotic. Zero added sugar. Real function, real flavor.</p>
+  </div>
+</section>
+
+<section id="story">
+  <div class="story-inner">
+    <span class="sec-label dark">Our Story</span>
+    <h2 class="sec-title on-light">BORN FROM A<br>BETTER QUESTION.</h2>
+    <div class="story-grid">
+      <div>
+        <p class="story-body">It started with a simple question: why do the drinks we love the most do the least for our bodies?</p>
+        <p class="story-body">We grew up drinking soda — cold, fizzy, celebratory. It was part of every meal, every party, every moment. But as we learned more about gut health, we realized the drinks we loved were working against us. Too much sugar. No fiber. No function.</p>
+        <p class="story-body">POP CLTR is our answer to that question. A prebiotic soda made with Apple Cider Vinegar and Inulin that does something every time you crack a can. Born in the Philippines, built with real science, and designed to be the drink you actually feel good reaching for.</p>
+        <p class="story-body" style="margin-top:2rem;">We believe gut health shouldn't be a chore. It should be a celebration.</p>
+      </div>
+      <div class="story-highlight fade-up">
+        <div class="story-stat">
+          <span class="sn">91%</span>
+          <span class="sl">of Filipinos don't get enough fiber — the gap POP CLTR is built to close</span>
+        </div>
+        <div class="story-stat">
+          <span class="sn">ACV</span>
+          <span class="sl">with the "mother" — the real, unfiltered stuff with all its natural goodness</span>
+        </div>
+        <div class="story-stat">
+          <span class="sn">0G</span>
+          <span class="sl">added sugar — because you shouldn't have to trade your health for a great drink</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="values-inner">
+    <span class="sec-label blue-txt">What We Stand For</span>
+    <h2 class="sec-title">OUR VALUES.</h2>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-num">01</div>
+        <div class="value-title">Function First</div>
+        <p class="value-desc">Every ingredient in POP CLTR is there for a reason. Apple Cider Vinegar and Inulin aren't marketing buzzwords — they're clinically recognized functional ingredients with documented effects. We don't add things for the label. We add them because they work.</p>
+      </div>
+      <div class="value-card fade-up d1">
+        <div class="value-num">02</div>
+        <div class="value-title">No Compromises</div>
+        <p class="value-desc">You shouldn't have to choose between a drink that tastes great and one that's good for you. POP CLTR is both — always. The moment we compromise on either, we've missed the point. Great taste AND functional ingredients. Never one without the other.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-num">03</div>
+        <div class="value-title">Filipino-Born</div>
+        <p class="value-desc">We're proud to be a Filipino brand. Our flavors are inspired by local culture — Blueberry Dalandan is just the beginning. We're building something that feels at home here while being built to last on the world stage.</p>
+      </div>
+      <div class="value-card fade-up d1">
+        <div class="value-num">04</div>
+        <div class="value-title">Built for the Culture</div>
+        <p class="value-desc">CLTR is in our name because we're not just selling a drink — we're contributing to a shift in how people think about what they consume. Gut health. Functional food. Making the healthy choice the obvious choice. That's the culture we're building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="product-story">
+  <div class="ps-inner">
+    <div class="ps-can fade-up">
+      <img src="final/packaging/can_angle_l_v2.png" alt="Blueberry Dalandan" onerror="this.src='can_v9_dalandan.png'">
+    </div>
+    <div class="fade-up d1">
+      <span class="sec-label dark">The First Flavor</span>
+      <h2 class="ps-h2">BLUEBERRY<br>DALANDAN.</h2>
+      <p class="ps-body">Blueberry meets Dalandan — the Filipino citrus — in a bold, fizzy combination that actually does something. Deep berry sweetness, bright citrus edge, and the funky energy of a soda you can feel good about. It's celebration in a can, with Apple Cider Vinegar and Inulin working in the background every time you sip.</p>
+      <div class="ps-tags">
+        <span class="ps-tag">Apple Cider Vinegar</span>
+        <span class="ps-tag">Inulin Prebiotic</span>
+        <span class="ps-tag">0g Added Sugar</span>
+        <span class="ps-tag">355mL</span>
+        <span class="ps-tag">Naturally Fizzy</span>
+      </div>
+      <a href="shop.html" class="btn-dark">Shop Blueberry Dalandan →</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>READY TO JOIN<br>THE <em>CULTURE?</em></h2>
+  <p>Try Blueberry Dalandan and feel the difference for yourself.</p>
+  <div class="cta-btns">
+    <a href="shop.html" class="btn-primary">Shop Now →</a>
+    <a href="gut-health.html" class="btn-dark">Read the Science</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram @drinkpopcltr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok @drinkpopcltr"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="locate.html#contact">Contact Us</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

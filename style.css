@@ -1,34 +1,26 @@
 :root {
     --content-max-width: 1100px;
-    --bg-dark: #050505;
-    --bg-light: #FDF9F3;
-    /* Warmer organic cream */
-    --bg-alt: #121212;
-    --text-white: #ffffff;
-    --text-black: #1A1A1A;
-    --accent: #FF5A5F;
-    /* Poppi-style vibrant red-pink */
-    --luxury-bg: #EAE5E0;
-    --artisan-bg: #1a1a1a;
+    /* V10.0 FINAL BRAND PALETTE */
+    --neon-yellow: #E2FF00;
+    --off-white: #F0EEE9;
+    --bubblegum-pink: #FF007F;
+    --electric-blue: #001AFF;
+    --coral: #FF4D00;
+    
+    /* EXPLORATION COLORS */
+    --acid-green: #00FF94;
+    --velocity-red: #FF1919;
+    --deep-indigo: #4D00FF;
+    --matte-black: #111111;
+    
+    --bg-dark: #000000;
+    --bg-light: var(--off-white);
+    --accent: var(--neon-yellow);
 
-    /* Poppi/Olipop + Cola/Grape Palette */
-    /* Acid Neon Palette */
-    --strawberry: #FF1A1A;
-    --lemon: #FBFF00;
-    --orange: #FF8A00;
-    --lime: #FBFF00;
-    --ube: #9B30FF;
-    --purple: #9B30FF;
-    --peach: #FFB38A;
-    --mint: #FBFF00;
-    --cherry-cola: #610B1E;
-    --regular-cola: #231212;
-    --grape: #551A8B;
-    --accent: #FF1A1A;
-
-    /* Metallic Accents */
-    --silver-foil: linear-gradient(135deg, #C0C0C0, #E8E8E8, #A9A9A9);
-    --gold-foil: linear-gradient(135deg, #CFB53B, #FFD700, #B8860B);
+    /* EXTENDED MARKETING PALETTE */
+    --electric-pink: #FF00FF;
+    --neon-green: #39FF14;
+    --acid-yellow: #DFFF00;
 }
 
 * {
@@ -85,6 +77,22 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
 }
 
+/* Dark Mode Header Variant */
+body.dark-mode .glass-header {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+body.dark-mode .glass-header .logo {
+    color: #fff !important;
+}
+body.dark-mode .glass-header nav a {
+    color: #fff !important;
+}
+body.dark-mode .glass-header.scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
 .glass-header .header-container {
     width: 100% !important;
     max-width: 1100px !important;
@@ -98,28 +106,25 @@ body {
 
 .glass-header .logo {
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
-    font-family: 'Bricolage Grotesque', sans-serif !important;
-    font-size: 24px !important;
-    font-weight: 800 !important;
-    letter-spacing: -1.5px !important;
-    text-transform: uppercase !important;
-    color: #000 !important;
     text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    line-height: 0.8 !important;
+    transition: opacity 0.3s ease !important;
+    line-height: 1 !important;
+}
+
+.glass-header .logo::before {
+    content: none !important;
 }
 
 .logo .cltr-part {
-    font-variation-settings: 'wdth' 100, 'wght' 200 !important;
-    margin-left: 2px !important;
+    display: none !important;
 }
 
 .brand-logo-hero {
     font-family: 'Bricolage Grotesque', sans-serif;
     text-transform: uppercase;
     font-weight: 800;
-    line-height: 0.8;
 }
 
 .glass-header .logo:hover { opacity: 0.7; }
@@ -1073,3 +1078,27 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
+/* ====== PRODUCT SHOWCASE CARDS ====== */
+.showcase-card {
+    background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 30px; 
+    overflow: hidden; position: relative; min-height: 480px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.4s ease;
+}
+.showcase-card:hover { border-color: var(--electric-blue); transform: scale(1.02); }
+.showcase-bg {
+    position: absolute; inset: 0; z-index: 1;
+    background-size: cover; background-position: center;
+    filter: blur(14px) brightness(0.35) saturate(1.4);
+    transform: scale(1.15); transition: filter 0.5s ease;
+}
+.showcase-card:hover .showcase-bg { filter: blur(20px) brightness(0.25) saturate(1.8); }
+.showcase-item {
+    position: relative; z-index: 2; height: 65%;
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.8));
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.showcase-item img { height: 100%; width: auto; display: block; object-fit: contain; }
+.showcase-card:hover .showcase-item { transform: scale(1.15) translateY(-15px) rotate(2deg); }
+.showcase-card .poster-content { z-index: 3; pointer-events: none; }

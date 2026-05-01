@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gut Health — POP CLTR</title>
+  <meta name="description" content="Learn how Apple Cider Vinegar, Inulin, and prebiotic science make POP CLTR more than just a soda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--neon);
+      padding: 5rem 5% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero h1 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.88; letter-spacing: -4px; color: var(--black);
+      margin: 0.8rem 0 1.5rem;
+    }
+    .page-hero p {
+      font-family: 'Space Grotesk'; font-size: 1.1rem;
+      color: rgba(0,0,0,0.6); line-height: 1.7; max-width: 520px;
+    }
+    .page-hero-bg {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(80px, 14vw, 200px); color: rgba(0,0,0,0.05);
+      letter-spacing: -6px; user-select: none; pointer-events: none; white-space: nowrap;
+    }
+
+    /* ── OVERVIEW STATS ── */
+    #overview {
+      background: var(--offwhite); padding: 5rem 5%;
+    }
+    .overview-inner { max-width: 1100px; margin: 0 auto; }
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .ov-card {
+      background: var(--white); border-radius: 24px; padding: 2.5rem 2rem;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .ov-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,26,255,0.1); }
+    .ov-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--blue); }
+    .ov-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .ov-name {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: 1.35rem; color: var(--black); margin-bottom: 0.7rem; letter-spacing: -0.5px;
+    }
+    .ov-tagline {
+      font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 600;
+      color: var(--blue); letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .ov-desc {
+      font-family: 'Space Grotesk'; font-size: 0.88rem;
+      color: rgba(0,0,0,0.55); line-height: 1.65;
+    }
+
+    /* ── INGREDIENT DEEP DIVE SECTIONS ── */
+    .ingredient-section {
+      padding: 7rem 5%;
+    }
+    .ingredient-section.light { background: var(--offwhite); }
+    .ingredient-section.dark  { background: var(--black); }
+
+    .ingredient-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .ingredient-inner.flip { direction: rtl; }
+    .ingredient-inner.flip > * { direction: ltr; }
+
+    .ing-label { margin-bottom: 0.7rem; }
+    .ing-h2 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 0.9; letter-spacing: -2px; margin-bottom: 1.2rem;
+    }
+    .ing-h2.dark-text { color: var(--black); }
+    .ing-h2.light-text { color: var(--white); }
+    .ing-sub {
+      font-family: 'Space Grotesk'; font-size: 1rem;
+      color: rgba(0,0,0,0.55); line-height: 1.72; margin-bottom: 2rem;
+    }
+    .ing-sub.light { color: rgba(255,255,255,0.5); }
+
+    .benefits-list { display: flex; flex-direction: column; gap: 1rem; }
+    .benefit-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.2rem 1.4rem; border-radius: 14px;
+      background: rgba(0,0,0,0.05);
+    }
+    .benefit-item.on-dark { background: rgba(255,255,255,0.04); }
+    .benefit-check {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--neon); color: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 900; margin-top: 1px;
+    }
+    .benefit-text { font-family: 'Space Grotesk'; font-size: 0.92rem; color: rgba(0,0,0,0.65); line-height: 1.55; }
+    .benefit-text.light { color: rgba(255,255,255,0.6); }
+    .benefit-text strong { font-weight: 700; }
+
+    /* Visual side */
+    .ing-visual {
+      position: sticky; top: calc(var(--nav-h) + 2rem);
+    }
+    .ing-big-card {
+      border-radius: 28px; overflow: hidden;
+      padding: 3rem 2.5rem 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .ing-big-card.acv-card { background: linear-gradient(140deg, #001AFF 0%, #0A0070 100%); }
+    .ing-big-card.inulin-card { background: var(--gray2); border: 1px solid rgba(255,255,255,0.06); }
+    .ing-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .ing-stat {
+      background: rgba(255,255,255,0.08); border-radius: 16px;
+      padding: 1.2rem; text-align: center;
+    }
+    .ing-stat .num {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: 2.2rem; color: var(--neon); display: block; line-height: 1;
+    }
+    .ing-stat .lbl {
+      font-family: 'Space Grotesk'; font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-top: 0.3rem; display: block;
+    }
+    .ing-quote {
+      background: rgba(255,255,255,0.06); border-radius: 16px;
+      padding: 1.5rem; font-family: 'Space Grotesk'; font-size: 0.92rem;
+      color: rgba(255,255,255,0.7); line-height: 1.65; font-style: italic;
+    }
+    .ing-quote cite { display: block; margin-top: 0.7rem; font-style: normal; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--neon); opacity: 0.7; }
+
+    /* Inulin visual */
+    .inulin-infographic {
+      background: var(--gray2); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px; padding: 2.5rem;
+    }
+    .gut-flow { display: flex; flex-direction: column; gap: 1rem; }
+    .gut-step {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: rgba(255,255,255,0.03); border-radius: 14px;
+      padding: 1.1rem 1.3rem;
+    }
+    .gut-step-num {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: var(--neon); color: var(--black);
+      font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gut-step-text {
+      font-family: 'Space Grotesk'; font-size: 0.88rem;
+      color: rgba(255,255,255,0.65); line-height: 1.5;
+    }
+    .gut-step-text strong { color: var(--white); font-weight: 700; }
+
+    /* ── PREBIOTICS VS PROBIOTICS ── */
+    #prebiotics {
+      background: var(--neon);
+      padding: 7rem 5%;
+    }
+    .prebiotics-inner { max-width: 1100px; margin: 0 auto; }
+    .pre-top { margin-bottom: 4rem; }
+    .pre-label { font-family:'Space Grotesk'; font-weight:700; font-size:0.68rem; letter-spacing:4px; text-transform:uppercase; color:rgba(0,0,0,0.4); margin-bottom:0.8rem; display:block; }
+    .pre-title { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.2rem,5vw,4rem); line-height:0.88; letter-spacing:-2px; color:var(--black); }
+    .pre-intro { font-family:'Space Grotesk'; font-size:1.05rem; color:rgba(0,0,0,0.6); line-height:1.7; max-width:520px; margin-top:1.2rem; }
+
+    .pre-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .pre-card {
+      background: var(--black); border-radius: 24px; padding: 2.5rem;
+    }
+    .pre-card-label {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.7rem;
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.8rem;
+    }
+    .pre-card-label.g { color: var(--neon); }
+    .pre-card-label.d { color: rgba(255,255,255,0.35); }
+    .pre-card-title {
+      font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 1.5rem;
+      color: var(--white); margin-bottom: 1rem; letter-spacing: -0.5px;
+    }
+    .pre-card-desc { font-family: 'Space Grotesk'; font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 1.5rem; }
+    .pre-pros { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .pre-pros li { font-family: 'Space Grotesk'; font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; gap: 0.6rem; }
+    .pre-pros li::before { content: '✓'; color: var(--neon); font-weight: 700; flex-shrink: 0; }
+    .pre-pros li.dim::before { content: '–'; color: rgba(255,255,255,0.2); }
+    .pre-pros li.dim { color: rgba(255,255,255,0.25); }
+
+    .pre-analogy {
+      margin-top: 3rem; background: var(--black);
+      border-radius: 24px; padding: 2.5rem 3rem;
+      display: flex; align-items: center; gap: 3rem;
+    }
+    .pre-analogy-icon { font-size: 3.5rem; flex-shrink: 0; }
+    .pre-analogy-text h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.4rem; color:var(--white); margin-bottom:0.6rem; letter-spacing:-0.5px; }
+    .pre-analogy-text p { font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(255,255,255,0.5); line-height:1.65; }
+
+    /* ── VS REGULAR SODA ── */
+    #vs { background: var(--offwhite); padding: 7rem 5%; border-top: 1px solid var(--border); }
+    .vs-inner { max-width: 1100px; margin: 0 auto; }
+    .vs-title { text-align: center; margin-bottom: 3.5rem; }
+    .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .vs-card { background: var(--white); border-radius: 24px; padding: 2.5rem; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .vs-card-brand {
+      font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 1.1rem;
+      margin-bottom: 2rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    .vs-card-brand.pop { color: var(--blue); }
+    .vs-card-brand.reg { color: rgba(0,0,0,0.25); }
+    .vs-rows { display: flex; flex-direction: column; gap: 0; }
+    .vs-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .vs-row:last-child { border-bottom: none; }
+    .vs-row-name { font-family:'Space Grotesk'; font-size:0.88rem; color:rgba(0,0,0,0.5); }
+    .vs-row-val {
+      font-family:'Space Grotesk'; font-weight:700; font-size:0.9rem;
+      color: var(--black);
+    }
+    .vs-row-val.good { color: var(--blue); }
+    .vs-row-val.bad  { color: rgba(0,0,0,0.22); text-decoration: line-through; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--white); padding: 7rem 5%; border-top: 1px solid var(--border); }
+    .faq-inner { max-width: 780px; margin: 0 auto; }
+    .faq-title { text-align: center; margin-bottom: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.5rem 0; cursor: pointer;
+      font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem;
+      color: var(--black); user-select: none;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-icon { flex-shrink: 0; font-size: 1.2rem; transition: transform 0.3s; color: var(--blue); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      font-family: 'Space Grotesk'; font-size: 0.92rem;
+      color: rgba(0,0,0,0.5); line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.5rem; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--neon); padding: 5rem 5%; text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--black); letter-spacing: -2px; margin-bottom: 0.5rem;
+    }
+    .cta-banner p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.55); margin-bottom:2rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .ingredient-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ingredient-inner.flip { direction: ltr; }
+      .ing-visual { position: static; }
+      .pre-compare { grid-template-columns: 1fr; }
+      .pre-analogy { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .vs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="consumer.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="gut-health.html" class="active">Gut Health</a>
+  <a href="locate.html">Locate</a>
+</div>
+
+<nav id="main-nav">
+  <a href="consumer.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gut-health.html" class="active">Gut Health</a></li>
+      <li><a href="locate.html">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="sec-label dark">Gut Health</span>
+    <h1>THE SCIENCE<br>INSIDE THE CAN.</h1>
+    <p>Two powerful ingredients. One prebiotic soda. Here's everything you need to know about why POP CLTR works — explained simply, backed by science.</p>
+  </div>
+  <div class="page-hero-bg">GUT.</div>
+</div>
+
+<!-- OVERVIEW STATS -->
+<section id="overview">
+  <div class="overview-inner">
+    <span class="sec-label blue-txt">What's In Every Can</span>
+    <h2 class="sec-title">THREE THINGS.<br>ALL WORKING FOR YOU.</h2>
+    <div class="overview-grid">
+      <div class="ov-card fade-up">
+        <span class="ov-icon">🍎</span>
+        <div class="ov-tagline">Gut Tonic</div>
+        <div class="ov-name">Apple Cider Vinegar</div>
+        <p class="ov-desc">The fermented gut tonic that's been used for centuries — now in a soda. ACV with the "mother" contains acetic acid, beneficial enzymes, and natural prebiotics that support digestion and blood sugar balance.</p>
+      </div>
+      <div class="ov-card fade-up d1">
+        <span class="ov-icon">🌿</span>
+        <div class="ov-tagline">Prebiotic Fiber</div>
+        <div class="ov-name">Inulin</div>
+        <p class="ov-desc">A naturally occurring prebiotic fiber derived from chicory root. Inulin feeds your good gut bacteria, supporting a healthy and balanced microbiome — without the bloat of other fibers.</p>
+      </div>
+      <div class="ov-card fade-up d2">
+        <span class="ov-icon">✨</span>
+        <div class="ov-tagline">Clean Fuel</div>
+        <div class="ov-name">Zero Added Sugar</div>
+        <p class="ov-desc">Natural flavors, no sugar crash. The deep blueberry and bright dalandan citrus taste comes from real ingredients — not from a pile of sugar. What you taste is real. What you don't feel is the regret.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACV DEEP DIVE -->
+<section id="acv" class="ingredient-section light">
+  <div class="ingredient-inner">
+    <div class="fade-up">
+      <span class="sec-label dark ing-label">Ingredient No. 01</span>
+      <h2 class="ing-h2 dark-text">Apple Cider<br>Vinegar.</h2>
+      <p class="ing-sub">ACV has been used as a health tonic for thousands of years. Modern science is now catching up to why. The active compound — acetic acid — combined with the natural "mother" (strands of proteins, enzymes, and friendly bacteria) makes ACV one of the most functional ingredients you can put in your body.</p>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text"><strong>Supports Blood Sugar Balance</strong> — Studies show ACV can reduce post-meal blood glucose spikes by slowing the breakdown of carbohydrates in the gut. A smaller spike means less insulin, less crash, more sustained energy.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text"><strong>Acts as a Natural Prebiotic</strong> — The "mother" in unfiltered ACV contains strands of natural bacteria and yeast that act as fuel for your existing gut microbiome — feeding the good bacteria already living inside you.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text"><strong>Supports Healthy Digestion</strong> — Acetic acid stimulates stomach acid production, helping your body break down food more effectively and absorb nutrients more efficiently.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text"><strong>Antioxidant Properties</strong> — ACV contains polyphenols (plant compounds) that act as antioxidants, helping reduce oxidative stress in the body.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ing-visual fade-up d1">
+      <div class="ing-big-card acv-card">
+        <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:1.1rem;color:var(--white);letter-spacing:-0.5px;">Apple Cider Vinegar</div>
+        <div class="ing-stat-row">
+          <div class="ing-stat">
+            <span class="num">ACV</span>
+            <span class="lbl">With the Mother</span>
+          </div>
+          <div class="ing-stat">
+            <span class="num">5%</span>
+            <span class="lbl">Acetic Acid</span>
+          </div>
+        </div>
+        <div class="ing-quote">
+          "Consumption of vinegar reduces postprandial glycemia in healthy adults — a mechanism likely mediated by acetic acid inhibition of disaccharidase activity."
+          <cite>— Johnston et al., Journal of the American Dietetic Association</cite>
+        </div>
+        <div class="ing-stat-row">
+          <div class="ing-stat">
+            <span class="num">🍎</span>
+            <span class="lbl">Fermented Apples</span>
+          </div>
+          <div class="ing-stat">
+            <span class="num">1000+</span>
+            <span class="lbl">Years of Use</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INULIN DEEP DIVE -->
+<section id="inulin" class="ingredient-section dark">
+  <div class="ingredient-inner flip">
+    <div class="fade-up">
+      <span class="sec-label neon ing-label">Ingredient No. 02</span>
+      <h2 class="ing-h2 light-text">Inulin<br>Prebiotic Fiber.</h2>
+      <p class="ing-sub light">Inulin is a naturally occurring fructan fiber found in chicory root, garlic, Jerusalem artichoke, and bananas. It's classified as a prebiotic because it selectively feeds beneficial bacteria in the colon — specifically Bifidobacteria and Lactobacilli — without being digested by the human gut itself.</p>
+      <div class="benefits-list">
+        <div class="benefit-item on-dark">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text light"><strong>Feeds Your Good Bacteria</strong> — Inulin passes undigested to the colon where it's fermented by beneficial bacteria (Bifidobacteria). This "selective feeding" is the definition of a prebiotic — it only benefits the good guys.</p>
+        </div>
+        <div class="benefit-item on-dark">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text light"><strong>Produces Short-Chain Fatty Acids (SCFAs)</strong> — As gut bacteria ferment inulin, they produce SCFAs like butyrate, propionate, and acetate. These compounds nourish the gut lining, reduce inflammation, and support immune function.</p>
+        </div>
+        <div class="benefit-item on-dark">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text light"><strong>Supports Calcium Absorption</strong> — Clinical studies show inulin improves calcium absorption in the gut, supporting bone density over time — a benefit most fiber sources don't offer.</p>
+        </div>
+        <div class="benefit-item on-dark">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text light"><strong>Low Glycemic Impact</strong> — Unlike regular sugars, inulin doesn't spike blood glucose. It contributes a mild natural sweetness (about 10% as sweet as sucrose) while keeping your blood sugar stable.</p>
+        </div>
+        <div class="benefit-item on-dark">
+          <div class="benefit-check">✓</div>
+          <p class="benefit-text light"><strong>Shelf-Stable & Heat-Resistant</strong> — Unlike live probiotics which require refrigeration and can be killed by heat or acidity, inulin is a stable fiber that works reliably — no cold chain needed.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ing-visual fade-up d1">
+      <div class="inulin-infographic">
+        <div style="font-family:'Space Grotesk';font-weight:700;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--neon);margin-bottom:1.5rem;">How Inulin Works In Your Gut</div>
+        <div class="gut-flow">
+          <div class="gut-step">
+            <div class="gut-step-num">1</div>
+            <div class="gut-step-text"><strong>You drink POP CLTR.</strong> Inulin enters your digestive system intact — it's not absorbed in the stomach or small intestine.</div>
+          </div>
+          <div class="gut-step">
+            <div class="gut-step-num">2</div>
+            <div class="gut-step-text"><strong>It reaches the colon</strong> — where 100 trillion bacteria live. Beneficial strains (Bifidobacteria) recognize inulin as food and begin to ferment it.</div>
+          </div>
+          <div class="gut-step">
+            <div class="gut-step-num">3</div>
+            <div class="gut-step-text"><strong>Fermentation produces SCFAs</strong> — butyrate, propionate, and acetate. These are the metabolites that nourish your gut lining and regulate immune response.</div>
+          </div>
+          <div class="gut-step">
+            <div class="gut-step-num">4</div>
+            <div class="gut-step-text"><strong>Your good bacteria multiply.</strong> Regular inulin intake consistently shifts the gut microbiome toward higher Bifidobacteria populations — documented in multiple clinical trials.</div>
+          </div>
+          <div class="gut-step">
+            <div class="gut-step-num">5</div>
+            <div class="gut-step-text"><strong>Your whole body benefits.</strong> A healthier gut microbiome is linked to better mood, stronger immunity, improved metabolism, and reduced systemic inflammation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREBIOTICS VS PROBIOTICS -->
+<section id="prebiotics">
+  <div class="prebiotics-inner">
+    <div class="pre-top fade-up">
+      <span class="pre-label">Understanding the Difference</span>
+      <h2 class="pre-title">PREBIOTICS VS<br>PROBIOTICS.</h2>
+      <p class="pre-intro">Both matter for gut health — but they work very differently. Here's why POP CLTR chose the prebiotic approach, and why it makes sense for an everyday soda.</p>
+    </div>
+
+    <div class="pre-compare">
+      <div class="pre-card fade-up">
+        <div class="pre-card-label g">POP CLTR's Approach</div>
+        <h3 class="pre-card-title">Prebiotics</h3>
+        <p class="pre-card-desc">Prebiotics are non-digestible food compounds — specifically fibers — that selectively feed the beneficial bacteria already living in your gut. Think of them as fertilizer for your inner garden.</p>
+        <ul class="pre-pros">
+          <li>Stable at room temperature — no refrigeration needed</li>
+          <li>Survive heat, acidity, and shelf life in beverages</li>
+          <li>Selectively feed beneficial bacteria (Bifidobacteria)</li>
+          <li>Work with your existing microbiome</li>
+          <li>Produce SCFAs (butyrate) — key gut health metabolites</li>
+          <li>Consistent efficacy — no viability concerns</li>
+        </ul>
+      </div>
+      <div class="pre-card fade-up d1">
+        <div class="pre-card-label d">Alternative Approach</div>
+        <h3 class="pre-card-title">Probiotics</h3>
+        <p class="pre-card-desc">Probiotics are live bacteria added to foods and supplements. They aim to colonize the gut with beneficial strains — but face several challenges as a soda ingredient.</p>
+        <ul class="pre-pros">
+          <li class="dim">Require refrigeration to stay alive</li>
+          <li class="dim">Killed by heat and pasteurization</li>
+          <li class="dim">Survive stomach acid inconsistently</li>
+          <li class="dim">Difficult to dose accurately in beverages</li>
+          <li>Can be beneficial in the right format (yogurt, supplements)</li>
+          <li class="dim">Not ideal for shelf-stable soda formulations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pre-analogy fade-up">
+      <div class="pre-analogy-icon">🌱</div>
+      <div class="pre-analogy-text">
+        <h3>Think of it like gardening.</h3>
+        <p>Probiotics are like planting seeds — adding new bacteria to the gut. Prebiotics are like fertilizer — feeding and growing the beneficial bacteria already living there. A healthy garden starts with great soil. POP CLTR focuses on making your gut soil exceptional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VS REGULAR SODA -->
+<section id="vs">
+  <div class="vs-inner">
+    <div class="vs-title fade-up">
+      <span class="sec-label">The Comparison</span>
+      <h2 class="sec-title">POP CLTR VS<br>REGULAR SODA.</h2>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-card fade-up">
+        <div class="vs-card-brand pop">
+          <img src="final/logo_blue.png" alt="POP CLTR" style="height:24px" onerror="this.style.display='none'">
+          POP CLTR
+        </div>
+        <div class="vs-rows">
+          <div class="vs-row"><span class="vs-row-name">Apple Cider Vinegar</span><span class="vs-row-val good">✓ Yes</span></div>
+          <div class="vs-row"><span class="vs-row-name">Inulin Prebiotic Fiber</span><span class="vs-row-val good">✓ Yes</span></div>
+          <div class="vs-row"><span class="vs-row-name">Added Sugar</span><span class="vs-row-val good">0g</span></div>
+          <div class="vs-row"><span class="vs-row-name">Artificial Colors</span><span class="vs-row-val good">None</span></div>
+          <div class="vs-row"><span class="vs-row-name">Gut Benefits</span><span class="vs-row-val good">Active</span></div>
+          <div class="vs-row"><span class="vs-row-name">Blood Sugar Spike</span><span class="vs-row-val good">Minimal</span></div>
+          <div class="vs-row"><span class="vs-row-name">Post-drink crash</span><span class="vs-row-val good">No</span></div>
+        </div>
+      </div>
+      <div class="vs-card fade-up d1" style="opacity:0.7;">
+        <div class="vs-card-brand reg">Regular Soda</div>
+        <div class="vs-rows">
+          <div class="vs-row"><span class="vs-row-name">Apple Cider Vinegar</span><span class="vs-row-val bad">None</span></div>
+          <div class="vs-row"><span class="vs-row-name">Prebiotic Fiber</span><span class="vs-row-val bad">None</span></div>
+          <div class="vs-row"><span class="vs-row-name">Added Sugar</span><span class="vs-row-val bad">39g+</span></div>
+          <div class="vs-row"><span class="vs-row-name">Artificial Colors</span><span class="vs-row-val bad">Often</span></div>
+          <div class="vs-row"><span class="vs-row-name">Gut Benefits</span><span class="vs-row-val bad">None</span></div>
+          <div class="vs-row"><span class="vs-row-name">Blood Sugar Spike</span><span class="vs-row-val bad">High</span></div>
+          <div class="vs-row"><span class="vs-row-name">Post-drink crash</span><span class="vs-row-val bad">Yes</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-title fade-up">
+      <span class="sec-label">Questions</span>
+      <h2 class="sec-title">YOUR GUT HEALTH<br>QUESTIONS. ANSWERED.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How much Apple Cider Vinegar is in each can?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Each can of POP CLTR contains a meaningful dose of Apple Cider Vinegar — enough to deliver the functional benefits of acetic acid without being overwhelming. We use ACV with the "mother" to preserve the natural enzymes and beneficial compounds.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Will I feel the effects right away?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Gut health is a long game. While some people notice improved digestion quickly, the real benefits — a stronger gut microbiome, better blood sugar stability, and sustained energy — build up with consistent daily consumption. Think of it like skincare for your gut: consistency is key.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is inulin safe? Will it cause bloating?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Inulin is safe and well-tolerated by most people. Some individuals may experience mild digestive adjustment during the first few days as their gut microbiome adapts — this is normal and typically resolves quickly. The dose in POP CLTR is calibrated to be effective without being excessive, making it comfortable for daily consumption.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How is this different from other "healthy" sodas?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Most "healthy" sodas reduce sugar or add vitamins — but they don't actually change your gut health. POP CLTR uses two clinically recognized functional ingredients (ACV and Inulin) that have documented effects on gut microbiome composition, blood sugar regulation, and digestion. Plus, we're Filipino-made and proud of it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Why prebiotics instead of probiotics?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Probiotics are live bacteria — they're difficult to keep alive in a beverage format. Heat, acidity, and shelf life all work against them. Prebiotics like inulin are stable fibers that survive the production process and work reliably every time you crack a can. For a soda, the prebiotic approach is simply smarter science.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I drink it every day?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes — POP CLTR is designed as an everyday drink. Daily consumption is how you get the most out of the prebiotic fiber and ACV benefits. One can a day is a great starting point for most people.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>READY TO FEEL<br>THE DIFFERENCE?</h2>
+  <p>Try Blueberry Dalandan today. Your gut will notice.</p>
+  <a href="shop.html" class="btn-dark">Shop Now →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram @drinkpopcltr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok @drinkpopcltr"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Gut Health</div>
+      <ul class="footer-links">
+        <li><a href="#acv">Apple Cider Vinegar</a></li>
+        <li><a href="#inulin">Inulin Fiber</a></li>
+        <li><a href="#prebiotics">Prebiotics vs Probiotics</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  const t = document.getElementById('ticker'); if(t) t.innerHTML += t.innerHTML;
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+  function toast(m) { const el=document.getElementById('toast'); el.textContent=m; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),3000); }
+</script>
+</body>
+</html>

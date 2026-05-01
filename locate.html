@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locate & Contact — POP CLTR</title>
+  <meta name="description" content="Find POP CLTR near you or order online. Coming to Metro Manila locations and available for delivery now.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    .page-hero { background: var(--white); padding: 5rem 5% 4rem; border-bottom: 1px solid var(--border); }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.8rem,6vw,5.5rem); line-height:0.88; letter-spacing:-3px; color:var(--black); margin:0.8rem 0 1rem; }
+    .page-hero p { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.5); max-width:400px; }
+
+    /* ── FIND US ── */
+    #find { background: var(--offwhite); padding: 6rem 5%; }
+    .find-inner { max-width: 1100px; margin: 0 auto; }
+    .find-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .find-card {
+      background: var(--white); border-radius: 24px; padding: 2.5rem;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .find-card:hover { border-color: var(--blue); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,26,255,0.08); }
+    .find-card.highlight { border-color: rgba(0,26,255,0.3); }
+    .find-icon { font-size: 2.2rem; }
+    .find-title { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.7rem; color:var(--black); letter-spacing:-1px; }
+    .find-desc { font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(0,0,0,0.55); line-height:1.65; flex:1; }
+    .find-sub { font-family:'Space Grotesk'; font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--blue); }
+
+    /* ── COMING TO ── */
+    #coming { background: var(--neon); padding: 5rem 5%; }
+    .coming-inner { max-width: 1100px; margin: 0 auto; }
+    .coming-intro { font-family:'Space Grotesk'; font-size:1rem; color:rgba(0,0,0,0.6); margin:1rem 0 2.5rem; max-width:500px; line-height:1.7; }
+    .location-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+    .loc-card {
+      background: var(--black); border-radius: 18px; padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .loc-card:hover { transform: translateY(-4px); }
+    .loc-area { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.1rem; color:var(--white); margin-bottom:0.3rem; }
+    .loc-status { font-family:'Space Grotesk'; font-size:0.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+    .loc-status.soon { color: var(--neon); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); padding: 6rem 5%; border-top: 1px solid var(--border); }
+    .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-h2 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:clamp(2.2rem,4vw,3.5rem); letter-spacing:-2px; line-height:0.9; color:var(--black); margin:1rem 0 1.5rem; }
+    .contact-body { font-family:'Space Grotesk'; font-size:0.98rem; color:rgba(0,0,0,0.55); line-height:1.75; margin-bottom:2.5rem; }
+    .contact-info { display:flex; flex-direction:column; gap:1.1rem; }
+    .contact-item { display:flex; align-items:center; gap:0.9rem; font-family:'Space Grotesk'; font-size:0.92rem; color:rgba(0,0,0,0.55); }
+    .contact-item a { color:var(--blue); text-decoration:none; }
+    .contact-item a:hover { text-decoration:underline; }
+
+    .contact-form { display:flex; flex-direction:column; gap:1.1rem; }
+    .fg { display:flex; flex-direction:column; gap:0.5rem; }
+    .fl { font-family:'Space Grotesk'; font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.4); }
+    .fi { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:0.95rem 1.2rem; font-family:'Space Grotesk'; font-size:0.95rem; color:var(--black); outline:none; transition:border-color 0.2s, box-shadow 0.2s; width:100%; }
+    .fi::placeholder { color:rgba(0,0,0,0.3); }
+    .fi:focus { border-color:var(--blue); box-shadow: 0 0 0 3px rgba(0,26,255,0.08); }
+    textarea.fi { min-height:110px; resize:vertical; }
+    select.fi { appearance:none; cursor:pointer; background-color:var(--white); }
+    .btn-send { background:var(--blue); color:var(--white); border:none; padding:1.1rem; font-family:'Space Grotesk'; font-weight:700; font-size:0.88rem; letter-spacing:2px; text-transform:uppercase; border-radius:12px; cursor:pointer; transition:background 0.2s, transform 0.2s; }
+    .btn-send:hover { background:var(--black); transform:translateY(-2px); }
+
+    .success-msg { display:none; text-align:center; padding:2rem; background:rgba(0,26,255,0.05); border:1px solid rgba(0,26,255,0.15); border-radius:16px; }
+    .success-msg h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.5rem; color:var(--blue); margin-bottom:0.5rem; }
+    .success-msg p { font-family:'Space Grotesk'; font-size:0.9rem; color:rgba(0,0,0,0.5); }
+
+    @media (max-width:900px) {
+      .find-grid { grid-template-columns:1fr; }
+      .location-grid { grid-template-columns:repeat(2,1fr); }
+      .contact-inner { grid-template-columns:1fr; gap:3rem; }
+    }
+    @media (max-width:480px) {
+      .location-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMob()">✕</button>
+  <a href="consumer.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="gut-health.html">Gut Health</a>
+  <a href="locate.html" class="active">Locate</a>
+</div>
+
+<nav id="main-nav">
+  <a href="consumer.html" class="nav-logo">
+    <img src="final/logo_blue.png" alt="POP CLTR" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">POP CLTR</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="locate.html" class="active">Locate</a></li>
+    </ul>
+    <a href="shop.html" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="sec-label dark">Locate</span>
+    <h1>FIND YOUR<br>POP CLTR.</h1>
+    <p>Order online now, or find us at a spot near you. We're expanding fast.</p>
+  </div>
+</div>
+
+<section id="find">
+  <div class="find-inner">
+    <span class="sec-label blue-txt">Where to Get It</span>
+    <h2 class="sec-title">TWO WAYS<br>TO GET YOUR POP.</h2>
+    <div class="find-grid">
+      <div class="find-card highlight fade-up">
+        <div class="find-icon">🚀</div>
+        <div class="find-title">Order Online</div>
+        <div class="find-sub">Available Now</div>
+        <div class="find-desc">Get Blueberry Dalandan delivered straight to your door anywhere in the Philippines. Fast shipping, secure checkout, and your gut will thank you tomorrow. 12-pack ships free to Metro Manila.</div>
+        <a href="shop.html" class="btn-primary" style="width:fit-content">Shop Now →</a>
+      </div>
+      <div class="find-card fade-up d1">
+        <div class="find-icon">📍</div>
+        <div class="find-title">Find In-Store</div>
+        <div class="find-sub">Coming Soon</div>
+        <div class="find-desc">POP CLTR is landing at select cafes, gyms, health stores, and lifestyle spots across Metro Manila. New locations dropping regularly — sign up to know exactly when we land near you.</div>
+        <a href="#contact" class="btn-ghost" style="width:fit-content">Get Notified →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coming">
+  <div class="coming-inner">
+    <span class="sec-label dark">In-Store Expansion</span>
+    <h2 class="sec-title on-neon">COMING TO<br>METRO MANILA.</h2>
+    <p class="coming-intro">We're building our in-store presence city by city. Sign up below to be notified when POP CLTR lands in your area.</p>
+    <div class="location-grid">
+      <div class="loc-card fade-up"><div class="loc-area">BGC</div><div class="loc-status soon">Coming Soon</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Makati</div><div class="loc-status soon">Coming Soon</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Ortigas</div><div class="loc-status soon">Coming Soon</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Quezon City</div><div class="loc-status soon">Coming Soon</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Alabang</div><div class="loc-status">Planned</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Eastwood</div><div class="loc-status">Planned</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Mandaluyong</div><div class="loc-status">Planned</div></div>
+      <div class="loc-card fade-up"><div class="loc-area">Pasig</div><div class="loc-status">Planned</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="fade-up">
+      <span class="sec-label blue-txt">Contact Us</span>
+      <h2 class="contact-h2">LET'S<br>TALK.</h2>
+      <p class="contact-body">Questions, collabs, wholesale, distribution, events — or you just want to talk about gut health. We're genuinely here for all of it.</p>
+      <div class="contact-info">
+        <div class="contact-item"><span>📧</span><span>Email: <a href="mailto:hello@popcltr.com">hello@popcltr.com</a></span></div>
+        <div class="contact-item"><span>📸</span><span>Instagram: <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener">@drinkpopcltr</a></span></div>
+        <div class="contact-item"><span>🎵</span><span>TikTok: <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener">@drinkpopcltr</a></span></div>
+        <div class="contact-item"><span>📍</span><span>Based in Metro Manila, Philippines</span></div>
+      </div>
+    </div>
+    <div class="fade-up d1">
+      <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+        <div class="fg">
+          <label class="fl">Your Name</label>
+          <input type="text" class="fi" placeholder="What do we call you?" required>
+        </div>
+        <div class="fg">
+          <label class="fl">Email</label>
+          <input type="email" class="fi" placeholder="your@email.com" required>
+        </div>
+        <div class="fg">
+          <label class="fl">What's This About?</label>
+          <select class="fi">
+            <option value="">Pick one...</option>
+            <option>General Inquiry</option>
+            <option>Partnership / Collab</option>
+            <option>Wholesale / Distribution</option>
+            <option>Press / Media</option>
+            <option>Events & Activations</option>
+            <option>Store Location Notification</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Message</label>
+          <textarea class="fi" placeholder="Tell us what's up..."></textarea>
+        </div>
+        <button type="submit" class="btn-send">Send It →</button>
+      </form>
+      <div class="success-msg" id="success-msg">
+        <h3>Message Sent! ✦</h3>
+        <p>We'll get back to you within 1–2 business days. Thanks for reaching out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nl-strip">
+  <h2 class="nl-h2">NOTIFIED WHEN WE LAND NEAR YOU.</h2>
+  <p class="nl-sub">Drop your email and we'll tell you the moment POP CLTR hits a store in your area.</p>
+  <form class="nl-form" onsubmit="nlGo(event)">
+    <input type="email" class="nl-input" placeholder="Enter your email" required>
+    <button type="submit" class="nl-btn">Notify Me →</button>
+  </form>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="final/logo_neon.png" alt="POP CLTR" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="footer-logo-text">POP CLTR</div>
+      <p class="footer-tagline">Prebiotic soda for the culture. Good gut, good vibes.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram @drinkpopcltr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://tiktok.com/@drinkpopcltr" target="_blank" rel="noopener" class="fsoc" aria-label="TikTok @drinkpopcltr"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg></a>
+        <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="locate.html">Locate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 POP CLTR. All rights reserved.</span>
+    <span class="footer-copy">Made in the Philippines 🇵🇭</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  function toast(m) { const el=document.getElementById('toast'); el.textContent=m; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),3000); }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    toast('Message sent! We\'ll be in touch. 🙌');
+  }
+  function nlGo(e) { e.preventDefault(); toast('You\'re on the list! ✦'); e.target.reset(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP CLTR // The Official Brand Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Space+Grotesk:wght@300;500;700&family=Syne:wght@400;700;800&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --neon-yellow: #dfff00;
+            --electric-blue: #001aff;
+            --off-white: #f5f5f5;
+            --bg-black: #000;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .guide-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 130px 5% 100px;
+        }
+
+        .guide-hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+            background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+        }
+
+        .guide-hero h1 {
+            font-family: 'Bricolage Grotesque';
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .guide-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk';
+            color: var(--neon-yellow);
+            font-weight: 700;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+
+        .chapter-title {
+            font-family: 'Bricolage Grotesque';
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .body-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.7;
+            max-width: 600px;
+        }
+
+        /* TYPOGRAPHY BLOCKS */
+        .typo-spec {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #050505;
+            border: 1px solid #1a1a1a;
+            border-radius: 40px;
+        }
+
+        .font-sample {
+            margin-bottom: 2rem;
+        }
+
+        .font-sample h2 {
+            margin: 0;
+            line-height: 1;
+        }
+
+        .font-meta {
+            font-family: 'Space Grotesk';
+            font-size: 0.7rem;
+            color: #555;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* LOGO ARCHITECTURE */
+        .logo-box {
+            background: #111;
+            padding: 4rem 2rem;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            border: 1px solid #1a1a1a;
+        }
+
+        /* LOGO VARIANTS */
+        .logo-variants {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .logo-variant-box {
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* COLOR GRID */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .swatch {
+            aspect-ratio: 1/1.2;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-radius: 20px;
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* DOODLE LIBRARY */
+        .doodle-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 2rem;
+        }
+
+        .doodle-item {
+            border: 1px dashed #2a2a2a;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0.55;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            gap: 1rem;
+            background: #050505;
+        }
+
+        .doodle-item:hover {
+            opacity: 1;
+            border-color: var(--neon-yellow);
+            border-style: solid;
+            background: #0d0d0d;
+        }
+
+        .doodle-item:hover svg path,
+        .doodle-item:hover svg circle,
+        .doodle-item:hover svg polyline,
+        .doodle-item:hover svg polygon,
+        .doodle-item:hover svg line,
+        .doodle-item:hover svg rect,
+        .doodle-item:hover svg ellipse {
+            stroke: var(--neon-yellow);
+        }
+
+        .doodle-item:hover svg text {
+            fill: var(--neon-yellow);
+        }
+
+        .doodle-label {
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* TYPOGRAPHY SPEC TABLE */
+        .typo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .typo-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #1a1a1a;
+            font-family: 'Space Grotesk';
+            font-size: 0.85rem;
+        }
+
+        .typo-table td:first-child {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+
+    <header id="main-header" class="glass-header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="final/logo_white.png" alt="POP CLTR"
+                    style="height: 36px; width: auto; display: block; object-fit: contain;"></a>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="formulation.html">SCIENCE</a>
+                <a href="strategy.html">STRATEGY</a>
+                <a href="marketing.html">MARKETING</a>
+                <a href="gallery.html">THE CAN</a>
+                <a href="brand_book.html">BRAND BOOK</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="guide-wrapper">
+        <section class="guide-hero">
+            <span class="section-label">Identity Protocol v10.0</span>
+            <h1>BRAND<br>GUIDE.</h1>
+            <p style="margin-top: 3rem; opacity: 0.4; font-size: 1.2rem; max-width: 600px;">The definitive source for
+                the POP CLTR visual and narrative DNA. Rules of engagement for the future of soda.</p>
+        </section>
+
+        <!-- 01: LOGO ARCHITECTURE -->
+        <section class="guide-section" id="logo">
+            <div class="grid-2col">
+                <div>
+                    <span class="section-label">01 // LOGO</span>
+                    <h2 class="chapter-title">THE LOGO<br>ARCHETYPE.</h2>
+                    <p class="body-text">The POP CLTR wordmark is built on the <strong>"EXACT WIDTH MATCH"</strong>
+                        protocol. The vertical tension between the dense, custom 'POP' and the wide, tracked-out 'CLTR'
+                        creates a perfect industrial rectangle.</p>
+
+                    <table class="typo-table" style="margin-top: 3rem;">
+                        <tr>
+                            <td>TYPEFACE</td>
+                            <td>Custom ultra-wide display — closest commercial analog: <strong>Druk Wide Super</strong>
+                                (Commercial Type)</td>
+                        </tr>
+                        <tr>
+                            <td>WEIGHT</td>
+                            <td>Super / Heavy — maximum stroke expansion</td>
+                        </tr>
+                        <tr>
+                            <td>APERTURES</td>
+                            <td>Signature horizontal slit-cuts through the 'O' and 'P' bowls — proprietary POP CLTR
+                                modification</td>
+                        </tr>
+                        <tr>
+                            <td>"CLTR" TRACKING</td>
+                            <td>+600 to +800 letter-spacing — tuned to match exact pixel-width of "POP" above</td>
+                        </tr>
+                        <tr>
+                            <td>FORM RULE</td>
+                            <td>Both rows must share an identical horizontal span. Never break the rectangle.</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div class="spec-list">
+                        <div class="spec-item"
+                            style="border-left: 2px solid var(--neon-yellow); padding-left: 1.5rem; margin-bottom: 2rem;">
+                            <strong
+                                style="display: block; font-size: 0.8rem; letter-spacing: 2px; color: #888; margin-bottom: 0.5rem;">THE
+                                "POP" — CUSTOM DISPLAY</strong>
+                            <p style="font-size: 1rem; opacity: 0.7;">Ultra-wide, giga-bold display letterforms. The
+                                hallmark horizontal slit-apertures cut through the 'O' and 'P' to evoke high-velocity
+                                flow and the industrial gut-function aesthetic. Closest open reference: <strong>Druk
+                                    Wide Super</strong>.</p>
+                        </div>
+                        <div class="spec-item"
+                            style="border-left: 2px solid #444; padding-left: 1.5rem; margin-bottom: 2rem;">
+                            <strong
+                                style="display: block; font-size: 0.8rem; letter-spacing: 2px; color: #888; margin-bottom: 0.5rem;">THE
+                                "CLTR" — SAME BASE, EXTREME TRACKING</strong>
+                            <p style="font-size: 1rem; opacity: 0.7;">Same custom typeface at identical weight. Extreme
+                                letter-spacing (+600 to +800) is applied so the four letters span the exact same width
+                                as the 'POP' mark above. The visual tension is intentional.</p>
+                        </div>
+                        <div class="spec-item" style="border-left: 2px solid #222; padding-left: 1.5rem;">
+                            <strong
+                                style="display: block; font-size: 0.8rem; letter-spacing: 2px; color: #888; margin-bottom: 0.5rem;">COLOR
+                                PROTOCOL</strong>
+                            <p style="font-size: 1rem; opacity: 0.7;">Primary: <strong style="color: #c8ff00;">#C8FF00
+                                    Neon Lime</strong> on black. Secondary: White on dark or black on white. Never use
+                                the logo on mid-tone backgrounds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo on dark bg (primary) -->
+            <div class="logo-box">
+                <img src="final/logo_white.png" style="width: 100%; max-width: 600px; height: auto; display: block;"
+                    alt="POP CLTR — White on Black (Primary)">
+            </div>
+            <p
+                style="text-align: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #333; letter-spacing: 3px; margin-top: 1rem;">
+                PRIMARY — WHITE ON BLACK</p>
+
+            <!-- Logo variants -->
+            <div class="logo-variants">
+                <div class="logo-variant-box" style="background: #c8ff00;">
+                    <img src="final/Exact Logo.png" style="width: 100%; max-width: 300px; height: auto; display: block;"
+                        alt="POP CLTR — Neon on Black">
+                </div>
+                <div class="logo-variant-box" style="background: #fff;">
+                    <img src="final/Exact Logo.png"
+                        style="width: 100%; max-width: 300px; height: auto; display: block; mix-blend-mode: multiply;"
+                        alt="POP CLTR — Black on White">
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 0.5rem;">
+                <p
+                    style="text-align: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #333; letter-spacing: 3px;">
+                    NEON LIME — BRAND HERO COLOR</p>
+                <p
+                    style="text-align: center; font-family: 'Space Grotesk'; font-size: 0.7rem; color: #333; letter-spacing: 3px;">
+                    BLACK ON WHITE — PRINT / COLLAB</p>
+            </div>
+        </section>
+
+        <!-- 02: TYPOGRAPHY -->
+        <section class="guide-section" id="typography">
+            <span class="section-label">02 // TYPOGRAPHY</span>
+            <div class="grid-2col">
+                <div>
+                    <h2 class="chapter-title">THE VOICE<br>OF THE SODA.</h2>
+                    <p class="body-text">Two typefaces carry the entire brand. The custom logo mark is the primary weapon — a purpose-built display type that exists nowhere else. Below it, a supporting cast of four commercially available typefaces handle every other communication need.</p>
+                </div>
+                <div>
+                    <table class="typo-table">
+                        <tr>
+                            <td>LOGO MARK</td>
+                            <td>Custom ultra-wide display — proprietary slit-aperture modification. Closest reference: <strong>Druk Wide Super</strong> (Commercial Type)</td>
+                        </tr>
+                        <tr>
+                            <td>HEADLINE</td>
+                            <td>Bricolage Grotesque — Weight 800, variable optical size</td>
+                        </tr>
+                        <tr>
+                            <td>SUBHEAD</td>
+                            <td>Syne — Weight 800, uppercase emphasis</td>
+                        </tr>
+                        <tr>
+                            <td>DATA / UI</td>
+                            <td>Space Grotesk — Weight 700, tight tracking</td>
+                        </tr>
+                        <tr>
+                            <td>BODY</td>
+                            <td>Inter — Weight 300–400, max-width 680px</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- LOGO TYPEFACE ANATOMY — DEEP DIVE -->
+            <div style="margin-top: 5rem; padding: 4rem; background: #050505; border: 1px solid #1a1a1a; border-radius: 40px;">
+                <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: var(--neon-yellow); letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 3rem;">LOGO TYPEFACE ANATOMY // FULL DISSECTION</span>
+
+                <!-- THE POP WORDMARK -->
+                <div style="margin-bottom: 5rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 4rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">THE "POP" WORDMARK</span>
+                            <h3 style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2rem; letter-spacing: -1px;">The Aggressor.</h3>
+
+                            <p style="font-size: 1rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">"POP" is the brand's primary weapon — a single syllable designed to hit with maximum visual force. The typeface is a <strong>custom ultra-wide, ultra-heavy display cut</strong> with no commercially available exact match. It was engineered specifically for this mark.</p>
+
+                            <p style="font-size: 1rem; line-height: 1.8; opacity: 0.7; margin-bottom: 2rem;">The letterforms sit in near-<strong>square proportions</strong> — the width of each letter closely matches its height. This is not a condensed face. It is not an extended face. It occupies a unique space: a giga-wide, giga-heavy monolith that reads as a single mass before it reads as three letters.</p>
+
+                            <table class="typo-table" style="margin-top: 0;">
+                                <tr>
+                                    <td>CLASSIFICATION</td>
+                                    <td>Grotesque Sans-Serif, Display Cut, Ultra-Heavy</td>
+                                </tr>
+                                <tr>
+                                    <td>PROPORTIONS</td>
+                                    <td>Near-square — width ≈ height for each glyph</td>
+                                </tr>
+                                <tr>
+                                    <td>STROKE WEIGHT</td>
+                                    <td>Monoline-adjacent — minimal thick-thin contrast</td>
+                                </tr>
+                                <tr>
+                                    <td>TERMINALS</td>
+                                    <td>Slightly softened — rounded corners, not sharp</td>
+                                </tr>
+                                <tr>
+                                    <td>LETTER-SPACING</td>
+                                    <td>Optical / minimal — letters sit tight together</td>
+                                </tr>
+                                <tr>
+                                    <td>CLOSEST ANALOG</td>
+                                    <td>Druk Wide Super (Commercial Type) · Compacta Bold · Dharma Gothic E ExtraBold</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="flex: 1; min-width: 280px;">
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">THE SLIT APERTURES — SIGNATURE FEATURE</span>
+
+                            <div style="background: #0a0a0a; border: 1px solid #222; border-radius: 20px; padding: 3rem; margin-bottom: 2rem;">
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">The defining feature of the POP CLTR logo is the <strong style="color: var(--neon-yellow);">horizontal slit-aperture</strong> — a narrow rectangular cut running through the counter space (the enclosed interior) of the <strong>'O'</strong> and the bowl of the <strong>'P'</strong>.</p>
+
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">Visually, it turns a closed letter into a letterform with a velocity vector — as if high-pressure liquid or energy is passing through the form. This is not decorative. It communicates the brand's core function: <strong>gut-velocity. Flow. Internal kinetics.</strong></p>
+
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin-bottom: 0;">The slits have a specific proportion: roughly <strong>1:6 height-to-width ratio</strong>, centered vertically within the counter, and spanning the full interior width. They sit at the optical midpoint of the letter — not the mathematical center — to feel visually balanced.</p>
+                            </div>
+
+                            <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 20px; padding: 2rem;">
+                                <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">WHY SLITS AND NOT STANDARD OPEN COUNTERS?</span>
+                                <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.6; margin: 0;">Standard grotesque 'O' forms have an <em>open</em> round counter — no interior obstruction. The slit closes the interior, converting a passive shape into an active one. The 'O' stops being a circle and becomes a <strong>viewport — a pressurized opening</strong>. This is the difference between a window and a nozzle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div style="border-top: 1px solid #1a1a1a; margin-bottom: 5rem;"></div>
+
+                <!-- THE CLTR WORDMARK -->
+                <div style="margin-bottom: 4rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 4rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">THE "CLTR" WORDMARK</span>
+                            <h3 style="font-family: 'Bricolage Grotesque'; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2rem; letter-spacing: -1px;">The Architect.</h3>
+
+                            <p style="font-size: 1rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">"CLTR" uses the <strong>exact same custom typeface</strong> as "POP" — identical letterforms, identical stroke weight, identical terminals. The only variable is letter-spacing. And that single variable changes everything.</p>
+
+                            <p style="font-size: 1rem; line-height: 1.8; opacity: 0.7; margin-bottom: 2rem;">Where "POP" packs its three letters with minimal tracking, "CLTR" applies extreme positive letter-spacing — estimated between <strong>+600 and +800 units</strong> in standard type measurement. The result: four letters that are visually airy, architectural, and industrial, forming a row of columns beneath the solid mass of "POP."</p>
+
+                            <table class="typo-table" style="margin-top: 0;">
+                                <tr>
+                                    <td>BASE TYPEFACE</td>
+                                    <td>Identical to "POP" — same custom ultra-wide display cut</td>
+                                </tr>
+                                <tr>
+                                    <td>LETTER-SPACING</td>
+                                    <td>+600 to +800 units — extreme positive tracking</td>
+                                </tr>
+                                <tr>
+                                    <td>VISUAL EFFECT</td>
+                                    <td>Same heavy strokes, but with air between — industrial columns</td>
+                                </tr>
+                                <tr>
+                                    <td>THE RULE</td>
+                                    <td>CLTR total width = POP total width (±1px). This is non-negotiable.</td>
+                                </tr>
+                                <tr>
+                                    <td>SLIT APERTURES</td>
+                                    <td>Present in the 'C' open counter — consistent visual language</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="flex: 1; min-width: 280px;">
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">THE EXACT WIDTH MATCH PROTOCOL</span>
+
+                            <div style="background: #0a0a0a; border: 1px solid #222; border-radius: 20px; padding: 3rem; margin-bottom: 2rem;">
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">The defining rule of the POP CLTR logo system: <strong style="color: var(--neon-yellow);">both wordmarks must span an identical horizontal width.</strong> The combined width of P-O-P at optical spacing must equal the combined width of C-L-T-R at extreme tracking. Pixel-perfect.</p>
+
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin-bottom: 1.5rem;">This creates a <strong>perfect industrial rectangle</strong> when the two rows are stacked. The logo is not two words sitting near each other — it is a single, unified geometric object. A block. A stamp. A mark.</p>
+
+                                <p style="font-size: 0.9rem; line-height: 1.8; opacity: 0.7; margin: 0;">The visual tension between POP's <em>density</em> (three letters, tight) and CLTR's <em>openness</em> (four letters, airy) within an identical bounding box creates a compressed / expanded duality — the same principle as a spring under tension.</p>
+                            </div>
+
+                            <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 20px; padding: 2rem;">
+                                <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 1rem;">THE PSYCHOLOGICAL READ</span>
+                                <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.6; margin: 0;">"POP" is read first — it is shorter, bolder, louder. It commands. "CLTR" is read second — it expands, explains, contextualizes. Together they establish the brand's duality: <strong>the product</strong> (POP, the soda) and <strong>the movement</strong> (CLTR, the culture). The typography enacts what the brand says.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIVIDER -->
+                <div style="border-top: 1px solid #1a1a1a; margin-bottom: 4rem;"></div>
+
+                <!-- LETTER-BY-LETTER BREAKDOWN -->
+                <div>
+                    <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 2rem;">LETTER-BY-LETTER ANATOMY</span>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem;">
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">P</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "P"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Single bowl, upper-half only. Slit-aperture cuts horizontally through the bowl's interior. Stem descends full height. The bowl does not reach the baseline.</p>
+                        </div>
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">O</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "O"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Near-rectangular form with rounded corners. The dominant feature: a full-width horizontal slit cutting through the center. Both strokes of equal weight — no optical correction.</p>
+                        </div>
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">C</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "C"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Wide, open counter with a generous aperture. The opening is large — nearly 60% of the total width. The terminals (top and bottom) are horizontal, not angled. The open form amplifies the airy tracking of "CLTR."</p>
+                        </div>
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">L</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "L"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Two strokes. The vertical stem at full height, the horizontal foot at the baseline. No serif. The foot is shorter than the cap-width — the overall silhouette is a short, wide L-shape. The shortest letter in the set.</p>
+                        </div>
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">T</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "T"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Wide crossbar sits at cap-height, spanning the full glyph width. Centered vertical stem. The crossbar has a pronounced weight — nearly as wide as the full glyph — making the T read as a capped column.</p>
+                        </div>
+                        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 5rem; font-weight: 900; color: var(--neon-yellow); line-height: 1; margin-bottom: 1rem; font-family: 'Bricolage Grotesque';">R</div>
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.65rem; color: #555; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">THE "R"</span>
+                            <p style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; margin: 0;">Full bowl at the top half (like the P). Below the bowl: a diagonal leg kicks out to the right. The leg is straight, not curved — consistent with the industrial, non-humanist character of the full mark.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPPORTING TYPEFACE SPECIMENS -->
+            <div style="margin-top: 3rem;">
+                <span style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #555; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 2rem;">SUPPORTING TYPEFACE SYSTEM</span>
+            </div>
+
+            <div class="typo-spec">
+                <div class="font-sample">
+                    <span class="font-meta">PRIMARY HEADLINE // BRICOLAGE GROTESQUE 800</span>
+                    <h2
+                        style="font-family: 'Bricolage Grotesque'; font-size: clamp(3rem, 8vw, 8rem); text-transform: uppercase; margin: 0.5rem 0;">
+                        SODAFEELS</h2>
+                    <p style="font-size: 0.85rem; opacity: 0.4; font-family: 'Space Grotesk'; margin-top: 0.5rem;">Variable grotesque with wide optical range. Used for campaign headlines, section titles, and any text that needs to fill space with authority. The go-to typeface for everything below the logo.</p>
+                </div>
+                <div class="font-sample" style="border-top: 1px solid #1a1a1a; padding-top: 2rem;">
+                    <span class="font-meta">SUBHEADINGS &amp; EMPHASIS // SYNE 800</span>
+                    <h2
+                        style="font-family: 'Syne'; font-size: clamp(2rem, 5vw, 5rem); font-weight: 800; text-transform: uppercase; margin: 0.5rem 0;">
+                        THE CLTR IS HERE</h2>
+                    <p style="font-size: 0.85rem; opacity: 0.4; font-family: 'Space Grotesk'; margin-top: 0.5rem;">Geometric sans at maximum weight. Used for callouts, sub-titles, and labels that live between the headline and body layers. Adds editorial tension when mixed with Bricolage Grotesque.</p>
+                </div>
+                <div class="font-sample" style="border-top: 1px solid #1a1a1a; padding-top: 2rem;">
+                    <span class="font-meta">DATA &amp; CAPTIONS // SPACE GROTESK 700</span>
+                    <h2
+                        style="font-family: 'Space Grotesk'; font-size: clamp(1.5rem, 3vw, 3rem); font-weight: 700; text-transform: uppercase; margin: 0.5rem 0;">
+                        PREBIOTIC // 001</h2>
+                    <p style="font-size: 0.85rem; opacity: 0.4; font-family: 'Space Grotesk'; margin-top: 0.5rem;">The clinical workhorse. Used for serial numbers, ingredient labels, UI elements, data displays, and any text that needs to feel technical and precise. The wide letter-spacing reinforces the brand's industrial DNA.</p>
+                </div>
+                <div class="font-sample" style="border-top: 1px solid #1a1a1a; padding-top: 2rem;">
+                    <span class="font-meta">BODY COPY // INTER 300</span>
+                    <p
+                        style="font-family: 'Inter'; font-size: 1.2rem; opacity: 0.7; font-weight: 300; margin: 0.5rem 0; line-height: 1.8;">
+                        The quiet carrier of the brand's scientific depth. Used for paragraphs, footnotes, and extended copy that requires legibility at sustained reading length. Set at weight 300 for a deliberate contrast against the heaviness of the display stack above it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03: COLOR -->
+        <section class="guide-section" id="color">
+            <span class="section-label">03 // COLOR</span>
+            <div class="grid-2col">
+                <div>
+                    <h2 class="chapter-title">THE COLOR<br>SPECTRUM.</h2>
+                    <p class="body-text">V10.0 runs on "toxic-clinical" high-contrast pairings. Neon Lime is the primary
+                        brand signal. Electric Blue is the secondary anchor.</p>
+                </div>
+                <div>
+                    <table class="typo-table">
+                        <tr>
+                            <td>PRIMARY</td>
+                            <td><strong style="color:#c8ff00;">#C8FF00</strong> — Neon Lime (logo, accents, CTA)</td>
+                        </tr>
+                        <tr>
+                            <td>SECONDARY</td>
+                            <td><strong style="color:#001aff;">#001AFF</strong> — Electric Blue (data, highlights)</td>
+                        </tr>
+                        <tr>
+                            <td>ACCENT 03</td>
+                            <td><strong style="color:#ff00ff;">#FF00FF</strong> — Electric Pink (campaign bursts)</td>
+                        </tr>
+                        <tr>
+                            <td>ACCENT 04</td>
+                            <td><strong style="color:#39ff14;">#39FF14</strong> — Neon Green (formulation cues)</td>
+                        </tr>
+                        <tr>
+                            <td>ACCENT 05</td>
+                            <td><strong style="color:#ff4d00;">#FF4D00</strong> — Coral Pop (Dalandan / heat)</td>
+                        </tr>
+                        <tr>
+                            <td>BASE</td>
+                            <td>#000000 — Pure Black (primary background)</td>
+                        </tr>
+                        <tr>
+                            <td>LIGHT</td>
+                            <td>#F0EEE9 — Off-White (clinical / print)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="color-grid">
+                <div class="swatch" style="background: #c8ff00; color: #000;">
+                    <span
+                        style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase;">Primary</span>
+                    NEON LIME<br>#C8FF00
+                </div>
+                <div class="swatch" style="background: #001aff; color: #fff;">
+                    <span
+                        style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase;">Secondary</span>
+                    ELECTRIC BLUE<br>#001AFF
+                </div>
+                <div class="swatch" style="background: #ff00ff; color: #fff;">
+                    <span
+                        style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase;">Accent
+                        03</span>
+                    ELECTRIC PINK<br>#FF00FF
+                </div>
+                <div class="swatch" style="background: #39ff14; color: #000;">
+                    <span
+                        style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase;">Accent
+                        04</span>
+                    NEON GREEN<br>#39FF14
+                </div>
+                <div class="swatch" style="background: #ff4d00; color: #fff;">
+                    <span
+                        style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase;">Accent
+                        05</span>
+                    CORAL POP<br>#FF4D00
+                </div>
+            </div>
+        </section>
+
+        <!-- 04: BRAND DIRECTION -->
+        <section class="guide-section" id="direction">
+            <span class="section-label">04 // BRAND DIRECTION</span>
+            <div class="grid-2col">
+                <div>
+                    <h2 class="chapter-title">THE SIGNATURE<br>PROTOCOL.</h2>
+                    <p class="body-text">POP CLTR exists at the intersection of three core pillars: <strong>Clinical
+                            Science</strong>, <strong>Urban Chaos</strong>, and <strong>Disco Energy</strong>. Every
+                        asset must carry DNA from at least two.</p>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-item" style="margin-bottom: 3rem;">
+                        <h4 style="font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; margin-bottom: 1rem;">
+                            CLINICAL INDUSTRIALISM</h4>
+                        <p style="opacity: 0.7;">Grid systems, serialized item numbers, sterile backgrounds, and
+                            clinical data readouts. The science is the spectacle.</p>
+                    </div>
+                    <div class="spec-item" style="margin-bottom: 3rem;">
+                        <h4 style="font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; margin-bottom: 1rem;">
+                            PLAYFUL CHAOS</h4>
+                        <p style="opacity: 0.7;">Hand-drawn doodles, sticker-bomb layers, intentional misalignment. The
+                            gut feeling has a visual language.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4 style="font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; margin-bottom: 1rem;">DISCO
+                            DYNAMICS</h4>
+                        <p style="opacity: 0.7;">Vibrant neons, high-contrast grain photography, and late-night city
+                            energy. We are a drink for the active culture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05: DOODLE PROTOCOL -->
+        <section class="guide-section" id="doodles">
+            <span class="section-label">05 // DOODLE PROTOCOL</span>
+            <div class="grid-2col">
+                <div>
+                    <h2 class="chapter-title">SIGNATURE<br>MARKINGS.</h2>
+                    <p class="body-text">The hand-drawn elements are the soul of the can. Each glyph represents the
+                        gut-brain connection and the raw kinetic energy of the flavors. Applied to cans, packaging, and
+                        activations.</p>
+                </div>
+                <div>
+                    <table class="typo-table">
+                        <tr>
+                            <td>STROKE WEIGHT</td>
+                            <td>2–4px hand-drawn irregular — never geometric/perfect</td>
+                        </tr>
+                        <tr>
+                            <td>COLOR</td>
+                            <td>White over color, Neon Lime over black, Black over white</td>
+                        </tr>
+                        <tr>
+                            <td>PLACEMENT</td>
+                            <td>Always off-axis. Overlapping the can edge is encouraged.</td>
+                        </tr>
+                        <tr>
+                            <td>SCALE</td>
+                            <td>Variable. Mix micro-details with macro signature marks.</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <img src="final/signature_markings_v1.png"
+                style="width: 100%; border-radius: 20px; margin-top: 2rem; display: block;"
+                alt="Signature Markings Reference Sheet">
+            <p
+                style="font-family: 'Space Grotesk'; font-size: 0.7rem; color: #333; letter-spacing: 3px; margin-top: 1rem; text-transform: uppercase;">
+                Y2K Sticker Library — Master Reference Sheet v1.0</p>
+
+            <div class="doodle-grid" style="margin-top: 3rem;">
+
+                <!-- 01: DISCO PORTAL -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="44" stroke="#fff" stroke-width="2.5" stroke-dasharray="7 3" />
+                        <circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="2" />
+                        <circle cx="50" cy="50" r="16" stroke="#fff" stroke-width="2" />
+                        <circle cx="50" cy="50" r="5" fill="#fff" />
+                        <line x1="50" y1="4" x2="50" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="50" y1="82" x2="50" y2="96" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="4" y1="50" x2="18" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="82" y1="50" x2="96" y2="50" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <circle cx="18" cy="18" r="3" fill="#fff" opacity="0.5" />
+                        <circle cx="82" cy="18" r="3" fill="#fff" opacity="0.5" />
+                        <circle cx="18" cy="82" r="3" fill="#fff" opacity="0.5" />
+                        <circle cx="82" cy="82" r="3" fill="#fff" opacity="0.5" />
+                    </svg>
+                    <span class="doodle-label">DISCO_PORTAL</span>
+                </div>
+
+                <!-- 02: POP STAR — text mark -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,5 56,36 88,36 63,55 73,86 50,68 27,86 37,55 12,36 44,36" stroke="#fff" stroke-width="2" stroke-linejoin="round" fill="none" />
+                        <text x="50" y="57" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#fff" letter-spacing="-1">POP!</text>
+                    </svg>
+                    <span class="doodle-label">POP_STAR</span>
+                </div>
+
+                <!-- 03: FLAVOR SPARKS -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="50,6 38,42 54,42 30,94 62,40 46,40 50,6" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+                        <line x1="8" y1="22" x2="24" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="76" y1="22" x2="92" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="6" y1="54" x2="22" y2="50" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="78" y1="54" x2="94" y2="50" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="20" y1="80" x2="32" y2="70" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+                        <line x1="68" y1="80" x2="80" y2="70" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="10" cy="40" r="3.5" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="90" cy="40" r="3.5" stroke="#fff" stroke-width="1.5" />
+                    </svg>
+                    <span class="doodle-label">FLAVOR_SPARKS</span>
+                </div>
+
+                <!-- 04: GUT WAVE -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 35 C14 18, 26 18, 36 35 C46 52, 58 52, 68 35 C78 18, 90 18, 100 35" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                        <path d="M0 50 C10 33, 22 33, 32 50 C42 67, 54 67, 64 50 C74 33, 86 33, 96 50" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5" />
+                        <path d="M4 65 C14 82, 26 82, 36 65 C46 48, 58 48, 68 65 C78 82, 90 82, 100 65" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.3" />
+                        <circle cx="22" cy="14" r="5" stroke="#fff" stroke-width="2" />
+                        <circle cx="22" cy="14" r="2" fill="#fff" opacity="0.6" />
+                        <circle cx="68" cy="14" r="4" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="68" cy="14" r="1.5" fill="#fff" opacity="0.6" />
+                        <circle cx="45" cy="84" r="4" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="45" cy="84" r="1.5" fill="#fff" opacity="0.6" />
+                    </svg>
+                    <span class="doodle-label">GUT_WAVE</span>
+                </div>
+
+                <!-- 05: DISCO BALL -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="54" r="38" stroke="#fff" stroke-width="2.5" />
+                        <ellipse cx="50" cy="54" rx="38" ry="14" stroke="#fff" stroke-width="1.5" opacity="0.6" />
+                        <ellipse cx="50" cy="54" rx="38" ry="26" stroke="#fff" stroke-width="1.5" opacity="0.5" />
+                        <line x1="50" y1="16" x2="50" y2="92" stroke="#fff" stroke-width="1.5" opacity="0.4" />
+                        <line x1="12" y1="54" x2="88" y2="54" stroke="#fff" stroke-width="1.5" opacity="0.4" />
+                        <line x1="50" y1="4" x2="50" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="42" y1="4" x2="58" y2="4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="22" y1="22" x2="28" y2="18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="78" y1="22" x2="84" y2="18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="14" y1="34" x2="10" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="86" y1="34" x2="92" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span class="doodle-label">DISCO_BALL</span>
+                </div>
+
+                <!-- 06: ZERO SUGAR BADGE — text mark -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,4 60,28 86,28 66,44 74,70 50,54 26,70 34,44 14,28 40,28" stroke="#fff" stroke-width="2" stroke-linejoin="round" fill="none" />
+                        <text x="50" y="42" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#fff">0g</text>
+                        <text x="50" y="58" text-anchor="middle" font-family="'Arial', sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="2">SUGAR</text>
+                    </svg>
+                    <span class="doodle-label">ZERO_SUGAR</span>
+                </div>
+
+                <!-- 07: ULTRA STAR -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,6 57,34 84,34 62,52 70,80 50,62 30,80 38,52 16,34 43,34" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" fill="none" />
+                        <circle cx="50" cy="50" r="10" stroke="#fff" stroke-width="2" />
+                        <line x1="50" y1="6" x2="50" y2="18" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+                        <line x1="84" y1="34" x2="92" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="70" y1="80" x2="76" y2="88" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="30" y1="80" x2="24" y2="88" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="16" y1="34" x2="8" y2="28" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="10" cy="10" r="3" fill="#fff" opacity="0.4" />
+                        <circle cx="90" cy="10" r="2" fill="#fff" opacity="0.4" />
+                        <circle cx="10" cy="90" r="2" fill="#fff" opacity="0.4" />
+                        <circle cx="90" cy="90" r="3" fill="#fff" opacity="0.4" />
+                    </svg>
+                    <span class="doodle-label">ULTRA_STAR</span>
+                </div>
+
+                <!-- 08: PREBIOTIC PILL -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="34" width="84" height="32" rx="16" stroke="#fff" stroke-width="2.5" />
+                        <line x1="50" y1="34" x2="50" y2="66" stroke="#fff" stroke-width="2" />
+                        <circle cx="26" cy="50" r="5" stroke="#fff" stroke-width="2" />
+                        <circle cx="38" cy="42" r="3" fill="#fff" opacity="0.6" />
+                        <circle cx="34" cy="57" r="2.5" fill="#fff" opacity="0.6" />
+                        <circle cx="66" cy="46" r="3" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="74" cy="54" r="3" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="60" cy="57" r="2" stroke="#fff" stroke-width="1.5" />
+                        <text x="50" y="25" text-anchor="middle" font-family="'Arial', sans-serif" font-size="8" font-weight="700" fill="#fff" letter-spacing="3">PREBIOTIC</text>
+                        <line x1="16" y1="25" x2="32" y2="25" stroke="#fff" stroke-width="1" opacity="0.4" />
+                        <line x1="68" y1="25" x2="84" y2="25" stroke="#fff" stroke-width="1" opacity="0.4" />
+                        <circle cx="10" cy="82" r="3" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="20" cy="86" r="2" fill="#fff" opacity="0.4" />
+                        <circle cx="50" cy="88" r="2.5" stroke="#fff" stroke-width="1.5" />
+                        <circle cx="80" cy="84" r="2" fill="#fff" opacity="0.4" />
+                        <circle cx="90" cy="80" r="3" stroke="#fff" stroke-width="1.5" />
+                    </svg>
+                    <span class="doodle-label">PREBIOTIC_PILL</span>
+                </div>
+
+                <!-- 09: LOOP DOODLE -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 55 C20 30, 40 16, 56 24 C74 33, 76 56, 60 66 C42 77, 16 68, 18 50 C18 28, 40 12, 62 20 C84 28, 90 54, 76 70 C60 88, 30 88, 20 72" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                        <line x1="20" y1="72" x2="12" y2="80" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="20" y1="72" x2="28" y2="80" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <circle cx="20" cy="72" r="3.5" fill="#fff" />
+                    </svg>
+                    <span class="doodle-label">LOOP_DOODLE</span>
+                </div>
+
+                <!-- 10: CAN MARK — text mark -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="12" width="40" height="78" rx="10" stroke="#fff" stroke-width="2.5" />
+                        <ellipse cx="50" cy="12" rx="20" ry="5" stroke="#fff" stroke-width="2" />
+                        <ellipse cx="50" cy="90" rx="20" ry="5" stroke="#fff" stroke-width="2" />
+                        <line x1="30" y1="26" x2="70" y2="26" stroke="#fff" stroke-width="1.5" opacity="0.4" />
+                        <line x1="30" y1="78" x2="70" y2="78" stroke="#fff" stroke-width="1.5" opacity="0.4" />
+                        <text x="50" y="50" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="13" font-weight="900" fill="#fff" letter-spacing="-0.5">POP</text>
+                        <text x="50" y="65" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="11" font-weight="900" fill="#fff" letter-spacing="-0.5">CLTR</text>
+                        <line x1="36" y1="9" x2="50" y2="6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="50" y1="6" x2="56" y2="3" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span class="doodle-label">CAN_MARK</span>
+                </div>
+
+                <!-- 11: NINE GRAM BADGE — text mark -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="50" cy="50" rx="44" ry="40" stroke="#fff" stroke-width="2.5" />
+                        <text x="50" y="47" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="28" font-weight="900" fill="#fff">9g</text>
+                        <text x="50" y="64" text-anchor="middle" font-family="'Arial', sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="3">FIBER</text>
+                        <path d="M6 50 C10 44, 14 44, 18 50 C22 56, 26 56, 30 50" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5" />
+                        <path d="M70 50 C74 44, 78 44, 82 50 C86 56, 90 56, 94 50" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5" />
+                        <line x1="14" y1="26" x2="22" y2="20" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+                        <line x1="78" y1="26" x2="86" y2="20" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+                        <line x1="14" y1="74" x2="22" y2="80" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+                        <line x1="78" y1="74" x2="86" y2="80" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+                    </svg>
+                    <span class="doodle-label">NINE_GRAM</span>
+                </div>
+
+                <!-- 12: SIGNAL BOLT -->
+                <div class="doodle-item">
+                    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 55 L24 28 L38 55 L52 10 L66 55 L80 36 L94 55" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <circle cx="52" cy="10" r="5" stroke="#fff" stroke-width="2" />
+                        <circle cx="94" cy="55" r="4" stroke="#fff" stroke-width="2" />
+                        <line x1="6" y1="72" x2="94" y2="72" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4" />
+                        <line x1="20" y1="82" x2="20" y2="90" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="40" y1="82" x2="40" y2="92" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="60" y1="82" x2="60" y2="88" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <line x1="80" y1="82" x2="80" y2="90" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <text x="50" y="99" text-anchor="middle" font-family="'Arial', sans-serif" font-size="7" font-weight="700" fill="#fff" letter-spacing="2" opacity="0.4">SIGNAL</text>
+                    </svg>
+                    <span class="doodle-label">SIGNAL_BOLT</span>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" style="background: #000; border-top: 1px solid #111;">
+        <div style="max-width: 1100px; margin: 0 auto 4rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem;">
+            <div>
+                <img src="final/logo_white.png" alt="POP CLTR" style="height: 52px; width: auto; display: block; margin-bottom: 1.5rem;">
+                <span class="footer-tagline">DEPLOYING THE FUTURE OF SODA.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; padding-top: 0.5rem;">
+                <a href="https://instagram.com/drinkpopcltr" target="_blank" style="display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">Instagram — @drinkpopcltr</a>
+                <a href="https://tiktok.com/@drinkpopcltr" target="_blank" style="display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">TikTok — @drinkpopcltr</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 POP CLTR IDENTITY ARCHIVE.</span>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
+    </script>
+</body>
+
+</html>

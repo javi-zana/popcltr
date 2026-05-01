@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can Mockups — POP CLTR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #001AFF;
+      --neon: #E2FF00;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --offwhite: #F5F3EE;
+      --border: rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--black); font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5%; border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
+    }
+    .nav-logo {
+      font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 1.4rem;
+      letter-spacing: -0.5px; color: var(--neon); text-decoration: none;
+    }
+    .nav-back {
+      font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 5% 3rem; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-label {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.68rem;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--neon); margin-bottom: 1.2rem; display: block;
+    }
+    .hero h1 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.9; letter-spacing: -3px; color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--neon); font-style: normal; }
+    .hero p {
+      font-family: 'Space Grotesk'; font-size: 1rem;
+      color: rgba(255,255,255,0.4); max-width: 480px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* GRID */
+    .grid-section { padding: 4rem 5% 6rem; max-width: 1400px; margin: 0 auto; }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* CARD */
+    .mockup-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+    }
+    .mockup-card:hover { transform: scale(1.025); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    .mockup-card.featured {
+      grid-column: span 2;
+      aspect-ratio: 2/1;
+    }
+    .mockup-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+    }
+    .mockup-card:hover img { transform: scale(1.05); }
+
+    /* OVERLAY */
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.8rem;
+    }
+    .card-tag {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.6rem;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--neon); margin-bottom: 0.4rem;
+    }
+    .card-title {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      color: var(--white); letter-spacing: -0.5px; line-height: 1;
+    }
+
+    /* OFFICIAL CAN HERO */
+    .can-hero {
+      padding: 6rem 5%; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(ellipse 60% 80% at 50% 60%, rgba(0,26,255,0.12), transparent);
+    }
+    .can-hero img {
+      max-height: 520px; width: auto; display: inline-block;
+      filter: drop-shadow(0 40px 80px rgba(0,26,255,0.4));
+      transition: transform 0.5s;
+    }
+    .can-hero img:hover { transform: translateY(-12px) scale(1.03); }
+    .can-hero-label {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.68rem;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--neon); margin-bottom: 1rem; display: block;
+    }
+    .can-hero h2 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--white); letter-spacing: -2px; margin-bottom: 3rem;
+    }
+    .can-hero h2 em { color: var(--neon); font-style: normal; }
+
+    /* DOWNLOAD STRIP */
+    .dl-strip {
+      padding: 3rem 5%; background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .dl-strip h3 {
+      font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 1.3rem;
+      color: var(--white); letter-spacing: -0.5px;
+    }
+    .dl-strip p { font-family: 'Space Grotesk'; font-size: 0.88rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
+    .dl-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .dl-btn {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.7rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 0.65rem 1.2rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6); background: transparent;
+    }
+    .dl-btn:hover { border-color: var(--neon); color: var(--neon); }
+    .dl-btn.primary { background: var(--neon); color: var(--black); border-color: var(--neon); }
+    .dl-btn.primary:hover { background: var(--white); border-color: var(--white); }
+
+    /* LIGHTBOX */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+      align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 16px; object-fit: contain; cursor: default; }
+    #lb-close {
+      position: fixed; top: 1.5rem; right: 2rem;
+      font-size: 2rem; color: rgba(255,255,255,0.5); cursor: pointer; z-index: 10000;
+      background: none; border: none; transition: color 0.2s;
+    }
+    #lb-close:hover { color: var(--white); }
+    #lb-caption {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .mockup-grid { grid-template-columns: 1fr 1fr; }
+      .mockup-card.featured { grid-column: span 2; aspect-ratio: 1; }
+    }
+    @media (max-width: 480px) {
+      .mockup-grid { grid-template-columns: 1fr; }
+      .mockup-card.featured { grid-column: span 1; aspect-ratio: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="lightbox" onclick="closeLB()">
+  <button id="lb-close" onclick="closeLB()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-caption"></div>
+</div>
+
+<nav>
+  <a href="consumer.html" class="nav-logo">POP CLTR</a>
+  <a href="consumer.html" class="nav-back">← Back to Site</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-label">Official Can · Blueberry Dalandan</span>
+  <h1>THE CAN,<br><em>EVERYWHERE.</em></h1>
+  <p>Six lifestyle placements of the official Blueberry Dalandan can. Click any image to view full size.</p>
+</div>
+
+<!-- OFFICIAL CAN HERO -->
+<div class="can-hero">
+  <span class="can-hero-label">The Official Design</span>
+  <h2>BLUEBERRY<br><em>DALANDAN.</em></h2>
+  <img src="final/Final Can Design.PNG" alt="POP CLTR Blueberry Dalandan Official Can">
+</div>
+
+<!-- MOCKUP GRID -->
+<div class="grid-section">
+  <div class="mockup-grid">
+
+    <div class="mockup-card featured" onclick="openLB('mockup_hotel.png','Hotel Room at Sunset')">
+      <img src="mockup_hotel.png" alt="Hotel Room Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Lifestyle</div>
+        <div class="card-title">Hotel Room at Sunset</div>
+      </div>
+    </div>
+
+    <div class="mockup-card" onclick="openLB('mockup_night_study.png','Night Study')">
+      <img src="mockup_night_study.png" alt="Night Study Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Late Night</div>
+        <div class="card-title">Night Study</div>
+      </div>
+    </div>
+
+    <div class="mockup-card" onclick="openLB('mockup_paris_cafe.png','Paris Café')">
+      <img src="mockup_paris_cafe.png" alt="Paris Café Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Out & About</div>
+        <div class="card-title">Paris Café</div>
+      </div>
+    </div>
+
+    <div class="mockup-card" onclick="openLB('mockup_yoga.png','Yoga Studio')">
+      <img src="mockup_yoga.png" alt="Yoga Studio Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Wellness</div>
+        <div class="card-title">Yoga Studio</div>
+      </div>
+    </div>
+
+    <div class="mockup-card featured" onclick="openLB('mockup_morning_ritual.png','Morning Ritual')">
+      <img src="mockup_morning_ritual.png" alt="Morning Ritual Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Daily Routine</div>
+        <div class="card-title">Morning Ritual</div>
+      </div>
+    </div>
+
+    <div class="mockup-card" onclick="openLB('mockup_kinfolk.png','Sunday Brunch')">
+      <img src="mockup_kinfolk.png" alt="Sunday Brunch Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Cafe Culture</div>
+        <div class="card-title">Sunday Brunch</div>
+      </div>
+    </div>
+
+    <div class="mockup-card" onclick="openLB('mockup_evening.png','Evening Wind-Down')">
+      <img src="mockup_evening.png" alt="Evening Wind-Down Mockup">
+      <div class="card-overlay">
+        <div class="card-tag">Ritual</div>
+        <div class="card-title">Evening Wind-Down</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DOWNLOAD STRIP -->
+<div class="dl-strip">
+  <div>
+    <h3>Save Any Mockup</h3>
+    <p>Right-click any image above and select "Save Image As" to download.</p>
+  </div>
+  <div class="dl-links">
+    <a href="final/Final Can Design.PNG" download class="dl-btn primary">Download Official Can</a>
+    <a href="consumer.html" class="dl-btn">Back to Site</a>
+  </div>
+</div>
+
+<script>
+  function openLB(src, caption) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lb-caption').textContent = 'POP CLTR — ' + caption;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLB(); });
+  document.getElementById('lb-img').addEventListener('click', e => e.stopPropagation());
+</script>
+</body>
+</html>
