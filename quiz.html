@@ -168,7 +168,7 @@
 
     .result-hero {
       background: var(--black); color: var(--white);
-      padding: calc(var(--nav-h) + 1.5rem) 2rem 2.5rem;
+      padding: calc(var(--nav-h) + 0.5rem) 2rem 2rem;
       text-align: center; position: relative; overflow: hidden;
     }
     .result-hero::before {
@@ -1121,53 +1121,42 @@
     function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
 
     function shareAsPhoto() {
-      const winnerIdx = scores.indexOf(Math.max(...scores));
-      const t = GUT_TYPES[winnerIdx];
       const btn = document.getElementById('btn-share-photo');
-
-      // Populate the hidden share card
-      document.getElementById('sc-emoji').textContent = t.emoji;
-      document.getElementById('sc-type').textContent = t.name;
-      document.getElementById('sc-tagline').textContent = '"' + t.tagline + '"';
-      document.getElementById('share-card').style.setProperty('--card-glow', t.glow);
-
-      const barColors = { danger: '#FF3B30', warning: '#FF9500', ok: '#34C759', neutral: '#5856D6' };
-      document.getElementById('sc-bars').innerHTML = t.bars.map(b => `
-        <div class="sc-bar-row">
-          <span class="sc-bar-label">${b.label}</span>
-          <div class="sc-bar-track"><div class="sc-bar-fill" style="width:${b.value}%;background:${barColors[b.color]};"></div></div>
-          <span class="sc-bar-pct">${b.value}%</span>
-        </div>
-      `).join('');
-
-      // Briefly move card into viewport for html2canvas, render, then hide again
-      const card = document.getElementById('share-card');
-      card.style.top = '0';
-      card.style.left = '0';
-      card.style.zIndex = '-1';
+      const target = document.getElementById('screen-result');
+      const ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
 
       btn.classList.add('loading');
       btn.textContent = 'Generating…';
 
-      html2canvas(card, {
-        width: 1080, height: 1080, scale: 1,
-        useCORS: true, allowTaint: true, backgroundColor: '#0A0A0A'
+      // Temporarily hide interactive elements that look odd in a screenshot
+      const hideEls = target.querySelectorAll('.result-ctas, .btn-share, .btn-share-photo, .btn-retake, .share-copied, .email-section');
+      hideEls.forEach(el => { el.dataset.wasHidden = el.style.display || ''; el.style.display = 'none'; });
+
+      const winnerIdx = scores.indexOf(Math.max(...scores));
+      const typeName = GUT_TYPES[winnerIdx].name;
+
+      html2canvas(target, {
+        useCORS: true,
+        allowTaint: true,
+        scrollX: 0,
+        scrollY: -window.scrollY,
+        windowWidth: document.documentElement.offsetWidth,
+        width: target.offsetWidth,
+        height: target.scrollHeight,
+        scale: 2
       }).then(canvas => {
-        card.style.top = '-9999px';
-        card.style.left = '-9999px';
-        card.style.zIndex = '';
+        hideEls.forEach(el => { el.style.display = el.dataset.wasHidden || ''; });
         btn.classList.remove('loading');
-        btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Save as Photo`;
+        btn.innerHTML = `${ICON} Save as Photo`;
 
         const link = document.createElement('a');
-        link.download = 'my-gut-type-popcltr.png';
+        link.download = `gut-type-${typeName.toLowerCase().replace(/\s+/g,'-')}-popcltr.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
       }).catch(() => {
-        card.style.top = '-9999px';
-        card.style.left = '-9999px';
+        hideEls.forEach(el => { el.style.display = el.dataset.wasHidden || ''; });
         btn.classList.remove('loading');
-        btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Save as Photo`;
+        btn.innerHTML = `${ICON} Save as Photo`;
       });
     }
   </script>
