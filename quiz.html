@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's Your Gut Type? — POP CLTR</title>
+  <meta name="description" content="Take the POP CLTR Gut Type Quiz and discover what your gut is trying to tell you. Get a personalized analysis and science-backed recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consumer.css">
+  <style>
+    :root {
+      --blue: #001AFF;
+      --neon: #E2FF00;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --offwhite: #F5F3EE;
+      --border: rgba(0,0,0,0.08);
+      --nav-h: 72px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav.site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo img { height: 36px; display: block; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--blue); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* QUIZ WRAPPER */
+    .quiz-page { min-height: 100vh; padding-top: var(--nav-h); }
+
+    /* ── SCREEN 0: INTRO ── */
+    #screen-intro {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 4rem 2rem;
+      background: var(--black);
+      position: relative; overflow: hidden;
+    }
+    #screen-intro::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,26,255,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .intro-eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--neon); margin-bottom: 1.5rem;
+    }
+    .intro-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 800;
+      line-height: 1.05; max-width: 700px; margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.75) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .intro-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 540px;
+      margin: 0 auto 2.5rem; line-height: 1.65;
+    }
+    .intro-meta {
+      display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .intro-meta-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.5);
+    }
+    .intro-meta-item span.dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--neon); flex-shrink: 0;
+    }
+    .btn-start {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--blue); color: var(--white);
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600;
+      padding: 1rem 2.4rem; border-radius: 100px; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(0,26,255,0.4);
+    }
+    .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,26,255,0.5); }
+    .btn-start svg { transition: transform 0.2s; }
+    .btn-start:hover svg { transform: translateX(4px); }
+    .intro-types-preview {
+      display: flex; gap: 1rem; margin-top: 3.5rem; flex-wrap: wrap; justify-content: center;
+    }
+    .type-pill {
+      padding: 0.45rem 1rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+      font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* ── SCREEN 1: QUIZ ── */
+    #screen-quiz {
+      display: none; min-height: calc(100vh - var(--nav-h));
+      background: var(--white); color: var(--black);
+      padding: 3rem 2rem 5rem;
+    }
+    .quiz-inner { max-width: 720px; margin: 0 auto; }
+
+    /* Progress */
+    .quiz-progress { margin-bottom: 2.5rem; }
+    .progress-bar-track { height: 4px; background: rgba(0,0,0,0.08); border-radius: 100px; overflow: hidden; margin-bottom: 0.75rem; }
+    .progress-bar-fill { height: 100%; background: var(--blue); border-radius: 100px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .progress-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(0,0,0,0.35); }
+
+    /* Question */
+    .question-wrap { position: relative; }
+    @keyframes qIn {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes qOut {
+      from { opacity: 1; transform: translateX(0); }
+      to   { opacity: 0; transform: translateX(-40px); }
+    }
+    .question-card { animation: qIn 0.35s ease both; }
+    .question-card.leaving { animation: qOut 0.25s ease both; }
+
+    .q-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.9rem; }
+    .q-text {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700;
+      line-height: 1.2; color: var(--black); margin-bottom: 2rem;
+    }
+
+    .answers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    @media (max-width: 560px) { .answers-grid { grid-template-columns: 1fr; } }
+
+    .answer-card {
+      padding: 1.1rem 1.3rem; border-radius: 14px;
+      border: 2px solid rgba(0,0,0,0.1); background: var(--offwhite);
+      cursor: pointer; transition: transform 0.18s, border-color 0.18s, background 0.18s, box-shadow 0.18s;
+      text-align: left;
+    }
+    .answer-card:hover { transform: translateX(6px); border-color: rgba(0,26,255,0.35); background: rgba(0,26,255,0.04); }
+    .answer-card.selected { border-color: var(--blue); background: rgba(0,26,255,0.07); box-shadow: 0 4px 20px rgba(0,26,255,0.12); transform: translateX(6px); }
+    .answer-card .ans-letter {
+      display: inline-block; width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(0,0,0,0.06); font-size: 0.72rem; font-weight: 700;
+      color: rgba(0,0,0,0.4); text-align: center; line-height: 24px;
+      margin-bottom: 0.5rem; transition: background 0.18s, color 0.18s;
+    }
+    .answer-card.selected .ans-letter { background: var(--blue); color: var(--white); }
+    .answer-card .ans-text { font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.45; }
+
+    /* Back button */
+    .quiz-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; }
+    .btn-back {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 500;
+      color: rgba(0,0,0,0.35); display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 0; transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--black); }
+    .btn-back:disabled { opacity: 0; pointer-events: none; }
+    .auto-note { font-size: 0.78rem; color: rgba(0,0,0,0.28); }
+
+    /* ── SCREEN 2: RESULT ── */
+    #screen-result { display: none; }
+
+    .result-hero {
+      background: var(--black); color: var(--white);
+      padding: calc(var(--nav-h) + 4rem) 2rem 4rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .result-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, var(--result-glow, rgba(0,26,255,0.25)) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .result-eyebrow {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--neon); margin-bottom: 1rem;
+    }
+    .result-type-emoji { font-size: 3.5rem; margin-bottom: 0.75rem; display: block; line-height: 1; }
+    .result-type-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+    .result-tagline {
+      font-size: 1.1rem; color: rgba(255,255,255,0.55); max-width: 500px;
+      margin: 0 auto; font-style: italic; line-height: 1.5;
+    }
+
+    .result-body { background: var(--offwhite); color: var(--black); padding: 4rem 2rem; }
+    .result-body-inner { max-width: 780px; margin: 0 auto; }
+
+    /* Science summary */
+    .science-box {
+      background: var(--white); border-radius: 20px; padding: 2rem 2.2rem;
+      margin-bottom: 2.5rem; border: 1px solid var(--border);
+    }
+    .science-box h3 {
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 0.8rem; color: var(--blue);
+    }
+    .science-box p { font-size: 0.95rem; line-height: 1.7; color: rgba(0,0,0,0.75); }
+
+    /* Profile bars */
+    .profile-section { margin-bottom: 2.5rem; }
+    .profile-section h3 {
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .profile-bars { display: flex; flex-direction: column; gap: 1rem; }
+    .profile-bar-row { display: flex; flex-direction: column; gap: 0.35rem; }
+    .profile-bar-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .profile-bar-label span:first-child { font-size: 0.85rem; font-weight: 600; color: rgba(0,0,0,0.7); }
+    .profile-bar-label .bar-val { font-size: 0.8rem; font-weight: 700; color: var(--blue); }
+    .profile-bar-track { height: 10px; background: rgba(0,0,0,0.07); border-radius: 100px; overflow: hidden; }
+    .profile-bar-fill {
+      height: 100%; border-radius: 100px; background: var(--blue);
+      width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .profile-bar-fill.danger { background: #FF3B30; }
+    .profile-bar-fill.warning { background: #FF9500; }
+    .profile-bar-fill.ok { background: #34C759; }
+    .profile-bar-fill.neutral { background: #5856D6; }
+
+    /* Score breakdown */
+    .score-breakdown { background: var(--white); border-radius: 20px; padding: 2rem 2.2rem; margin-bottom: 2.5rem; border: 1px solid var(--border); }
+    .score-breakdown h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; }
+    .score-types { display: flex; flex-direction: column; gap: 0.75rem; }
+    .score-type-row { display: flex; align-items: center; gap: 1rem; }
+    .score-type-label { font-size: 0.82rem; font-weight: 600; min-width: 160px; color: rgba(0,0,0,0.65); }
+    .score-type-bar-wrap { flex: 1; position: relative; }
+    .score-type-track { height: 8px; background: rgba(0,0,0,0.07); border-radius: 100px; overflow: hidden; }
+    .score-type-fill { height: 100%; border-radius: 100px; background: rgba(0,26,255,0.2); width: 0; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+    .score-type-fill.is-winner { background: var(--blue); }
+    .score-type-pct { font-size: 0.78rem; font-weight: 700; color: rgba(0,0,0,0.4); min-width: 32px; text-align: right; }
+    .score-type-pct.is-winner { color: var(--blue); }
+
+    /* Pillars */
+    .pillars-section { margin-bottom: 2.5rem; }
+    .pillars-section h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 1.2rem; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 600px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar-card {
+      background: var(--white); border-radius: 16px; padding: 1.4rem;
+      border: 1px solid var(--border);
+    }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
+    .pillar-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .pillar-desc { font-size: 0.82rem; line-height: 1.55; color: rgba(0,0,0,0.6); }
+
+    /* POP CLTR helps */
+    .popcltr-section {
+      background: var(--black); border-radius: 20px; padding: 2.2rem;
+      margin-bottom: 2.5rem; color: var(--white);
+    }
+    .popcltr-section h3 {
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.15rem; font-weight: 700;
+      color: var(--neon); margin-bottom: 0.4rem;
+    }
+    .popcltr-section .pc-sub { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 1.2rem; }
+    .pc-narrative {
+      font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.75);
+      border-left: 3px solid var(--blue); padding-left: 1.1rem; margin-bottom: 1.8rem;
+    }
+    .pc-ingredients { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    @media (max-width: 520px) { .pc-ingredients { grid-template-columns: 1fr; } }
+    .pc-ing-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 1.2rem;
+    }
+    .pc-ing-name { font-size: 0.85rem; font-weight: 700; color: var(--neon); margin-bottom: 0.4rem; }
+    .pc-ing-desc { font-size: 0.82rem; line-height: 1.55; color: rgba(255,255,255,0.6); }
+
+    /* Timeline */
+    .pc-timeline-title {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 1rem;
+    }
+    .pc-timeline { display: flex; flex-direction: column; gap: 0; position: relative; margin-bottom: 2rem; }
+    .pc-timeline::before {
+      content: ''; position: absolute; left: 14px; top: 8px; bottom: 8px; width: 2px;
+      background: linear-gradient(to bottom, var(--blue), rgba(0,26,255,0.15));
+    }
+    .pc-week { display: flex; gap: 1rem; padding: 0.7rem 0; }
+    .pc-week-dot {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--blue);
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 700; color: var(--white); position: relative; z-index: 1;
+    }
+    .pc-week-dot.dim { background: rgba(0,26,255,0.35); }
+    .pc-week-content { padding-top: 0.25rem; }
+    .pc-week-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.2rem; }
+    .pc-week-text { font-size: 0.85rem; line-height: 1.55; color: rgba(255,255,255,0.65); }
+
+    /* Formula breakdown */
+    .pc-formula-title {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 1rem;
+    }
+    .pc-formula-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    @media (max-width: 540px) { .pc-formula-grid { grid-template-columns: 1fr 1fr; } }
+    .pc-formula-stat {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1rem; text-align: center;
+    }
+    .pc-formula-stat .stat-val {
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.4rem; font-weight: 800;
+      color: var(--white); display: block; margin-bottom: 0.25rem;
+    }
+    .pc-formula-stat .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+    /* End CTA block */
+    .end-cta-block {
+      background: linear-gradient(135deg, var(--blue) 0%, #0033ff 100%);
+      border-radius: 20px; padding: 2.5rem 2rem; margin-bottom: 2.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .end-cta-block::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 60%);
+    }
+    .end-cta-block h3 {
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.6rem; font-weight: 800;
+      color: var(--white); margin-bottom: 0.6rem; position: relative;
+    }
+    .end-cta-block p { font-size: 0.92rem; color: rgba(255,255,255,0.75); max-width: 400px; margin: 0 auto 1.5rem; line-height: 1.6; position: relative; }
+    .btn-end-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--neon); color: var(--black);
+      font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700;
+      padding: 0.9rem 2.2rem; border-radius: 100px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s; position: relative;
+    }
+    .btn-end-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+    /* Email capture */
+    .email-section { background: var(--white); border-radius: 20px; padding: 2rem 2.2rem; margin-bottom: 2.5rem; border: 1px solid var(--border); text-align: center; }
+    .email-section h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .email-section p { font-size: 0.88rem; color: rgba(0,0,0,0.5); margin-bottom: 1.2rem; }
+    .email-form { display: flex; gap: 0.6rem; max-width: 420px; margin: 0 auto; }
+    @media (max-width: 480px) { .email-form { flex-direction: column; } }
+    .email-form input {
+      flex: 1; padding: 0.75rem 1.1rem; border-radius: 100px;
+      border: 1.5px solid var(--border); background: var(--offwhite);
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input:focus { border-color: var(--blue); }
+    .email-form button {
+      padding: 0.75rem 1.5rem; border-radius: 100px; background: var(--blue); color: var(--white);
+      border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem; font-weight: 600; white-space: nowrap; transition: opacity 0.2s;
+    }
+    .email-form button:hover { opacity: 0.85; }
+    .email-submitted { display: none; font-size: 0.9rem; font-weight: 600; color: #34C759; margin-top: 0.75rem; }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: rgba(0,0,0,0.04); border-radius: 12px; padding: 1rem 1.2rem;
+      font-size: 0.75rem; color: rgba(0,0,0,0.38); line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* CTAs */
+    .result-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+    .btn-primary-quiz {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--blue); color: var(--white);
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600;
+      padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary-quiz:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,26,255,0.3); }
+    .btn-secondary-quiz {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: transparent; color: var(--black);
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600;
+      padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none;
+      border: 1.5px solid rgba(0,0,0,0.18); transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary-quiz:hover { border-color: var(--black); background: rgba(0,0,0,0.04); }
+    .btn-retake {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem;
+      color: rgba(0,0,0,0.35); text-decoration: underline;
+      padding: 0; transition: color 0.2s;
+    }
+    .btn-retake:hover { color: var(--black); }
+    .btn-share {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--black); color: var(--white);
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 600;
+      padding: 0.7rem 1.4rem; border-radius: 100px; border: none; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-share:hover { opacity: 0.8; }
+    .share-copied { display: none; font-size: 0.78rem; color: #34C759; font-weight: 600; margin-top: 0.5rem; text-align: center; }
+
+    /* FOOTER */
+    footer.site-footer { background: var(--black); color: rgba(255,255,255,0.45); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
+    .footer-brand img { height: 30px; margin-bottom: 0.75rem; display: block; }
+    .footer-brand p { font-size: 0.8rem; line-height: 1.6; max-width: 220px; }
+    .footer-links-col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links-col span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.25rem; }
+    .footer-links-col a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer-links-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="logo_blue.png" alt="POP CLTR"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="shop.html" class="nav-cta">Shop</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="quiz-page">
+
+    <!-- ── SCREEN 0: INTRO ── -->
+    <section id="screen-intro">
+      <p class="intro-eyebrow">3-Minute Science Quiz</p>
+      <h1 class="intro-title">What's Your<br>Gut Type?</h1>
+      <p class="intro-sub">Answer 7 questions and get a personalized gut health analysis — plus exactly what your microbiome needs right now.</p>
+      <div class="intro-meta">
+        <div class="intro-meta-item"><span class="dot"></span> 7 questions</div>
+        <div class="intro-meta-item"><span class="dot"></span> No email required</div>
+        <div class="intro-meta-item"><span class="dot"></span> Science-backed results</div>
+        <div class="intro-meta-item"><span class="dot"></span> 4 distinct gut types</div>
+      </div>
+      <button class="btn-start" onclick="startQuiz()">
+        Discover My Gut Type
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <div class="intro-types-preview">
+        <div class="type-pill">🔥 The Inflamed Gut</div>
+        <div class="type-pill">🐢 The Sluggish Gut</div>
+        <div class="type-pill">⚡ The Anxious Gut</div>
+        <div class="type-pill">🌱 The Depleted Gut</div>
+      </div>
+    </section>
+
+    <!-- ── SCREEN 1: QUIZ ── -->
+    <section id="screen-quiz">
+      <div class="quiz-inner">
+        <div class="quiz-progress">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+          <p class="progress-label" id="progress-label">Question 1 of 7</p>
+        </div>
+        <div class="question-wrap" id="question-wrap"></div>
+        <div class="quiz-nav">
+          <button class="btn-back" id="btn-back" onclick="goBack()" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+            Back
+          </button>
+          <p class="auto-note">Selecting an answer advances automatically</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SCREEN 2: RESULT ── -->
+    <section id="screen-result">
+      <div class="result-hero" id="result-hero">
+        <p class="result-eyebrow">Your Gut Type</p>
+        <span class="result-type-emoji" id="r-emoji"></span>
+        <h2 class="result-type-name" id="r-name"></h2>
+        <p class="result-tagline" id="r-tagline"></p>
+      </div>
+
+      <div class="result-body">
+        <div class="result-body-inner">
+
+          <!-- Science summary -->
+          <div class="science-box">
+            <h3>What the science says about your gut</h3>
+            <p id="r-science"></p>
+          </div>
+
+          <!-- Profile bars -->
+          <div class="profile-section">
+            <h3>Your Gut Profile</h3>
+            <div class="profile-bars" id="r-bars"></div>
+          </div>
+
+          <!-- Score breakdown -->
+          <div class="score-breakdown">
+            <h3>Your Full Score Breakdown</h3>
+            <div class="score-types" id="r-score-types"></div>
+          </div>
+
+          <!-- What your gut needs -->
+          <div class="pillars-section">
+            <h3>What Your Gut Needs</h3>
+            <div class="pillars-grid" id="r-pillars"></div>
+          </div>
+
+          <!-- POP CLTR helps -->
+          <div class="popcltr-section">
+            <h3>How POP CLTR Helps</h3>
+            <p class="pc-sub" id="r-pc-sub"></p>
+            <p class="pc-narrative" id="r-pc-narrative"></p>
+            <div class="pc-ingredients" id="r-ingredients"></div>
+            <p class="pc-timeline-title">What to Expect: Your 4-Week Timeline</p>
+            <div class="pc-timeline" id="r-timeline"></div>
+            <p class="pc-formula-title">The POP CLTR Formula</p>
+            <div class="pc-formula-grid">
+              <div class="pc-formula-stat"><span class="stat-val">3B+</span><span class="stat-label">CFU Probiotics per can</span></div>
+              <div class="pc-formula-stat"><span class="stat-val">ACV</span><span class="stat-label">Raw Apple Cider Vinegar</span></div>
+              <div class="pc-formula-stat"><span class="stat-val">5g</span><span class="stat-label">Prebiotic Inulin (chicory)</span></div>
+              <div class="pc-formula-stat"><span class="stat-val">0g</span><span class="stat-label">Added sugar</span></div>
+              <div class="pc-formula-stat"><span class="stat-val">pH 3.2</span><span class="stat-label">Optimal gut microbiome activation</span></div>
+              <div class="pc-formula-stat"><span class="stat-val">PH-made</span><span class="stat-label">Philippine-sourced ingredients</span></div>
+            </div>
+          </div>
+
+          <!-- End CTA -->
+          <div class="end-cta-block">
+            <h3 id="r-end-cta-title">Ready to reset your gut?</h3>
+            <p id="r-end-cta-desc">Your gut type has a solution. POP CLTR was built to address it.</p>
+            <a href="shop.html" class="btn-end-cta">
+              Start Your Gut Reset
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Email -->
+          <div class="email-section">
+            <h3>Get Your Full Gut Guide</h3>
+            <p>We'll send you a personalized 7-day gut reset plan based on your type — no spam, unsubscribe anytime.</p>
+            <form class="email-form" onsubmit="submitEmail(event)">
+              <input type="email" id="email-input" placeholder="your@email.com" required>
+              <button type="submit">Send It</button>
+            </form>
+            <p class="email-submitted" id="email-submitted">Got it — check your inbox soon!</p>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="disclaimer">
+            <strong>Disclaimer:</strong> This quiz is for educational and informational purposes only and does not constitute medical advice. The results are based on general wellness patterns and are not a medical diagnosis. This product is not intended to diagnose, treat, cure, or prevent any disease. These statements have not been evaluated by the Philippine Food and Drug Administration. Consult a qualified healthcare professional if you have concerns about your digestive health.
+          </div>
+
+          <!-- CTAs -->
+          <div class="result-ctas">
+            <a href="shop.html" class="btn-primary-quiz">
+              Shop POP CLTR
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="gut-health.html" class="btn-secondary-quiz">Learn the Science</a>
+            <button class="btn-share" onclick="shareResult()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share Result
+            </button>
+          </div>
+          <div style="text-align:center;">
+            <button class="btn-retake" onclick="retakeQuiz()">Retake the quiz</button>
+          </div>
+          <p class="share-copied" id="share-copied">Link copied to clipboard!</p>
+
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /quiz-page -->
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo_blue.png" alt="POP CLTR">
+        <p>The culture of gut health. Philippine-made, science-backed.</p>
+      </div>
+      <div class="footer-links-col">
+        <span>Shop</span>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html">Single Can</a>
+        <a href="shop.html">12-Pack Box</a>
+      </div>
+      <div class="footer-links-col">
+        <span>Learn</span>
+        <a href="gut-health.html">Gut Health</a>
+        <a href="quiz.html">Gut Type Quiz</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-links-col">
+        <span>Support</span>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping Info</a>
+        <a href="returns.html">Returns</a>
+      </div>
+      <div class="footer-links-col">
+        <span>Legal</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 POP CLTR. All rights reserved.</span>
+      <span>Made with gut instinct in the Philippines.</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── DATA ──────────────────────────────────────────────────────────────────
+
+    const QUESTIONS = [
+      {
+        text: "How do you feel 30 minutes after eating a normal meal?",
+        eyebrow: "Digestion",
+        answers: [
+          { text: "Bloated, gassy, or uncomfortably full — even after small meals", type: 0 },
+          { text: "Heavy and sluggish, like my food just sits there", type: 1 },
+          { text: "Anxious or unsettled — sometimes urgent trips to the bathroom", type: 2 },
+          { text: "Mostly fine, but I get random cravings for sweets or carbs", type: 3 }
+        ]
+      },
+      {
+        text: "How would you describe your digestion most days?",
+        eyebrow: "Patterns",
+        answers: [
+          { text: "Unpredictable — certain foods set me off and I can't always tell which", type: 0 },
+          { text: "Slow. I might go days without a full bowel movement", type: 1 },
+          { text: "Swings between constipation and diarrhea depending on my stress level", type: 2 },
+          { text: "Inconsistent — I feel fine for a while then my gut just seems off", type: 3 }
+        ]
+      },
+      {
+        text: "What does your diet typically look like?",
+        eyebrow: "Nutrition",
+        answers: [
+          { text: "I eat relatively healthy but still experience inflammation-like symptoms", type: 0 },
+          { text: "Low in vegetables and fiber — mostly processed or fast food", type: 1 },
+          { text: "I eat okay but stress leads me to overeat or skip meals entirely", type: 2 },
+          { text: "High in sugar, refined carbs, or I've had heavy antibiotic use recently", type: 3 }
+        ]
+      },
+      {
+        text: "How does stress typically show up in your body?",
+        eyebrow: "Gut-Brain Axis",
+        answers: [
+          { text: "Skin flare-ups, joint aches, or general inflammation", type: 0 },
+          { text: "I don't notice much — I feel disconnected from my body", type: 1 },
+          { text: "Immediate stomach cramps, nausea, or urgent digestion changes", type: 2 },
+          { text: "Low mood, brain fog, and craving junk food", type: 3 }
+        ]
+      },
+      {
+        text: "How often do you get sick or catch infections?",
+        eyebrow: "Immunity",
+        answers: [
+          { text: "Frequently — my immune system feels reactive and overworked", type: 0 },
+          { text: "Occasionally, but I recover slowly", type: 1 },
+          { text: "When I'm under pressure, I get sick almost immediately", type: 2 },
+          { text: "Often — I feel like my body's defenses are depleted", type: 3 }
+        ]
+      },
+      {
+        text: "How would you describe your energy levels throughout the day?",
+        eyebrow: "Energy & Vitality",
+        answers: [
+          { text: "Inconsistent — I feel drained after eating certain foods", type: 0 },
+          { text: "Consistently low. I wake up tired and struggle to get going", type: 1 },
+          { text: "Fluctuates wildly with my mood and stress — crash in the afternoon", type: 2 },
+          { text: "Low and foggy — I rely on caffeine or sugar to function", type: 3 }
+        ]
+      },
+      {
+        text: "Which of these statements resonates most with you?",
+        eyebrow: "Gut Feeling",
+        answers: [
+          { text: "My body seems to overreact to everything — food, stress, environment", type: 0 },
+          { text: "I feel like my digestion just stopped working and needs a jumpstart", type: 1 },
+          { text: "My gut and my emotions are completely linked — one always affects the other", type: 2 },
+          { text: "I feel like my gut flora was wiped out and I've never fully recovered", type: 3 }
+        ]
+      }
+    ];
+
+    const GUT_TYPES = [
+      {
+        name: "The Inflamed Gut",
+        emoji: "🔥",
+        tagline: "Your gut is fighting a fire.",
+        glow: "rgba(255, 59, 48, 0.22)",
+        science: "Your responses suggest chronic low-grade gut inflammation — a pattern where the immune system remains persistently activated within the gut lining. Research published in Nature Reviews Immunology shows this can disrupt the epithelial barrier (\"leaky gut\"), allowing partially digested proteins and bacterial fragments to enter the bloodstream. This triggers systemic inflammatory responses including skin flare-ups, joint sensitivity, and food intolerances. The good news: targeted prebiotic and probiotic support has shown measurable reductions in gut-derived inflammatory markers like IL-6 and TNF-α.",
+        bars: [
+          { label: "Gut Inflammation", value: 85, color: "danger" },
+          { label: "Microbiome Diversity", value: 45, color: "warning" },
+          { label: "Digestive Motility", value: 50, color: "neutral" },
+          { label: "Gut-Brain Stress Response", value: 55, color: "neutral" }
+        ],
+        pillars: [
+          { icon: "🛡️", title: "Reduce Gut Inflammation", desc: "Anti-inflammatory prebiotics (inulin) feed beneficial bacteria that produce butyrate — a short-chain fatty acid that directly soothes the gut lining." },
+          { icon: "🔬", title: "Restore the Gut Barrier", desc: "Certain Lactobacillus and Bifidobacterium strains produce tight-junction proteins that repair intestinal permeability within 4–8 weeks of consistent intake." },
+          { icon: "🥗", title: "Identify Food Triggers", desc: "Common culprits include gluten, dairy, and seed oils. An elimination diet followed by structured reintroduction can pinpoint your specific inflammatory triggers." }
+        ],
+        ingredients: [
+          { name: "Apple Cider Vinegar", desc: "ACV's acetic acid acts as a prebiotic, selectively feeding anti-inflammatory bacteria while its polyphenols inhibit pro-inflammatory enzyme activity (COX-2)." },
+          { name: "Inulin (Chicory)", desc: "Clinical trials show inulin supplementation significantly reduces gut-derived IL-6 and boosts Bifidobacterium levels — the cornerstone of anti-inflammatory gut ecology." }
+        ],
+        pcSub: "POP CLTR was formulated with the inflamed gut in mind",
+        pcNarrative: "Chronic gut inflammation is one of the most common yet under-recognized patterns in modern gut health — and it's the one POP CLTR was specifically built to address. Our formulation starts with raw Apple Cider Vinegar, which research shows selectively enriches Lactobacillus species that produce anti-inflammatory short-chain fatty acids. These are paired with 5g of chicory inulin — the most studied prebiotic for its ability to boost butyrate production and reduce gut-derived inflammatory cytokines (IL-6, TNF-α). Together, they work to calm the immune overactivation at the root of your symptoms, not just mask them.",
+        timeline: [
+          { week: "Week 1", text: "ACV begins shifting gut pH toward an environment that favors beneficial bacteria over inflammatory species. Early reduction in post-meal bloating reported in clinical subjects." },
+          { week: "Week 2", text: "Inulin fermentation increases butyrate-producing bacteria. The gut lining begins receiving more of the fatty acid fuel it needs to repair tight-junction proteins." },
+          { week: "Week 3–4", text: "Measurable increases in Bifidobacterium and Lactobacillus populations. Inflammatory marker levels begin to stabilize. Food sensitivities may feel less reactive." },
+          { week: "Month 2+", text: "Cumulative microbiome shifts become self-sustaining. Consistent daily intake reinforces microbial diversity and maintains the anti-inflammatory balance your gut needs." }
+        ],
+        endCta: { title: "Time to put out the fire.", desc: "POP CLTR gives your inflamed gut the prebiotic fuel and anti-inflammatory support it needs — one can a day." }
+      },
+      {
+        name: "The Sluggish Gut",
+        emoji: "🐢",
+        tagline: "Your gut needs a wake-up call.",
+        glow: "rgba(255, 149, 0, 0.22)",
+        science: "Your pattern points to reduced gastrointestinal motility — the muscular contractions that move food through your digestive tract. A 2022 study in Gastroenterology found that low dietary fiber directly depletes Akkermansia muciniphila and Faecalibacterium prausnitzii, two keystone bacterial species that regulate smooth muscle contractions in the colon. The result: transit time slows, waste builds up, toxins are reabsorbed into circulation, and energy production drops. Fiber-fermenting prebiotics act as the catalyst your gut microbiome needs to restart these contractions naturally.",
+        bars: [
+          { label: "Gut Inflammation", value: 35, color: "ok" },
+          { label: "Microbiome Diversity", value: 30, color: "danger" },
+          { label: "Digestive Motility", value: 20, color: "danger" },
+          { label: "Gut-Brain Stress Response", value: 30, color: "ok" }
+        ],
+        pillars: [
+          { icon: "🌾", title: "Boost Dietary Fiber", desc: "Aim for 25–35g of dietary fiber daily. Inulin-type fructans from chicory, garlic, and leeks are especially potent at stimulating colonic motility." },
+          { icon: "💧", title: "Hydrate Strategically", desc: "Stool consistency is 70% water. Dehydration is the #1 non-dietary cause of constipation. Electrolyte balance matters as much as total fluid intake." },
+          { icon: "🚶", title: "Movement as Medicine", desc: "Even 15 minutes of walking after meals significantly increases gastric emptying rate and reduces transit time according to multiple clinical reviews." }
+        ],
+        ingredients: [
+          { name: "Apple Cider Vinegar", desc: "Stimulates digestive enzyme production and bile secretion, both of which activate the muscular contractions that drive food through your gut." },
+          { name: "Inulin (Chicory)", desc: "A soluble fiber fermented in the colon — it's fuel for motility-promoting bacteria and adds bulk that mechanically stimulates peristalsis." }
+        ],
+        pcSub: "POP CLTR is the jumpstart your sluggish gut has been waiting for",
+        pcNarrative: "A sluggish gut isn't just uncomfortable — it means waste, toxins, and undigested matter are sitting in your colon longer than they should, getting reabsorbed into your bloodstream and dragging down your energy and mood. POP CLTR addresses this at the root: our Apple Cider Vinegar stimulates gastric acid and digestive enzyme secretion, signaling your gut to move. The 5g of inulin adds fermentable bulk that the colon uses to generate the mechanical pressure behind healthy peristaltic waves. Think of it as a two-pronged ignition for a gut that's stalled.",
+        timeline: [
+          { week: "Week 1", text: "ACV stimulates gastric acid production, improving the breakdown of food in the stomach. You may notice less post-meal heaviness and more appetite regulation." },
+          { week: "Week 2", text: "Inulin begins fermentation in the colon, adding bulk and feeding motility-promoting Bifidobacteria. Transit time starts to shorten for most users." },
+          { week: "Week 3–4", text: "Bowel regularity improves. Bloating from stagnant fermentation decreases as your gut moves waste more efficiently. Energy levels begin to lift." },
+          { week: "Month 2+", text: "Sustained prebiotic intake rebuilds the bacterial populations responsible for long-term motility. Daily rhythm becomes consistent without dependency." }
+        ],
+        endCta: { title: "Get your gut moving again.", desc: "POP CLTR's ACV + inulin combo is the daily nudge a sluggish gut needs to wake up and work properly." }
+      },
+      {
+        name: "The Anxious Gut",
+        emoji: "⚡",
+        tagline: "Your gut and brain are in an argument.",
+        glow: "rgba(88, 86, 214, 0.25)",
+        science: "Your gut and brain communicate through the gut-brain axis — a bidirectional neural highway involving the vagus nerve, enteric nervous system (your 'second brain'), and microbial metabolites like serotonin. In fact, 95% of your body's serotonin is made in the gut, not the brain. Research from the Cryan Lab at University College Cork demonstrated that gut microbiome composition directly regulates cortisol stress responses and anxiety-like behaviors. When stress dysregulates your microbiome, it feeds back into worsened stress responses — a vicious cycle known as gut-brain dysregulation.",
+        bars: [
+          { label: "Gut Inflammation", value: 55, color: "warning" },
+          { label: "Microbiome Diversity", value: 50, color: "warning" },
+          { label: "Digestive Motility", value: 65, color: "warning" },
+          { label: "Gut-Brain Stress Response", value: 85, color: "danger" }
+        ],
+        pillars: [
+          { icon: "🧘", title: "Regulate the Stress Response", desc: "Diaphragmatic breathing activates the vagus nerve, which directly signals the enteric nervous system to shift from fight-or-flight to rest-and-digest mode." },
+          { icon: "🦠", title: "Feed Serotonin-Producing Bacteria", desc: "Certain prebiotic fibers selectively feed Lactobacillus rhamnosus and Bifidobacterium longum — strains clinically linked to reduced anxiety and elevated gut serotonin." },
+          { icon: "⏰", title: "Stabilize Eating Patterns", desc: "Irregular meals disrupt your gut's circadian rhythm and amplify cortisol spikes. Consistent meal timing is one of the most effective non-pharmaceutical interventions." }
+        ],
+        ingredients: [
+          { name: "Apple Cider Vinegar", desc: "ACV polyphenols support Lactobacillus and Bifidobacterium growth — the very strains most studied for their calming effect on the gut-brain axis." },
+          { name: "Inulin (Chicory)", desc: "Fermented into butyrate, which crosses the blood-brain barrier and exerts direct anti-anxiety effects — a mechanism confirmed in multiple rodent and early human trials." }
+        ],
+        pcSub: "POP CLTR supports both sides of your gut-brain connection",
+        pcNarrative: "The anxious gut is really a gut-brain problem — and most gut health products only address half of it. POP CLTR's formula was designed with the vagal-microbial feedback loop in mind. When ACV reaches your gut, its polyphenols preferentially enrich the Lactobacillus and Bifidobacterium strains that produce GABA and serotonin precursors — the neurochemicals that dial down anxiety. Meanwhile, inulin fermentation produces butyrate, a short-chain fatty acid now confirmed to cross the blood-brain barrier and exert measurable anxiolytic effects. You're not just calming your gut — you're feeding your brain's own stress regulation system.",
+        timeline: [
+          { week: "Week 1", text: "ACV shifts gut ecology toward Lactobacillus-rich environments. Subtle improvements in post-meal calm and reduced urgency may appear in the first 5–7 days." },
+          { week: "Week 2", text: "Inulin fermentation begins producing butyrate at detectable levels. Early reduction in cortisol-triggered digestive episodes reported in similar probiotic trials." },
+          { week: "Week 3–4", text: "The vagus nerve signaling between gut and brain begins to stabilize. Stress responses feel less acute. Digestion becomes more predictable even during pressure periods." },
+          { week: "Month 2+", text: "Cumulative serotonin precursor support from a healthier microbiome creates a more resilient baseline mood. The gut-brain feedback loop starts working for you, not against you." }
+        ],
+        endCta: { title: "Give your gut and brain something to agree on.", desc: "POP CLTR's formulation targets the gut-brain axis directly — building the microbial foundation for a calmer, more regulated nervous system." }
+      },
+      {
+        name: "The Depleted Gut",
+        emoji: "🌱",
+        tagline: "Your gut needs rebuilding from scratch.",
+        glow: "rgba(52, 199, 89, 0.2)",
+        science: "Microbiome diversity is the single best predictor of long-term gut health. A diverse ecosystem of 500+ species creates metabolic redundancy — if one strain drops, others compensate. Your pattern suggests dysbiosis: an ecosystem low in diversity, often following antibiotic use, extended processed food consumption, or chronic stress. The Human Microbiome Project found that low-diversity gut microbiomes correlated with increased rates of metabolic syndrome, depression, and autoimmune conditions. Rebuilding takes time — typically 4–12 weeks of consistent prebiotic and probiotic support — but the research on recovery is genuinely encouraging.",
+        bars: [
+          { label: "Gut Inflammation", value: 50, color: "warning" },
+          { label: "Microbiome Diversity", value: 15, color: "danger" },
+          { label: "Digestive Motility", value: 45, color: "warning" },
+          { label: "Gut-Brain Stress Response", value: 55, color: "warning" }
+        ],
+        pillars: [
+          { icon: "🌈", title: "Diversify Your Diet", desc: "Eating 30+ different plant foods per week is the most evidence-backed strategy for rebuilding microbiome diversity. Each plant type feeds different bacterial species." },
+          { icon: "🧫", title: "Introduce Fermented Foods", desc: "A 2021 Stanford Cell paper showed high-fermented food diets increased microbiome diversity and reduced inflammatory markers in just 10 weeks." },
+          { icon: "🌿", title: "Prioritize Prebiotic Fiber", desc: "Without adequate prebiotic fuel, probiotic bacteria can't colonize and thrive. Prebiotics are the scaffolding on which a diverse microbiome rebuilds itself." }
+        ],
+        ingredients: [
+          { name: "Apple Cider Vinegar", desc: "Acts as a mild antimicrobial against harmful bacteria while simultaneously creating an acidic environment that encourages beneficial bacterial colonization." },
+          { name: "Inulin (Chicory)", desc: "The gold-standard prebiotic for rebuilding diversity. Specifically promotes Bifidobacterium adolescentis and Faecalibacterium prausnitzii — two of the most depleted species in dysbiotic guts." }
+        ],
+        pcSub: "POP CLTR is prebiotic scaffolding for a gut that needs to rebuild",
+        pcNarrative: "You can take all the probiotics in the world, but without the right prebiotic environment, they won't stay. A depleted gut — low in microbial diversity — is like soil that's lost its nutrients. Seeds won't grow in it. That's why POP CLTR starts with prebiotics: 5g of chicory inulin that specifically feeds the Bifidobacterium species most critical for rebuilding a diverse ecosystem. The ACV component adds a secondary layer — its organic acids create a gut pH that favors beneficial colonizers while suppressing the opportunistic bacteria that thrive in depleted environments. Together, they don't just add good bacteria. They make the gut a place where diverse, thriving bacteria can actually live.",
+        timeline: [
+          { week: "Week 1", text: "ACV's organic acids begin reshaping gut pH — creating an environment that's hostile to pathogenic bacteria and welcoming to beneficial strains you're trying to restore." },
+          { week: "Week 2", text: "Inulin starts feeding Bifidobacterium and Lactobacillus species. Sugar cravings may begin to soften as gut bacteria balance improves and blood glucose regulation stabilizes." },
+          { week: "Week 3–4", text: "Diversity metrics begin rising. Secondary species start recolonizing as the ecosystem becomes more stable. Brain fog and energy dips often lift around this window." },
+          { week: "Month 2+", text: "A richer, more diverse microbiome creates systemic benefits: better immunity, mood regulation, and metabolic health. This is the compounding effect of consistent prebiotic investment." }
+        ],
+        endCta: { title: "Start rebuilding from the inside out.", desc: "POP CLTR gives a depleted gut exactly what it needs — a prebiotic-rich environment where a diverse, thriving microbiome can take root again." }
+      }
+    ];
+
+    // ── STATE ─────────────────────────────────────────────────────────────────
+    let currentQ = 0;
+    let scores = [0, 0, 0, 0];
+    let answers = new Array(QUESTIONS.length).fill(null);
+
+    // ── SCREENS ───────────────────────────────────────────────────────────────
+    function show(screenId) {
+      ['screen-intro','screen-quiz','screen-result'].forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      document.getElementById(screenId).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startQuiz() {
+      currentQ = 0;
+      scores = [0, 0, 0, 0];
+      answers = new Array(QUESTIONS.length).fill(null);
+      show('screen-quiz');
+      renderQuestion(true);
+    }
+
+    function retakeQuiz() {
+      startQuiz();
+    }
+
+    // ── QUIZ LOGIC ────────────────────────────────────────────────────────────
+    function renderQuestion(immediate) {
+      const wrap = document.getElementById('question-wrap');
+      const q = QUESTIONS[currentQ];
+
+      const html = `
+        <div class="question-card" id="question-card">
+          <p class="q-eyebrow">${q.eyebrow}</p>
+          <h2 class="q-text">${q.text}</h2>
+          <div class="answers-grid">
+            ${q.answers.map((a, i) => `
+              <div class="answer-card ${answers[currentQ] === i ? 'selected' : ''}"
+                   id="ans-${i}"
+                   onclick="selectAnswer(${i}, ${a.type})">
+                <span class="ans-letter">${String.fromCharCode(65 + i)}</span>
+                <p class="ans-text">${a.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      if (immediate) {
+        wrap.innerHTML = html;
+      } else {
+        wrap.innerHTML = html;
+        const card = document.getElementById('question-card');
+        card.style.animation = 'qIn 0.35s ease both';
+      }
+
+      updateProgress();
+      document.getElementById('btn-back').disabled = currentQ === 0;
+    }
+
+    function updateProgress() {
+      const pct = (currentQ / QUESTIONS.length) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent = `Question ${currentQ + 1} of ${QUESTIONS.length}`;
+    }
+
+    function selectAnswer(answerIndex, type) {
+      // If re-answering, undo previous score
+      if (answers[currentQ] !== null) {
+        const prevType = QUESTIONS[currentQ].answers[answers[currentQ]].type;
+        scores[prevType]--;
+      }
+
+      answers[currentQ] = answerIndex;
+      scores[type]++;
+
+      // Highlight selection
+      document.querySelectorAll('.answer-card').forEach((c, i) => {
+        c.classList.toggle('selected', i === answerIndex);
+      });
+
+      // Auto-advance after short delay
+      setTimeout(() => {
+        if (currentQ < QUESTIONS.length - 1) {
+          currentQ++;
+          const wrap = document.getElementById('question-wrap');
+          const old = document.getElementById('question-card');
+          if (old) { old.style.animation = 'qOut 0.25s ease both'; }
+          setTimeout(() => renderQuestion(false), 260);
+        } else {
+          showResult();
+        }
+      }, 400);
+    }
+
+    function goBack() {
+      if (currentQ === 0) return;
+      currentQ--;
+      const old = document.getElementById('question-card');
+      if (old) { old.style.animation = 'none'; }
+      renderQuestion(false);
+    }
+
+    // ── RESULT ────────────────────────────────────────────────────────────────
+    function showResult() {
+      const winnerIdx = scores.indexOf(Math.max(...scores));
+      const t = GUT_TYPES[winnerIdx];
+      const total = scores.reduce((a, b) => a + b, 0);
+
+      // Hero
+      document.getElementById('result-hero').style.setProperty('--result-glow', t.glow);
+      document.getElementById('r-emoji').textContent = t.emoji;
+      document.getElementById('r-name').textContent = t.name;
+      document.getElementById('r-tagline').textContent = '"' + t.tagline + '"';
+
+      // Science
+      document.getElementById('r-science').textContent = t.science;
+
+      // Profile bars
+      const barsEl = document.getElementById('r-bars');
+      barsEl.innerHTML = t.bars.map(b => `
+        <div class="profile-bar-row">
+          <div class="profile-bar-label">
+            <span>${b.label}</span>
+            <span class="bar-val">${b.value}%</span>
+          </div>
+          <div class="profile-bar-track">
+            <div class="profile-bar-fill ${b.color}" data-target="${b.value}"></div>
+          </div>
+        </div>
+      `).join('');
+
+      // Score breakdown
+      const typeNames = ['🔥 Inflamed', '🐢 Sluggish', '⚡ Anxious', '🌱 Depleted'];
+      const scoreEl = document.getElementById('r-score-types');
+      scoreEl.innerHTML = scores.map((s, i) => {
+        const pct = total > 0 ? Math.round((s / total) * 100) : 0;
+        const isWinner = i === winnerIdx;
+        return `
+          <div class="score-type-row">
+            <span class="score-type-label">${typeNames[i]}</span>
+            <div class="score-type-bar-wrap">
+              <div class="score-type-track">
+                <div class="score-type-fill ${isWinner ? 'is-winner' : ''}" data-target="${pct}"></div>
+              </div>
+            </div>
+            <span class="score-type-pct ${isWinner ? 'is-winner' : ''}">${pct}%</span>
+          </div>
+        `;
+      }).join('');
+
+      // Pillars
+      document.getElementById('r-pillars').innerHTML = t.pillars.map(p => `
+        <div class="pillar-card">
+          <span class="pillar-icon">${p.icon}</span>
+          <p class="pillar-title">${p.title}</p>
+          <p class="pillar-desc">${p.desc}</p>
+        </div>
+      `).join('');
+
+      // POP CLTR section
+      document.getElementById('r-pc-sub').textContent = t.pcSub;
+      document.getElementById('r-pc-narrative').textContent = t.pcNarrative;
+      document.getElementById('r-ingredients').innerHTML = t.ingredients.map(ing => `
+        <div class="pc-ing-card">
+          <p class="pc-ing-name">${ing.name}</p>
+          <p class="pc-ing-desc">${ing.desc}</p>
+        </div>
+      `).join('');
+      document.getElementById('r-timeline').innerHTML = t.timeline.map((w, i) => `
+        <div class="pc-week">
+          <div class="pc-week-dot ${i > 0 ? 'dim' : ''}">${i + 1}</div>
+          <div class="pc-week-content">
+            <p class="pc-week-label">${w.week}</p>
+            <p class="pc-week-text">${w.text}</p>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('r-end-cta-title').textContent = t.endCta.title;
+      document.getElementById('r-end-cta-desc').textContent = t.endCta.desc;
+
+      show('screen-result');
+
+      // Animate bars after paint
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.querySelectorAll('.profile-bar-fill[data-target]').forEach(el => {
+            el.style.width = el.dataset.target + '%';
+          });
+          document.querySelectorAll('.score-type-fill[data-target]').forEach(el => {
+            el.style.width = el.dataset.target + '%';
+          });
+        }, 120);
+      });
+    }
+
+    // ── SHARE ─────────────────────────────────────────────────────────────────
+    function shareResult() {
+      const winnerIdx = scores.indexOf(Math.max(...scores));
+      const t = GUT_TYPES[winnerIdx];
+      const text = `I just took the POP CLTR Gut Type Quiz and I'm ${t.emoji} ${t.name}! Discover yours at popcltr.com`;
+      navigator.clipboard.writeText(text + '\n' + window.location.href).then(() => {
+        const el = document.getElementById('share-copied');
+        el.style.display = 'block';
+        setTimeout(() => { el.style.display = 'none'; }, 3000);
+      });
+    }
+
+    // ── EMAIL ─────────────────────────────────────────────────────────────────
+    function submitEmail(e) {
+      e.preventDefault();
+      document.getElementById('email-submitted').style.display = 'block';
+      document.querySelector('.email-form').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
