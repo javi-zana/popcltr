@@ -340,25 +340,7 @@
     .btn-end-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
 
     /* Email capture */
-    .email-section { background: var(--white); border-radius: 20px; padding: 2rem 2.2rem; margin-bottom: 2.5rem; border: 1px solid var(--border); text-align: center; }
-    .email-section h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .email-section p { font-size: 0.88rem; color: rgba(0,0,0,0.5); margin-bottom: 1.2rem; }
-    .email-form { display: flex; gap: 0.6rem; max-width: 420px; margin: 0 auto; }
-    @media (max-width: 480px) { .email-form { flex-direction: column; } }
-    .email-form input {
-      flex: 1; padding: 0.75rem 1.1rem; border-radius: 100px;
-      border: 1.5px solid var(--border); background: var(--offwhite);
-      font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; outline: none;
-      transition: border-color 0.2s;
-    }
-    .email-form input:focus { border-color: var(--blue); }
-    .email-form button {
-      padding: 0.75rem 1.5rem; border-radius: 100px; background: var(--blue); color: var(--white);
-      border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem; font-weight: 600; white-space: nowrap; transition: opacity 0.2s;
-    }
-    .email-form button:hover { opacity: 0.85; }
-    .email-submitted { display: none; font-size: 0.9rem; font-weight: 600; color: #34C759; margin-top: 0.75rem; }
+    /* email section removed */
 
     /* Disclaimer */
     .disclaimer {
@@ -402,46 +384,69 @@
     .btn-share:hover { opacity: 0.8; }
     .share-copied { display: none; font-size: 0.78rem; color: #34C759; font-weight: 600; margin-top: 0.5rem; text-align: center; }
 
-    /* Share photo card */
+    /* ── 9:16 SHARE CARD ── */
     #share-card {
       position: fixed; top: -9999px; left: -9999px;
-      width: 1080px; height: 1080px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: var(--black); color: var(--white);
-      font-family: 'Space Grotesk', sans-serif; padding: 80px; text-align: center;
-      overflow: hidden;
+      width: 540px; height: 960px;
+      display: flex; flex-direction: column;
+      background: #0A0A0A; color: #FFFFFF;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow: hidden; box-sizing: border-box;
     }
     #share-card::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 45%, var(--card-glow, rgba(0,26,255,0.3)) 0%, transparent 65%);
+      background: radial-gradient(ellipse 110% 55% at 50% 10%, var(--card-glow, rgba(0,26,255,0.4)) 0%, transparent 60%);
+      pointer-events: none;
     }
-    #share-card .sc-brand {
-      font-size: 14px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); margin-bottom: 40px; position: relative;
+    .sc-top {
+      flex: 0 0 auto; padding: 44px 44px 28px;
+      display: flex; flex-direction: column; align-items: flex-start; position: relative; z-index: 1;
     }
-    #share-card .sc-emoji { font-size: 88px; line-height: 1; margin-bottom: 24px; position: relative; }
-    #share-card .sc-type {
-      font-family: 'Bricolage Grotesque', sans-serif; font-size: 72px; font-weight: 800;
-      line-height: 1.0; color: var(--white); margin-bottom: 20px; position: relative;
+    .sc-quiz-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(255,255,255,0.28); margin-bottom: 40px;
     }
-    #share-card .sc-tagline {
-      font-size: 22px; color: rgba(255,255,255,0.5); font-style: italic;
-      max-width: 600px; line-height: 1.5; margin-bottom: 56px; position: relative;
+    .sc-emoji { font-size: 52px; line-height: 1; margin-bottom: 14px; }
+    .sc-type {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 54px; font-weight: 800; line-height: 0.92; letter-spacing: -1.5px;
+      color: #FFFFFF; margin-bottom: 16px;
     }
-    #share-card .sc-bars { width: 560px; display: flex; flex-direction: column; gap: 16px; position: relative; }
-    #share-card .sc-bar-row { display: flex; align-items: center; gap: 14px; }
-    #share-card .sc-bar-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); width: 220px; text-align: right; white-space: nowrap; }
-    #share-card .sc-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 100px; overflow: hidden; }
-    #share-card .sc-bar-fill { height: 100%; border-radius: 100px; background: var(--blue); }
-    #share-card .sc-bar-pct { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4); width: 38px; text-align: left; }
-    #share-card .sc-footer {
-      position: absolute; bottom: 48px; left: 0; right: 0; text-align: center;
-      font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+    .sc-tagline {
+      font-size: 15px; color: rgba(255,255,255,0.42); font-style: italic; line-height: 1.5;
     }
-    #share-card .sc-neon-bar {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: var(--neon);
+    .sc-sep {
+      height: 1px; background: rgba(255,255,255,0.07);
+      margin: 0 44px; flex-shrink: 0; position: relative; z-index: 1;
     }
+    .sc-bottom {
+      flex: 1; padding: 26px 44px 44px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; z-index: 1;
+    }
+    .sc-section-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.18); margin-bottom: 18px;
+    }
+    .sc-bars { display: flex; flex-direction: column; gap: 13px; }
+    .sc-bar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .sc-bar-name { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); }
+    .sc-bar-val { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); }
+    .sc-bar-track { height: 3px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden; }
+    .sc-bar-fill { height: 100%; border-radius: 100px; }
+    .sc-footer-row {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .sc-brand-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: rgba(255,255,255,0.55);
+    }
+    .sc-cta-text { text-align: right; }
+    .sc-cta-line1 { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.2); display: block; margin-bottom: 2px; }
+    .sc-cta-line2 { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.35); display: block; }
+    .sc-neon-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #E2FF00; }
+
     .btn-share-photo {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(0,0,0,0.06); border: 1.5px solid rgba(0,0,0,0.15); color: var(--black);
@@ -606,17 +611,6 @@
             </a>
           </div>
 
-          <!-- Email -->
-          <div class="email-section">
-            <h3>Get Your Full Gut Guide</h3>
-            <p>We'll send you a personalized 7-day gut reset plan based on your type — no spam, unsubscribe anytime.</p>
-            <form class="email-form" onsubmit="submitEmail(event)">
-              <input type="email" id="email-input" placeholder="your@email.com" required>
-              <button type="submit">Send It</button>
-            </form>
-            <p class="email-submitted" id="email-submitted">Got it — check your inbox soon!</p>
-          </div>
-
           <!-- Disclaimer -->
           <div class="disclaimer">
             <strong>Disclaimer:</strong> This quiz is for educational and informational purposes only and does not constitute medical advice. The results are based on general wellness patterns and are not a medical diagnosis. This product is not intended to diagnose, treat, cure, or prevent any disease. These statements have not been evaluated by the Philippine Food and Drug Administration. Consult a qualified healthcare professional if you have concerns about your digestive health.
@@ -651,14 +645,28 @@
 
   </div><!-- /quiz-page -->
 
-  <!-- HIDDEN SHARE CARD (rendered to image) -->
+  <!-- HIDDEN 9:16 SHARE CARD -->
   <div id="share-card">
-    <p class="sc-brand">POP CLTR · Gut Type Quiz</p>
-    <div class="sc-emoji" id="sc-emoji"></div>
-    <div class="sc-type" id="sc-type"></div>
-    <p class="sc-tagline" id="sc-tagline"></p>
-    <div class="sc-bars" id="sc-bars"></div>
-    <p class="sc-footer">popcltr.com · What's your gut type?</p>
+    <div class="sc-top">
+      <p class="sc-quiz-label">POP CLTR · Gut Type Quiz</p>
+      <div class="sc-emoji" id="sc-emoji"></div>
+      <div class="sc-type" id="sc-type"></div>
+      <p class="sc-tagline" id="sc-tagline"></p>
+    </div>
+    <div class="sc-sep"></div>
+    <div class="sc-bottom">
+      <div>
+        <p class="sc-section-label">Your Gut Profile</p>
+        <div class="sc-bars" id="sc-bars"></div>
+      </div>
+      <div class="sc-footer-row">
+        <span class="sc-brand-name">POP CLTR</span>
+        <div class="sc-cta-text">
+          <span class="sc-cta-line1">What's your gut type?</span>
+          <span class="sc-cta-line2">popcltr.com/quiz</span>
+        </div>
+      </div>
+    </div>
     <div class="sc-neon-bar"></div>
   </div>
 
@@ -1111,50 +1119,62 @@
     }
 
     // ── EMAIL ─────────────────────────────────────────────────────────────────
-    function submitEmail(e) {
-      e.preventDefault();
-      document.getElementById('email-submitted').style.display = 'block';
-      document.querySelector('.email-form').style.display = 'none';
-    }
-
     function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
     function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
 
     function shareAsPhoto() {
       const btn = document.getElementById('btn-share-photo');
-      const target = document.getElementById('screen-result');
+      const card = document.getElementById('share-card');
       const ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
+
+      const winnerIdx = scores.indexOf(Math.max(...scores));
+      const t = GUT_TYPES[winnerIdx];
+      const barColors = { danger: '#FF3B30', warning: '#FF9500', ok: '#34C759', neutral: '#5856D6' };
+
+      // Populate card content
+      card.style.setProperty('--card-glow', t.glow);
+      document.getElementById('sc-emoji').textContent = t.emoji;
+      document.getElementById('sc-type').textContent = t.name;
+      document.getElementById('sc-tagline').textContent = '"' + t.tagline + '"';
+      document.getElementById('sc-bars').innerHTML = t.bars.map(b => `
+        <div class="sc-bar-row">
+          <div class="sc-bar-top">
+            <span class="sc-bar-name">${b.label}</span>
+            <span class="sc-bar-val">${b.value}%</span>
+          </div>
+          <div class="sc-bar-track">
+            <div class="sc-bar-fill" style="width:${b.value}%;background:${barColors[b.color]};"></div>
+          </div>
+        </div>
+      `).join('');
+
+      // Bring card into rendering area
+      card.style.top = '0';
+      card.style.left = '0';
+      card.style.zIndex = '-1';
 
       btn.classList.add('loading');
       btn.textContent = 'Generating…';
 
-      // Temporarily hide interactive elements that look odd in a screenshot
-      const hideEls = target.querySelectorAll('.result-ctas, .btn-share, .btn-share-photo, .btn-retake, .share-copied, .email-section');
-      hideEls.forEach(el => { el.dataset.wasHidden = el.style.display || ''; el.style.display = 'none'; });
-
-      const winnerIdx = scores.indexOf(Math.max(...scores));
-      const typeName = GUT_TYPES[winnerIdx].name;
-
-      html2canvas(target, {
-        useCORS: true,
-        allowTaint: true,
-        scrollX: 0,
-        scrollY: -window.scrollY,
-        windowWidth: document.documentElement.offsetWidth,
-        width: target.offsetWidth,
-        height: target.scrollHeight,
-        scale: 2
+      html2canvas(card, {
+        width: 540, height: 960, scale: 2,
+        useCORS: true, allowTaint: true,
+        backgroundColor: '#0A0A0A'
       }).then(canvas => {
-        hideEls.forEach(el => { el.style.display = el.dataset.wasHidden || ''; });
+        card.style.top = '-9999px';
+        card.style.left = '-9999px';
+        card.style.zIndex = '';
         btn.classList.remove('loading');
         btn.innerHTML = `${ICON} Save as Photo`;
 
+        const slug = t.name.toLowerCase().replace(/\s+/g, '-');
         const link = document.createElement('a');
-        link.download = `gut-type-${typeName.toLowerCase().replace(/\s+/g,'-')}-popcltr.png`;
+        link.download = `gut-type-${slug}-popcltr.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
       }).catch(() => {
-        hideEls.forEach(el => { el.style.display = el.dataset.wasHidden || ''; });
+        card.style.top = '-9999px';
+        card.style.left = '-9999px';
         btn.classList.remove('loading');
         btn.innerHTML = `${ICON} Save as Photo`;
       });
