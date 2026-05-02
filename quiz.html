@@ -35,13 +35,13 @@
     #mob-close { color: rgba(255,255,255,0.5); }
 
     /* QUIZ WRAPPER */
-    .quiz-page { min-height: 100vh; padding-top: var(--nav-h); }
+    .quiz-page { min-height: 100vh; }
 
     /* ── SCREEN 0: INTRO ── */
     #screen-intro {
-      min-height: calc(100vh - var(--nav-h));
+      min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-      text-align: center; padding: 2.5rem 2rem 3rem;
+      text-align: center; padding: calc(var(--nav-h) + 2rem) 2rem 3rem;
       background: var(--black);
       position: relative; overflow: hidden;
     }
@@ -99,9 +99,9 @@
 
     /* ── SCREEN 1: QUIZ ── */
     #screen-quiz {
-      display: none; min-height: calc(100vh - var(--nav-h));
+      display: none; min-height: 100vh;
       background: var(--white); color: var(--black);
-      padding: 3rem 2rem 5rem;
+      padding: calc(var(--nav-h) + 2rem) 2rem 5rem;
     }
     .quiz-inner { max-width: 720px; margin: 0 auto; }
 
@@ -168,7 +168,7 @@
 
     .result-hero {
       background: var(--black); color: var(--white);
-      padding: calc(var(--nav-h) + 0.5rem) 2rem 2rem;
+      padding: calc(var(--nav-h) + 1rem) 2rem 2rem;
       text-align: center; position: relative; overflow: hidden;
     }
     .result-hero::before {
