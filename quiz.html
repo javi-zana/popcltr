@@ -24,15 +24,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Space Grotesk', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
-    /* NAV */
-    nav.site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; }
-    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo img { height: 36px; display: block; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--blue); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
-    .nav-cta:hover { opacity: 0.9; }
+    /* NAV — uses consumer.css #main-nav styles */
 
     /* QUIZ WRAPPER */
     .quiz-page { min-height: 100vh; padding-top: var(--nav-h); }
@@ -416,16 +408,34 @@
 </head>
 <body>
 
+  <!-- MOB MENU -->
+  <div id="mob-menu">
+    <button id="mob-close" onclick="closeMob()">✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gut-health.html">Gut Health</a>
+    <a href="quiz.html" class="active" style="color:#E2FF00;font-weight:700;">✦ Gut Type Quiz</a>
+    <a href="locate.html">Locate</a>
+  </div>
+
   <!-- NAV -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a class="nav-logo" href="index.html"><img src="logo_blue.png" alt="POP CLTR"></a>
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="final/logo_blue.png" alt="POP CLTR"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text">POP CLTR</span>
+    </a>
+    <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="gut-health.html">Gut Health</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="shop.html" class="nav-cta">Shop</a></li>
+        <li><a href="quiz.html" class="active" style="color:#E2FF00;font-weight:600;">Gut Quiz ✦</a></li>
+        <li><a href="locate.html">Locate</a></li>
       </ul>
+      <a href="shop.html" class="nav-cta">Order Now</a>
+    </div>
+    <div class="hamburger" onclick="openMob()">
+      <span></span><span></span><span></span>
     </div>
   </nav>
 
@@ -1032,6 +1042,9 @@
       document.getElementById('email-submitted').style.display = 'block';
       document.querySelector('.email-form').style.display = 'none';
     }
+
+    function openMob() { document.getElementById('mob-menu').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMob() { document.getElementById('mob-menu').classList.remove('open'); document.body.style.overflow=''; }
   </script>
 
 </body>

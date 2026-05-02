@@ -180,7 +180,53 @@
       .featured-can { height: 260px; }
       .featured-tags { justify-content: center; }
       .pillars-grid { grid-template-columns: 1fr; }
+      .qb-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .qb-types { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ── QUIZ BANNER ── */
+    #quiz-banner {
+      background: var(--black);
+      padding: 6rem 5%;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .qb-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .qb-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--neon); display: block; margin-bottom: 1rem;
+    }
+    .qb-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800;
+      line-height: 1.05; color: var(--white); margin-bottom: 1.1rem;
+    }
+    .qb-desc {
+      font-size: 0.95rem; color: rgba(255,255,255,0.55);
+      line-height: 1.7; max-width: 440px; margin-bottom: 2rem;
+    }
+    .qb-cta {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      background: var(--neon); color: var(--black);
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.98rem; font-weight: 700;
+      padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 1rem; display: inline-flex;
+    }
+    .qb-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(226,255,0,0.25); }
+    .qb-meta { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .qb-types { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .qb-type-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 1.2rem 1.1rem;
+      text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .qb-type-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(226,255,0,0.3); transform: translateY(-3px); }
+    .qb-type-emoji { font-size: 1.5rem; line-height: 1; margin-bottom: 0.2rem; }
+    .qb-type-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
+    .qb-type-hint { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.45; }
   </style>
 </head>
 <body>
@@ -192,6 +238,7 @@
   <a href="consumer.html" class="active">Home</a>
   <a href="about.html">About Us</a>
   <a href="gut-health.html">Gut Health</a>
+  <a href="quiz.html" style="color:#E2FF00;font-weight:700;">✦ Gut Type Quiz</a>
   <a href="locate.html">Locate</a>
 </div>
 
@@ -205,6 +252,7 @@
     <ul class="nav-links">
       <li><a href="about.html">About Us</a></li>
       <li><a href="gut-health.html">Gut Health</a></li>
+      <li><a href="quiz.html" style="color:#E2FF00;font-weight:600;">Gut Quiz ✦</a></li>
       <li><a href="locate.html">Locate</a></li>
     </ul>
     <a href="shop.html" class="nav-cta">Order Now</a>
@@ -230,6 +278,7 @@
     <div class="hero-btns">
       <a href="shop.html" class="btn-primary">Shop Now →</a>
       <a href="gut-health.html" class="btn-ghost">What's Inside</a>
+      <a href="quiz.html" class="btn-ghost">Take the Gut Quiz →</a>
     </div>
     <div class="hero-trio">
       <div class="hero-trio-item">
@@ -339,6 +388,44 @@
   </div>
 </section>
 
+<!-- QUIZ BANNER -->
+<section id="quiz-banner">
+  <div class="qb-inner">
+    <div class="qb-text fade-up">
+      <span class="qb-eyebrow">3-Minute Quiz</span>
+      <h2 class="qb-title">What's Your<br>Gut Type?</h2>
+      <p class="qb-desc">Every gut is different. Find out if yours is Inflamed, Sluggish, Anxious, or Depleted — and get a personalized analysis with science-backed recommendations.</p>
+      <a href="quiz.html" class="qb-cta">
+        Discover My Gut Type
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="qb-meta">7 questions · No email required · Free</p>
+    </div>
+    <div class="qb-types fade-up d1">
+      <a href="quiz.html" class="qb-type-card">
+        <span class="qb-type-emoji">🔥</span>
+        <span class="qb-type-name">The Inflamed Gut</span>
+        <span class="qb-type-hint">Bloating, food sensitivities, chronic inflammation</span>
+      </a>
+      <a href="quiz.html" class="qb-type-card">
+        <span class="qb-type-emoji">🐢</span>
+        <span class="qb-type-name">The Sluggish Gut</span>
+        <span class="qb-type-hint">Constipation, low energy, slow digestion</span>
+      </a>
+      <a href="quiz.html" class="qb-type-card">
+        <span class="qb-type-emoji">⚡</span>
+        <span class="qb-type-name">The Anxious Gut</span>
+        <span class="qb-type-hint">Stress-linked digestion, IBS-type symptoms</span>
+      </a>
+      <a href="quiz.html" class="qb-type-card">
+        <span class="qb-type-emoji">🌱</span>
+        <span class="qb-type-name">The Depleted Gut</span>
+        <span class="qb-type-hint">Low diversity, sugar cravings, post-antibiotic</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- NEWSLETTER -->
 <div class="nl-strip">
   <h2 class="nl-h2">BE FIRST. GET FIRST.</h2>
@@ -369,6 +456,7 @@
         <li><a href="shop.html">Shop</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="quiz.html">Gut Type Quiz</a></li>
         <li><a href="locate.html">Locate</a></li>
       </ul>
     </div>
