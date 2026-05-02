@@ -24,7 +24,14 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Space Grotesk', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
-    /* NAV — uses consumer.css #main-nav styles */
+    /* NAV — dark override for quiz page's dark background */
+    #main-nav { background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom-color: rgba(255,255,255,0.06); }
+    #main-nav.scrolled { background: rgba(10,10,10,0.97); border-bottom-color: rgba(255,255,255,0.1); box-shadow: 0 1px 16px rgba(0,0,0,0.3); }
+    .nav-links a { color: rgba(255,255,255,0.65); }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-logo-text { color: var(--white); }
+    .hamburger span { background: var(--white); }
+    #mob-close { color: rgba(255,255,255,0.5); }
 
     /* QUIZ WRAPPER */
     .quiz-page { min-height: 100vh; padding-top: var(--nav-h); }
@@ -413,7 +420,7 @@
     <button id="mob-close" onclick="closeMob()">✕</button>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
-    <a href="gut-health.html">Gut Health</a>
+    <a href="gut-health.html">The Formula</a>
     <a href="quiz.html" class="active" style="color:#001AFF;font-weight:700;">✦ Gut Type Quiz</a>
     <a href="locate.html">Locate</a>
   </div>
@@ -428,7 +435,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="about.html">About Us</a></li>
-        <li><a href="gut-health.html">Gut Health</a></li>
+        <li><a href="gut-health.html">The Formula</a></li>
         <li><a href="quiz.html" class="active" style="color:#001AFF;font-weight:600;">Gut Quiz ✦</a></li>
         <li><a href="locate.html">Locate</a></li>
       </ul>
@@ -603,7 +610,7 @@
       </div>
       <div class="footer-links-col">
         <span>Learn</span>
-        <a href="gut-health.html">Gut Health</a>
+        <a href="gut-health.html">The Formula</a>
         <a href="quiz.html">Gut Type Quiz</a>
         <a href="about.html">About Us</a>
       </div>
